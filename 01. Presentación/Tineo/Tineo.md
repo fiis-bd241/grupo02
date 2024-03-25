@@ -1,5 +1,5 @@
 # Rodrigo Tineo
-![Foto](Tineo.jpeg)
+![Foto](Tineo.jpg)
 #### Estudiante del 5° ciclo de Ingeniería de Sistemas de la UNI.
 
 - Ciclo relativo: 5
