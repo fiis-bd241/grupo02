@@ -7,4 +7,4 @@
 - [Tineo Montalvo](../01.%20Presentación/Tineo/Tineo.md)
 - [Villanueva Zuñiga](../01.%20Presentación/Villanueva/Villanueva.md)
 
-**[Regresar al índice](../README.md)**
+***[Regresar al índice](../README.md)***
