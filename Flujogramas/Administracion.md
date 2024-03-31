@@ -5,7 +5,7 @@ La administración de Recursos Humanos (HRM) es una función vital dentro de una
 ### Link: 
 [Administación del personal](https://lucid.app/lucidchart/d933f78a-25e9-44ef-8a27-9d6dddb523c0/edit?beaconFlowId=54375012260CBC41&invitationId=inv_ad1861d7-813c-41aa-a8d0-fbc7baf287ac&page=0_0#)
 ### Imagen:
-![Administración del personal](Administración.png)
+![Administración](Administración.png)
 ## Descripción de los procesos del flujograma
 - Inicio 
   
