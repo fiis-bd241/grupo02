@@ -7,8 +7,6 @@ La administración de Recursos Humanos (HRM) es una función vital dentro de una
 ### Imagen:
 ![Administración](Administración.png)
 ## Descripción de los procesos del flujograma
-- Inicio 
-  
 - ¿Existen expedientes de empleados?: Un punto de decisión para verificar si ya hay expedientes creados para los empleados.
 - Crear expedientes: La acción de crear un nuevo expediente para un empleado si no existe uno previamente.
 - Actualizar expedientes: La acción de actualizar la información en un expediente existente.
@@ -27,5 +25,3 @@ La administración de Recursos Humanos (HRM) es una función vital dentro de una
 - Tomar acciones correctivas: La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia.
 - Revisar asistencia y tiempo laboral: La revisión regular de la asistencia y el tiempo laboral para asegurar la precisión.
 - ¿Hay anomalías en la asistencia?: Un punto de decisión para detectar cualquier irregularidad en la asistencia de los empleados.
-- Fin
-  
