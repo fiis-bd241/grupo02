@@ -1,15 +1,18 @@
 # Cese de Personal
 ## Descripción
-Aquí va la descripción general del proceso
+Se encarga de gestionar todas las actividades relacionadas con la terminación del empleo de un individuo en la organización. Este proceso implica una serie de pasos y consideraciones importantes para garantizar que la separación del empleado se realice de manera adecuada y legal, así como para minimizar cualquier impacto negativo en el empleado y en la empresa. 
 ## Flujograma
 ### Link: 
-aquí va el link en lucid
+[Flujograma en Lucidchart](https://lucid.app/lucidchart/b03ffae4-d01d-4bf9-a54f-d1a717722a7c/edit?viewport_loc=-541%2C-1452%2C2804%2C1313%2C0_0&invitationId=inv_bfd20018-5803-4c40-8262-87a5c2dbe910)
 ### Imagen:
-aquí va la imagen del flujograma
+![Flujograma](Cese.png)
 ## Descripción de los procesos del flujograma
-1. Paso 1: Descripción pequeña del paso 1
-2. Paso 2: Descripción pequeña del paso 2
-3. Paso 3: Descripción pequeña del paso 3
-.
-.
-.
+1. **Cese de labores**: Se pausan las labores del empleado.
+2. **Presentación de carta de renuncia o término de contrato**: El empleado presenta una carta formal comunicando su decisión de renunciar al puesto o notificando el término de su contrato laboral.
+3. **Recepción de la carta de renuncia**: La empresa recibe la carta de renuncia del empleado.
+4. **Se acepta la carta de renuncia**: La empresa recibe y evalúa la carta de renuncia.
+5. **Comunicación con gerencia y negociación con el trabajador**: Se comunica con la gerencia sobre la renuncia y, en algunos casos, se negocian términos específicos relacionados con la salida del empleado.
+6. **Firma de renovación de contrato o invalidación de carta de renuncia bajo los nuevos términos**: Si se llega a un acuerdo, se pueden firmar nuevos términos de contrato o se invalida la carta de renuncia bajo los nuevos acuerdos establecidos.
+7. **Se entrega el cargo al área legal con un lapso de 1 día**: El departamento encargado de los trámites legales de Recursos Humanos recibe la notificación del cese de empleo del empleado dentro de un día hábil.
+8. **Revisión de adeudos pendientes con la empresa en un lapso de 3 días**: El departamento encargado de los trámites legales de Recursos Humanos revisa si el empleado tiene algún adeudo pendiente con la empresa, como equipos no devueltos, pagos no liquidados, entre otros.
+9. **Desvinculación del trabajador con la empresa**: Una vez completados todos los trámites y revisados los adeudos, se procede con la desvinculación formal del trabajador de la empresa. Esto puede incluir la cancelación de beneficios, la entrega de documentos finales y la desactivación de accesos.
