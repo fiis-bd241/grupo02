@@ -7,7 +7,7 @@ La administración de Recursos Humanos (HRM) es una función vital dentro de una
 ### Imagen:
 ![Administración del personal](Administración.png)
 ## Descripción de los procesos del flujograma
-- Inicio: El punto de partida del proceso de administración de personal. 
+- Inicio 
   
 - ¿Existen expedientes de empleados?: Un punto de decisión para verificar si ya hay expedientes creados para los empleados.
 - Crear expedientes: La acción de crear un nuevo expediente para un empleado si no existe uno previamente.
@@ -21,9 +21,11 @@ La administración de Recursos Humanos (HRM) es una función vital dentro de una
 - Procesar solicitudes: La acción de revisar y aprobar o rechazar las solicitudes de licencias o permisos.
 - Seguimiento de asistencia: La tarea de monitorear y registrar la asistencia y el tiempo laboral de los empleados.
 - ¿Hay inconsistencias en el tiempo laboral?: Un punto de decisión para identificar discrepancias en los registros de tiempo laboral.
+  
 - Investigar y resolver: La acción de investigar y corregir las inconsistencias encontradas en el tiempo laboral.
 - Registro de salida del personal: La documentación del fin de la jornada laboral o la salida de un empleado de la empresa.
 - Tomar acciones correctivas: La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia.
 - Revisar asistencia y tiempo laboral: La revisión regular de la asistencia y el tiempo laboral para asegurar la precisión.
 - ¿Hay anomalías en la asistencia?: Un punto de decisión para detectar cualquier irregularidad en la asistencia de los empleados.
-- Fin: El punto de conclusión del proceso de administración de personal.
+- Fin
+  
