@@ -7,20 +7,23 @@ La administración de Recursos Humanos (HRM) es una función vital dentro de una
 ### Imagen:
 ![Administración del personal](Administración.png)
 ## Descripción de los procesos del flujograma
-1. Conjunto de personales: Se refiere a la selección y agrupación de los candidatos adecuados para las vacantes disponibles en la empresa.
-
-2. Recepción del personal: Es el proceso de dar la bienvenida y orientar a los nuevos empleados, familiarizándolos con las políticas y procedimientos de la empresa.
-
-3. Aceptación: Implica la confirmación y el acuerdo del empleado con los términos y condiciones del empleo, incluyendo salario, horarios y responsabilidades.
-
-4. Rechazo de personal(No): Rechazo de la solicitud del personal para trabajar en algún área detemrinada de la empresa.
-
-5. Registro de entrada del personal (Si): Una vez ya aceptado al grupo de personales aptos para el trabajo, se procede a documentar la llegada de los nuevos empleados a su nuevo lugar de trabajo.
-
-6. Identificación: Este paso implica reconocer y validar la identidad de los empleados, así como sus roles y posiciones dentro de la organización.
-
-7. Organización del personal: Se trata de estructurar y asignar al personal en diferentes departamentos o equipos según sus habilidades y las necesidades de la empresa.
-
-8. Distribución del personal: Involucra la asignación de tareas y responsabilidades a los empleados, asegurando que el trabajo se distribuya de manera eficiente y equitativa.
-
-9. Fin: Fin del proceso. 
+- Inicio: El punto de partida del proceso de administración de personal. 
+  
+- ¿Existen expedientes de empleados?: Un punto de decisión para verificar si ya hay expedientes creados para los empleados.
+- Crear expedientes: La acción de crear un nuevo expediente para un empleado si no existe uno previamente.
+- Actualizar expedientes: La acción de actualizar la información en un expediente existente.
+- Registro en sistema de nómina: La tarea de ingresar la información del empleado en el sistema de nómina para procesar su pago.
+- ¿Se generó la nómina correctamente?: Un punto de decisión para verificar si la nómina se ha generado sin errores.
+- Corregir errores en nómina: La acción de corregir cualquier error encontrado en la nómina.
+- Gestión de nómina y beneficios: La administración de la nómina y los beneficios asociados a cada empleado.
+- Manejo de licencias y permisos: Este paso implica el proceso de administrar todas las solicitudes de licencias y permisos de los empleados. Incluye la revisión, aprobación o rechazo de dichas solicitudes, así como el seguimiento de su uso y la actualización de los registros de empleados correspondientes.
+- ¿Hay solicitudes de licencias o permisos?: Un punto de decisión para identificar si hay solicitudes pendientes de licencias o permisos.
+- Procesar solicitudes: La acción de revisar y aprobar o rechazar las solicitudes de licencias o permisos.
+- Seguimiento de asistencia: La tarea de monitorear y registrar la asistencia y el tiempo laboral de los empleados.
+- ¿Hay inconsistencias en el tiempo laboral?: Un punto de decisión para identificar discrepancias en los registros de tiempo laboral.
+- Investigar y resolver: La acción de investigar y corregir las inconsistencias encontradas en el tiempo laboral.
+- Registro de salida del personal: La documentación del fin de la jornada laboral o la salida de un empleado de la empresa.
+- Tomar acciones correctivas: La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia.
+- Revisar asistencia y tiempo laboral: La revisión regular de la asistencia y el tiempo laboral para asegurar la precisión.
+- ¿Hay anomalías en la asistencia?: Un punto de decisión para detectar cualquier irregularidad en la asistencia de los empleados.
+- Fin: El punto de conclusión del proceso de administración de personal.
