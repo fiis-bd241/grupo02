@@ -1,11 +1,11 @@
 # Administración del Personal
 ## Descripción
-La administración de Recursos Humanos (HRM) es una función vital dentro de una organización que se centra en la administración del capital humano para lograr las metas y objetivos generales. Implica una serie de procesos interconectados que están diseñados para maximizar el potencial de los empleados y crear un ambiente de trabajo positivo. Una herramienta eficaz que ayuda a visualizar y comprender estos procesos es el diagrama de flujo de procesos de gestión de recursos humanos.
+La administración de personal es una función vital dentro de una organización que se centra en la administración del capital humano para revisar los expedientes de los trabajadores y las solicitudes o permisos que estos requieran en algún momento de su jornada laboral.
 ## Flujograma
 ### Link: 
 [Administación del personal](https://lucid.app/lucidchart/d933f78a-25e9-44ef-8a27-9d6dddb523c0/edit?beaconFlowId=54375012260CBC41&invitationId=inv_ad1861d7-813c-41aa-a8d0-fbc7baf287ac&page=0_0#)
 ### Imagen:
-![Administración](Administración.png)
+![Administración del personal](Administración.png)
 ## Descripción de los procesos del flujograma
 - ¿Existen expedientes de empleados?: Un punto de decisión para verificar si ya hay expedientes creados para los empleados.
 - Crear expedientes: La acción de crear un nuevo expediente para un empleado si no existe uno previamente.
