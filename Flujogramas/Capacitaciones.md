@@ -5,6 +5,8 @@ Según Chiavenato, la capacitación se define como la educación profesional par
 
 #### Figura 1: Flujo de un sistema de capacitacion 
 ![Capacitacion2](https://github.com/EdisonLoky29/Grupo-2-DBD-24-1-/assets/164259064/2abcdbb2-2cd4-4d64-89c4-ce81a7e6fca5)
+
+ <br>
 Nota : Grafico del proceso de Capacitacion. Tomado de  *Administración de Recursos Humanos* (p.325), por Chiavenato 
 
 ## Flujograma
@@ -22,9 +24,9 @@ https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_
 3. Aprueba el plan o programación de Capacitaciones : Da la autoridad para la ejecución del plan programado
 4. Coordinacon el responsalbe para la ejecución de la capacitacion: Se coordinan con los encargados programados de la capacitación.
 5. Coordina para implementación de la capacitación como PC, Local: Se coordina los recursos y el área necesaria para la capacitación 
-6. Comunica a los trabajadores para la hora y lugar de la capacitación
-7. Recepciona la llamada
-8. Se le realiza una llamada de atención por su inasistencia
-9. Llama asistencia
-10. Evaluación de la eficiencia
-11. Registrar los resultados de las evaluaciones:
+6. Comunica a los trabajadores para la hora y lugar de la capacitación:  Se da la hora y fecha para desarrollar la capacitación a los colaboradores a capacitar
+7. Recepciona la llamada: Registro de asistencia para comprobar la asistencia o no del personal
+8. Se le realiza una llamada de atención por su inasistencia: Notifica la inasistencia con su respectiva amonestación
+9. Llama asistencia: Registro de la asistencia
+10. Evaluación de la eficiencia: Evalúa a los colaboradores después del proceso de capacitación
+11. Registrar los resultados de las evaluaciones: Obtiene resultados de las evaluaciones de la eficiencia 
