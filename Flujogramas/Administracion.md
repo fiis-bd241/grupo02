@@ -12,7 +12,7 @@ La administración de personal es una función vital dentro de una organización
 | 1     | Ver el expediente de empleados       | Un punto de decisión para verificar si ya hay expedientes creados para los empleados.                      | Analista de recursos humanos         |
 | 2     | Crear expedientes                    | La acción de crear un nuevo expediente para un empleado si no existe uno previamente.                      | Analista de recursos humanos         |
 | 3     | Actualizar expedientes               | La acción de actualizar la información en un expediente existente                                          | Analista de recursos humanos         |
-| 4     | Mantener expedientes                 | La acción de actualizar la información en un expediente existente                                          | Analista de recursos humanos         |
+| 4     | Mantener expedientes                 | La acción de mantener la información en un expediente existente                                            | Analista de recursos humanos         |
 | 5     | Registro en sistema de nómina        | La tarea de ingresar la información del empleado en el sistema de nómina para procesar su pago.            | Especialista en nóminas              |
 | 6     | Generación correcta de la nómina     | Un punto de decisión para verificar si la nómina se ha generado sin errores.                               | Especialista en nóminas              |
 | 7     | Corregir errores en nómina           | La acción de corregir cualquier error encontrado en la nómina                                              | Especialista en nóminas              |
