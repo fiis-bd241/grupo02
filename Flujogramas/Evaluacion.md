@@ -7,24 +7,16 @@ Su objetivo principal es medir, analizar y evaluar el rendimiento laboral de los
 ### Imagen:
 ![Evaluación de Desempeño](Evaluación.png)
 ## Descripción de los procesos del flujograma
-1. **Elaboración de la ficha de evaluación:** Aquí se crean los formularios o fichas de evaluación que se utilizarán para evaluar el desempeño de los empleados.
-
-2. **Envío de la ficha de evaluación del personal a Gerencia:** Una vez creadas las fichas, se envían a la gerencia para su aprobación y validación.
-
-3. **Respuesta de la aprobación a Recursos Humanos:** La gerencia envía su aprobación o comentarios sobre las fichas de evaluación a Recursos Humanos.
-
-4. **Coordinación de la fecha con sus jefaturas:** Se coordina con los superiores directos de los empleados la fecha y el proceso de evaluación.
-
-5. **Ejecución de Evaluaciones:** Se llevan a cabo las evaluaciones de desempeño según lo programado.
-
-6. **Recepción de las evaluaciones:** Una vez completadas, las evaluaciones son recibidas por Recursos Humanos.
-
-7. **Análisis de evaluaciones para el envío a gerencia:** Se analizan las evaluaciones realizadas para preparar informes o resúmenes que serán enviados a la gerencia.
-
-8. **Análisis de las evaluaciones del personal:** Se analiza individualmente el desempeño de cada empleado.
-
-9. **Entrega de las evaluaciones:** Se entregan los resultados de las evaluaciones a los empleados y a sus respectivos superiores.
-
-10. **Archivamiento de las evaluaciones:** Se archivan los documentos relacionados con las evaluaciones de desempeño para futuras referencias y seguimiento.
-
-
+| Orden |                           Paso                          |                                                     Descripción                                                    |               Encargado              |
+|:-----:|:-------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|:------------------------------------:|
+|   1   |          Elaboración de la ficha de evaluación          | Aquí se crean los formularios o fichas de evaluación que se utilizarán para evaluar el desempeño de los empleados. | Especialista en relaciones laborales |
+|   2   | Envío de la ficha de evaluación del personal a Gerencia |                Una vez creadas las fichas, se envían a la gerencia para su aprobación y validación.                | Especialista en relaciones laborales |
+|   3   |          Recibimiento de la ficha de evaluación         |                        Recepción de las fichas de evaluación del desempeño de los empleados                        |      Gerente de Recursos Humanos     |
+|   4   |      Respuesta de la aprobación a Recursos Humanos      |          La gerencia envía su aprobación o comentarios sobre las fichas de evaluación a Recursos Humanos.          |      Gerente de Recursos Humanos     |
+|   5   |          Coordinación de la fecha de evaluación         |                          Los especialistas coordinan la fecha y el proceso de evaluación.                          | Especialista en relaciones laborales |
+|   6   |                Ejecución de Evaluaciones                |                         Se llevan a cabo las evaluaciones de desempeño según lo programado.                        |             Trabajadores             |
+|   7   |              Recepción de las evaluaciones              |                     Una vez completadas, las evaluaciones son recibidas por los especialistas.                     | Especialista en relaciones laborales |
+|   8   |    Análisis de evaluaciones para el envío a gerencia    |    Se analizan las evaluaciones realizadas para preparar informes o resúmenes que serán enviados a la gerencia.    | Especialista en relaciones laborales |
+|   9   |        Análisis de las evaluaciones del personal        |                              Se analiza individualmente el desempeño de cada empleado.                             |      Gerente de Recursos Humanos     |
+|   10  |               Entrega de las evaluaciones               |                           Se entregan los resultados de las evaluaciones a los empleados.                          |      Gerente de Recursos Humanos     |
+|   11  |            Archivamiento de las evaluaciones            |  Se archivan los documentos relacionados con las evaluaciones de desempeño para futuras referencias y seguimiento. | Especialista en relaciones laborales |
