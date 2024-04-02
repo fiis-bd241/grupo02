@@ -22,8 +22,8 @@ La administración de personal es una función vital dentro de una organización
 | 11    | Seguimiento de asistencia            | La tarea de monitorear y registrar la asistencia y el tiempo laboral de los empleados                      | Gerente de Recursos Humanos          |
 | 12    | Inconsistencias en el tiempo laboral | Un punto de decisión para identificar discrepancias en los registros de tiempo laboral                     | Gerente de Recursos Humanos          |
 | 13    | Investigar y resolver                | La acción de investigar y corregir las inconsistencias encontradas en el tiempo laboral.                   | Departamento legal interno           |
-| 14    | Registro de salida del personal      | La documentación del fin de la jornada laboral o la salida de un empleado de la empresa                    | Analista de Recursos Humanos         |
+| 14    | Registro de salida del personal      | La documentación del fin de la jornada laboral o la salida de un empleado de la empresa                    | Gerente de Recursos Humanos          |
 | 15    | Tomar acciones correctivas           | La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia                            | Departamento legal interno           |
-| 16    | Revisar asistencia y tiempo laboral  | La revisión regular de la asistencia y el tiempo laboral para asegurar la precisión                        | Analista de recursos humanos         |
+| 16    | Revisar asistencia y tiempo laboral  | La revisión regular de la asistencia y el tiempo laboral para asegurar la precisión                        | Gerente de recursos humanos          |
 | 17    | Anomalías en la asistencia           | Un punto de decisión para detectar cualquier irregularidad en la asistencia de los empleados               | Departamento legal interno           |
 
