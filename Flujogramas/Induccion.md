@@ -7,7 +7,7 @@ El proceso de inducción es una etapa crucial para la integración de nuevos emp
 
 ## Flujograma
 ### Link: 
-[Inducción](https://lucid.app/lucidchart/3ca431d4-57d2-470a-9e1a-120c10f85bc8/edit?viewport_loc=-1027%2C-1203%2C3294%2C1490%2C0_0&invitationId=inv_468d1cd6-435f-4a6c-9c66-4a9a987ec2fc)
+[Inducción](https://lucid.app/lucidchart/746e71a8-379b-4e44-9944-32c3ea6d2434/edit?page=0_0&invitationId=inv_1f878a4e-1110-41dc-8a55-546ef602f565#)
 ### Imagen:
 ![Induccion](Inducción.png)
 ## Descripción de los procesos del flujograma

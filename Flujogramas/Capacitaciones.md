@@ -16,7 +16,7 @@ https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_
 
 ### Imagen:
 
-![Capacitación ](https://github.com/EdisonLoky29/Grupo-2-DBD-24-1-/assets/164259064/14432847-10e3-4876-b45c-2aa6f95ef99b)
+![Capacitación ](Capacitaciones.png)
 
 
 ## Descripción de los procesos del flujograma
