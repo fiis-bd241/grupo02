@@ -1,2 +1,2 @@
-- [Entregable 1](Entregables/Entregable1/02.%20Empresa.md)
-- [Entregable 2](Entregables/Entregable2/Modulos.md)
+- [Entregable 1](Entregable1/02.%20Empresa.md)
+- [Entregable 2](Entregable2/Modulos.md)
