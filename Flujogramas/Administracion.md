@@ -22,9 +22,9 @@ La administración de personal es una función vital dentro de una organización
 | 11    | Procesar solicitudes                 | La acción de revisar y aprobar o rechazar las solicitudes de licencias o permisos                          | Especialista en relaciones Laborales |
 | 12    | Seguimiento de asistencia            | La tarea de monitorear y registrar la asistencia y el tiempo laboral de los empleados                      | Gerente de Recursos Humanos          |
 | 13    | Inconsistencias en el tiempo laboral | Un punto de decisión para identificar discrepancias en los registros de tiempo laboral                     | Gerente de Recursos Humanos          |
-| 14    | Investigar y resolver                | La acción de investigar y corregir las inconsistencias encontradas en el tiempo laboral.                   | Departamento legal interno           |
+| 14    | Investigar y resolver                | La acción de investigar y corregir las inconsistencias encontradas en el tiempo laboral.                   | Asesor legal interno           |
 | 15    | Registro de salida del personal      | La documentación del fin de la jornada laboral o la salida de un empleado de la empresa                    | Gerente de Recursos Humanos          |
 | 16    | Tomar acciones correctivas           | La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia                            | Departamento legal interno           |
 | 17    | Revisar asistencia y tiempo laboral  | La revisión regular de la asistencia y el tiempo laboral para asegurar la precisión                        | Gerente de recursos humanos          |
-| 18    | Anomalías en la asistencia           | Un punto de decisión para detectar cualquier irregularidad en la asistencia de los empleados               | Departamento legal interno           |
+| 18    | Anomalías en la asistencia           | Un punto de decisión para detectar cualquier irregularidad en la asistencia de los empleados               | Asesor legal interno           |
 
