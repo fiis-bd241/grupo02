@@ -1,15 +1,22 @@
 # Induccion del Personal
 ## Descripción
-Aquí va la descripción general del proceso
+La inducción de personal consiste en brindar a los nuevos empleados la información, recursos y orientación necesarios para integrarse de manera efectiva en la organización y desempeñar su trabajo de manera exitosa.
+
+El proceso de inducción es una etapa crucial para la integración de nuevos empleados. Proporciona los cimientos necesarios para una relación laboral exitosa y contribuye a mejorar la productividad, la retención de talento y el clima laboral en la organización.
+
+
 ## Flujograma
 ### Link: 
-aquí va el link en lucid
+[Inducción](https://lucid.app/lucidchart/746e71a8-379b-4e44-9944-32c3ea6d2434/edit?page=0_0&invitationId=inv_1f878a4e-1110-41dc-8a55-546ef602f565#)
 ### Imagen:
-aquí va la imagen del flujograma
+![Induccion](Inducción.png)
 ## Descripción de los procesos del flujograma
-1. Paso 1: Descripción pequeña del paso 1
-2. Paso 2: Descripción pequeña del paso 2
-3. Paso 3: Descripción pequeña del paso 3
-.
-.
-.
+| Orden |                                   Paso                                   |                                                                                                                   Descripción                                                                                                                   |             Encargado             |
+|:-----:|:------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------:|
+|   1   | Programa de inducción                                                    | Preparación previa del programa de inducción, que incluye la planificación de las actividades y la recopilación de materiales informativos necesarios para proporcionar una introducción completa a la empresa y sus políticas.                 | Coordinador de Recursos Humanos   |
+|   2   | Asiste a la inducción de un día                                          | Se le proporciona información detallada sobre la empresa, políticas y procedimientos.                                                                                                                                                           | Trabajador                        |
+|   3   | Inducción por parte de seguridad con un lapso de 2 horas                 | Sesión de inducción específica impartida por el departamento de seguridad, que aborda aspectos relacionados con la seguridad en el lugar de trabajo, procedimientos de emergencia, normas de seguridad y prevención de riesgos laborales.       | Especialista en Seguridad Laboral |
+|   4   | Inducción y alcances por su supervisor                                   | El supervisor directo del nuevo empleado proporciona una inducción personalizada, presentándole su equipo de trabajo, explicando sus funciones y responsabilidades específicas.                                                                 | Solicitante del personal          |
+|   5   | Documentación entregada por el área de RRHH                              | El departamento de recursos humanos entrega al nuevo empleado la documentación necesaria, como formularios de inscripción, políticas de la empresa, beneficios, información sobre la nómina, entre otros documentos relacionados con el empleo. | Asistente de RRHH                 |
+|   6   | Durante el día se realiza la presentación del nuevo trabajador           | El nuevo empleado es presentado formalmente al equipo de trabajo durante una reunión o sesión designada, donde se le da la bienvenida y se le ofrece la oportunidad de presentarse.                                                             | Encargado de RRHH                 |
+|   7   | Muestra su lugar de trabajo y los compromisos a tener durante su estadía | Se lleva al nuevo empleado a conocer su lugar de trabajo, mostrándole las instalaciones, equipos y recursos disponibles. Además, se detallan los compromisos y responsabilidades que se esperan durante su periodo de empleo.                   | Solicitante del personal          |

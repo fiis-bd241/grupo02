@@ -6,13 +6,25 @@ El éxito de cualquier negocio depende en gran medida de la calidad de su person
 
 ## Flujograma
 ### Link: 
-aquí va el link en lucid
-### Imagen:
-aquí va la imagen del flujograma
+https://lucid.app/lucidchart/7ebfd3b9-b9ce-4c0a-9e8a-0187288e4133/edit?invitationId=inv_a8fdae6e-a963-4f1e-8214-3c370492d78a&page=0_0
+#### Imagen:
+![Reclutamiento](Reclutamiento.png)
 ## Descripción de los procesos del flujograma
-1. Paso 1: Descripción pequeña del paso 1
-2. Paso 2: Descripción pequeña del paso 2
-3. Paso 3: Descripción pequeña del paso 3
-.
-.
-.
+
+| Orden | Paso                                 | Descripción                                                                                                | Encargado                            |
+| ----- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| 1     | Solicitar requerimiento de personal  | Envío de solicitud de personal mediante correo electrónico o sistema de gestión de solicitudes           | Usuario                              |
+| 2     | Recepción y respuesta inicial        | Recepción y respuesta inmediata al correo electrónico de solicitud de personal                            | Especialista en reclutamiento y selección |
+| 3     | Envío de requisitos para anuncio     | Durante el día, enviar los requisitos para el anuncio de la vacante de acuerdo al manual de puestos       | Usuario                              |
+| 4     | Notificación a gerencia              | Recibir y notificar a la gerencia sobre la solicitud de personal dentro de un máximo de dos días         | Especialista en reclutamiento y selección |
+| 5     | Elaboración del perfil               | Durante el día, elaborar el perfil de la vacante para su publicación                                      | Especialista en reclutamiento y selección |
+| 6     | Publicación de la convocatoria       | Publicar la convocatoria en redes sociales y anuncios durante 4 días                                      | Especialista en reclutamiento y selección |
+| 7     | Comunicación interna                 | Realizar comunicación interna sobre la convocatoria de la vacante                                          | Especialista en reclutamiento y selección |
+| 8     | Recepción de currículums            | Enviar currículums a trabajadores actuales o potenciales, dependiendo de la condición de la vacante       | Especialista en reclutamiento y selección  |
+| 9     | Recepción y análisis de CV          | Analizar currículums recibidos en un plazo de 2-3 días                                                      | Especialista en reclutamiento y selección |
+| 10    | Selección de currículums            | Seleccionar los currículums que cumplen con el perfil para continuar con el proceso de selección           | Especialista en reclutamiento y selección |
+| 11    | Comunicación de citas               | Comunicar citas a los candidatos seleccionados para entrevista                                              | Especialista en reclutamiento y selección |
+| 12    | Entrevista Operativa          | Verificar si los candidatos seleccionados cumplen con los requisitos de la vacante                          | Usuario |
+| 13    | Decisión de contratación            | Tomar la decisión de contratar al candidato seleccionado o comunicar su no continuidad en el proceso       | Especialista en reclutamiento y selección |
+| 14    | Solicitud de documentación          | En caso de decisión positiva, solicitar documentación necesaria para la contratación durante dos semanas   | Especialista en reclutamiento y selección |
+| 15    | Verificación y programación de inducción | Verificar y validar la documentación recibida y programar la inducción del nuevo empleado              | Especialista en reclutamiento y selección |
