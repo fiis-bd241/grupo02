@@ -9,8 +9,7 @@
 ### Evaluación de Desempeño
 ![Evaluación de desempeño](UMLs/UML_evaluación.png)
 ### Induccion del Personal
-link
-imagen
+![Inducción](UMLs/UML_Induccion.png)
 ### Reclutamiento y Selección del Personal
 ![Reclutamiento y Selección del Personal](UMLs/UML_Reclutamiento.png)
 ## Avances del Front-end
