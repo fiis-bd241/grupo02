@@ -13,8 +13,7 @@ imagen
 link
 imagen
 ### Reclutamiento y Selección del Personal
-link
-imagen
+![Reclutamiento y Selección del Personal](UMLs/UML_Reclutamiento.png)
 ## Avances del Front-end
 Separamos las distintas vistas dependiendo de la persona que va a usar la aplicación
 ### Para externos
