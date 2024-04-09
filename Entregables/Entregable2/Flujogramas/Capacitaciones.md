@@ -19,7 +19,7 @@ https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_
 ![Capacitación ](Capacitaciones.png)
 
 
-## Descripción de los procesos del flujograma
+## Descripción de los procesos del flujograma AS-IS
 | Orden | Paso                                                                | Descripción                                                                                                                                                                              | Encargado                                 |
 | ----- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | 1     | Identificar las necesidades para elaborar el plan o programación    | Identifica si es necesaria la capacitación del personal actual, dependiendo del área a capacitar, etc; se programa a los personales encargados de la capacitación, se define el proceso. | Gerente de RRHH                           |
@@ -33,3 +33,16 @@ https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_
 | 9     | Llama asistencia                                                    | Registro de la asistencia                                                                                                                                                                | Supervisor de la Capacitación                          |
 | 10    | Evaluación de la eficiencia                                         | Evalúa a los colaboradores después del proceso de capacitación                                                                                                                           | Evaluador                           |
 | 11    | Registrar los resultados de las evaluaciones                        | Obtiene resultados de las evaluaciones de la eficiencia                                                                                                                                  | Evaluador                           |
+## Descripción de los procesos TO-BE
+| Orden | Paso                                                                | Descripción                                                                                                  | Encargado                                |
+|-------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|------------------------------------------|
+|     1 | Registro de solicitud en el intranet                                | Subir campos relevantes(área a capacitar, cantidad de personal, que se va a capa capacitar) en los campos    | Supervisor                               |
+|     2 | Genera la programacion del programa de capacitación                 | El sistema busca disponibilidad de fechas, horas, etc, para la generacion del cronograma de la capacitación. | Sistema                                  |
+|     3 | Aprueba el plan o programación de Capacitaciones                    | Da la autoridad para la ejecución del plan programado                                                        | Coordinador de Capacitación y Desarrollo |
+|     4 | Establece a los supervisores.                                       | sse coordina la disponibilidad de los supervisores para formar parte del programa                            | Coordinador de Capacitación y Desarrollo |
+|     5 | Registro de supervisores                                            | Actualiza el registro de supervisores y encargados designado supervisor-sesion                               | Coordinador de Capacitación y Desarrollo |
+|     6 | Comunica a los trabajadores para la hora y lugar de la capacitación | Sistema notifica  loss empleados su cronograma de capacitación                                               | Sistema                                  |
+|     7 | Registro de asistencia                                              | Actualiza la asistencia del trabajador-sesión                                                                | Sistema                                  |
+|     8 | Segimiento del trabajdor                                            | Notifica faltas y asistencias del trabajador                                                                 | Sistema                                  |
+|     9 | Evaluación de la eficiencia                                         | Evalua al trabajador y registra su desenpeño                                                                 | Evaluador                                |
+|    10 | Registro del rendimiento                                            | Actualiza el registro de desenpeño del trabajador                                                            | Sistema                                  |
