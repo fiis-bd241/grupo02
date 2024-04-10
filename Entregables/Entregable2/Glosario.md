@@ -11,5 +11,6 @@
 | Reclutamiento y Selección de Personal  | 1.-Proceso de identificar la necesidad de un puesto de trabajo, definir los requerimientos del puesto, anunciarlo y elegir a la persona más adecuada para él. |
 | Perfil de Puesto                       | 1.- Recopila aptitudes, cualidades y capacidades de acuerdo a la ocupación y desempeño de un puesto.                                                          |
 |                                        |                                                                                                                                                               |
-**[Volver a entregables](../entregables.md)**
-**[Volver al inicio](../../README.md)**
+---
+- **[Volver a entregables](../entregables.md)**
+- **[Volver al inicio](../../README.md)**

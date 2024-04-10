@@ -32,4 +32,5 @@ El proceso de inducción es una etapa crucial para la integración de nuevos emp
 |         7 | Inducción y alcances por su supervisor                                   | Proporciona una inducción personalizada, presentándole su equipo de trabajo, explicando sus funciones y responsabilidades específicas.                                                                                        | Supervisor                  |
 |         8 | Documentación entregada por el área de RRHH                              | Entrega al nuevo empleado la documentación necesaria, como formularios de inscripción, políticas de la empresa, beneficios, información sobre la nómina, entre otros documentos relacionados con el empleo.                   | Asistente de RRHH           |
 |         9 | Muestra su lugar de trabajo y los compromisos a tener durante su estadía | Se lleva al nuevo empleado a conocer su lugar de trabajo, mostrándole las instalaciones, equipos y recursos disponibles. Además, se detallan los compromisos y responsabilidades que se esperan durante su periodo de empleo. | Especialista de Seguridad   |
+---
 **[Volver a módulos](../Modulos.md)**

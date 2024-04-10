@@ -32,5 +32,6 @@ Separamos las distintas vistas dependiendo de la persona que va a usar la aplica
 ### Analista de Recursos Humanos
 #### Actualizar datos
 ![Actualización](Front-End/actualizar.png)
-**[Regresar a entregables](../entregables.md)**
-**[Volver al inicio](../../README.md)**
+---
+- **[Regresar a entregables](../entregables.md)**
+- **[Volver al inicio](../../README.md)**

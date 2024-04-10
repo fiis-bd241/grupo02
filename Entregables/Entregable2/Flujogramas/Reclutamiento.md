@@ -46,4 +46,5 @@ https://lucid.app/lucidchart/7ebfd3b9-b9ce-4c0a-9e8a-0187288e4133/edit?invitatio
 |        13 | Solicitud de documentación                                   | En caso de decisión positiva, solicitar documentación necesaria para la contratación durante dos semanas                                                   | Sistema                                   |
 |        14 | Verificación y programación de inducción                     | Verificar y validar la documentación recibida, programar la inducción del nuevo empleado y actualización de planilla de empleados por medio de la intranet | Especialista en reclutamiento y selección |
 |        15 | Actualización de la lista de trabajadores de la empresa      | Actualizar la base de datos de los trabajadores actuales de la empresa                                                                                     | Sistema                                   |
+---
 **[Volver a módulos](../Modulos.md)**
