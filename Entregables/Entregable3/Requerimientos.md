@@ -5,7 +5,7 @@
 |         Objetivo         | Registrar la información de un nuevo empleado                                                                                                                                                         |
 | :----------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de Recursos Humanos ingresa la información del nuevo empleado en el sistema, incluyendo datos personales, contacto, información de nómina, cargo, unidad de negocio y fecha de inicio. |
-|          Actor           | <p align="center"> Responsable de Recursos Humanos                                                                                                                                                    |
+|          Actor           | <p align="center"> Asistente de recursos humanos                                                                                                                                                    |
 |       Precondición       | <p align="center"> El nuevo empleado ha sido seleccionado y contratado, y la información del nuevo empleado está disponible.                                                                          |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                                                       |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Administración del Personal                                                                                                                   |
@@ -20,7 +20,7 @@
 |         Objetivo         | Modificar la información de un empleado en el sistema de Recursos Humanos                                                                                  |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de Recursos Humanos modifica la información de un empleado en el sistema, como cambio de dirección, estado civil, cargo o unidad de negocio |
-|          Actor           | <p align="center"> Responsable de Recursos Humanos                                                                                                         |
+|          Actor           | <p align="center"> Asistente de recursos humanos                                                                                                         |
 |       Precondición       | <p align="center">El empleado existe en el sistema de Recursos Humanos y la información actualizada del empleado está disponible.                          |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                            |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Administración del Personal                                                                        |
@@ -35,7 +35,7 @@
 |         Objetivo         | Un empleado solicita una capacitación a través del sistema de Recursos Humanos                                                    |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El empleado busca en el catálogo de cursos disponibles y solicita la capacitación que desea realizar.                             |
-|          Actor           | <p align="center"> Empleado                                                                                                       |
+|          Actor           | <p align="center"> Colaboradores                                                                                                       |
 |       Precondición       | <p align="center">El empleado tiene acceso al sistema de Recursos Humanos y el catálogo de cursos de capacitación está disponible |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                   |
 |            1             | El empleado ingresa al módulo de Procedimiento de Capacitaciones                                                                  |
@@ -51,7 +51,7 @@
 |         Objetivo         | El responsable de Recursos Humanos aprueba o rechaza la solicitud de capacitación de un empleado                                            |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de Recursos Humanos revisa la solicitud de capacitación y la aprueba si hay cupos disponibles y el presupuesto lo permite    |
-|          Actor           | <p align="center"> Responsable de recursos humanos                                                                                          |
+|          Actor           | <p align="center"> Jefe de área                                                                                          |
 |       Precondición       | <p align="center"> La solicitud de capacitación ha sido enviada por el empleado y la información del curso de capacitación está disponible. |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                             |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Procedimiento de Capacitaciones                                                     |
@@ -66,7 +66,7 @@
 |         Objetivo         | Registrar el cese de un empleado en el sistema de Recursos Humanos                                                                                                           |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de Recursos Humanos registra el cese de un empleado en el sistema, incluyendo la fecha de fin de contrato, motivo del cese, y si aplica, la liquidación final |
-|          Actor           | <p align="center">	Responsable de recursos humanos                                                                                                                           |
+|          Actor           | <p align="center">	Analista de recursos humanos                                                                                                                           |
 |       Precondición       | <p align="center"> El empleado ha sido notificado de su cese y la información del cese está disponible                                                                       |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                              |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Cese de Personal                                                                                                     |
@@ -81,7 +81,7 @@
 |         Objetivo         | Registrar la evaluación de desempeño de un empleado en el sistema de Recursos Humanos                                                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El supervisor o jefe del empleado completa la evaluación de desempeño, incluyendo las competencias del empleado, su rendimiento y áreas de mejora |
-|          Actor           | <p align="center"> Supervisor o jefe del empleado                                                                                                 |
+|          Actor           | <p align="center"> Supervisor inmediato                                                                                                 |
 |       Precondición       | <p align="center"> El período de evaluación de desempeño ha finalizado y la información del desempeño del empleado está disponible.               |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                   |
 |            1             | El supervisor o jefe del empleado ingresa al módulo de Evaluación de Desempeño.                                                                   |
@@ -93,7 +93,7 @@
 |         Objetivo         | Registrar la asistencia de los nuevos empleados a la inducción del personal                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de la inducción registra la asistencia de los nuevos empleados a la sesión de inducción  |
-|          Actor           | <p align="center"> Responsable de la inducción                                                          |
+|          Actor           | <p align="center"> Asistente de recursos humanos                                                          |
 |       Precondición       | <p align="center"> La sesión de inducción ha finalizado y la lista de nuevos empleados está disponible. |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                         |
 |            1             | El responsable de la inducción ingresa al módulo de Inducción del Personal.                             |
@@ -106,7 +106,7 @@
 |         Objetivo         | Publicar una vacante en el portal de empleo de la empresa                                                                                                                         |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de Recursos Humanos ingresa la información de la vacante en el portal de empleo, incluyendo el cargo, la descripción del puesto, los requisitos y las competencias |
-|          Actor           | <p align="center"> Responsable de recursos humanos                                                                                                                                |
+|          Actor           | <p align="center"> Asistente de recursos humanos                                                                                                                                |
 |       Precondición       | <p align="center"> La vacante ha sido aprobada por la gerencia y la información de la vacante está disponible.                                                                    |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                                   |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Reclutamiento y Selección del Personal                                                                                    |
@@ -134,7 +134,7 @@
 |         Objetivo         | Seleccionar a los candidatos que cumplen con los requisitos mínimos para la vacante                                                              |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 |       Descripción        | El responsable de Recursos Humanos revisa los CVs recibidos y selecciona a los candidatos que cumplen con los requisitos mínimos para la vacante |
-|          Actor           | <p align="center"> Responsable de recursos humanos                                                                                               |
+|          Actor           | <p align="center"> Asistente de área de reclutamiento                                                                                               |
 |       Precondición       | <p align="center"> Los CVs de los candidatos han sido recibidos y los requisitos de la vacante están definidos                                   |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                  |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Reclutamiento y Selección del Personal                                                   |
@@ -148,7 +148,7 @@
 |         Objetivo         | Realizar entrevistas a los candidatos preseleccionados para la vacante                                                           |
 | :----------------------: | -------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de Recursos Humanos realiza entrevistas a los candidatos preseleccionados para evaluar su potencial para el cargo |
-|          Actor           | <p align="center"> Responsable de Recursos Humanos                                                                               |
+|          Actor           | <p align="center"> Encargado de reclutamiento                                                                               |
 |       Precondición       | <p align="center"> Los candidatos han sido preseleccionados y las preguntas de la entrevista han sido definidas                  |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                  |
 |            1             | El responsable de Recursos Humanos contacta a los candidatos preseleccionados para programar una entrevista                      |
@@ -159,7 +159,7 @@
 |         Objetivo         | Seleccionar al candidato final para la vacante                                                                                 |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------ |
 |       Descripción        | El responsable de Recursos Humanos, junto con el jefe del área y/o la gerencia, seleccionan al candidato final para la vacante |
-|          Actor           | <p align="center"> Responsable de Recursos Humanos / jefe del área / gerencia                                                  |
+|          Actor           | <p align="center"> Jefe del área                                                  |
 |       Precondición       | <p align="center"> Las entrevistas a los candidatos han sido realizadas y la información de los candidatos ha sido evaluada    |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                |
 |            1             | El responsable de Recursos Humanos reúne al jefe del área y/o la gerencia para discutir los resultados de las entrevistas      |
