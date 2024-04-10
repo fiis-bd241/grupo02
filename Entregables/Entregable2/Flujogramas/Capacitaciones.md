@@ -46,3 +46,4 @@ https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_
 |     8 | Segimiento del trabajdor                                            | Notifica faltas y asistencias del trabajador                                                                 | Sistema                                  |
 |     9 | Evaluación de la eficiencia                                         | Evalua al trabajador y registra su desenpeño                                                                 | Evaluador                                |
 |    10 | Registro del rendimiento                                            | Actualiza el registro de desenpeño del trabajador                                                            | Sistema                                  |
+**[Volver a módulos](../Modulos.md)**

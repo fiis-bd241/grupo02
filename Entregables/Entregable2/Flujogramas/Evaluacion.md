@@ -34,3 +34,4 @@ Su objetivo principal es medir, analizar y evaluar el rendimiento laboral de los
 |         9 | Análisis de las evaluaciones del personal               | Se analiza individualmente el desempeño de cada empleado.                                                                            | Especialista en Relaciones Laborales |
 |        10 | Entrega de las evaluaciones                             | Se suben los resultados de las evaluaciones a los empleados a su intranet.                                                           | Sistema                              |
 |        11 | Archivamiento de las evaluaciones                       | Se archivan los documentos relacionados con las evaluaciones de desempeño para futuras referencias y seguimiento.                    | Sistema                              |
+**[Volver a módulos](../Modulos.md)**
