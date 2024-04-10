@@ -194,3 +194,5 @@
 |            2             | El cliente completa la encuesta y la envía de vuelta                                                                                                                 |
 |            3             | El responsable de Recursos Humanos analiza los resultados de la encuesta                                                                                             |
 |            4             | Se toman medidas para mejorar el servicio de reclutamiento y selección de personal en base a los resultados de la encuesta                                           |
+---
+**[Volver al inicio](../../README.md)
