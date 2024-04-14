@@ -7,7 +7,7 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 2. Entregables
 - [Entregable 1](Entregables/Entregable1/Detalles.md)
 - [Entregable 2](Entregables/Entregable2/Entregable2.md)
-- [Entregable 3](Entregables/Entregable3/Entregable3.md.md)
+- [Entregable 3](Entregables/Entregable3/Entregable3.md)
 
 3. [Glosario de Términos](Glosario.md)
 
