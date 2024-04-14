@@ -1,21 +1,17 @@
 # Tercer Entregable
 ## Modelos Entidad-Relación
 ### Administración del Personal
-link
-imagen
+![Administración](UMLs/Administración.png)
 ### Procedimiento de Capacitaciones
 ![Capacitaciones](https://github.com/EdisonLoky29/Grupo-2-DBD-24-1-/assets/164259064/55e43536-5b1b-4a90-bae4-610d71978b5d)
 ### Cese de Personal
-![Cese](UMLS/UMLcese.png)
+![Cese](UMLs/UMLcese.png)
 ### Evaluación de Desempeño
-link
-imagen
+![Evaluación de desempeño](UMLs/UML_evaluación.png)
 ### Induccion del Personal
-link
-imagen
+![Inducción](UMLs/UML_Induccion.png)
 ### Reclutamiento y Selección del Personal
-link
-imagen
+![Reclutamiento y Selección del Personal](UMLs/UML_Reclutamient.png)
 ## Avances del Front-end
 Separamos las distintas vistas dependiendo de la persona que va a usar la aplicación
 ### Para externos
@@ -36,3 +32,6 @@ Separamos las distintas vistas dependiendo de la persona que va a usar la aplica
 ### Analista de Recursos Humanos
 #### Actualizar datos
 ![Actualización](Front-End/actualizar.png)
+---
+- **[Regresar a entregables](../entregables.md)**
+- **[Volver al inicio](../../README.md)**
