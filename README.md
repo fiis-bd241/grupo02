@@ -4,7 +4,7 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 ## Índice
 1. [Integrantes](Presentacion1/integrantes.md)
 
-2. Entregables
+2. **Entregables**
 - [Entregable 1](Entregables/Entregable1/Detalles.md)
 - [Entregable 2](Entregables/Entregable2/Entregable2.md)
 - [Entregable 3](Entregables/Entregable3/Requerimientos.md)
