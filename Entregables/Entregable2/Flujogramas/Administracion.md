@@ -39,6 +39,5 @@ La administración de personal es una función vital dentro de una organización
 |         7 | Tomar acciones correctivas     | La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia                                                                                | Departamento legal interno           |
 |         8 | Descuentos y bonos             | Aplicar según rreglas establecidas bonos por horas extrao descuento por falta injustificada                                                                    | Sistema                              |
 ---
-***[Volver a módulos](Modulos.md)***
----
-***[Volver al inicio](../../../README.md)***
+- ***[Volver a módulos](Modulos.md)***
+- ***[Volver al inicio](../../../README.md)***
