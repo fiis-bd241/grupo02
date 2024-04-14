@@ -7,9 +7,15 @@ Según Chiavenato, la capacitación se define como la educación profesional par
 ![Capacitacion2](https://github.com/EdisonLoky29/Grupo-2-DBD-24-1-/assets/164259064/2abcdbb2-2cd4-4d64-89c4-ce81a7e6fca5)
 
  <br>
-Nota : Grafico del proceso de Capacitacion. Tomado de <br> 
-[Administración de Recursos Humanos](http://repositorio.uasb.edu.bo:8080/bitstream/54000/1145/1/Chiavenato-Recursos%20humanos%209na%20ed.pdf)
- (p.325), por Chiavenato.
+Nota : Grafico del proceso de Capacitacion. Tomado de **Administración de Recursos Humanos** (p.325), por 
+
+[Chiavenato]
+
+.
+
+[Chiavenato] : http://repositorio.uasb.edu.bo:8080/bitstream/54000/1145/1/Chiavenato-Recursos%20humanos%209na%20ed.pdf
+
+
 
 ## Flujograma
 ### Link: 
