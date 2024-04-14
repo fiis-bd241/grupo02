@@ -1,6 +1,6 @@
 # Requerimientos
 
-### Caso de uso 1 : Registro de nuevo empleado
+## Caso de uso 1 : Registro de nuevo empleado
 
 |         Objetivo         | Registrar la información de un nuevo empleado                                                                                                                                                         |
 | :----------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,7 +15,7 @@
 |            5             | Revisa y valida la información ingresada                                                                                                                                                              |
 |            6             | Guarda el registro                                                                                                                                                                                    |
 
-### Caso de uso 2 : Modificar información de un empleado
+## Caso de uso 2 : Modificar información de un empleado
 
 |         Objetivo         | Modificar la información de un empleado en el sistema de Recursos Humanos                                                                                  |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@
 |            5             | Revisa y valida la información actualizada                                                                                                                 |
 |            6             | Guardar los cambios                                                                                                                                        |
 
-### Caso de uso 3 : Solicitar capacitación
+## Caso de uso 3 : Solicitar capacitación
 
 |         Objetivo         | Un empleado solicita una capacitación a través del sistema de Recursos Humanos                                                    |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,7 +46,7 @@
 |            6             | Envía la solicitud                                                                                                                |
 
 
-### Caso de uso 4 : Aprobar solicitud de capacitación
+## Caso de uso 4 : Aprobar solicitud de capacitación
 
 |         Objetivo         | El responsable de Recursos Humanos aprueba o rechaza la solicitud de capacitación de un empleado                                            |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@
 |            5             | Si la solicitud es rechazada, indica el motivo del rechazo                                                                                  |
 |            6             | Envía la respuesta al empleado                                                                                                              |
 
-### Caso de uso 5 : Registrar cese de personal
+## Caso de uso 5 : Registrar cese de personal
 
 |         Objetivo         | Registrar el cese de un empleado en el sistema de Recursos Humanos                                                                                                           |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +76,7 @@
 |            5             | Revisa y valida la información ingresada.                                                                                                                                    |
 |            6             | Guarda el registro.                                                                                                                                                          |
 
-### Caso de uso 6 : Registrar evaluación de desempeño
+## Caso de uso 6 : Registrar evaluación de desempeño
 
 |         Objetivo         | Registrar la evaluación de desempeño de un empleado en el sistema de Recursos Humanos                                                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,7 +89,7 @@
 |            3             | Completa el formulario de evaluación con las calificaciones y comentarios correspondientes.                                                       |
 |            4             | Revisa y valida la información ingresada.                                                                                                         |
 |            5             | Guarda la evaluación                                                                                                                              |
-### Caso de uso 7 : Registrar asistencia a la inducción
+## Caso de uso 7 : Registrar asistencia a la inducción
 |         Objetivo         | Registrar la asistencia de los nuevos empleados a la inducción del personal                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de la inducción registra la asistencia de los nuevos empleados a la sesión de inducción  |
@@ -101,7 +101,7 @@
 |            3             | Marca la asistencia de los nuevos empleados que asistieron.                                             |
 |            4             | Guarda la información.                                                                                  |
 
-### Caso de uso 8 : Publicar vacante
+## Caso de uso 8 : Publicar vacante
 
 |         Objetivo         | Publicar una vacante en el portal de empleo de la empresa                                                                                                                         |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -116,7 +116,7 @@
 |            5             | Revisa y valida la información ingresada                                                                                                                                          |
 |            6             | Publica la vacante                                                                                                                                                                |
 
-### Caso de uso 9 : Recepción de CVs
+## Caso de uso 9 : Recepción de CVs
 
 |         Objetivo         | Recepción de Curriculums Vitae (CVs) de candidatos a una vacante                                                                                               |
 | :----------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,7 +129,7 @@
 |            3             | Completan el formulario de postulación o envían su CV directamente                                                                                             |
 |            4             | Envían el formulario o CV por correo electrónico o a través del portal de empleo                                                                               |
 
-### Caso de uso 10 : Preselección de candidatos
+## Caso de uso 10 : Preselección de candidatos
 
 |         Objetivo         | Seleccionar a los candidatos que cumplen con los requisitos mínimos para la vacante                                                              |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -143,7 +143,7 @@
 |            4             | Selecciona a los candidatos que cumplen con los requisitos mínimos para la vacante                                                               |
 |            5             | Guarda la información de los candidatos preseleccionados                                                                                         |
 
-### Caso de uso 11 : Entrevista a candidatos
+## Caso de uso 11 : Entrevista a candidatos
 
 |         Objetivo         | Realizar entrevistas a los candidatos preseleccionados para la vacante                                                           |
 | :----------------------: | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -155,7 +155,7 @@
 |            2             | Realiza la entrevista a los candidatos, utilizando las preguntas predefinidas                                                    |
 |            3             | Evalúa las respuestas de los candidatos y toma notas                                                                             |
 |            4             | Al final de la entrevista, informa al candidato sobre los próximos pasos                                                         |
-### Caso de uso 12 : Seleccionar candidato final
+## Caso de uso 12 : Seleccionar candidato final
 |         Objetivo         | Seleccionar al candidato final para la vacante                                                                                 |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------ |
 |       Descripción        | El responsable de Recursos Humanos, junto con el jefe del área y/o la gerencia, seleccionan al candidato final para la vacante |
@@ -168,7 +168,7 @@
 |            4             | Informan al candidato seleccionado sobre su decisión                                                                           |
 |            5             | Notifican a los candidatos no seleccionados                                                                                    |
 
-### Caso de uso 13: Incluir al nuevo empleado
+## Caso de uso 13: Incluir al nuevo empleado
 
 |         Objetivo         | Integrar al nuevo empleado a la empresa y a su equipo de trabajo                                                                                                            |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -181,7 +181,7 @@
 |            3             | El jefe del área asigna un mentor al nuevo empleado para que lo acompañe en su proceso de integración                                                                       |
 |            4             | Se realizan actividades de integración para que el nuevo empleado se familiarice con la empresa y sus compañeros                                                            |
 
-### Caso de uso 14: Evaluar la satisfacción del cliente
+## Caso de uso 14: Evaluar la satisfacción del cliente
 
 
 |         Objetivo         | Evaluar la satisfacción del cliente con el servicio de reclutamiento y selección de personal                                                                         |
@@ -195,4 +195,4 @@
 |            3             | El responsable de Recursos Humanos analiza los resultados de la encuesta                                                                                             |
 |            4             | Se toman medidas para mejorar el servicio de reclutamiento y selección de personal en base a los resultados de la encuesta                                           |
 ---
-**[Volver al inicio](../../README.md)
+***[Volver al inicio](../../README.md)***

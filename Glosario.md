@@ -12,5 +12,4 @@
 | Perfil de Puesto                       | 1.- Recopila aptitudes, cualidades y capacidades de acuerdo a la ocupación y desempeño de un puesto.                                                          |
 |                                        |                                                                                                                                                               |
 ---
-- **[Volver a entregables](../entregables.md)**
-- **[Volver al inicio](../../README.md)**
+***[Volver al inicio](../../README.md)***
