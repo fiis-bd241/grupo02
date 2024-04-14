@@ -7,12 +7,15 @@ Según Chiavenato, la capacitación se define como la educación profesional par
 ![Capacitacion2](https://github.com/EdisonLoky29/Grupo-2-DBD-24-1-/assets/164259064/2abcdbb2-2cd4-4d64-89c4-ce81a7e6fca5)
 
  <br>
-Nota : Grafico del proceso de Capacitacion. Tomado de  *Administración de Recursos Humanos* (p.325), por Chiavenato 
+Nota : Grafico del proceso de Capacitacion. Tomado de **Administración de Recursos Humanos** (p.325), por Chiavenato. 
+
+
+
 
 ## Flujograma
 ### Link: 
 
-https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_loc=-2478%2C-1047%2C5713%2C2798%2C0_0&invitationId=inv_281ab008-a02b-4aa9-a96a-fd2bdb0646ef
+**[Capacitación de Personal](https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_loc=-2478%2C-1047%2C5713%2C2798%2C0_0&invitationId=inv_281ab008-a02b-4aa9-a96a-fd2bdb0646ef)**
 
 ### Imagen:
 
@@ -47,6 +50,4 @@ https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_
 |     9 | Evaluación de la eficiencia                                         | Evalua al trabajador y registra su desenpeño                                                                 | Evaluador                                |
 |    10 | Registro del rendimiento                                            | Actualiza el registro de desenpeño del trabajador                                                            | Sistema                                  |
 ---
-***[Volver a módulos](Modulos.md)***
----
-***[Volver al inicio](../../../README.md)***
+**[Volver a módulos](../Modulos.md)**
