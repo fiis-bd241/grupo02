@@ -13,6 +13,4 @@
 [Link de la relación entre módulos en lucid](https://lucid.app/lucidchart/f789952a-5cb6-4a1c-b704-839fd0ca8759/edit?viewport_loc=-4076%2C-1121%2C8359%2C3914%2C0_0&invitationId=inv_1459c13d-38c1-416c-a0b5-27328bf1f036)
 ![Relación entre módulos ](Relaciones_Modulos.png)
 ---
-***[Volver a módulos](Modulos.md)***
----
 ***[Volver al inicio](../../../README.md)***

@@ -35,6 +35,5 @@ Se encarga de gestionar todas las actividades relacionadas con la terminación d
 |        11 | Desvinculación del trabajador con la empresa                                                 | Desvinculación formal del trabajador de la empresa y actualización de planilla de empleados por medio de la intranet                                                                                  | Especialista en Relaciones Laborales |
 |        12 | Actualización de la lista de trabajadores de la empresa                                      | Actualizar la base de datos de los trabajadores actuales de la empresa                                                                                                                                | Sistema                              |
 ---
-***[Volver a módulos](Modulos.md)***
----
-***[Volver al inicio](../../../README.md)***
+- ***[Volver a módulos](Modulos.md)***
+- ***[Volver al inicio](../../../README.md)***
