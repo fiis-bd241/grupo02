@@ -12,7 +12,7 @@ Nota : Grafico del proceso de Capacitacion. Tomado de **Administración de Recur
 ## Flujograma
 ### Link: 
 
-**[Capacitación de Personal](https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?viewport_loc=-2478%2C-1047%2C5713%2C2798%2C0_0&invitationId=inv_281ab008-a02b-4aa9-a96a-fd2bdb0646ef)**
+**[Capacitación de Personal](https://lucid.app/lucidchart/e20d016c-cdfc-44a1-ba47-ce56aacd429a/edit?invitationId=inv_281ab008-a02b-4aa9-a96a-fd2bdb0646ef&page=0_0#)**
 
 ### Imagen:
 
