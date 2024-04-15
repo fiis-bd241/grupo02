@@ -24,12 +24,12 @@ El grupo empresarial multinacional cuenta con más de una década de experiencia
 - **Puesto**: Jefa del área de recursos humanos
 ## Descripción del proceso
 Como cada módulo ctúa independientemente no se puede hacer un flujograma completo de todo lo que sucede en el área de RRHH por lo que hemos hecho el flujograma para cada módulo ya separado
-1. [Administración del Personal](../Entregable2/Flujogramas/Administracion.md)
-2. [Procedimiento de Capacitaciones](../Entregable2/Flujogramas/Capacitaciones.md)
-3. [Cese de Personal](../Entregable2/Flujogramas/Cese.md)
-4. [Evaluación de Desempeño](../Entregable2/Flujogramas/Evaluacion.md)
-5. [Induccion del Personal](../Entregable2/Flujogramas/Induccion.md)
-6. [Reclutamiento y Selección del Personal](../Entregable2/Flujogramas/Reclutamiento.md)
+1. [Registro de asistencias y solicitudes](../Entregable2/Módulos/Flujogramas/Registro%20de%20asistencias%20y%20solicitudes.md)
+2. [Nóminas](../Entregable2/Módulos/Flujogramas/Nóminas.md)
+3. [Procedimiento de Capacitaciones](../Entregable2/Módulos/Flujogramas/Capacitaciones.md)
+4. [Cese de Personal](../Entregable2/Módulos/Flujogramas/Cese.md)
+5. [Evaluación de Desempeño](../Entregable2/Módulos/Flujogramas/Evaluacion.md)
+6. [Reclutamiento y Selección del Personal](../Entregable2/Módulos/Flujogramas/Reclutamiento.md)
 
 ---
 ***[Regresar al índice](../../README.md)***
