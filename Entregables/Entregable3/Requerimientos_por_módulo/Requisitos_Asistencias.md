@@ -1,4 +1,4 @@
-## Requisitos Adaptados para el Módulo de Registro de Asistencias y Solicitudes:
+## Requisitos de Registro de Asistencias y Solicitudes:
 
 1. **Registro de Asistencias:**
    - El sistema debe permitir el registro de las asistencias de los empleados, incluyendo la fecha, hora de entrada y salida, así como cualquier ausencia justificada o no justificada.
