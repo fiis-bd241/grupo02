@@ -42,21 +42,7 @@
 |       5      |                                                                Revisar los comentarios o retroalimentaciones recibidas a partir de las encuestas completadas.                                                               |
 
 
-## Caso de uso 4: Revisar notificaciones pendientes
-| **Objetivo** |                                            **Permitir a los trabajadores revisar las encuestas pendientes, calificaciones, charlas programadas y retroalimentación relacionada.**                                           |
-|:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|  Descripción | Los trabajadores pueden acceder a las encuestas pendientes por completar, ver las calificaciones de las encuestas completadas, consultar las charlas programadas y revisar los comentarios o retroalimentaciones recibidas. |
-|     Actor    |                                                                                                          Trabajador                                                                                                         |
-| Precondición |                                                            El trabajador ha iniciado sesión en el sistema de Recursos Humanos y tiene notificaciones pendientes.                                                            |
-|     Paso     |                                                                                                            Acción                                                                                                           |
-|       1      |                                                                                      Acceder a la sección de notificaciones pendientes.                                                                                     |
-|       2      |                                                                                      Visualizar las encuestas pendientes por completar.                                                                                     |
-|       3      |                                                                                  Consultar las calificaciones de las encuestas completadas.                                                                                 |
-|       4      |                                                                              Verificar las charlas programadas relacionadas con las encuestas.                                                                              |
-|       5      |                                                                Revisar los comentarios o retroalimentaciones recibidas a partir de las encuestas completadas.                                                               |
-
-
-## Caso de uso 5: Revisión de las encuestas
+## Caso de uso 4: Revisión de las encuestas
 | **Objetivo** |               **Permitir a la Gerencia de Recursos Humanos revisar los resultados de las encuestas por área, calificación y tipo de trabajador.**               |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | La gerencia puede visualizar los resultados de las encuestas, segmentados por área, calificación y tipo de trabajador, para analizar el desempeño del personal. |
@@ -69,7 +55,7 @@
 |       4      |                                          Analizar el desempeño del personal basado en los resultados de las encuestas.                                          |
 
 
-## Caso de uso 6: Aprobar encuestas y programar reuniones
+## Caso de uso 5: Aprobar encuestas y programar reuniones
 | **Objetivo** |               **Permitir a la Gerencia de Recursos Humanos revisar los resultados de las encuestas por área, calificación y tipo de trabajador.**               |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | La gerencia puede visualizar los resultados de las encuestas, segmentados por área, calificación y tipo de trabajador, para analizar el desempeño del personal. |
