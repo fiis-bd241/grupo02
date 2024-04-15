@@ -18,3 +18,13 @@ Separamos las distintas vistas dependiendo de la persona que va a usar la aplica
 ## Analista de Recursos Humanos
 ### Actualizar datos
 ![Actualización](actualizar.png)
+### Evaluación de Desempeño
+![Creación de la encuesta](Evaluación1.png)
+
+![Editar encuesta](Evaluación2.png)
+
+![Revisar notificaciones pendientes](Evaluación3.png)
+
+![Revisión de las encuestas](Evaluación4.png)
+
+![Aprobar encuestas y programar reuniones](Evaluación5.png)
