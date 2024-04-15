@@ -1,6 +1,6 @@
 # Registro de asistencias y solicitudes
 ## Descripción
-Se centra en todas las actividades relacionadas con la gestión de asistencias y solicitudes de los empleados dentro de la organización. Esto incluye la gestión de archivos de empleados, seguimiento de horarios, gestión de licencias, control de asistencias, entre otras tareas relacionadas con la documentación y el registro del personal.  
+Se centra en todas las actividades relacionadas con la gestión de asistencias y solicitudes de los empleados dentro de la organización. Esto incluye la gestión de archivos de empleados, seguimiento de horarios, gestión de licencias, control de asistencias, entre otras tareas relacionadas con la documentación y el registro del personal  
 ## Flujograma
 ### Link: 
 [Registro de asistencias y solicitudes](https://lucid.app/lucidchart/d933f78a-25e9-44ef-8a27-9d6dddb523c0/edit?beaconFlowId=54375012260CBC41&invitationId=inv_ad1861d7-813c-41aa-a8d0-fbc7baf287ac&page=0_0#)
