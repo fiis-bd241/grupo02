@@ -1,6 +1,7 @@
 # VIDEOS POR MÓDULO
 
 ## Cese de personal
+- **Alumno: Andrade Saavedra Navhi Giordano**
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=74Npk3XjsS8
 " target="_blank"><img src="http://img.youtube.com/vi/74Npk3XjsS8/0.jpg" 
