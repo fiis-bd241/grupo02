@@ -27,7 +27,7 @@ Su objetivo principal es medir, analizar y evaluar el rendimiento laboral de los
 |     10    |                 Remisión a Gerencia General                |                      La Gerencia General en coordinación con las diferentes áreas decidirá la forma de proceder respecto de lo trabajadores con puntajes desfavorables.                     |      Gerente de Recursos Humanos     |
 |     11    |           Elaboración de documentos de compromiso          |                           La Gerencia General en coordinación con las áreas decidirá la forma de proceder respecto de los trabajadores con puntajes desfavorables.                          |      Gerente de Recursos Humanos     |
 |     12    |                Entrega de las calificaciones               |                                                                Se entregan las calificaciones a los diferentes trabajadores.                                                                |      Gerente de Recursos Humanos     |
-|     13    |                    Evaluaciones técnicas                   |                 Cuano sea requerido por instancias superiores, el Departamento de RR. HH. realizará evaluaciones técnicas de los trabajadores (ascensos, promociones, etc.).                | Especialista en relaciones laborales |
+|     13    |                    Evaluaciones técnicas                   |                 Cuando sea requerido por instancias superiores, el Departamento de RR. HH. realizará evaluaciones técnicas de los trabajadores (ascensos, promociones, etc.).                | Especialista en relaciones laborales |
 
 
 
@@ -49,7 +49,7 @@ Su objetivo principal es medir, analizar y evaluar el rendimiento laboral de los
 |     9     |        Recibimiento del análisis de las evaluaciones       |                             Se analiza el desempeño de cada empleado (tomando en cuenta su puesto) y el reporte se pone en conocimiento de la Gerencia General.                             |      Sistema     |
 |     10    |                 Remisión a Gerencia General                |                      La Gerencia General en coordinación con las diferentes áreas decidirá la forma de proceder respecto de lo trabajadores con puntajes desfavorables a través de retroalimentación.                     |      Gerente de Recursos Humanos     |
 |     11    |                Entrega de Calificaciones y retroalimentación               |                                                                Se entregan las calificaciones a los diferentes trabajadores junto a una retroalimentación                                                                |     Sistema      |
-|     12    |                    Programación de reuniones para evaluar habilidades técnicas                 |                 Cuano sea requerido por instancias superiores, el Departamento de RR. HH. realizará reuniones donde se evaluará las habilidades técnicas de los trabajadores (ascensos, promociones, entre otros).                | Gerente de Recursos Humanos |
+|     12    |                    Programación de reuniones para evaluar habilidades técnicas                 |                 Cuando sea requerido por instancias superiores, el Departamento de RR. HH. realizará reuniones donde se evaluará las habilidades técnicas de los trabajadores (ascensos, promociones, entre otros).                | Gerente de Recursos Humanos |
 
 
 
