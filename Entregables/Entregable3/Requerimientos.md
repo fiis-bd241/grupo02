@@ -197,7 +197,7 @@
 ---
 
 
-### Caso de Uso 15: Registro de Asistencia
+## Caso de Uso 15: Registro de Asistencia
 
 |         Objetivo         | Registrar la asistencia de los empleados.                                                                                                                           |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -212,7 +212,7 @@
 |            5             | Guarda el registro de asistencia.                                                                                                                                   |
 |       Postcondición      | El registro de asistencia del empleado queda registrado en el sistema.                                                                                              |
 
-### Caso de Uso 16: Gestión de Solicitudes de Ausencia
+## Caso de Uso 16: Gestión de Solicitudes de Ausencia
 
 |         Objetivo         | Gestionar las solicitudes de ausencia de los empleados.                                                                                                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -226,7 +226,7 @@
 |            4             | Envía la solicitud de ausencia.                                                                                                                                    |
 |       Postcondición      | La solicitud de ausencia queda registrada en el sistema y pendiente de aprobación por parte del supervisor.                                                         |
 
-### Caso de Uso 17: Aprobación de Solicitudes de Ausencia
+## Caso de Uso 17: Aprobación de Solicitudes de Ausencia
 
 |         Objetivo         | Aprobar o rechazar las solicitudes de ausencia de los empleados.                                                                                                     |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -240,7 +240,7 @@
 |            4             | En caso de aprobación, el supervisor puede ajustar el horario del empleado si es necesario.                                                                         |
 |       Postcondición      | La solicitud de ausencia queda aprobada o rechazada en el sistema, y se notifica al empleado correspondiente.                                                       |
 
-### Caso de Uso 18: Reportes de Asistencia
+## Caso de Uso 18: Reportes de Asistencia
 
 |         Objetivo         | Generar reportes sobre la asistencia de los empleados.                                                                                                               |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -253,7 +253,7 @@
 |            3             | Genera el reporte de asistencia.                                                                                                                                    |
 |       Postcondición      | Se genera un reporte detallado sobre la asistencia de los empleados, que puede ser utilizado para análisis y seguimiento.                                           |
 
-### Caso de Uso 19: Integración con el Módulo de Nómina
+## Caso de Uso 19: Integración con el Módulo de Nómina
 
 |         Objetivo         | Integrar la información de asistencia con el módulo de nómina.                                                                                                       |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -265,6 +265,34 @@
 |            2             | Calcula los salarios y beneficios correspondientes con base en la información de asistencia.                                                                         |
 |            3             | Actualiza los registros de nómina con los cálculos realizados.                                                                                                       |
 |       Postcondición      | La información de nómina se actualiza automáticamente con los datos de asistencia registrados.                                                                      |
+
+## Caso de uso 20: Registro y Actualización de Beneficios
+
+| **Objetivo** | Permitir a los administradores registrar y actualizar los beneficios ofrecidos a los empleados, así como garantizar la precisión y transparencia en la gestión de esta información. |
+|:------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Descripción | Los administradores pueden ingresar nuevos beneficios ofrecidos por la empresa, como planes de pensiones, vacaciones pagadas y bonificaciones, así como actualizar la información existente cuando sea necesario. Además, se deben registrar los cambios de beneficios para cada empleado de manera individual. |
+|     Actor    | Administrador de Recursos Humanos                                                                                                                                            |
+| Precondición | El administrador ha iniciado sesión en el sistema de gestión de beneficios y compensaciones.                                                                                |
+|     Paso     |                                                                                                                                                                             |
+|       1      | El administrador accede al módulo de registro de beneficios y compensaciones.                                                                                               |
+|       2      | Selecciona la opción para ingresar un nuevo beneficio o actualizar uno existente.                                                                                            |
+|       3      | Completa los detalles del beneficio, como nombre, descripción y condiciones de elegibilidad.                                                                                 |
+|       4      | Asigna el beneficio a los empleados correspondientes o actualiza la asignación según sea necesario.                                                                          |
+|       5      | Confirma los cambios y guarda la información en el sistema.                                                                                                                  |
+
+## Caso de uso 21: Programación y Gestión de Pagos
+
+| **Objetivo** | Facilitar la programación y gestión de los pagos relacionados con los beneficios y compensaciones de los empleados, garantizando su realización de manera oportuna y eficiente. |
+|:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Descripción | Los administradores pueden programar y gestionar los pagos relacionados con los beneficios y compensaciones de los empleados, como salarios, bonificaciones y planes de pensiones. Además, se deben establecer alertas y recordatorios automáticos para garantizar que los pagos se realicen dentro de los plazos establecidos. |
+|     Actor    | Administrador de Recursos Humanos                                                                                                                                          |
+| Precondición | El administrador ha iniciado sesión en el sistema de gestión de beneficios y compensaciones.                                                                              |
+|     Paso     |                                                                                                                                                                           |
+|       1      | El administrador accede al módulo de programación y gestión de pagos.                                                                                                      |
+|       2      | Selecciona la opción para programar un nuevo pago o gestionar uno existente.                                                                                                |
+|       3      | Ingresa los detalles del pago, incluyendo el monto, la fecha de pago y los beneficiarios.                                                                                  |
+|       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
+|       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 
 
 
