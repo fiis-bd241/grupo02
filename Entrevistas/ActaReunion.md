@@ -14,8 +14,7 @@ La sesión concluyó a las 8:24 p y se guardó un registro de lo mencionado en l
 
 # Entrevista
 
-- [Primera Parte](https://soundcloud.com/navhi-a-s/entrevista-parte-1/s-lxdu1Wyw8MX?si=3392eca720b14b9e83d73f3e058c85eb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing)
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1810250830%3Fsecret_token%3Ds-poeUNVHj0Zb&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/navhi-a-s" title="Navhí A.S" target="_blank" style="color: #cccccc; text-decoration: none;">Navhí A.S</a> · <a href="https://soundcloud.com/navhi-a-s/sets/primera-parte-de-la-entrevista/s-poeUNVHj0Zb" title="Primera Parte de la Entrevista" target="_blank" style="color: #cccccc; text-decoration: none;">Primera Parte de la Entrevista</a></div>
 
-- [Segunda Parte](https://soundcloud.com/navhi-a-s/entrevista-parte-2/s-FRZmI4L1FSM?si=f9bbc79b64ff429d8d6c24c3e8190504&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing)
 ---
 ***[Volver al inicio](../README.md)***
