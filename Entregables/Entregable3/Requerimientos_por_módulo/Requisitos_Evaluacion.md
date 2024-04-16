@@ -47,6 +47,10 @@
 |       5      |                                                     Revisar y validar la encuesta creada.                                                     |
 |       6      |                                               Guardar la encuesta para su posterior uso o envío.                                              |
 
+#### Prototipo
+
+![ ](../Front/CrearEncuesta.png)
+
 
 ## Caso de uso 2: Editar encuesta
 | **Objetivo** |                                                                                         **Permitir a los especialistas en Relaciones laborales editar una encuesta existente.**                                                                                        |
@@ -61,6 +65,10 @@
 |       4      |                                                                                                 Revisar el estado actual de aprobación o rechazo por parte de gerencia.                                                                                                |
 |       5      |                                                                                                             Guardar los cambios realizados en la encuesta.                                                                                                             |
 
+#### Prototipo
+
+![ ](../Front/EditarEncuesta.png)
+
 ## Caso de uso 3: Revisar notificaciones pendientes
 | **Objetivo** |                                            **Permitir a los trabajadores revisar las encuestas pendientes, calificaciones, charlas programadas y retroalimentación relacionada.**                                           |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -74,6 +82,9 @@
 |       4      |                                                                              Verificar las charlas programadas relacionadas con las encuestas.                                                                              |
 |       5      |                                                                Revisar los comentarios o retroalimentaciones recibidas a partir de las encuestas completadas.                                                               |
 
+#### Prototipo
+
+![ ](../Front/RevisarNoti.png)
 
 ## Caso de uso 4: Revisión de las encuestas
 | **Objetivo** |               **Permitir a la Gerencia de Recursos Humanos revisar los resultados de las encuestas por área, calificación y tipo de trabajador.**               |
@@ -87,6 +98,9 @@
 |       3      |                                          Visualizar los resultados de las encuestas según los parámetros seleccionados.                                         |
 |       4      |                                          Analizar el desempeño del personal basado en los resultados de las encuestas.                                          |
 
+#### Prototipo
+
+![ ](../Front/RevisionEncuestas.png)
 
 ## Caso de uso 5: Aprobar encuestas y programar reuniones
 | **Objetivo** |               **Permitir a la Gerencia de Recursos Humanos revisar los resultados de las encuestas por área, calificación y tipo de trabajador.**               |
@@ -100,3 +114,6 @@
 |       3      |                                          Visualizar los resultados de las encuestas según los parámetros seleccionados.                                         |
 |       4      |                                          Analizar el desempeño del personal basado en los resultados de las encuestas.                                          |
 
+#### Prototipo
+
+![ ](../Front/AprobarEncuestas.png)

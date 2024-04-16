@@ -50,3 +50,6 @@
 |            4             | Si aplica, ingresa la información de la liquidación final.                                                                                                                   |
 |            5             | Revisa y valida la información ingresada.                                                                                                                                    |
 |            6             | Guarda el registro.                                                                                                                              
+#### Prototipo
+
+![ ](../Front/RegistrarCese.png)

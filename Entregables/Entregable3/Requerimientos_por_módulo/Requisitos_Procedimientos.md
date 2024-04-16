@@ -50,6 +50,9 @@
 |            5             | Revisa y valida la información ingresada                                                                                          |
 |            6             | Envía la solicitud                                                                                                                |
 
+#### Prototipo
+
+![ ](../Front/SolicitarCapacitación.png)
 
 ## Caso de uso 4 : Aprobar solicitud de capacitación
 
@@ -65,3 +68,7 @@
 |            4             | Si la solicitud es aprobada, indica la fecha y hora de la capacitación                                                                      |
 |            5             | Si la solicitud es rechazada, indica el motivo del rechazo                                                                                  |
 |            6             | Envía la respuesta al empleado                                                                                                              |
+
+#### Prototipo
+
+![ ](../Front/AprobarSolicitud.png)

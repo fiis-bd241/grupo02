@@ -43,6 +43,10 @@
 |            5             | Revisa y valida la información ingresada                                                                                                                                          |
 |            6             | Publica la vacante                                                                                                                                                                |
 
+#### Prototipo
+
+![ ](../Front/AprobarSolicitud.png)
+
 ## Caso de uso 9 : Recepción de CVs
 
 |         Objetivo         | Recepción de Curriculums Vitae (CVs) de candidatos a una vacante                                                                                               |
@@ -52,9 +56,17 @@
 |       Precondición       | <p align="center"> La vacante ha sido publicada y los candidatos tienen acceso al portal de empleo o a la dirección de correo electrónico de Recursos Humanos. |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                |
 |            1             | Los candidatos encuentran la vacante de su interés en el portal de empleo o la reciben por correo electrónico                                                  |
-|            2             | Descargan el formulario de postulación (si aplica)                                                                                                             |
-|            3             | Completan el formulario de postulación o envían su CV directamente                                                                                             |
-|            4             | Envían el formulario o CV por correo electrónico o a través del portal de empleo                                                                               |
+|            2             | Seleccionan el rol de su interes, su horario y leen los términos y condiciones                                                                                                             |
+|            3             | Completan sus datos y envían su CV directamente                                                                                             |
+|            4             | Envían el formulario a través del portal de empleo                                                                               |
+
+#### Prototipo
+
+##### Parte 1
+![ ](../Front/Reclutamientoparte1.png)
+
+##### Parte 2
+![ ](../Front/Reclutamientoparte2.png)
 
 ## Caso de uso 10 : Preselección de candidatos
 
@@ -70,6 +82,10 @@
 |            4             | Selecciona a los candidatos que cumplen con los requisitos mínimos para la vacante                                                               |
 |            5             | Guarda la información de los candidatos preseleccionados                                                                                         |
 
+#### Prototipo
+
+![ ](../Front/Preselección.png)
+
 ## Caso de uso 11 : Entrevista a candidatos
 
 |         Objetivo         | Realizar entrevistas a los candidatos preseleccionados para la vacante                                                           |
@@ -82,6 +98,10 @@
 |            2             | Realiza la entrevista a los candidatos, utilizando las preguntas predefinidas                                                    |
 |            3             | Evalúa las respuestas de los candidatos y toma notas                                                                             |
 |            4             | Al final de la entrevista, informa al candidato sobre los próximos pasos                                                         |
+
+#### Prototipo
+- No hay porque es presencial
+
 ## Caso de uso 12 : Seleccionar candidato final
 |         Objetivo         | Seleccionar al candidato final para la vacante                                                                                 |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -95,6 +115,10 @@
 |            4             | Informan al candidato seleccionado sobre su decisión                                                                           |
 |            5             | Notifican a los candidatos no seleccionados                                                                                    |
 
+#### Prototipo
+
+![ ](../Front/SelecciónFinal.png)
+
 ## Caso de uso 13: Incluir al nuevo empleado
 
 |         Objetivo         | Integrar al nuevo empleado a la empresa y a su equipo de trabajo                                                                                                            |
@@ -107,3 +131,7 @@
 |            2             | El jefe del área del nuevo empleado organiza una reunión de bienvenida con el equipo de trabajo                                                                             |
 |            3             | El jefe del área asigna un mentor al nuevo empleado para que lo acompañe en su proceso de integración                                                                       |
 |            4             | Se realizan actividades de integración para que el nuevo empleado se familiarice con la empresa y sus compañeros                                                            |
+
+#### Prototipo
+
+Se realiza presencialmente

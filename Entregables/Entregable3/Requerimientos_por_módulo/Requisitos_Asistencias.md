@@ -43,10 +43,13 @@
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                    |
 |            1             | El asistente de Recursos Humanos accede al sistema de registro de asistencias.                                                                                     |
 |            2             | Selecciona al empleado para el cual se va a registrar la asistencia.                                                                                                |
-|            3             | Ingresa la hora de entrada y, si es aplicable, la hora de salida.                                                                                                   |
-|            4             | Si hay alguna ausencia justificada o no justificada, selecciona el tipo de ausencia y proporciona detalles adicionales.                                           |
-|            5             | Guarda el registro de asistencia.                                                                                                                                   |
+|            3             | Ingresa la hora de entrada.                                                                                                   |
+|            4             | Guarda el registro de asistencia.                                                                                                                                   |
 |       Postcondición      | El registro de asistencia del empleado queda registrado en el sistema.                                                                                              |
+
+#### Prototipo
+
+![Registro de asistencia](../Front/RegistroAsistencia.png)
 
 ### Caso de Uso 16: Gestión de Solicitudes de Ausencia
 
@@ -62,6 +65,10 @@
 |            4             | Envía la solicitud de ausencia.                                                                                                                                    |
 |       Postcondición      | La solicitud de ausencia queda registrada en el sistema y pendiente de aprobación por parte del supervisor.                                                         |
 
+#### Prototipo
+
+![ ](../Front/SolicitudFalta.png)
+
 ### Caso de Uso 17: Aprobación de Solicitudes de Ausencia
 
 |         Objetivo         | Aprobar o rechazar las solicitudes de ausencia de los empleados.                                                                                                     |
@@ -76,6 +83,10 @@
 |            4             | En caso de aprobación, el supervisor puede ajustar el horario del empleado si es necesario.                                                                         |
 |       Postcondición      | La solicitud de ausencia queda aprobada o rechazada en el sistema, y se notifica al empleado correspondiente.                                                       |
 
+#### Prototipo
+
+![ ](../Front/AceptarSolicitud.png)
+
 ### Caso de Uso 18: Reportes de Asistencia
 
 |         Objetivo         | Generar reportes sobre la asistencia de los empleados.                                                                                                               |
@@ -88,3 +99,7 @@
 |            2             | Selecciona el rango de fechas y los parámetros relevantes para el reporte.                                                                                           |
 |            3             | Genera el reporte de asistencia.                                                                                                                                    |
 |       Postcondición      | Se genera un reporte detallado sobre la asistencia de los empleados, que puede ser utilizado para análisis y seguimiento.             
+
+#### Prototipo
+
+![ ](../Front/GenerarReportes.png)
