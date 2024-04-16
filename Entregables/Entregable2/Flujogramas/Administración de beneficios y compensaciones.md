@@ -19,7 +19,7 @@ Implica la gestión integral de los beneficios ofrecidos a los empleados, así c
 ![Administración de beneficios y compensaciones Gratificación](Gratificación.png)
 
 
-## Descripción de los proceso del flujograma Planilla AS-IS
+## Descripción de los procesos del flujograma Planilla AS-IS
 
 | Orden |               Paso               |                                                                                             Descripción                                                                                            | Encargado           |
 |:-----:|:--------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---------------------|
@@ -31,7 +31,7 @@ Implica la gestión integral de los beneficios ofrecidos a los empleados, así c
 |   6   | Conformidad de entrega           | El empleado firma un documento de conformidad de entrega. El empleado ha recibido y comprendido los reglamentos internos de la empresa.                                                            | Personal contratado |
 |   7   | Registro de sistema              | Registro del empleado al sistema interno de la empresa. Registro de datos personales, laborales y de beneficios al empleado.                                                                       | Asistente de RRHH   |
 
-## Descripción de los procesos TO-BE
+## Descripción de los procesos del flujograma Planilla TO-BE
 
 | Orden |                        Paso                       |                                                                                                                   Descripción                                                                                                                   | Encargado           |
 |:-----:|:-------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---------------------|
@@ -42,7 +42,7 @@ Implica la gestión integral de los beneficios ofrecidos a los empleados, así c
 |   5   | Confirmación de lectura y aceptación de políticas | El empleado lee y confirma su aceptación de las políticas y beneficios de la empresa a través de una plataforma digital, lo que permite un seguimiento transparente y una mejor comprensión de las expectativas de ambas partes.                | Personal contratado |
 |   6   | Registro de sistemas externos                     | Registrar al empleado en el sistema de la empresa, el asistente de recursos humanos se encarga de inscribir al empleado en sistemas externos, como la AFP o SUNAT, para garantizar el cumplimiento legal y fiscal.                              | Asistente de RRHH   |
 
-## Descripción de los proceso del flujograma CTS AS-IS
+## Descripción de los procesos del flujograma CTS AS-IS
 
 | Orden |                   Paso                   |                                                                                                                             Descripción                                                                                                                             | Encargado         |
 |:-----:|:----------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-------------------|
@@ -58,4 +58,33 @@ Implica la gestión integral de los beneficios ofrecidos a los empleados, así c
 |   10  | Autorizo pago                            | Una vez que el jefe de recursos humanos ha revisado y aprobado el informe, se procede a autorizar el pago de la CTS.                                                                                                                                                | Tesorería         |
 |   11  | Reporte de pago                          | Después de que se haya realizado el pago de la CTS, el jefe de recursos humanos genera un reporte que confirma la realización del pago y lo archiva para futuras referencias.                                                                                       | Jefe de RRHH      |
 
+## Descripción de los procesos del flujograma CTS TO-BE
+
+| Orden |                  Paso                 |                                                                                                           Descripción                                                                                                           | Encargado |
+|-------|:-------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-----------|
+|   1   | Automatizaciones de verificaciones    | Se implementa un sistema de recursos humanos automatizado que realiza verificaciones de bajas, actualizaciones de información y validaciones de forma continua, eliminando la necesidad de intervención humana en estas tareas. | Sistema   |
+|   2   | Cálculo automático de CTS             | Se automatiza el proceso de cálculo de la CTS utilizando algoritmos predefinidos en el sistema de recursos humanos, lo que garantiza precisión y eficiencia en el proceso.                                                      | Sistema   |
+|   3   | Notificación y aprobación automática  | Una vez completado el cálculo de la CTS, el sistema notifica automáticamente al jefe de recursos humanos y obtiene su aprobación sin necesidad de intervención manual.                                                          | Sistema   |
+|   4   | Pago automático                       | Después de la aprobación del jefe de recursos humanos, el sistema de tesorería realiza automáticamente el pago de la CTS a través de transferencias bancarias a las cuentas de los empleados.                                   | Sistema   |
+|   5   | Generación de reportes en tiempo real | Se implementa un sistema de generación de reportes en tiempo real que proporciona información detallada sobre el cálculo y el pago de la CTS, permitiendo un seguimiento continuo y una mayor transparencia en el proceso.      | Sistema   |
+
 ## Descripción de los proceso del flujograma Gratificación AS-IS
+
+| Orden |                   Paso                   |                                                                                                  Descripción                                                                                                  |     Encargado     |
+|-------|:----------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------:|
+|   1   | Quitar bajas                             | Se encarga de revisar y actualizar la lista de empleados elegibles para recibir gratificaciones, excluyendo a aquellos que hayan dejado la empresa durante el período de cálculo.                             | Asistente de RRHH |
+|   2   | Agrupar y validar antes del mes anterior | Se agrupan los datos y se realiza una validación preliminar de la información antes del período de cálculo de gratificaciones del mes anterior para asegurar que todos los datos estén completos y correctos. | Asistente de RRHH |
+|   3   | Corroborar y agregar información         | Verificar la integridad de los datos y agrega cualquier información adicional necesaria para el cálculo de las gratificaciones, como bonificaciones especiales, horas extras, etc.                            | Asistente de RRHH |
+|   4   | Realizar cálculo de gratificación        | Se realiza el cálculo de las gratificaciones para cada empleado, teniendo en cuenta el tiempo de servicio y el salario base.                                                                                  | Asistente de RRHH |
+|   5   | Enviar informe                           | Se envía un informe con los resultados del cálculo de gratificaciones al departamento de tesorería para su revisión y aprobación.                                                                             | Asistente de RRHH |
+|   6   | Reporte de cálculo de gratificación      | Se genera un reporte detallado que incluye los cálculos individuales de gratificación de cada empleado para su revisión y archivo.                                                                            | Asistente de RRHH |
+|   7   | Realizar el pago                         | Una vez revisados y aprobados los cálculos de gratificación, el departamento de tesorería procede a realizar el pago correspondiente a cada empleado.                                                         | Tesorería         |
+|   8   | Manda abono de pago                      | Confirma el abono de pago realizado por el departamento de tesorería y supervisa que se hayan efectuado correctamente.                                                                                        | Jefe de RRHH      |
+
+## Descripción de los procesos del flujograma Gratificación TO-BE
+
+| Orden |               Paso               |                                                                                                                           Descripción                                                                                                                          | Encargado |
+|-------|:--------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------:|
+|   1   | Automatización de la recolección | Implementación de sistemas automatizados para recopilar datos de empleados de manera más eficiente y precisa.                                                                                                                                                  | Sistema   |
+|   2   | Cálculo automatizado             | Desarrollo de un sistema informático que realice el cálculo automatizado de las gratificaciones basado en reglas predefinidas.                                                                                                                                 | Sistema   |
+|   3   | Integración de sistemas          | Integración de sistemas entre recursos humanos y tesorería para facilitar la transferencia de datos y la generación automática de informes. Implementación de notificaciones automáticas para informar a los empleados sobre el estado de sus gratificaciones. | Sistema   |
