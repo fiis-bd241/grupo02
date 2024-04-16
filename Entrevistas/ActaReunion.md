@@ -14,14 +14,10 @@ La sesión concluyó a las 8:24 p y se guardó un registro de lo mencionado en l
 
 # Entrevista
 
-<!DOCTYPE html>
-<html lang="en">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2ivKEj3ksPk?si=tkyD6KkuWkLM4nw7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</html>
+- [Entrevista parte 1](https://soundcloud.com/navhi-a-s/entrevista-parte-1?si=1ddede7d628e470fae23f848d594c3a4&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2ivKEj3ksPk?si=tkyD6KkuWkLM4nw7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+- [Entrevista parte 2](https://soundcloud.com/navhi-a-s/entrevista-parte-2?si=4859c0ae47264c68a09780ede7a93df8&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing)
 
-<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1810250830&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
 ---
 ***[Volver al inicio](../README.md)***
