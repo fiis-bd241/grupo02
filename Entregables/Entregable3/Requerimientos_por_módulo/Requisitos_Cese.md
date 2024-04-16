@@ -36,3 +36,17 @@
    - Debe ser posible realizar un seguimiento de indicadores relacionados con los ceses de personal, como el tiempo promedio de permanencia en la empresa y la frecuencia de ceses por departamento o área.
    - Estos indicadores pueden ayudar a identificar patrones y tendencias que requieran atención especial.
 
+## Caso de uso 5 : Registrar cese de personal
+
+|         Objetivo         | Registrar el cese de un empleado en el sistema de Recursos Humanos                                                                                                           |
+| :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El responsable de Recursos Humanos registra el cese de un empleado en el sistema, incluyendo la fecha de fin de contrato, motivo del cese, y si aplica, la liquidación final |
+|          Actor           | <p align="center">	Analista de recursos humanos                                                                                                                           |
+|       Precondición       | <p align="center"> El empleado ha sido notificado de su cese y la información del cese está disponible                                                                       |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                              |
+|            1             | El responsable de Recursos Humanos ingresa al módulo de Cese de Personal                                                                                                     |
+|            2             | Selecciona la opción "Registrar cese de personal".                                                                                                                           |
+|            3             | Completa el formulario con la información del cese (fecha, motivo, etc.).                                                                                                    |
+|            4             | Si aplica, ingresa la información de la liquidación final.                                                                                                                   |
+|            5             | Revisa y valida la información ingresada.                                                                                                                                    |
+|            6             | Guarda el registro.                                                                                                                              

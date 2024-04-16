@@ -10,5 +10,6 @@
 | Inducción de Personal                  | Proceso de familiarización y orientación del personal nuevo con la empresa.                                                                               |
 | Reclutamiento y Selección de Personal  | Proceso de identificar la necesidad de un puesto de trabajo, definir los requerimientos del puesto, anunciarlo y elegir a la persona más adecuada para él. |
 | Perfil de Puesto                       | Recopila aptitudes, cualidades y capacidades de acuerdo a la ocupación y desempeño de un puesto.                                                          |
+| Planilla                               | Relación nominal de individuos en una oficina donde han de percibir detalles y aspectos vinculados con sueldos de la persona  |
 ---
 ***[Volver al inicio](README.md)***

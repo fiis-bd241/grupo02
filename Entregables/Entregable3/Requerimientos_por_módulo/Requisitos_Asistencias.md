@@ -32,3 +32,59 @@
    - Se deben implementar medidas de seguridad robustas para proteger la información relacionada con la asistencia y las solicitudes de los empleados.
    - Solo los usuarios autorizados deben tener acceso a los datos de asistencia, garantizando la privacidad y confidencialidad de la información.
 
+# Requerimientos
+### Caso de Uso 15: Registro de Asistencia
+
+|         Objetivo         | Registrar la asistencia de los empleados.                                                                                                                           |
+| :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El sistema debe permitir el registro preciso de la asistencia de los empleados, incluyendo la hora de entrada, la hora de salida y cualquier tipo de ausencia. |
+|          Actor           | Asistente de Recursos Humanos.                                                                                                                                     |
+|       Precondición       | El empleado está programado para trabajar en el día correspondiente.                                                                                                |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                    |
+|            1             | El asistente de Recursos Humanos accede al sistema de registro de asistencias.                                                                                     |
+|            2             | Selecciona al empleado para el cual se va a registrar la asistencia.                                                                                                |
+|            3             | Ingresa la hora de entrada y, si es aplicable, la hora de salida.                                                                                                   |
+|            4             | Si hay alguna ausencia justificada o no justificada, selecciona el tipo de ausencia y proporciona detalles adicionales.                                           |
+|            5             | Guarda el registro de asistencia.                                                                                                                                   |
+|       Postcondición      | El registro de asistencia del empleado queda registrado en el sistema.                                                                                              |
+
+### Caso de Uso 16: Gestión de Solicitudes de Ausencia
+
+|         Objetivo         | Gestionar las solicitudes de ausencia de los empleados.                                                                                                             |
+| :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El sistema debe permitir a los empleados solicitar diferentes tipos de ausencias, como vacaciones, licencias médicas o permisos, y gestionar el proceso de aprobación. |
+|          Actor           | Empleado.                                                                                                                                                           |
+|       Precondición       | El empleado está registrado en el sistema y tiene acceso para solicitar ausencias.                                                                                  |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                    |
+|            1             | El empleado accede al sistema de solicitudes de ausencia.                                                                                                           |
+|            2             | Selecciona el tipo de ausencia que desea solicitar.                                                                                                                 |
+|            3             | Ingresa la fecha de inicio y de fin de la ausencia, junto con cualquier detalle adicional.                                                                          |
+|            4             | Envía la solicitud de ausencia.                                                                                                                                    |
+|       Postcondición      | La solicitud de ausencia queda registrada en el sistema y pendiente de aprobación por parte del supervisor.                                                         |
+
+### Caso de Uso 17: Aprobación de Solicitudes de Ausencia
+
+|         Objetivo         | Aprobar o rechazar las solicitudes de ausencia de los empleados.                                                                                                     |
+| :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | Los supervisores deben revisar las solicitudes de ausencia de sus subordinados y tomar decisiones para su aprobación o rechazo.                                      |
+|          Actor           | Supervisor o Jefe.                                                                                                                                                  |
+|       Precondición       | Hay solicitudes de ausencia pendientes de aprobación en el sistema.                                                                                                 |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                    |
+|            1             | El supervisor accede al sistema de gestión de solicitudes de ausencia.                                                                                               |
+|            2             | Revisa las solicitudes pendientes y la información asociada.                                                                                                         |
+|            3             | Aprueba o rechaza la solicitud, proporcionando comentarios si es necesario.                                                                                         |
+|            4             | En caso de aprobación, el supervisor puede ajustar el horario del empleado si es necesario.                                                                         |
+|       Postcondición      | La solicitud de ausencia queda aprobada o rechazada en el sistema, y se notifica al empleado correspondiente.                                                       |
+
+### Caso de Uso 18: Reportes de Asistencia
+
+|         Objetivo         | Generar reportes sobre la asistencia de los empleados.                                                                                                               |
+| :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El sistema debe ser capaz de generar reportes detallados sobre la asistencia de los empleados, proporcionando información útil para la toma de decisiones y la gestión de recursos humanos.                                      |
+|          Actor           | Administrador de Recursos Humanos.                                                                                                                                  |
+|       Precondición       | Existe información de asistencia registrada en el sistema.                                                                                                           |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                    |
+|            1             | El administrador de Recursos Humanos accede al sistema de reportes de asistencia.                                                                                    |
+|            2             | Selecciona el rango de fechas y los parámetros relevantes para el reporte.                                                                                           |
+|            3             | Genera el reporte de asistencia.                                                                                                                                    |
+|       Postcondición      | Se genera un reporte detallado sobre la asistencia de los empleados, que puede ser utilizado para análisis y seguimiento.             

@@ -34,3 +34,34 @@
 9. **Feedback y Evaluación del Evento:**
     - Los empleados deben poder proporcionar feedback sobre los eventos de capacitación realizados para mejorar la calidad de futuras capacitaciones.
     - Debe ser posible evaluar la efectividad de cada evento y realizar ajustes según las necesidades y comentarios recibidos.
+ 
+ ## Caso de uso 3 : Solicitar capacitación
+
+|         Objetivo         | Un empleado solicita una capacitación a través del sistema de Recursos Humanos                                                    |
+| :----------------------: | --------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El empleado busca en el catálogo de cursos disponibles y solicita la capacitación que desea realizar.                             |
+|          Actor           | <p align="center"> Colaboradores                                                                                                       |
+|       Precondición       | <p align="center">El empleado tiene acceso al sistema de Recursos Humanos y el catálogo de cursos de capacitación está disponible |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                   |
+|            1             | El empleado ingresa al módulo de Procedimiento de Capacitaciones                                                                  |
+|            2             | Busca el curso de capacitación que desea realizar                                                                                 |
+|            3             | Selecciona la opción "Solicitar capacitación"                                                                                     |
+|            4             | Completa el formulario de solicitud con la información requerida (por ejemplo, fecha preferida, motivo de la solicitud)           |
+|            5             | Revisa y valida la información ingresada                                                                                          |
+|            6             | Envía la solicitud                                                                                                                |
+
+
+## Caso de uso 4 : Aprobar solicitud de capacitación
+
+|         Objetivo         | El responsable de Recursos Humanos aprueba o rechaza la solicitud de capacitación de un empleado                                            |
+| :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El responsable de Recursos Humanos revisa la solicitud de capacitación y la aprueba si hay cupos disponibles y el presupuesto lo permite    |
+|          Actor           | <p align="center"> Jefe de área                                                                                          |
+|       Precondición       | <p align="center"> La solicitud de capacitación ha sido enviada por el empleado y la información del curso de capacitación está disponible. |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                             |
+|            1             | El responsable de Recursos Humanos ingresa al módulo de Procedimiento de Capacitaciones                                                     |
+|            2             | Busca la solicitud de capacitación que desea revisar                                                                                        |
+|            3             | Selecciona la opción "Aprobar" o "Rechazar"                                                                                                 |
+|            4             | Si la solicitud es aprobada, indica la fecha y hora de la capacitación                                                                      |
+|            5             | Si la solicitud es rechazada, indica el motivo del rechazo                                                                                  |
+|            6             | Envía la respuesta al empleado                                                                                                              |
