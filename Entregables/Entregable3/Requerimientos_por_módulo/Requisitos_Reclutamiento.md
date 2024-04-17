@@ -43,9 +43,6 @@
 |            5             | Revisa y valida la información ingresada                                                                                                                                          |
 |            6             | Publica la vacante                                                                                                                                                                |
 
-#### Prototipo
-
-![ ](../Front/AprobarSolicitud.png)
 
 ## Caso de uso 9 : Recepción de CVs
 
