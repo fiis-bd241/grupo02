@@ -1,20 +1,24 @@
-# VIDEOS POR MÓDULO
+# Exposición
+## Presentación
+[Link del ppt de la exposición](https://docs.google.com/presentation/d/1T6F9PNx_F5IcH2hLpthi81m6FZAmyVOXtfUQaAnouts/edit?usp=sharing)
 
-## Cese de personal
+## VIDEOS POR MÓDULO
+
+### Cese de personal
 - **Alumno: Andrade Saavedra Navhi Giordano**
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=74Npk3XjsS8
 " target="_blank"><img src="http://img.youtube.com/vi/74Npk3XjsS8/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-## Registro de asistencias y solicitudes
+### Registro de asistencias y solicitudes
 - **Alumno: Rosales Avila Edison Edwin**
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=SOMLCVusOOA
 " target="_blank"><img src="http://img.youtube.com/vi/SOMLCVusOOA/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-## Capacitación de Personal
+### Capacitación de Personal
 - **Alumno: Alvarez Casas Julio Cesar**
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=3xGgBOtPMio
@@ -29,7 +33,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 [PPT_Evaluación_De_Desempeño](Material_Videos/Evaluación_Desempeño_Tineo_Rodrigo.pdf)
 
-## Reclutamiento y Selección de Personal
+### Reclutamiento y Selección de Personal
 - **Alumno: Sosa Ramírez Christian Renato**
 
 <a href="https://www.youtube.com/watch?feature=player_embedded&v=qxbA_M06pnk" target="_blank"><img src="http://img.youtube.com/vi/qxbA_M06pnk/0.jpg" 
