@@ -40,4 +40,5 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
 ## Administración de beneficios y compensaciones
 - **Alumno: Villanueva Zuñiga Christopher Jhosue**
 
-<a href="https://drive.google.com/file/d/1npYQE2u-VuSN3qer1TUjpvY19n_g3JNQ/view?usp=sharing" target="_blank"><iframe src="https://drive.google.com/file/d/1npYQE2u-VuSN3qer1TUjpvY19n_g3JNQ/preview" width="640" height="480" allow="autoplay"></iframe>
+<a href="https://drive.google.com/file/d/1npYQE2u-VuSN3qer1TUjpvY19n_g3JNQ/view?usp=sharing" target="_blank"><img src="http://img.youtube.com/vi/qxbA_M06pnk/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
