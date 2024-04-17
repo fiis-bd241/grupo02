@@ -31,9 +31,10 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 - **Alumno: Sosa Ramírez Christian Renato**
 
 <a href="https://www.youtube.com/watch?feature=player_embedded&v=qxbA_M06pnk
-" target="_blank"><img src="Reclutamiento y selección de Personal.png" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+" target="_blank"><img src="http://img.youtube.com/vi/v=qxbA_M06pnk" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
+<img src="https://img.icons8.com/plasticine/100/000000/play--v2.png" alt="Play button" width="50" height="50" />
+</a>
 
-[![Reclutamiento y selección de Personal](Reclutamiento y selección de Personal.png)](https://www.youtube.com/watch?feature=player_embedded&v=qxbA_M06pnk)
 
 
