@@ -23,7 +23,7 @@ El grupo empresarial multinacional cuenta con más de una década de experiencia
 - **Celular**: 997 057 134
 - **Puesto**: Jefa del área de recursos humanos
 ## Descripción del proceso
-Como cada módulo ctúa independientemente no se puede hacer un flujograma completo de todo lo que sucede en el área de RRHH por lo que hemos hecho el flujograma para cada módulo ya separado
+Como cada módulo actúa independientemente no se puede hacer un flujograma completo de todo lo que sucede en el área de RRHH por lo que hemos hecho el flujograma para cada módulo ya separado
 1. [Registro de asistencias y solicitudes](../Entregable2/Flujogramas/Registro%20de%20asistencias%20y%20solicitudes.md)
 2. [Nóminas](../Entregable2/Flujogramas/Administración%20de%20beneficios%20y%20compensaciones.md)
 3. [Procedimiento de Capacitaciones](../Entregable2/Flujogramas/Capacitaciones.md)
