@@ -227,7 +227,7 @@
 |:--------------------:|:------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | Id_Eva_Reclutamiento |            Identificador único de cada evaluación            | 999-AAA |   Varchar  | NOT NULL |
 |       Fech_Eva       |           Fecha en la que se realizó la evaluación           | AAAMMDD |    DATE    | NOT NULL |
-|       Resp_Eva       |           Respuestas o resultados de la evaluación           |         |            |          |
+|       Resp_Eva       |           Respuestas o resultados de la evaluación           |  AAA    |   String   | NOT NULL |
 |     Resultado_Eva    | Resultado final de la evaluación (aprobado, rechazado, etc.) |  99.99  |   Double   | NOT NULL |
 ### Entidad: Solicitud_de_Empleo
 #### Descripción: Almacena la información relacionada con las solicitudes de empleo presentadas por los candidatos.
@@ -288,14 +288,14 @@
 |       Atributo      |                   Descripción                   | Formato | Naturaleza |  Valores |
 |:-------------------:|:-----------------------------------------------:|:-------:|:----------:|:--------:|
 |    CodEvaluación    | Código único de cada evaluación de capacitación | 999-AAA |   Varchar  | NOT NULL |
-| Duración_Evaluación |    Duración de la evaluación de capacitación    |    99   |    Char    |          |
+| Duración_Evaluación |    Duración de la evaluación de capacitación    |    99   |    Char    | NOT NULL |
 ### Entidad: Sesión
 #### Descripción: Almacena la información relacionada con las sesiones de capacitación ofrecidas a los candidatos.
 |  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
 |:---------:|:-------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | CodSesión |          Código único de cada sesión de capacitación.         | 999-AAA |   Varchar  | NOT NULL |
 |   Estado  | Estado de la sesión (programada, en curso, finalizada, etc.). |   AAA   |   String   | NOT NULL |
-|  Duración |             Duración de la sesión de capacitación.            |    99   |    Char    |          |
+|  Duración |             Duración de la sesión de capacitación.            |    99   |    Char    | NOT NULL |
 |   Fecha   |     Fecha en la que se realizó la sesión de capacitación.     | AAAMMDD |    DATE    | NOT NULL |
 ### Entidad: Instructor
 #### Descripción: Almacena la información relacionada con los instructores que imparten los programas de capacitación.
