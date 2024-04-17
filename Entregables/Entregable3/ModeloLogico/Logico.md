@@ -345,3 +345,5 @@
 |     SOLICITA    |            Gerente_RRHH           |          Charla         |      1:N     |                                              -                                              |        NO        | ID_Gerente_RRHH+ID_Charla                        |
 |      ASISTE     | Especialista_Relaciones_Laborales |          Charla         |      1:N     |                                              -                                              |        NO        | ID_Especialista_Relaciones_Laborales+ID_Charla   |
 |      POSEE      |               Charla              |        Comentario       |      1:N     |                                              -                                              |        NO        | ID_Charla+ID_Comentario                          |
+---
+***[Volver al inicio](../../README.md)***
