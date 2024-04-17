@@ -37,5 +37,9 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
 <img src="https://img.icons8.com/plasticine/100/000000/play--v2.png" alt="Play button" width="50" height="50" />
 </a>
 
+## Administración de beneficios y compensaciones
+- **Alumno: Villanueva Zuñiga Christopher Jhosue**
 
+<a href="https://drive.google.com/file/d/1npYQE2u-VuSN3qer1TUjpvY19n_g3JNQ/view?usp=sharing" target="_blank"><img src="http://img.youtube.com/vi/qxbA_M06pnk/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
 
