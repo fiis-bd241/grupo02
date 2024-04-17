@@ -27,6 +27,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 <a href="https://www.youtube.com/watch?v=qrVc6gVrh_s" target="_blank"><img src="http://img.youtube.com/vi/qrVc6gVrh_s/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
+[PPT_Evaluación_De_Desempeño](Material_Videos/Evaluación_Desempeño_Tineo_Rodrigo.pdf)
+
 ## Reclutamiento y Selección de Personal
 - **Alumno: Sosa Ramírez Christian Renato**
 
