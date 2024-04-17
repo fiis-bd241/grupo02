@@ -28,6 +28,23 @@
    - Debe proporcionar herramientas para el seguimiento y auditoría de los cambios realizados en los beneficios y compensaciones de los empleados.
    - Se deben mantener registros de todas las acciones realizadas en el sistema para garantizar la transparencia y la responsabilidad.
 
+## Caso de uso 2 : Modificar información de un empleado
+
+|         Objetivo         | Modificar la información de un empleado en el sistema de Recursos Humanos                                                                                  |
+| :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El responsable de Recursos Humanos modifica la información de un empleado en el sistema, como cambio de dirección, estado civil, cargo o unidad de negocio |
+|          Actor           | <p align="center"> Asistente de recursos humanos                                                                                                         |
+|       Precondición       | <p align="center">El empleado existe en el sistema de Recursos Humanos y la información actualizada del empleado está disponible.                          |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                            |
+|            1             | El responsable de Recursos Humanos ingresa al módulo de Administración del Personal                                                                        |
+|            2             | Busca el empleado cuya información necesita ser actualizada.                                                                                               |
+|            3             | Selecciona la opción "Modificar información"                                                                                                               |
+|            4             | Modifica los campos que sean necesarios                                                                                                                    |
+|            5             | Revisa y valida la información actualizada                                                                                                                 |
+|            6             | Guardar los cambios                                                                                                                                        |
+### Prototipo
+![.](../Front/Actualización.png)
+
 ## Caso de uso 20: Registro y Actualización de Beneficios
 
 | **Objetivo** | Permitir a los administradores registrar y actualizar los beneficios ofrecidos a los empleados, así como garantizar la precisión y transparencia en la gestión de esta información. |
@@ -41,6 +58,9 @@
 |       3      | Completa los detalles del beneficio, como nombre, descripción y condiciones de elegibilidad.                                                                                 |
 |       4      | Asigna el beneficio a los empleados correspondientes o actualiza la asignación según sea necesario.                                                                          |
 |       5      | Confirma los cambios y guarda la información en el sistema.                                                                                                                  |
+### Prototipo:
+![.](../Front/Registrar_beneficio.png)
+![.](../Front/Brindar_beneficio.png)
 
 ## Caso de uso 21: Programación y Gestión de Pagos
 
@@ -55,3 +75,5 @@
 |       3      | Ingresa los detalles del pago, incluyendo el monto, la fecha de pago y los beneficiarios.                                                                                  |
 |       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
+### Prototipo
+![.](../Front/Programar_pago.png)
