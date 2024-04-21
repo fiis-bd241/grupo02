@@ -1,6 +1,6 @@
 # Modelo Lógico
 - [Link del modelo lógico en Diagrams.net](https://drive.google.com/file/d/1SUAWgRUIfU5sTKT0W7yCftdfM9p4HbZy/view?usp=sharing)
-![Modelo Lógico](Modelológico.png)
+![Modelo lógico](lógico.png)
 ## Diccionario de datos
 ### Entidad: Empleado
 #### Descripción: Trabajador de la empresa

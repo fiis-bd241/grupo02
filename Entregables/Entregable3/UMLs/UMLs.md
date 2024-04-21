@@ -1,15 +1,7 @@
-# Modelos Entidad-Relación
-## Administración del Personal
-![Administración](UML_Administracion.png)
-## Procedimiento de Capacitaciones
-![Capacitaciones](https://github.com/EdisonLoky29/Grupo-2-DBD-24-1-/assets/164259064/55e43536-5b1b-4a90-bae4-610d71978b5d)
-## Cese de Personal
-![Cese](UMLcese.jpeg)
-## Evaluación de Desempeño
-![Evaluación de desempeño](UML_evaluación.png)
-## Induccion del Personal
-![Inducción](UML_Induccion.png)
-## Reclutamiento y Selección del Personal
-![Reclutamiento y Selección del Personal](UML_Reclutamient.png)
+# Modelo Entidad-Relación
+
+- [Link del Modelo Entidad-Relación en Diagrams.net](https://drive.google.com/file/d/17Gk3RPPcL8HiPjsDB0McPmnX3oEV1-Ff/view?usp=sharing)
+
+![UML Total](UMLtotal.png)
 ---
 ***[Volver al inicio](../../../README.md)***
