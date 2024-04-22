@@ -15,19 +15,18 @@
 | Fecha_Nacimineto |        Fecha de nacimiento del empleado       |     999     |     Int    | NOT NULL |
 |   Estado_Civil   |           Estado civil del empleado           |     AAA     |   String   | NOT NULL |
 |  Cantidad_Hijos  |          Número de hijos del empleado         |      99     |  Small-Int |  (0-99)  |
-### Entidad: Rol
+### Entidad: Cargo
 #### Descripción: Puesto de trabajo que ejerce el empleado
 |     Atributo    |          Descripción          | Formato | Naturaleza |  Valores |
 |:---------------:|:-----------------------------:|:-------:|:----------:|:--------:|
-|      ID_Rol     |      Código único del rol     | 999-AAA |   Varchar  | NOT NULL |
-| Descripción_Rol | Descripción detallada del rol |   AAA   |   String   | NOT NULL |
-|    Nombre_Rol   |         Nombre del rol        |   AAA   |   String   | NOT NULL |
+|      ID_Cargo     |      Código único del cargo     | 999-AAA |   Varchar  | NOT NULL |
+| Descripción_Cargo | Descripción detallada del cargo |   AAA   |   String   | NOT NULL |
+|    Nombre_Cargo   |         Nombre del cargo        |   AAA   |   String   | NOT NULL |
 ### Entidad: Departamento
 #### Descripción: División administrativa de la empresa que agrupa a un conjunto de empleados
 |      Atributo     |                     Descripción                    | Formato | Naturaleza |  Valores |
 |:-----------------:|:--------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Departamento  |            Código único del departamento           | 999-AAA |   Varchar  | NOT NULL |
-| Cantidad_Personal | Número de empleados que pertenecen al departamento |   999   |     Int    |  (0-999) |
 |       Nombre      |               Nombre del departamento              |   AAA   |   String   | NOT NULL |
 ### Entidad: Sueldo
 #### Descripción: Información sobre el salario de un empleado
@@ -35,7 +34,6 @@
 |:------------------:|:----------------------------------------:|:-------:|:----------:|:--------:|
 |      ID_Sueldo     |    Código único del registro de sueldo   | 999-AAA |   Varchar  | NOT NULL |
 | Monto_Salario_Base |    Monto del salario base del empleado   | 9999.99 |   Double   |  [0.0;+> |
-| Monto_Bonificación | Monto de las bonificaciones del empleado | 9999.99 |   Double   |  [0.0;+> |
 ### Entidad: Cuenta_Bancaria
 #### Descripción: Información sobre la cuenta bancaria de un empleado.
 |    Atributo   |                    Descripción                    | Formato | Naturaleza |  Valores |
@@ -52,57 +50,24 @@
 |     ID_Nomina     |      Código único del registro de nómina     |  999-AAA |   Varchar  | NOT NULL |
 |   Fecha_Emision   |         Fecha de emisión de la nómina        | AAAAMMDD |    DATE    | NOT NULL |
 |    Periodo_Pago   | Periodo de pago al que corresponde la nómina |  999-AAA |   Varchar  | NOT NULL |
-|     Total_Pago    |       Monto total a pagar en la nómina       |  9999.99 |   Double   | NOT NULL |
-| Total_Deducciones |   Monto total de las deducciones aplicadas   |  9999.99 |   Double   | NOT NULL |
-|     Total_Neto    |        Monto neto a pagar en la nómina       |  9999.99 |   Double   | NOT NULL |
-### Entidad: Línea
+### Entidad: Modificaciones
 #### Descripción: Registro de los conceptos de pago o deducción de la nómina.
 |   Atributo  |             Descripción             |  Formato | Naturaleza |  Valores |
 |:-----------:|:-----------------------------------:|:--------:|:----------:|:--------:|
-|   ID_Línea  |  Código único de la línea de nómina |  999-AAA |   Varchar  | NOT NULL |
-|  Tipo_Línea | Tipo de concepto (pago o deducción) |    AAA   |   String   | NOT NULL |
-| Descripción |       Descripción del concepto      |    AAA   |   String   | NOT NULL |
-|    Monto    |          Monto del concepto         |  999.99  |   Double   |  [0.0;+> |
-|  Fecha_Pago |      Fecha de pago del concepto     | AAAAMMDD |    DATE    | NOT NULL |
-### Entidad: Elemento_Coste
-#### Descripción: Información sobre los elementos de costo que afectan la nómina de los empleados.
+|   ID_Modificacion  |  Código único de las modificaciones de nómina |  999-AAA |   Varchar  | NOT NULL |
+|  Tipo_Modificacion | Tipo de concepto (pago o deducción) |    AAA   |   String   | NOT NULL |
+|    Monto_Modificacion    |          Monto de la modificación         |  999.99  |   Double   |  [0.0;+> |
+### Entidad: Pago Total
+#### Descripción: Información sobre el pago total que se le asignará en la la nómina de los empleados.
 |       Atributo       |                       Descripción                      |  Formato | Naturaleza |  Valores |
 |:--------------------:|:------------------------------------------------------:|:--------:|:----------:|:--------:|
-|   ID_Elemento_Coste  |           Código único del elemento de costo           |  999-AAA |   Varchar  | NOT NULL |
-| Descripción_Elemento |            Descripción del elemento de costo           |    AAA   |   String   | NOT NULL |
-|      Tipo_Coste      | Categoría del elemento de costo (fijo, variable, etc.) |    AAA   |   String   | NOT NULL |
-|      Monto_Coste     |           Monto asociado al elemento de costo          |  999.99  |   Double   |  [0.0;+> |
-|   Fecha_Aplicación   |     Fecha en la que se aplicó el elemento de costo     | AAAAMMDD |    DATE    | NOT NULL |
-### Entidad: Ingreso
-#### Descripción: Información sobre los ingresos recibidos por los empleados.
-|       Atributo      |                   Descripción                  |  Formato | Naturaleza |  Valores |
-|:-------------------:|:----------------------------------------------:|:--------:|:----------:|:--------:|
-|      ID_Ingreso     |      Código único del registro de ingreso      |  999-AAA |   Varchar  | NOT NULL |
-| Descripción_Ingreso |             Descripción del ingreso            |    AAA   |   String   | NOT NULL |
-|    Monto_Ingreso    |                Monto del ingreso               |  999.99  |   Double   |  [0.0;+> |
-|      Fecha_Pago     | Fecha en la que se realizó el pago del ingreso | AAAAMMDD |    DATE    | NOT NULL |
-### Entidad: Deducciones
-#### Descripción: Información sobre las deducciones aplicadas a los empleados.
-|        Atributo       |                     Descripción                    |  Formato | Naturaleza |  Valores |
-|:---------------------:|:--------------------------------------------------:|:--------:|:----------:|:--------:|
-|      ID_Deducción     |       Código único del registro de deducción       |  999-AAA |   Varchar  | NOT NULL |
-| Descrioción_Deduccion |             Descripción de la deducción            |    AAA   |   String   | NOT NULL |
-|    Monto_Deducción    |                Monto de la deducción               |  999.99  |   Double   |  [0.0;+> |
-|       Fecha_Pago      | Fecha en la que se realizó el pago de la deducción | AAAAMMDD |    DATE    | NOT NULL |
-### Entidad: Concepto_Pago
-#### Descripción: Información sobre los conceptos de pago a los empleados.
-|       Atributo       |                             Descripción                             | Formato | Naturaleza |  Valores |
-|:--------------------:|:-------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   ID_Concepto_Pago   |                  Código único del concepto de pago                  | 999-AAA |   Varchar  | NOT NULL |
-| Descripción_Concepto |                   Descripción del concepto de pago                  |   AAA   |   String   | NOT NULL |
-|     Nombre_Banco     |              Nombre del banco donde se realiza el pago              |   AAA   |   String   | NOT NULL |
-|       Tipo_Pago      |         Tipo de pago (transferencia, cheque, efectivo, etc.)        |   AAA   |   String   | NOT NULL |
-|    Frecuencia_Pago   | Frecuencia con la que se realiza el pago (mensual, quincenal, etc.) |   AAA   |   String   | NOT NULL |
+|   ID_Pago_Total  |           Código único del pago total           |  999-AAA |   Varchar  | NOT NULL |
+|      Monto_Pagar     |           Monto asociado al elemento de costo          |  999.99  |   Double   |  [0.0;+> |
 ### Entidad: Supervisor
 #### Descripción: Trabajador que dirige las actividades de otros.
 |    Atributo   |         Descripción         | Formato | Naturaleza |  Valores |
 |:-------------:|:---------------------------:|:-------:|:----------:|:--------:|
-| Cod_Superviso | Código único del supervisor | 999-AAA |   Varchar  | NOT NULL |
+| ID_Supervisor | Código único del supervisor | 999-AAA |   Varchar  | NOT NULL |
 ### Entidad: Cese
 #### Descripción: Retiro de un trabajador de su cargo en la empresa
 |      Atributo     |                       Descripción                       |  Formato | Naturaleza |  Valores |
