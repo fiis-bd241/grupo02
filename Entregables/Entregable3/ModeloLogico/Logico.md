@@ -63,11 +63,40 @@
 |:--------------------:|:------------------------------------------------------:|:--------:|:----------:|:--------:|
 |   ID_Pago_Total  |           Código único del pago total           |  999-AAA |   Varchar  | NOT NULL |
 |      Monto_Pagar     |           Monto asociado al elemento de costo          |  999.99  |   Double   |  [0.0;+> |
+### Entidad: Asistencia
+#### Descripción: Almacena la información relacionada con la asistencia de los empleados.
+|    Atributo   |                      Descripción                      |  Formato | Naturaleza |  Valores |
+|:-------------:|:-----------------------------------------------------:|:--------:|:----------:|:--------:|
+| ID_Asistencia |   Identificador único de cada registro de asistencia  |  999-AAA |   Varchar  | NOT NULL |
+|     Estado    |   Estado de la asistencia (presente, ausente, etc.)   |    AAA   |   String   | NOT NULL |
+|  Observación  | Observaciones o notas adicionales sobre la asistencia |    AAA   |   String   | NOT NULL |
+|     Fecha     |       Fecha en la que se registró la asistencia       |  AAAMMDD |    DATE    | NOT NULL |
+|  Hora_Entrada |             Hora de entrada del empleado             | HH:MM:SS |    TIME    | NOT NULL |
+|  Hora_Salida  |              Hora de salida del empleado             | HH:MM:SS |    TIME    | NOT NULL |
 ### Entidad: Supervisor
 #### Descripción: Trabajador que dirige las actividades de otros.
 |    Atributo   |         Descripción         | Formato | Naturaleza |  Valores |
 |:-------------:|:---------------------------:|:-------:|:----------:|:--------:|
 | ID_Supervisor | Código único del supervisor | 999-AAA |   Varchar  | NOT NULL |
+### Entidad: Licencia
+#### Descripción: Almacena la información relacionada con las licencias o permisos de los empleados.
+|   Atributo   |                             Descripción                            |  Formato | Naturaleza |  Valores |
+|:------------:|:------------------------------------------------------------------:|:--------:|:----------:|:--------:|
+|  ID_Licencia |                 Identificador único de la licencia                 |  999-AAA |   Varchar  | NOT NULL |
+|    Tipo    | Tipo de la licencia, por ejemplo, aprobada, pendiente, rechazada |    AAA   |   String   | NOT NULL |
+|  Observación |      Observaciones o comentarios relacionados con la licencia      |    AAA   |   String   | NOT NULL |
+|     Fecha    |                        Fecha de la licencia                        |  AAAMMDD |    DATE    | NOT NULL |
+| Hora_Inicio |                   Hora de entrada de la licencia                   | HH:MM:SS |    TIME    | NOT NULL |
+|  Hora_Fin |                    Hora de salida de la licencia                   | HH:MM:SS |    TIME    | NOT NULL |
+### Entidad: Permiso
+#### Descripción: Almacena la información relacionada con los permisos de los empleados
+|  Atributo  |                            Descripción                            | Formato | Naturaleza |  Valores |
+|:----------:|:-----------------------------------------------------------------:|:-------:|:----------:|:--------:|
+| ID_Permiso |                  Identificador único del permiso                  | 999-AAA |   Varchar  | NOT NULL |
+|    Tipo    | Tipo de permiso, por ejemplo, médico, personal, capacitación, etc |   AAA   |   String   | NOT NULL |
+|   Motivo   |             Motivo por el cual se solicita el permiso             |   AAA   |   String   | NOT NULL |
+|  Duración  |                        Duración del permiso                       | 999-AAA |   Varchar  | NOT NULL |
+|   Estado   |  Estado del permiso, por ejemplo, aprobado, pendiente, rechazado  |   AAA   |   String   | NOT NULL |
 ### Entidad: Cese
 #### Descripción: Retiro de un trabajador de su cargo en la empresa
 |      Atributo     |                       Descripción                       |  Formato | Naturaleza |  Valores |
@@ -75,26 +104,26 @@
 |      ID_Cese      |            Código único del registro de cese            |  999-AAA |   Varchar  | NOT NULL |
 |    Estado_Cese    | Estado del cese (voluntario, despido, jubilación, etc.) |    AAA   |   String   | NOT NULL |
 | Fecha_Inicio_Cese |                 Fecha de inicio del cese                | AAAAMMDD |    DATE    | NOT NULL |
-### Entidad: Notificación_Renuncia
+### Entidad: Cuestionario_Salida
 #### Descripción: Almacena la información relacionada con las renuncias de los empleados.
 |      Atributo      |                       Descripción                       | Formato | Naturaleza |  Valores |
 |:------------------:|:-------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   ID_Notificación  |   Identificador único de la notificación de renuncia.   | 999-AAA |   Varchar  | NOT NULL |
-| Fecha_Notificación | Fecha en la que se realizó la notificación de renuncia. | AAAMMDD |    DATE    | NOT NULL |
-|       Mensaje      |     Mensaje o texto de la notificación de renuncia.     |   AAA   |   String   | NOT NULL |
-### Entidad: Despido
-#### Descripción: Almacena la información relacionada con los despidos de los empleados.
-|   Atributo   |                                  Descripción                                 | Formato | Naturaleza |  Valores |
-|:------------:|:----------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|  Cod_Despido |                  Código de identificación único del despido.                 | 999-AAA |   Varchar  | NOT NULL |
-| Tipo_Despido | Tipo de despido, por ejemplo, disciplinario, por reducción de personal, etc. |   AAA   |   String   | NOT NULL |
-|  Descripción |                      Descripción detallada del despido.                      |   AAA   |   String   | NOT NULL |
-### Entidad: Razón
-#### Descripción: Almacena las diferentes razones que pueden justificar una renuncia o un despido.
+|   ID_Cuestionario  |   Identificador único de cuestionario salida.   | 999-AAA |   Varchar  | NOT NULL |
+| Fecha_Cuestionario | Fecha en la que se realizó el cuestionario de salida. | AAAMMDD |    DATE    | NOT NULL |
+### Entidad: Pregunta_Salida
+#### Descripción: Almacena las diferentes preguntas que son parte del cuestionario salida.
 | Atributo |                             Descripción                            | Formato | Naturaleza |  Valores |
 |:--------:|:------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-| ID_Razon |                  Identificador único de la razón.                  | 999-AAA |   Varchar  | NOT NULL |
-|   Tipo   | Tipo de razón, por ejemplo, personal, profesional, económica, etc. |   AAA   |   String   | NOT NULL |
+| ID_Pregunta |                  Identificador único de la pregunta.                  | 999-AAA |   Varchar  | NOT NULL |
+|   Pregunta_Salida   | Tipo de pregunta salida en el cuestionario. |   AAA   |   String   | NOT NULL |
+### Entidad: Beneficios_Cese
+#### Descripción: Almacena la información relacionada con los beneficios de cese que se designa a un empleado.
+|   Atributo   |                                  Descripción                                 | Formato | Naturaleza |  Valores |
+|:------------:|:----------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
+|  ID_Beneficio |                  Código de identificación único del beneficio.                 | 999-AAA |   Varchar  | NOT NULL |
+| Tipo_Beneficio | Tipo de beneficio. |   AAA   |   String   | NOT NULL |
+|  Monto_Beneficio |                      Monto de beneficio que se le asigna.                      |   999.9   |   Double   | [0.0;+> |
+
 ### Entidad: Renuncia
 #### Descripción: Almacena la información relacionada con las renuncias de los empleados.
 |         Atributo        |                  Descripción                  | Formato | Naturaleza |  Valores |
@@ -143,36 +172,8 @@
 |       Id_Reporte       |            Identificador único del reporte           | 999-AAA |   Varchar  | NOT NULL |
 | Fecha_Ingreso_Empleado |             Fecha de ingreso del empleado            | AAAMMDD |    DATE    | NOT NULL |
 |  Calificación_Empleado | Calificación o evaluación del desempeño del empleado |  99.99  |   Double   |  [0.0;+> |
-### Entidad: Licencia
-#### Descripción: Almacena la información relacionada con las licencias o permisos de los empleados.
-|   Atributo   |                             Descripción                            |  Formato | Naturaleza |  Valores |
-|:------------:|:------------------------------------------------------------------:|:--------:|:----------:|:--------:|
-|  ID_Licencia |                 Identificador único de la licencia                 |  999-AAA |   Varchar  | NOT NULL |
-|    Estado    | Estado de la licencia, por ejemplo, aprobada, pendiente, rechazada |    AAA   |   String   | NOT NULL |
-|  Observación |      Observaciones o comentarios relacionados con la licencia      |    AAA   |   String   | NOT NULL |
-|     Fecha    |                        Fecha de la licencia                        |  AAAMMDD |    DATE    | NOT NULL |
-| Hora_Entrada |                   Hora de entrada de la licencia                   | HH:MM:SS |    TIME    | NOT NULL |
-|  Hora_Salida |                    Hora de salida de la licencia                   | HH:MM:SS |    TIME    | NOT NULL |
-### Entidad: Permiso
-#### Descripción: Almacena la información relacionada con los permisos de los empleados
-|  Atributo  |                            Descripción                            | Formato | Naturaleza |  Valores |
-|:----------:|:-----------------------------------------------------------------:|:-------:|:----------:|:--------:|
-| ID_Permiso |                  Identificador único del permiso                  | 999-AAA |   Varchar  | NOT NULL |
-|    Tipo    | Tipo de permiso, por ejemplo, médico, personal, capacitación, etc |   AAA   |   String   | NOT NULL |
-|   Moitvo   |             Motivo por el cual se solicita el permiso             |   AAA   |   String   | NOT NULL |
-|  Duración  |                        Duración del permiso                       | 999-AAA |   Varchar  | NOT NULL |
-|    Fecha   |                         Fecha del permiso                         | AAAMMDD |    DATE    | NOT NULL |
-|   Estado   |  Estado del permiso, por ejemplo, aprobado, pendiente, rechazado  |   AAA   |   String   | NOT NULL |
-### Entidad: Asistencia
-#### Descripción: Almacena la información relacionada con la asistencia de los candidatos durante el proceso de reclutamiento y selección
-|    Atributo   |                      Descripción                      |  Formato | Naturaleza |  Valores |
-|:-------------:|:-----------------------------------------------------:|:--------:|:----------:|:--------:|
-| ID_Asistencia |   Identificador único de cada registro de asistencia  |  999-AAA |   Varchar  | NOT NULL |
-|     Estado    |   Estado de la asistencia (presente, ausente, etc.)   |    AAA   |   String   | NOT NULL |
-|  Observación  | Observaciones o notas adicionales sobre la asistencia |    AAA   |   String   | NOT NULL |
-|     Fecha     |       Fecha en la que se registró la asistencia       |  AAAMMDD |    DATE    | NOT NULL |
-|  Hora_Entrada |             Hora de entrada del candidato             | HH:MM:SS |    TIME    | NOT NULL |
-|  Hora_Salida  |              Hora de salida del candidato             | HH:MM:SS |    TIME    | NOT NULL |
+
+
 ### Entidad: Entrevista
 #### Descripción: Almacena la información relacionada con las entrevistas realizadas a los candidatos durante el proceso de reclutamiento y selección
 | Atributo |                Descripción               | Formato | Naturaleza |  Valores |
