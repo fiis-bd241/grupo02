@@ -164,7 +164,6 @@
 |     ID_Programa_C    |      Identificador único del programa de capacitación.     | 999-AAA |   Varchar  | NOT NULL |
 | Fecha_Inicio |    Fecha de inicio del programa de capacitación.    | AAAMMDD |    DATE    | NOT NULL |
 |   Fecha_Fin  | Fecha de finalización del programa de capacitación. | AAAMMDD |    DATE    | NOT NULL |
-
 ### Entidad: Vacante
 #### Descripción: Almacena la información relacionada con las vacantes disponibles en la organización.
 |    Atributo    |                   Descripción                  | Formato | Naturaleza |  Valores |
@@ -218,6 +217,7 @@
 | Grado_Educación |      Nivel educativo del candidato.     |     AAA     |   String   | NOT NULL |
 
 
+
 ### Entidad: Gerente_RRHH
 #### Descripción: Almacena la información de los gerentes de recursos humanos.
 |      Atributo      |                      Descripción                     |  Formato | Naturaleza |  Valores |
@@ -228,27 +228,26 @@
 |       Atributo      |              Descripción             |  Formato | Naturaleza |  Valores |
 |:-------------------:|:------------------------------------:|:--------:|:----------:|:--------:|
 |   ID_Especialista   | Identificador único del especialista. |  999-AAA |   Varchar  | NOT NULL |
-### Entidad: Retroalimentación.
-#### Descripción: Almacena la información relacionada con las retroalimentaciones de los empleados.
-|   Atributo   |              Descripción             |  Formato | Naturaleza |  Valores |
-|:------------:|:------------------------------------:|:--------:|:----------:|:--------:|
-|   Id_charla  |   Identificador único de la charla   |  999-AAA |   Varchar  | NOT NULL |
-| Fecha_charla | Fecha en la que se realizó la charla |  AAAMMDD |    DATE    | NOT NULL |
-|  Hora_charla |  Hora en la que se realizó la charla | HH:MM:SS |    TIME    | NOT NULL |
 ### Entidad: Cuestionario
 #### Descripción: Almacena la información relacionada con los cuestionarios.
 |    Atributo   |                              Descripción                              | Formato | Naturaleza |  Valores |
 |:-------------:|:---------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Cuestionario  |                   Identificador único del cuestionario.                  | 999-AAA |   Varchar  | NOT NULL |
 | Tipo_Cuestionario | Tipo de cuestionario, por ejemplo, de satisfacción, de clima laboral, etc |   AAA   |   String   | NOT NULL |
-
+### Entidad: Retroalimentación.
+#### Descripción: Almacena la información relacionada con la charla de retroalimentaciones de los empleados.
+|   Atributo   |              Descripción             |  Formato | Naturaleza |  Valores |
+|:------------:|:------------------------------------:|:--------:|:----------:|:--------:|
+|   ID_Retroalimentación |   Identificador único de la charla.   |  999-AAA |   Varchar  | NOT NULL |
+| Fecha_Retroalimentación | Fecha en la que se realizó la charla. |  AAAMMDD |    DATE    | NOT NULL |
+|  Hora_Retroalimentación |  Hora en la que se realizó la charla. | HH:MM:SS |    TIME    | NOT NULL |
 ### Entidad: Reporte
-#### Descripción: Almacena la información relacionada con los reportes de los empleados
+#### Descripción: Almacena la información relacionada con los reportes de los empleados.
 |        Atributo        |                      Descripción                     | Formato | Naturaleza |  Valores |
 |:----------------------:|:----------------------------------------------------:|:-------:|:----------:|:--------:|
-|       Id_Reporte       |            Identificador único del reporte           | 999-AAA |   Varchar  | NOT NULL |
-| Fecha_Ingreso_Empleado |             Fecha de ingreso del empleado            | AAAMMDD |    DATE    | NOT NULL |
-|  Calificación_Empleado | Calificación o evaluación del desempeño del empleado |  99.99  |   Double   |  [0.0;+> |
+|       ID_Reporte       |            Identificador único del reporte.           | 999-AAA |   Varchar  | NOT NULL |
+| Fecha_Ingreso_Empleado |             Fecha de ingreso del empleado.            | AAAMMDD |    DATE    | NOT NULL |
+|  Calificación_Empleado | Calificación o evaluación del desempeño del empleado. |  99.99  |   Double   |  [0.0;+> |
 ### Entidad: Preguntas
 #### Descripción: Almacena las preguntas que se realizan durante las entrevistas y las respuestas correspondientes
 |   Atributo  |              Descripción             | Formato | Naturaleza |  Valores |
@@ -265,9 +264,6 @@
 |    Apellido    |                   Apellido del especialista de reclutamiento.                   |   AAA   |   String   | NOT NULL |
 | Disponibilidad | Disponibilidad del especialista de reclutamiento para participar en el proceso. |   AAA   |   String   | NOT NULL |
 |  Área_Especial |                     Área de especialización del reclutador.                     |   AAA   |   String   | NOT NULL |
-
-
-
 
 
 
