@@ -82,12 +82,12 @@
 #### Descripción: Almacena la información relacionada con las licencias o permisos de los empleados.
 |   Atributo   |                             Descripción                            |  Formato | Naturaleza |  Valores |
 |:------------:|:------------------------------------------------------------------:|:--------:|:----------:|:--------:|
-|  ID_Licencia |                 Identificador único de la licencia                 |  999-AAA |   Varchar  | NOT NULL |
-|    Tipo    | Tipo de la licencia, por ejemplo, aprobada, pendiente, rechazada |    AAA   |   String   | NOT NULL |
-|  Observación |      Observaciones o comentarios relacionados con la licencia      |    AAA   |   String   | NOT NULL |
-|     Fecha    |                        Fecha de la licencia                        |  AAAMMDD |    DATE    | NOT NULL |
-| Hora_Inicio |                   Hora de entrada de la licencia                   | HH:MM:SS |    TIME    | NOT NULL |
-|  Hora_Fin |                    Hora de salida de la licencia                   | HH:MM:SS |    TIME    | NOT NULL |
+|  ID_Licencia |                 Identificador único de la licencia.                 |  999-AAA |   Varchar  | NOT NULL |
+|    Tipo    | Tipo de la licencia, por ejemplo, aprobada, pendiente, rechazada. |    AAA   |   String   | NOT NULL |
+|  Observación |      Observaciones o comentarios relacionados con la licencia.      |    AAA   |   String   | NOT NULL |
+|     Fecha    |                        Fecha de la licencia.                        |  AAAMMDD |    DATE    | NOT NULL |
+| Hora_Inicio |                   Hora de entrada de la licencia.                   | HH:MM:SS |    TIME    | NOT NULL |
+|  Hora_Fin |                    Hora de salida de la licencia.                   | HH:MM:SS |    TIME    | NOT NULL |
 ### Entidad: Permiso
 #### Descripción: Almacena la información relacionada con los permisos de los empleados
 |  Atributo  |                            Descripción                            | Formato | Naturaleza |  Valores |
@@ -123,15 +123,49 @@
 |  ID_Beneficio |                  Código de identificación único del beneficio.                 | 999-AAA |   Varchar  | NOT NULL |
 | Tipo_Beneficio | Tipo de beneficio. |   AAA   |   String   | NOT NULL |
 |  Monto_Beneficio |                      Monto de beneficio que se le asigna.                      |   999.9   |   Double   | [0.0;+> |
+### Entidad: Instructor
+#### Descripción: Almacena la información relacionada con los instructores que imparten los programas de capacitación.
+|    Atributo   |           Descripción           | Formato | Naturaleza |  Valores |
+|:-------------:|:-------------------------------:|:-------:|:----------:|:--------:|
+| ID_Instructor | Identificador único de cada instructor. | 999-AAA |   Varchar  | NOT NULL |
+### Entidad: Evaluación_Capacitación
+#### Descripción: Almacena la información relacionada con la evaluación de los candidatos durante los programas de capacitación.
+|       Atributo      |                   Descripción                   | Formato | Naturaleza |  Valores |
+|:-------------------:|:-----------------------------------------------:|:-------:|:----------:|:--------:|
+|    ID_Evaluación    | Identificador único de cada evaluación de capacitación. | 999-AAA |   Varchar  | NOT NULL |
+| Duración_Evaluación |        Duración de la evaluación para la capacitación.        |     999     |     Int    | NOT NULL |
+| Hora |    Hora de la evaluación de capacitación.    | HH:MM:SS |    TIME    | NOT NULL |
+### Entidad: Evaluación_Sesión
+#### Descripción: Almacena la información relacionada con la evaluación de la sesión de los candidatos durante los programas de capacitación.
+|       Atributo      |                   Descripción                   | Formato | Naturaleza |  Valores |
+|:-------------------:|:-----------------------------------------------:|:-------:|:----------:|:--------:|
+|    ID_Evaluación    | Identificador único de cada evaluación de capacitación. | 999-AAA |   Varchar  | NOT NULL |
+| Resultado |    Duración de la evaluación de capacitación.    |    99   |    Char    | NOT NULL |
+### Entidad: Asistencia_Sesión
+#### Descripción: Almacena la información relacionada con la asistencia de la sesión ofrecida a los candidatos.
+|  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
+|:---------:|:-------------------------------------------------------------:|:-------:|:----------:|:--------:|
+| ID_Asistencia_Sesión |          Identificador único de asistencia de cada sesión de capacitación.         | 999-AAA |   Varchar  | NOT NULL |
+|   Asistencia  | Estado de la asistencia. |  999-AAA   |   Varchar   | NOT NULL |
+### Entidad: Sesión
+#### Descripción: Almacena la información relacionada con las sesiones de capacitación ofrecidas a los candidatos.
+|  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
+|:---------:|:-------------------------------------------------------------:|:-------:|:----------:|:--------:|
+| ID_Sesión |          Identificador único de cada sesión de capacitación.         | 999-AAA |   Varchar  | NOT NULL |
+|   Estado  | Estado de la sesión (programada, en curso, finalizada, etc.). |   AAA   |   String   | NOT NULL |
+|  Duración |             Duración de la sesión de capacitación.            |    99   |    Char    | NOT NULL |
+|   Fecha   |     Fecha en la que se realizó la sesión de capacitación.     | AAAMMDD |    DATE    | NOT NULL |
+| Hora_Inicio_Sesión |                   Hora de entrada de la sesión de capacitación.                   | HH:MM:SS |    TIME    | NOT NULL |
+|  Hora_Fin_Sesión |                    Hora de salida de la sesión de capacitación.                   | HH:MM:SS |    TIME    | NOT NULL |
+### Entidad: Programa_Capacitador
+#### Descripción: Almacena la información relacionada con los programas de capacitación ofrecidos a los candidatos
+|   Atributo   |                     Descripción                    | Formato | Naturaleza |  Valores |
+|:------------:|:--------------------------------------------------:|:-------:|:----------:|:--------:|
+|     ID_Programa_C    |      Identificador único del programa de capacitación.     | 999-AAA |   Varchar  | NOT NULL |
+| Fecha_Inicio |    Fecha de inicio del programa de capacitación.    | AAAMMDD |    DATE    | NOT NULL |
+|   Fecha_Fin  | Fecha de finalización del programa de capacitación. | AAAMMDD |    DATE    | NOT NULL |
 
-### Entidad: Renuncia
-#### Descripción: Almacena la información relacionada con las renuncias de los empleados.
-|         Atributo        |                  Descripción                  | Formato | Naturaleza |  Valores |
-|:-----------------------:|:---------------------------------------------:|:-------:|:----------:|:--------:|
-|       ID_Renuncia       |      Identificador único de la renuncia.      | 999-AAA |   Varchar  | NOT NULL |
-|      Carta_Renuncia     |   Texto de la carta de renuncia del empleado  |   AAA   |   String   | NOT NULL |
-| Fechar_Intento_Renuncia | Fecha en la que el empleado intentó renunciar | AAAMMDD |    DATE    | NOT NULL |
-|      Razon_Renuncia     |      Razón por la que el empleado renunció    |   AAA   |   String   | NOT NULL |
+
 ### Entidad: Gerente_RRHH
 #### Descripción: Almacena la información de los gerentes de recursos humanos.
 |      Atributo      |                      Descripción                     |  Formato | Naturaleza |  Valores |
@@ -139,12 +173,6 @@
 |     ID_Gerente     | Identificador único del gerente de recursos humanos. |  999-AAA |   Varchar  | NOT NULL |
 |   Nombre_Gerente   |        Nombre del gerente de recursos humanos        |    AAA   |   String   | NOT NULL |
 | Correo_Electrónica |  Correo electrónico del gerente de recursos humanos  | aaaa@aaa |    Char    | NOT NULL |
-### Entidad: Comentario
-#### Descripción: Almacena comentarios u observaciones
-|       Atributo       |             Descripción            | Formato | Naturaleza |  Valores |
-|:--------------------:|:----------------------------------:|:-------:|:----------:|:--------:|
-|     Id_Comentario    | Identificador único del comentario | 999-AAA |   Varchar  | NOT NULL |
-| Enunciado_comentario |        Texto del comentario        |   AAA   |   String   | NOT NULL |
 ### Entidad: Charla
 #### Descripción: Almacena la información relacionada con las charlas o reuniones
 |   Atributo   |              Descripción             |  Formato | Naturaleza |  Valores |
@@ -172,8 +200,6 @@
 |       Id_Reporte       |            Identificador único del reporte           | 999-AAA |   Varchar  | NOT NULL |
 | Fecha_Ingreso_Empleado |             Fecha de ingreso del empleado            | AAAMMDD |    DATE    | NOT NULL |
 |  Calificación_Empleado | Calificación o evaluación del desempeño del empleado |  99.99  |   Double   |  [0.0;+> |
-
-
 ### Entidad: Entrevista
 #### Descripción: Almacena la información relacionada con las entrevistas realizadas a los candidatos durante el proceso de reclutamiento y selección
 | Atributo |                Descripción               | Formato | Naturaleza |  Valores |
@@ -242,32 +268,9 @@
 |  Apellido |         Apellido del candidato        |   AAA   |   String   | NOT NULL |
 | Fecha_Nac |   Fecha de nacimiento del candidato   | AAAMMDD |    DATE    | NOT NULL |
 |  Exp_Lab  |   Experiencia laboral del candidato   |   AAA   |   String   | NOT NULL |
-### Entidad: Programa_Capacitador
-#### Descripción: Almacena la información relacionada con los programas de capacitación ofrecidos a los candidatos
-|   Atributo   |                     Descripción                    | Formato | Naturaleza |  Valores |
-|:------------:|:--------------------------------------------------:|:-------:|:----------:|:--------:|
-|     CodPC    |      Código único del programa de capacitación     | 999-AAA |   Varchar  | NOT NULL |
-| Fecha_Inicio |    Fecha de inicio del programa de capacitación    | AAAMMDD |    DATE    | NOT NULL |
-|   Fecha_Fin  | Fecha de finalización del programa de capacitación | AAAMMDD |    DATE    | NOT NULL |
-### Entidad: Evaluación_Capacitación
-#### Descripción: Almacena la información relacionada con la evaluación de los candidatos durante los programas de capacitación.
-|       Atributo      |                   Descripción                   | Formato | Naturaleza |  Valores |
-|:-------------------:|:-----------------------------------------------:|:-------:|:----------:|:--------:|
-|    CodEvaluación    | Código único de cada evaluación de capacitación | 999-AAA |   Varchar  | NOT NULL |
-| Duración_Evaluación |    Duración de la evaluación de capacitación    |    99   |    Char    | NOT NULL |
-### Entidad: Sesión
-#### Descripción: Almacena la información relacionada con las sesiones de capacitación ofrecidas a los candidatos.
-|  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
-|:---------:|:-------------------------------------------------------------:|:-------:|:----------:|:--------:|
-| CodSesión |          Código único de cada sesión de capacitación.         | 999-AAA |   Varchar  | NOT NULL |
-|   Estado  | Estado de la sesión (programada, en curso, finalizada, etc.). |   AAA   |   String   | NOT NULL |
-|  Duración |             Duración de la sesión de capacitación.            |    99   |    Char    | NOT NULL |
-|   Fecha   |     Fecha en la que se realizó la sesión de capacitación.     | AAAMMDD |    DATE    | NOT NULL |
-### Entidad: Instructor
-#### Descripción: Almacena la información relacionada con los instructores que imparten los programas de capacitación.
-|    Atributo   |           Descripción           | Formato | Naturaleza |  Valores |
-|:-------------:|:-------------------------------:|:-------:|:----------:|:--------:|
-| CodInstructor | Código único de cada instructor | 999-AAA |   Varchar  | NOT NULL |
+
+
+
 ## Relaciones
 | Nombre_Relación |       Entidad Participante 1      |  Entidad Participante 2 | Cardinalidad |                              Atributos Propios de la Evaluación                             | ¿Entidad aparte? |                   Identificador                  |
 |:---------------:|:---------------------------------:|:-----------------------:|:------------:|:-------------------------------------------------------------------------------------------:|:----------------:|:------------------------------------------------:|
