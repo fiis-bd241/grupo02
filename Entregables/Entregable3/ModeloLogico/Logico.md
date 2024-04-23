@@ -122,7 +122,7 @@
 |:------------:|:----------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Beneficio |                  Código de identificación único del beneficio.                 | 999999 |   Int  | NOT NULL |
 | Tipo_Beneficio | Tipo de beneficio. |   AAA   |   String   | NOT NULL |
-|  Monto_Beneficio |                      Monto de beneficio que se le asigna.                      |   999.9   |   Double   | [0.0;+> |
+|  Monto_Beneficio |                      Monto de beneficio o descuento que se le asigna.                      |   999.9   |   Double   | NOT NULL |
 ### Entidad: Instructor
 #### Descripción: Almacena la información relacionada con los instructores que imparten los programas de capacitación.
 |    Atributo   |           Descripción           | Formato | Naturaleza |  Valores |
