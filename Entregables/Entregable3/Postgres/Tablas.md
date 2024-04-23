@@ -30,6 +30,147 @@ FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento),
 FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo)
 );``
 
+### Entidad: Supervisor
+``CREATE TABLE Supervisor(
+ID_Supervisor INTEGER primary key,
+ID_Empleado INTEGER,
+FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);
+``
+
+### Entidad: Cese
+``CREATE TABLE Cese(
+ID_Cese INTEGER primary key,
+EstadoCese VARCHAR(32),
+FechaInicioCese DATE,
+ID_Empleado INTEGER,
+FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);
+``
+
+### Entidad: Cuestionario_Salida
+``CREATE TABLE Cuestionario_Salida(
+ID_Cuestionario INTEGER primary key,
+ID_Supervisor INTEGER,
+ID_Cese INTEGER,
+Fecha_Cuestionario DATE,
+FOREIGN KEY (ID_Supervisor) REFERENCES Supervisor(ID_Supervisor),
+FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese)	
+);
+``
+
+### Entidad: Pregunta_Salida
+``CREATE TABLE Pregunta_Salida(
+ID_Pregunta INTEGER primary key,
+Pregunta_Salida VARCHAR(256),
+Respuesta_Salida VARCHAR(256),
+ID_Cuestionario INTEGER,
+FOREIGN KEY (ID_Cuestionario) REFERENCES Cuestionario_Salida(ID_Cuestionario)
+);
+``
+
+### Entidad: Beneficios_Cese
+``CREATE TABLE Beneficios_Cese(
+ID_Beneficios INTEGER primary key,
+Tipo VARCHAR(32),
+Monto FLOAT,
+ID_Cese INTEGER,
+FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese)
+);
+``
+
+### Entidad: Programa_Capacitación
+``CREATE TABLE Programa_Capacitador(
+ID_Programa_C INTEGER primary key,
+Fecha_Inicio DATE,
+Fecha_Fin DATE);
+``
+
+### Entidad: Sesion
+``CREATE TABLE Sesion(
+ID_Sesion INTEGER primary key,
+Estado VARCHAR(64),
+Fecha DATE,
+Hora TIME,
+ID_Programa_C INTEGER,
+FOREIGN KEY(ID_Programa_C) REFERENCES Programa_Capacitador(ID_Programa_C)
+);
+``
+
+### Entidad: Empleado_Sesion
+``CREATE TABLE Empleado_Sesion(
+ID_Sesion INTEGER ,
+ID_Empleado INTEGER,
+Asistencia VARCHAR(64),
+FOREIGN KEY(ID_Sesion) REFERENCES Sesion(ID_Sesion),
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);
+``
+
+### Entidad: Instructor
+``CREATE TABLE Instructor(
+ID_Instructor INTEGER primary key,
+ID_Empleado INTEGER,
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);``
+
+### Entidad: Evaluacion_Sesion
+``CREATE TABLE Evaluacion_Sesion(
+ID_Evaluacion INTEGER,
+ID_Sesion INTEGER,
+Resultado VARCHAR(64)
+);``
+
+### Entidad: Evaluacion_Capacitacion
+``CREATE TABLE Evaluacion_Capacitacion(
+ID_Evaluacion INTEGER,
+Duracion_Evaluacion INTEGER,
+Hora TIME,
+ID_Instructor INTEGER,
+FOREIGN KEY(ID_Instructor) REFERENCES Instructor(ID_Instructor)
+);
+``
+
+### Entidad: Permiso
+``CREATE TABLE Permiso(
+ID_Permiso INTEGER primary key,
+ID_Empleado INTEGER ,
+ID_Supervisor INTEGER,
+Tipo VARCHAR(64),
+Motivo VARCHAR(128),
+Duracion TIME,
+Estado CHAR,
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
+FOREIGN KEY(ID_Supervisor) REFERENCES Supervisor(ID_Supervisor)
+);``
+
+### Entidad: Licencia
+``CREATE TABLE Licencia(
+ID_Licencia INTEGER primary key,
+ID_Empleado INTEGER ,
+ID_Supervisor INTEGER,
+Tipo VARCHAR(64),
+Fecha_inicio DATE,
+Fecha_fin DATE,
+Estado CHAR,
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
+FOREIGN KEY(ID_Supervisor) REFERENCES Supervisor(ID_Supervisor)
+);
+``
+
+### Entidad: Asistencia
+``CREATE TABLE Asistencia(
+ID_Asistencia INTEGER primary key,
+ID_Empleado INTEGER ,
+Estado CHAR,
+Observacion VARCHAR (128),
+Fecha DATE,
+Hora_entrada TIME,
+Hora_salida TIME,
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);
+``
+
 ## Llenado de datos
 
 ### Datos Tabla: Departamento
