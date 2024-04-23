@@ -143,6 +143,4 @@ INSERT INTO Departamento VALUES
 (20200030, 'Valentina', 'González', 912345754, 'Av. Las Azucenas 234, Lima', 'valentina.gonzalez@gmail.com', '1987-11-05', 2, 'Casado', 10, 4),
 (20200031, 'Francisco', 'Díaz', 912345755, 'Av. Las Camelias 567, Lima', 'francisco.diaz@gmail.com', '1982-01-10', 0, 'Soltero', 11, 4),
 (20200034, 'Antonia', 'Hernández', 912345758, 'Av. Los Lirios 456, Lima', 'antonia.hernandez@gmail.com', '1983-07-25', 1, 'Casado', 12, 4),
-(20200037, 'Felipe', 'Martínez', 912345761, 'Av. Las Azucenas 567, Lima', 'felipe.martinez@gmail.com', '1984-02-10', 0, 'Soltero', 13, 4);
-
-``
+(20200037, 'Felipe', 'Martínez', 912345761, 'Av. Las Azucenas 567, Lima', 'felipe.martinez@gmail.com', '1984-02-10', 0, 'Soltero', 13, 4);``
