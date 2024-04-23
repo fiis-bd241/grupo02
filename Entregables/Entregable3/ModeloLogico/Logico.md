@@ -141,12 +141,6 @@
 |:-------------------:|:-----------------------------------------------:|:-------:|:----------:|:--------:|
 |    ID_Evaluación    | Identificador único de cada evaluación de capacitación. | 999-AAA |   Varchar  | NOT NULL |
 | Resultado |    Duración de la evaluación de capacitación.    |    99   |    Char    | NOT NULL |
-### Entidad: Asistencia_Sesión
-#### Descripción: Almacena la información relacionada con la asistencia de la sesión ofrecida a los candidatos.
-|  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
-|:---------:|:-------------------------------------------------------------:|:-------:|:----------:|:--------:|
-| ID_Asistencia_Sesión |          Identificador único de asistencia de cada sesión de capacitación.         | 999-AAA |   Varchar  | NOT NULL |
-|   Asistencia  | Estado de la asistencia. |  999-AAA   |   Varchar   | NOT NULL |
 ### Entidad: Sesión
 #### Descripción: Almacena la información relacionada con las sesiones de capacitación ofrecidas a los candidatos.
 |  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
@@ -190,7 +184,7 @@
 |       Fecha_Entrevista       |           Fecha en la que se realizó la entrevista.           | AAAMMDD |    DATE    | NOT NULL |
 |       Respuesta_Entrevista       |           Respuestas o resultados de la entrevista.          |  AAA    |   String   | NOT NULL |
 |     Resultado_Entrevista    | Resultado final de la entrevista. |  99.99  |   Double   | NOT NULL |
-### Entidad: Evaluación_Reclutamiento
+### Entidad: Evaluación
 #### Descripción: Almacena la información relacionada con la evaluación de los candidatos durante el proceso de reclutamiento y selección.
 |       Atributo       |                          Descripción                         | Formato | Naturaleza |  Valores |
 |:--------------------:|:------------------------------------------------------------:|:-------:|:----------:|:--------:|
@@ -248,14 +242,7 @@
 |       ID_Reporte       |            Identificador único del reporte.           | 999-AAA |   Varchar  | NOT NULL |
 | Fecha_Ingreso_Empleado |             Fecha de ingreso del empleado.            | AAAMMDD |    DATE    | NOT NULL |
 |  Calificación_Empleado | Calificación o evaluación del desempeño del empleado. |  99.99  |   Double   |  [0.0;+> |
-### Entidad: Preguntas
-#### Descripción: Almacena las preguntas que se realizan durante las entrevistas y las respuestas correspondientes
-|   Atributo  |              Descripción             | Formato | Naturaleza |  Valores |
-|:-----------:|:------------------------------------:|:-------:|:----------:|:--------:|
-| Id_Pregunta | Identificador único de cada pregunta | 999-AAA |   Varchar  | NOT NULL |
-|  Contenido  |         Texto de la pregunta         |   AAA   |   String   | NOT NULL |
-|  Respuesta  |        Respuesta del candidato       |   AAA   |   String   | NOT NULL |
-### Entidad: Especialista_Reclutamiento
+### Entidad: Especialista
 #### Descripción: Almacena la información relacionada con los especialistas de reclutamiento que participan en el proceso.
 |    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
 |:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
