@@ -344,7 +344,6 @@ INSERT INTO Departamento VALUES
 ### Datos Tabla: Cuestionario_Salida
 ``INSERT INTO Cuestionario_Salida VALUES
 (1,2,2,'2022-07-16'),(2,3,7,'2022-11-16');
-
 ``
 ### Datos Tabla: Pregunta_Salida
 ``
