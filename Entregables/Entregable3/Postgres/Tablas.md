@@ -376,7 +376,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
     ID_Evaluacion INT PRIMARY KEY,
     Competencias_Evaluadas VARCHAR(255),
     Result_Evaluacion VARCHAR(255),
-    Duracion_Evaluacion TIME
+    Duracion_Evaluacion INT
 );``
 
 ### Entidad: Candidato
@@ -913,7 +913,7 @@ VALUES ('00240001', '00200001', 'En proceso', 'Gerente de Producción', 'Lunes a
        ('00240013', '00200013', 'Pendiente', 'Técnico de Gestión Ambiental y Sostenibilidad', 'Lunes a Viernes de 8am a 5pm', '2024-05-02', 113, 113),
        ('00240014', '00200014', 'Pendiente', 'Profesional de Producción de Fruta Fresca', 'Lunes a Viernes de 9am a 6pm', '2024-05-03', 114, 114),
        ('00240015', '00200015', 'Pendiente', 'Asistente de Recepción y Almacenamiento de Fruta', 'Lunes a Viernes de 8am a 5pm', '2024-05-04', 115, 115),
-       ('00240016', '00200016', 'Pendiente', 'Operario de Control de Calidad', 'Lunes a Viernes de 9am a 6pm', '2024-05-05', 116, 216),
+       ('00240016', '00200016', 'Pendiente', 'Operario de Control de Calidad', 'Lunes a Viernes de 9am a 6pm', '2024-05-05', 116, 116),
        ('00240017', '00200017', 'Pendiente', 'Gerente de Producción de Mermelada', 'Lunes a Viernes de 8am a 5pm', '2024-05-06', 117, 117),
        ('00240018', '00200018', 'Pendiente', 'Jefe de Producción de Fruta Confitada', 'Lunes a Viernes de 9am a 6pm', '2024-05-07', 118, 118),
        ('00240019', '00200019', 'Pendiente', 'Especialista de Investigación y Desarrollo', 'Lunes a Viernes de 8am a 5pm', '2024-05-08', 119, 119),
