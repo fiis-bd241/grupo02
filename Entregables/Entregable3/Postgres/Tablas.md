@@ -340,3 +340,28 @@ INSERT INTO Departamento VALUES
 ``INSERT INTO Cese VALUES
 (1,'Pendiente','2022-08-15',20240024),(2,'Completado','2022-07-15',20210009),(3,'Rechazado','2022-05-15',20240018),(4,'Rechazado','2022-04-15',20240004),(5,'Rechazado','2022-03-15',20230014),(6,'Pendiente','2022-11-15',20220007),(7,'Completado','2022-11-15',20240016);
 ``
+
+### Datos Tabla: Cuestionario_Salida
+``INSERT INTO Cuestionario_Salida VALUES
+(1,2,2,'2022-07-16'),(2,3,7,'2022-11-16');
+
+``
+### Datos Tabla: Pregunta_Salida
+``
+INSERT INTO Pregunta_Salida VALUES
+(1,'¿Que tal fue su experiencia en la empresa?', 'Buena',1),(2,'¿Qué mejoraría en el trato a los empleados de la empresa?', 'Me gustaría que dieran más tiempo de refrigerio',1),(3,'¿Cuál fue el motivo de su renuncia?', 'Me voy a ir del país',1),(4,'¿Por qué trató de tomar pertenencias de la empresa?', 'Necesitaba el dinero',2);
+``
+### Datos Tabla: Beneficios_Cese
+``
+INSERT INTO Beneficios_Cese VALUES
+(1,'CTS',5674.12,2);(2,'Deuda por robo',-3450.90,7);
+``
+### Datos Tabla: Asistencia
+``
+``
+### Datos Tabla: Licencia
+``
+``
+### Datos Tabla: Permiso
+``
+``
