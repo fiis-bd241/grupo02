@@ -193,8 +193,8 @@ INSERT INTO Departamento VALUES
 
 ### Datos Tabla: Cargo
 ``INSERT INTO Cargo (ID_Cargo, Nombre, Descripcion) VALUES
-(1, 'Gerente General', 'Encargado de la dirección general de la empresa.'),
-(2, 'Jefe', 'Encargado de supervisar un departamento o equipo de trabajo.'),
+(1, 'Gerente', 'Encargado de la dirección de alguna área.'),
+(2, 'Jefe', 'Persona que tiene autoridad sobre un grupo de trabajadores'),
 (3, 'Especialista', 'Persona con conocimientos específicos en un área determinada.'),
 (4, 'Supervisor', 'Encargado de supervisar y coordinar las actividades de un grupo de trabajadores.'),
 (5, 'Técnico', 'Persona con conocimientos técnicos especializados en una determinada área.'),
