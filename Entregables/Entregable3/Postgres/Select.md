@@ -68,3 +68,19 @@
 	INNER JOIN Departamento d ON v.ID_Departamento = d.ID_Departamento
 	INNER JOIN Cargo c ON v.ID_Cargo = c.ID_Cargo
 	INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil;
+
+## Módulo: Registro de asistencias y solicitudes
+### Obtener la lista de asistencias de un empleado en particular:
+    SELECT a.ID_Asistencia, a.Estado, a.Observacion, a.Fecha, a.Hora_entrada, a.Hora_salida
+	FROM Asistencia a
+	INNER JOIN Empleado e ON a.ID_Empleado = e.ID_Empleado
+	WHERE e.ID_Empleado = <<ID del empleado>>; 
+### Obtener la lista de solicitudes de permiso pendientes de aprobación:
+    SELECT p.ID_Permiso, p.Tipo, p.Motivo, p.Duracion
+	FROM Permiso p
+	WHERE p.Estado = 'Pendiente';
+### Obtener la lista de licencias aprobadas para un supervisor en particular:
+    SELECT l.ID_Licencia, l.Tipo, l.Estado, l.Fecha_inicio, l.Fecha_fin
+	FROM Licencia l
+	INNER JOIN Supervisor s ON l.ID_Supervisor = s.ID_Supervisor
+	WHERE s.ID_Supervisor = <<ID del supervisor>> AND l.Estado = 'Aprobado';
