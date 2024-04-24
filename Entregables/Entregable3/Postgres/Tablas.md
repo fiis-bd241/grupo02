@@ -689,3 +689,97 @@ INSERT INTO Beneficios_Cese VALUES
 (24, "Despido objetivo", "Proceso de despido laboral", '14 días', "Aprobado", 20230015, 20230007),
 (25, "Mudanza", "Relocalización por motivos de salud", '12 días', "Rechazado", 20220001, 20200004)
 ``
+
+### Datos Tabla: Gerente_RR_HH
+``INSERT INTO Gerente_RR_HH (ID_Gerente,ID_Empleado) VALUES(00000001,20200001);``
+		
+### Datos Tabla: Especialista_Relaciones_Laborales	
+``INSERT INTO Especialista_Relaciones_Laborales(ID_Especialista,ID_Empleado) VALUES
+(1,20210003),
+(2,20210006),
+(3,20210008),
+(4,20220004),
+(5,20230006),
+(6,20230012),
+(7,20240027);``
+		
+### Datos Tabla: Cuestionario
+``INSERT INTO Cuestionario(ID_Cuestionario,Tipo_Cuestionario) VALUES
+(1,'Subordinados'),
+(2,'Supervisores'),
+(3,'Jefes'),
+(4,'Gerentes');``
+	
+### Datos Tabla: Pregunta_Cuestionario
+``INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values
+(1001,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'),
+(1002,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'),
+(2001,2,'¿Cómo calificarías la efectividad de tu estilo de liderazgo en el rendimiento del equipo?'),
+(2002,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),	
+(3001,3,'¿Qué calificación le darías a tu visión para el equipo/departamento/empresa a corto y largo plazo?'),
+(3002,3,'¿Qué calificación le darías a la efectividad de tu comunicación con los miembros del equipo?'),
+(4001,4,'¿Cómo calificarías tu capacidad para asegurarte de que las actividades del equipo estén alineadas con los objetivos organizacionales?'),
+(4002,4,'¿Qué calificación le darías a la cultura organizacional positiva y de alto rendimiento que fomentas?');``
+		
+### Datos Tabla: Cuestionario_Empleado
+``INSERT INTO Cuestionario_Empleado(ID_Empleado,ID_Cuestionario,ID_Pregunta,Respuesta,Fecha_Rellenado,Hora_Rellenado) VALUES
+(20210005,1,1001,'Positivo','2024-06-15','15:30'),
+(20210005,1,1002,'Muy Negativo','2024-06-15','15:30'),
+(20210009,2,2001,'Muy positivo','2024-06-17','18:30'),
+(20210009,2,2002,'Muy Negativo','2024-06-17','18:30'),
+(20210002,3,3001,'Positivo','2024-06-14','19:30'),
+(20210002,3,3001,'Muy Positivo','2024-06-14','19:30'),
+(20200001,4,4001,'Negativo','2024-06-13','12:30'),
+(20200001,4,4002,'Muy Positivo','2024-06-13','12:30'),
+(20220006,1,1001,'Negativo','2024-06-15','17:30'),
+(20220006,1,1002,'Muy Negativo','2024-06-15','17:30'),
+(20220005,2,2001,'Positivo','2024-06-17','11:30'),
+(20220005,2,2002,'Muy Negativo','2024-06-17','11:30'),
+(20210007,3,3001,'Positivo','2024-06-14','20:30'),
+(20210007,3,3001,'Positivo','2024-06-14','20:30');``
+	
+### Datos Tabla: Cuestionario_Especialista
+``INSERT INTO Cuestionario_Especialista(ID_Cuestionario,ID_Especialista,Fecha_Creacion,Hora_Creacion,Fecha_Envio_Gerencia,Hora_Envio_Gerencia) VALUES
+(1,2,'2024-04-18','18:30','2024-05-18','15:25'),
+(2,3,'2024-04-18','17:30','2024-05-18','17:20'),
+(3,4,'2024-04-18','16:30','2024-05-18','18:35'),
+(4,5,'2024-04-18','19:30','2024-05-18','19:55');``
+	
+### Datos Tabla: Cuestionario_Gerente_RR_HH
+``INSERT INTO Cuestionario_Gerente_RR_HH(ID_Cuestionario,ID_Gerente,Fecha_Revision,Hora_Revision,Estado_Aprobacion) VALUES
+(1,1,'2024-05-19','18:30','Aprobado'),
+(2,1,'2024-05-19','20:30','Aprobado'),
+(3,1,'2024-05-19','21:30','Aprobado'),
+(4,1,'2024-05-19','22:30','Aprobado');``
+	
+### Datos Tabla: Reporte
+``INSERT INTO Reporte(ID_Reporte,ID_Empleado,ID_Cuestionario,Fecha_Ingreso_Empleado,Calificacion_Empleado) VALUES
+(1,20210005,1,'2024-01-15','Positivo'),
+(2,20210009,2,'2023-05-12','Negativo'),
+(3,20210002,3,'2023-08-11','Positivo'),
+(4,20200001,4,'2023-09-16','Negativo'),
+(5,20220006,1,'2023-05-14','Negativo'),
+(6,20220005,2,'2023-07-13','Negativo'),
+(7,20210007,3,'2023-12-21','Negativo');``
+	
+### Datos Tabla: Retroalimentacion
+``INSERT INTO Retroalimentacion(ID_Retroalimentacion,ID_Empleado,ID_Cuestionario,ID_Reporte,ID_Gerente,ID_Especialista,Enunciado_Retroalimentacion,Fecha_Retroalimentacion,Hora_Retroalimentacion) VALUES 
+(1,20210005,1,1, NULL,6, 'Falta mejorar algunos puntos en el trabajo.','2024-06-21','18:30'),
+(2,20210009,2,2, 1,NULL, 'Debes pulir algunos detalles.','2024-06-21','18:30'),
+(3,20210002,3,3,1,NULL, 'Se pueden hacer mejoras en ciertos aspectos.','2024-06-21','18:30'),
+(4,20220006,1,5, NULL,3, 'Algunos puntos necesitan ser perfeccionados.','2024-06-22','15:30'),
+(5,20220005,2,6, NULL,5, 'Se deben abordar algunas deficiencias.','2024-06-22','19:30'),
+(6,20210007,3,7,NULL,6, 'Es necesario afinar ciertos aspectos.','2024-06-22','20:30');``
+	
+### Datos Tabla: Reunion
+``INSERT INTO Reunion(ID_Reunion,ID_Especialista,ID_Gerente,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
+(1,1,null,'Explicación de la evaluación de desempeño','2024-06-12','15:30'),
+(2,NULL,1,'Retroalimentación general','2024-06-20','18:30'),
+(3,5,1,'Evaluación técnica','2024-06-21','18:30');``
+
+	
+
+
+
+
+
