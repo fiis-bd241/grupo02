@@ -49,36 +49,36 @@
 
 ## Módulo: Reclutamiento y selección de personal
 ### Listar todas las vacantes disponibles con su información relevante:
-SELECT v.ID_Vac, d.Nombre AS Departamento, c.Nombre AS Cargo, p.Conocimiento_Req, p.Años_Exp, p.Titulo_Requerido, v.Ubicación, v.Beneficio, v.Salario, v.Horario
-FROM Vacante v
-INNER JOIN Departamento d ON v.ID_Departamento = d.ID_Departamento
-INNER JOIN Cargo c ON v.ID_Cargo = c.ID_Cargo
-INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil;
+	SELECT v.ID_Vac, d.Nombre AS Departamento, c.Nombre AS Cargo, p.Conocimiento_Req, p.Años_Exp, p.Titulo_Requerido, v.Ubicación, v.Beneficio, v.Salario, v.Horario
+	FROM Vacante v
+	INNER JOIN Departamento d ON v.ID_Departamento = d.ID_Departamento
+	INNER JOIN Cargo c ON v.ID_Cargo = c.ID_Cargo
+	INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil;
 
 ### Listar los candidatos que han aplicado a una vacante específica y su estado de solicitud:
-SELECT s.ID_solicitud, c.Nombre_cand, c.Apell_cand, s.Est_solicitud, s.Vacante_aplicada, s.Horario_disponible, s.Fecha_aplicación
-FROM Solicitud_Empleo s
-INNER JOIN Candidato c ON s.ID_cand = c.ID_cand
-WHERE s.ID_Vacante = 'ID_Vacante_Específica';
+	SELECT s.ID_solicitud, c.Nombre_cand, c.Apell_cand, s.Est_solicitud, s.Vacante_aplicada, s.Horario_disponible, s.Fecha_aplicación
+	FROM Solicitud_Empleo s
+	INNER JOIN Candidato c ON s.ID_cand = c.ID_cand
+	WHERE s.ID_Vacante = 'ID_Vacante_Específica';
 
 ### Obtener detalles de una vacante específica:
-SELECT v.ID_Vac, d.Nombre AS Departamento, c.Nombre AS Cargo, p.Conocimiento_Req, p.Años_Exp, p.Titulo_Requerido, v.Ubicación, v.Beneficio, v.Salario, v.Horario
-FROM Vacante v
-INNER JOIN Departamento d ON v.ID_Departamento = d.ID_Departamento
-INNER JOIN Cargo c ON v.ID_Cargo = c.ID_Cargo
-INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil
-WHERE v.ID_Vac = 'ID_Vacante_Específica';
+	SELECT v.ID_Vac, d.Nombre AS Departamento, c.Nombre AS Cargo, p.Conocimiento_Req, p.Años_Exp, p.Titulo_Requerido, v.Ubicación, v.Beneficio, v.Salario, v.Horario
+	FROM Vacante v
+	INNER JOIN Departamento d ON v.ID_Departamento = d.ID_Departamento
+	INNER JOIN Cargo c ON v.ID_Cargo = c.ID_Cargo
+	INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil
+	WHERE v.ID_Vac = 'ID_Vacante_Específica';
 
 ### Listar los candidatos que han sido evaluados en una entrevista y su resultado:
-SELECT e.ID_Entrevista, e.Fecha_Eva, e.Hora_entrevista, e.Resp_Eva, e.Resultado_eva, s.Vacante_aplicada, c.Nombre_cand, c.Apell_cand
-FROM Entrevista e
-INNER JOIN Solicitud_Empleo s ON e.ID_Solicitud = s.ID_solicitud
-INNER JOIN Candidato c ON s.ID_cand = c.ID_cand
-WHERE e.Resultado_eva != 'Entrevista pendiente';
+	SELECT e.ID_Entrevista, e.Fecha_Eva, e.Hora_entrevista, e.Resp_Eva, e.Resultado_eva, s.Vacante_aplicada, c.Nombre_cand, c.Apell_cand
+	FROM Entrevista e
+	INNER JOIN Solicitud_Empleo s ON e.ID_Solicitud = s.ID_solicitud
+	INNER JOIN Candidato c ON s.ID_cand = c.ID_cand
+	WHERE e.Resultado_eva != 'Entrevista pendiente';
 
 ### Listar los candidatos que han sido evaluados y aprobados en una entrevista con su información de contacto:
-SELECT c.Nombre_cand, c.Apell_cand, c.Correo_cand, c.Num_Telefono, e.Fecha_Eva, e.Hora_entrevista, e.Resp_Eva
-FROM Entrevista e
-INNER JOIN Solicitud_Empleo s ON e.ID_Solicitud = s.ID_solicitud
-INNER JOIN Candidato c ON s.ID_cand = c.ID_cand
-WHERE e.Resultado_eva = 'Oferta de empleo extendida';
+	SELECT c.Nombre_cand, c.Apell_cand, c.Correo_cand, c.Num_Telefono, e.Fecha_Eva, e.Hora_entrevista, e.Resp_Eva
+	FROM Entrevista e
+	INNER JOIN Solicitud_Empleo s ON e.ID_Solicitud = s.ID_solicitud
+	INNER JOIN Candidato c ON s.ID_cand = c.ID_cand
+	WHERE e.Resultado_eva = 'Oferta de empleo extendida';
