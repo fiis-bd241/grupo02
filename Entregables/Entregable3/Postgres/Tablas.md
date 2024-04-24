@@ -350,12 +350,10 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 
 ### Entidad: Perfil
 ``CREATE TABLE Perfil (
-    ID_Perfil INT PRIMARY KEY,
-    ID_Vacante VARCHAR(8),
+    ID_Perfil INT PRIMARY KEY,    
     Conocimiento_Req VARCHAR(255),
     Años_Exp INT,
     Titulo_Requerido VARCHAR(255),
-    FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac)
 );``
 
 ### Entidad: Entrevista
