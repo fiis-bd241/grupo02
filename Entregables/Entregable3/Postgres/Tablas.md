@@ -265,8 +265,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		Fecha_Envio_Gerencia DATE,
 		Hora_Envio_Gerencia TIME,
 		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)	
-	);``
+		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));``
 		
  ### Entidad: Cuestionario_Gerente_RR_HH
 ``CREATE TABLE Cuestionario_Gerente_RR_HH(
@@ -276,8 +275,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		Hora_Revision TIME,
 		Estado_Aprobacion VARCHAR (256),
 		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)
-	);``
+		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));``
 	
  ### Entidad: Reporte
 ``CREATE TABLE Reporte(
@@ -288,8 +286,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		Calificacion_Empleado VARCHAR(15),
 		PRIMARY KEY(ID_Reporte),
 		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
-	);``
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario));``
 		
  ### Entidad: Retroalimentacion
 ``CREATE TABLE Retroalimentacion(
@@ -307,8 +304,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
 		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
 		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)			
-	);``
+		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));``
 	
 ### Entidad: Reunion
 ``CREATE TABLE Reunion(
@@ -320,8 +316,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		Hora_Reunion TIME,
 		PRIMARY KEY(ID_Reunion),
 		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)			
-	);``
+		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));``
 
 
 
