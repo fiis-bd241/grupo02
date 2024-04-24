@@ -210,6 +210,120 @@ Hora_salida TIME,
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
+### Entidad: Gerente_RR_HH
+``CREATE TABLE Gerente_RR_HH(
+		ID_Gerente INTEGER,
+		ID_Empleado INTEGER,
+		PRIMARY KEY(ID_Gerente),
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+	);``
+		
+### Entidad: Especialista_Relaciones_Laborales
+``CREATE TABLE Especialista_Relaciones_Laborales(
+		ID_Especialista INTEGER,
+		ID_Empleado INTEGER,
+		PRIMARY KEY(ID_Especialista),
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+	);``
+	
+
+### Entidad: Cuestionario
+``CREATE TABLE Cuestionario(
+		ID_Cuestionario INTEGER,
+		Tipo_Cuestionario VARCHAR(15),
+		PRIMARY KEY(ID_Cuestionario)
+	);``
+	
+### Entidad: Pregunta_Cuestionario
+``CREATE TABLE Pregunta_Cuestionario(
+		ID_Pregunta INTEGER,
+		ID_Cuestionario INTEGER,
+		Enunciado_Pregunta VARCHAR(256),
+		PRIMARY KEY(ID_Pregunta),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);``
+	
+### Entidad: Cuestionario_Empleado
+``CREATE TABLE Cuestionario_Empleado(
+		ID_Empleado INTEGER,
+		ID_Cuestionario INTEGER,
+		ID_Pregunta INTEGER, 
+		Respuesta VARCHAR(15),
+		Fecha_Rellenado DATE,
+		Hora_Rellenado TIME,
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
+		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta)
+	);``
+	
+ ### Entidad: Cuestionario_Especialista
+``CREATE TABLE Cuestionario_Especialista(
+		ID_Cuestionario INTEGER,
+		ID_Especialista INTEGER,
+		Fecha_Creacion DATE,
+		Hora_Creacion TIME,
+		Fecha_Envio_Gerencia DATE,
+		Hora_Envio_Gerencia TIME,
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
+		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)	
+	);``
+		
+ ### Entidad: Cuestionario_Gerente_RR_HH
+``CREATE TABLE Cuestionario_Gerente_RR_HH(
+		ID_Cuestionario INTEGER,
+		ID_Gerente INTEGER,
+		Fecha_Revision DATE,
+		Hora_Revision TIME,
+		Estado_Aprobacion VARCHAR (256),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
+		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)
+	);``
+	
+ ### Entidad: Reporte
+``CREATE TABLE Reporte(
+		ID_Reporte INTEGER,
+		ID_Empleado INTEGER,
+		ID_Cuestionario INTEGER,
+		Fecha_Ingreso_Empleado DATE,
+		Calificacion_Empleado VARCHAR(15),
+		PRIMARY KEY(ID_Reporte),
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);``
+		
+ ### Entidad: Retroalimentacion
+``CREATE TABLE Retroalimentacion(
+		ID_Retroalimentacion INTEGER,
+		ID_Empleado INTEGER,
+		ID_Cuestionario INTEGER,
+		ID_Reporte INTEGER,
+		ID_Gerente INTEGER,
+		ID_Especialista INTEGER,
+		Enunciado_Retroalimentacion VARCHAR(256),
+		Fecha_Retroalimentacion DATE,
+		Hora_Retroalimentacion TIME,
+		PRIMARY KEY(id_Retroalimentacion),
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
+		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
+		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente),
+		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)			
+	);``
+	
+### Entidad: Reunion
+``CREATE TABLE Reunion(
+		ID_Reunion INTEGER,
+		ID_Especialista INTEGER,
+		ID_Gerente INTEGER,
+		Asunto_Reunion VARCHAR(256),
+		Fecha_Reunion DATE,
+		Hora_Reunion TIME,
+		PRIMARY KEY(ID_Reunion),
+		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista),
+		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)			
+	);``
+
+
 
 ## Llenado de datos
 
