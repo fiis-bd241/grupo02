@@ -353,7 +353,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
     ID_Perfil INT PRIMARY KEY,    
     Conocimiento_Req VARCHAR(255),
     Años_Exp INT,
-    Titulo_Requerido VARCHAR(255),
+    Titulo_Requerido VARCHAR(255)
 );``
 
 ### Entidad: Entrevista
