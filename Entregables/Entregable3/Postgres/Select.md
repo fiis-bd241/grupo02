@@ -83,4 +83,24 @@
     SELECT l.ID_Licencia, l.Tipo, l.Estado, l.Fecha_inicio, l.Fecha_fin
 	FROM Licencia l
 	INNER JOIN Supervisor s ON l.ID_Supervisor = s.ID_Supervisor
+ 
+## Módulo: Capacitación de Personal
+
+ ### Select para obtener el nombre de los instructores
+
+SELECT Instructor.ID_Instructor, Empleado.Nombre_Empleado, Empleado.Apellido_Empleado
+FROM Instructor
+INNER JOIN Empleado ON Empleado.ID_Empleado = Instructor.ID_Empleado;
+
+### Select para obtener la asistencia de los empleados en la Sesión 1 
+
+SELECT Empleado.Nombre_Empleado,Empleado.Apellido_Empleado, Empleado_Sesion.Asistencia
+FROM Empleado 
+INNER JOIN Empleado_Sesion ON Empleado.ID_Empleado = Empleado_Sesion.ID_Empleado
+WHERE Empleado_Sesion.Asistencia='Asistio' AND Empleado_Sesion.ID_Sesion= 1;
+
+### Select para identificar todos los resultados del programa capacitador 1, donde la evaluación de las sesiones hayan sido  satisfactorias
+SELECT Evaluacion_Sesion.ID_Sesion,Evaluacion_Sesion.ID_Evaluacion  FROM Evaluacion_Sesion INNER JOIN Sesion ON 
+Sesion.ID_Sesion=Evaluacion_Sesion.ID_Sesion WHERE Sesion.ID_Programa_C=1 AND Evaluacion_Sesion.Resultado='Satisfactorio' ;
+
 	WHERE s.ID_Supervisor = <<ID del supervisor>> AND l.Estado = 'Aprobado';
