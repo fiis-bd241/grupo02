@@ -30,6 +30,46 @@ FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento),
 FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo)
 );``
 
+### Entidad: Cuenta Bancaria
+``CREATE TABLE Cuenta_Bancaria(
+ID_Cuenta_B INTEGER primary key,
+Numero_Cuenta VARCHAR(32),
+Nombre_Banco VARCHAR(32),
+Tipo_Cuenta VARCHAR(32),
+Moneda VARCHAR(10),
+FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);``
+
+### Entidad: Nómina
+``CREATE TABLE Nomina(
+ID_Nomina INTEGER primary key,
+Fecha_Emision DATE,
+Periodo_Pago VARCHAR(10),
+FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado),
+FOREIGN KEY (ID_Pago_Total) REFERENCES Pago_Total(ID_Pago_Total)
+);``
+
+### Entidad: Pago Total
+``CREATE TABLE Pago_Total(
+ID_Pago_Total INTEGER primary key,
+Monto_Pagar DECIMAL(10,2),
+FOREIGN KEY (ID_Sueldo) REFERENCES Sueldo(ID_Sueldo),
+FOREIGN KEY (ID_Modificacion) REFERENCES Modificaciones(ID_Modificacion)
+);``
+
+### Entidad: Sueldo
+``CREATE TABLE Sueldo(
+ID_Sueldo INTEGER primary key,
+Monto_Salario_Bruto DECIMAL(10,2)
+);``
+
+### Entidad: Modificación
+``CREATE TABLE Modificacion(
+ID_Modificacion INTEGER primary key,
+Monto_Modificacion DECIMAL(10,2),
+Tipo_Modificacion VARCHAR(32)
+);``
+
 ### Entidad: Supervisor
 ``CREATE TABLE Supervisor(
 ID_Supervisor INTEGER primary key,
