@@ -83,6 +83,7 @@
     SELECT l.ID_Licencia, l.Tipo, l.Estado, l.Fecha_inicio, l.Fecha_fin
 	FROM Licencia l
 	INNER JOIN Supervisor s ON l.ID_Supervisor = s.ID_Supervisor
+ 	WHERE s.ID_Supervisor = <<ID del supervisor>> AND l.Estado = 'Aprobado';
  
 ## Módulo: Capacitación de Personal
 
@@ -103,4 +104,4 @@ WHERE Empleado_Sesion.Asistencia='Asistio' AND Empleado_Sesion.ID_Sesion= 1;
 SELECT Evaluacion_Sesion.ID_Sesion,Evaluacion_Sesion.ID_Evaluacion  FROM Evaluacion_Sesion INNER JOIN Sesion ON 
 Sesion.ID_Sesion=Evaluacion_Sesion.ID_Sesion WHERE Sesion.ID_Programa_C=1 AND Evaluacion_Sesion.Resultado='Satisfactorio' ;
 
-	WHERE s.ID_Supervisor = <<ID del supervisor>> AND l.Estado = 'Aprobado';
+	
