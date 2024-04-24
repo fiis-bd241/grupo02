@@ -627,6 +627,20 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (1,1,'19:00:00',20240027),(2,1,'19:00:00',1),(3,1,'19:00:00',1),(4,1,'19:00:00',1),(5,1,'19:00:00',1),
 (6,1,'19:00:00',1),(7,1,'19:00:00',1);
 ``
+### Datos Tabla: Evaluación-Sesión
+``INSERT INTO Evaluacion_Sesion VALUES
+(1,1,'Satisfactorio'),
+(2,2,'Regular'),
+(3,3,'Deficiente'),
+(4,4,'Satisfactorio'),
+(5,5,'Satisfactorio'),
+(6,6,'Regular'),
+(7,7,'Satisfactorio'),
+(8,8,'Regular'),
+(9,9,'Satisfactorio')
+;
+``
+
 ### Datos Tabla: Cese
 
 ``INSERT INTO Cese VALUES
