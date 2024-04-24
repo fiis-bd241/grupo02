@@ -230,7 +230,52 @@ INSERT INTO Departamento VALUES
 (12, 'Seguridad e Higiene'),
 (13, 'Gestión Ambiental y Sostenibilidad');
 ``
-
+### Datos Tabla: Cuenta Bancaria
+``
+INSERT INTO Cuenta_Bancaria (ID_Cuenta_B, Numero_Cuenta, Nombre_Banco, Tipo_Cuenta, Moneda, ID_Empleado) VALUES
+(1001, ‘01234567890123456789’, ‘Banco de Crédito del Perú’, ‘Cuenta corriente’, ‘Soles’, 20210001),
+(1002, ‘12345678901234567890’, ‘Interbank’, ‘Cuenta de ahorros’, ‘Dólares’, 20220004),
+(1003, ‘23456789012345678901’, ‘Scotiabank’, ‘Cuenta corriente’, ‘Soles’, 20240023),
+(1004, ‘34567890123456789012’, ‘BBVA Continental’, ‘Cuenta de ahorros’, ‘Soles’, 20200034),
+(1005, ‘45678901234567890123’, ‘Banco de la Nación’, ‘Cuenta corriente’, ‘Dólares’, 20200008);
+``
+### Datos Tabla: Nómina
+``
+INSERT INTO Nomina (ID_Nomina, Fecha_Emision, Periodo_Pago, ID_Empleado, ID_Pago_Total) VALUES
+(2001, ‘2024-04-15’, ’Quincenal’, 20210001, 1),
+(2002, ‘2024-04-30’, ‘Mensual’, 20220004),
+(2003, ‘2024-03-31’, ‘Mensual’, 20240023),
+(2004, ‘2024-05-15’, ‘Quincenal’, 20200034),
+(2005, ‘2024-05-31’, ‘Mensual’, 20200008);
+``
+### Datos Tabla: Sueldo
+``
+INSERT INTO Sueldo (ID_Sueldo, Monto_Salario_Base) VALUES
+(1, 4500.00),
+(2, 4000.00),
+(3, 3500.00),
+(4, 3200.00),
+(5, 2800.00),
+(6, 4200.00),
+(7, 2000.00),
+(8, 1500.00);
+``
+### Datos Tabla: Modificación
+INSERT INTO Modificacion (ID_Modificacion, Tipo_Modificacion, Monto_Modificacion) VALUES
+(1, ‘Aumento’, 500.00),
+(2, ‘Bonificación’, 200.00),
+(3, ‘Descuento’, 100.00),
+(4, ‘Incentivo’, 300.00),
+(5, ‘Comisión’, 150.50);
+### Datos Tabla: Pago Total
+``
+INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
+(1, 4, 1, 3700.00),
+(2, 7, 4, 2300.00),
+(3, 5, 3, 2700.00),
+(4, 8, 4, 1900.00),
+(5, 2, 5, 3849.50);
+``
 ### Datos Tabla: Cargo
 ``INSERT INTO Cargo (ID_Cargo, Nombre, Descripcion) VALUES
 (1, 'Gerente', 'Encargado de la dirección de alguna área.'),
