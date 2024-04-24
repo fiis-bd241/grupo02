@@ -187,8 +187,6 @@ FOREIGN KEY(ID_Supervisor) REFERENCES Supervisor(ID_Supervisor)
 ### Entidad: Licencia
 ``CREATE TABLE Licencia(
 ID_Licencia INTEGER primary key,
-ID_Empleado INTEGER ,
-ID_Supervisor INTEGER,
 Tipo VARCHAR(64),
 Estado CHAR,
 Fecha_inicio DATE,
