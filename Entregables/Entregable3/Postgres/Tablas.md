@@ -918,27 +918,28 @@ VALUES ('00240001', '00200001', 'En proceso', 'Gerente de Producción', 'Lunes a
        ('00240020', '00200020', 'Pendiente', 'Supervisor de Logística y Distribución', 'Lunes a Viernes de 9am a 6pm', '2024-05-09', 120, 120);``
 
 ### Datos Tabla: Perfil
-``INSERT INTO Perfil (ID_Perfil, ID_Vacante, Conocimiento_Req, Años_Exp, Titulo_Requerido)
-VALUES (1, '00200001', 'Experiencia en producción', 5, 'Licenciatura en Ingeniería Industrial'),
-       (2, '00200002', 'Manejo de inventarios', 3, 'Técnico en Logística'),
-       (3, '00200003', 'Control de calidad', 4, 'Ingeniero en Alimentos'),
-       (4, '00200004', 'Supervisión de personal', 2, 'Diplomado en Gestión de Equipos'),
-       (5, '00200005', 'Procesamiento de frutas', 3, 'Técnico en Procesamiento de Alimentos'),
-       (6, '00200006', 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'),
-       (7, '00200007', 'Manejo de inventarios', 2, 'Técnico en Logística'),
-       (8, '00200008', 'Marketing digital', 3, 'Licenciatura en Marketing'),
-       (9, '00200009', 'Contabilidad financiera', 4, 'Licenciatura en Contaduría Pública'),
-       (10, '00200010', 'Gestión de personal', 3, 'Licenciatura en Recursos Humanos'),
-       (11, '00200011', 'Mantenimiento de equipos', 5, 'Ingeniero Mecánico'),
-       (12, '00200012', 'Normativas de seguridad', 4, 'Diplomado en Seguridad Industrial'),
-       (13, '00200013', 'Gestión ambiental', 3, 'Ingeniero Ambiental'),
-       (14, '00200014', 'Producción de frutas', 5, 'Ingeniero Agrónomo'),
-       (15, '00200015', 'Recepción y almacenamiento', 2, 'Técnico en Almacenamiento'),
-       (16, '00200016', 'Control de calidad', 3, 'Técnico en Control de Calidad'),
-       (17, '00200017', 'Producción de mermelada', 4, 'Ingeniero en Alimentos'),
-       (18, '00200018', 'Producción de frutas confitadas', 3, 'Técnico en Procesamiento de Alimentos'),
-       (19, '00200019', 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'),
-       (20, '00200020', 'Logística y distribución', 4, 'Licenciatura en Logística');``
+``INSERT INTO Perfil (ID_Perfil, Conocimiento_Req, Años_Exp, Titulo_Requerido)
+VALUES 
+(1, 'Experiencia en producción', 5, 'Licenciatura en Ingeniería Industrial'),
+(2, 'Manejo de inventarios', 3, 'Técnico en Logística'),
+(3, 'Control de calidad', 4, 'Ingeniero en Alimentos'),
+(4, 'Supervisión de personal', 2, 'Diplomado en Gestión de Equipos'),
+(5, 'Procesamiento de frutas', 3, 'Técnico en Procesamiento de Alimentos'),
+(6, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'),
+(7, 'Manejo de inventarios', 2, 'Técnico en Logística'),
+(8, 'Marketing digital', 3, 'Licenciatura en Marketing'),
+(9, 'Contabilidad financiera', 4, 'Licenciatura en Contaduría Pública'),
+(10, 'Gestión de personal', 3, 'Licenciatura en Recursos Humanos'),
+(11, 'Mantenimiento de equipos', 5, 'Ingeniero Mecánico'),
+(12, 'Normativas de seguridad', 4, 'Diplomado en Seguridad Industrial'),
+(13, 'Gestión ambiental', 3, 'Ingeniero Ambiental'),
+(14, 'Producción de frutas', 5, 'Ingeniero Agrónomo'),
+(15, 'Recepción y almacenamiento', 2, 'Técnico en Almacenamiento'),
+(16, 'Control de calidad', 3, 'Técnico en Control de Calidad'),
+(17, 'Producción de mermelada', 4, 'Ingeniero en Alimentos'),
+(18, 'Producción de frutas confitadas', 3, 'Técnico en Procesamiento de Alimentos'),
+(19, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'),
+(20, 'Logística y distribución', 4, 'Licenciatura en Logística');``
        
 ### Datos Tabla: Entrevista
 ``INSERT INTO Entrevista (ID_Entrevista, Fecha_Eva, Hora_entrevista, Resp_Eva, Resultado_eva, ID_Solicitud, ID_Evaluacion)
