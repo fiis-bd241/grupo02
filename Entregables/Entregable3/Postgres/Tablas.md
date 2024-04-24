@@ -365,8 +365,10 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
     Resultado_eva VARCHAR(50),
     ID_Solicitud VARCHAR(8),
     ID_Evaluacion INT,
+    ID_Empleado INT,
     FOREIGN KEY (ID_Solicitud) REFERENCES Solicitud_Empleo(ID_solicitud),
-    FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion)
+    FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion),
+    FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );``
 
 ### Entidad: Evaluacion
@@ -942,27 +944,28 @@ VALUES
 (20, 'Logística y distribución', 4, 'Licenciatura en Logística');``
        
 ### Datos Tabla: Entrevista
-``INSERT INTO Entrevista (ID_Entrevista, Fecha_Eva, Hora_entrevista, Resp_Eva, Resultado_eva, ID_Solicitud, ID_Evaluacion)
-VALUES (1, '2024-04-20', '09:00', 'Aprobado', 'Oferta de empleo extendida', '00240001', 1),
-       (2, '2024-04-21', '09:30', 'En proceso', 'Entrevista pendiente', '00240002', 2),
-       (3, '2024-04-22', '10:00', 'Rechazado', 'No cumple con requisitos mínimos', '00240003', 3),
-       (4, '2024-04-23', '10:30', 'En proceso', 'Entrevista pendiente', '00240004', 4),
-       (5, '2024-04-24', '11:00', 'Rechazado', 'No cumple con perfil solicitado', '00240005', 5),
-       (6, '2024-04-25', '11:30', 'Aprobado', 'Oferta de empleo extendida', '00240006', 6),
-       (7, '2024-04-26', '12:00', 'En proceso', 'Entrevista pendiente', '00240007', 7),
-       (8, '2024-04-27', '12:30', 'Rechazado', 'No cumple con requisitos mínimos', '00240008', 8),
-       (9, '2024-04-28', '13:00', 'En proceso', 'Entrevista pendiente', '00240009', 9),
-       (10, '2024-04-29', '13:30', 'Rechazado', 'No cumple con perfil solicitado', '00240010', 10),
-       (11, '2024-04-30', '14:00', 'Aprobado', 'Oferta de empleo extendida', '00240011', 11),
-       (12, '2024-05-01', '14:30', 'En proceso', 'Entrevista pendiente', '00240012', 12),
-       (13, '2024-05-02', '15:00', 'Rechazado', 'No cumple con requisitos mínimos', '00240013', 13),
-       (14, '2024-05-03', '15:30', 'En proceso', 'Entrevista pendiente', '00240014', 14),
-       (15, '2024-05-04', '16:00', 'Rechazado', 'No cumple con perfil solicitado', '00240015', 15),
-       (16, '2024-05-05', '16:30', 'Aprobado', 'Oferta de empleo extendida', '00240016', 16),
-       (17, '2024-05-06', '17:00', 'En proceso', 'Entrevista pendiente', '00240017', 17),
-       (18, '2024-05-07', '17:30', 'Rechazado', 'No cumple con requisitos mínimos', '00240018', 18),
-       (19, '2024-05-08', '18:00', 'En proceso', 'Entrevista pendiente', '00240019', 19),
-       (20, '2024-05-09', '18:30', 'Rechazado', 'No cumple con perfil solicitado', '00240020', 20);``
+``INSERT INTO Entrevista (ID_Entrevista, Fecha_Eva, Hora_entrevista, Resp_Eva, Resultado_eva, ID_Solicitud, ID_Evaluacion, ID_Empleado) 
+VALUES 
+(1, '2024-04-20', '09:00', 'Aprobado', 'Oferta de empleo extendida', '00240001', 1, 20240014), 
+(2, '2024-04-21', '09:30', 'En proceso', 'Entrevista pendiente', '00240002', 2, 20240014), 
+(3, '2024-04-22', '10:00', 'Rechazado', 'No cumple con requisitos mínimos', '00240003', 3, 20240015), 
+(4, '2024-04-23', '10:30', 'En proceso', 'Entrevista pendiente', '00240004', 4, 20240014), 
+(5, '2024-04-24', '11:00', 'Rechazado', 'No cumple con perfil solicitado', '00240005', 5, 20240014), 
+(6, '2024-04-25', '11:30', 'Aprobado', 'Oferta de empleo extendida', '00240006', 6, 20240014), 
+(7, '2024-04-26', '12:00', 'En proceso', 'Entrevista pendiente', '00240007', 7, 20240014), 
+(8, '2024-04-27', '12:30', 'Rechazado', 'No cumple con requisitos mínimos', '00240008', 8, 20240014), 
+(9, '2024-04-28', '13:00', 'En proceso', 'Entrevista pendiente', '00240009', 9, 20240014), 
+(10, '2024-04-29', '13:30', 'Rechazado', 'No cumple con perfil solicitado', '00240010', 10, 20240015), 
+(11, '2024-04-30', '14:00', 'Aprobado', 'Oferta de empleo extendida', '00240011', 11, 20240013), 
+(12, '2024-05-01', '14:30', 'En proceso', 'Entrevista pendiente', '00240012', 12, 20240014), 
+(13, '2024-05-02', '15:00', 'Rechazado', 'No cumple con requisitos mínimos', '00240013', 13, 20240015), 
+(14, '2024-05-03', '15:30', 'En proceso', 'Entrevista pendiente', '00240014', 14, 20240015), 
+(15, '2024-05-04', '16:00', 'Rechazado', 'No cumple con perfil solicitado', '00240015', 15, 20240014), 
+(16, '2024-05-05', '16:30', 'Aprobado', 'Oferta de empleo extendida', '00240016', 16, 20240014), 
+(17, '2024-05-06', '17:00', 'En proceso', 'Entrevista pendiente', '00240017', 17, 20240013), 
+(18, '2024-05-07', '17:30', 'Rechazado', 'No cumple con requisitos mínimos', '00240018', 18, 20240014), 
+(19, '2024-05-08', '18:00', 'En proceso', 'Entrevista pendiente', '00240019', 19, 20240015), 
+(20, '2024-05-09', '18:30', 'Rechazado', 'No cumple con perfil solicitado', '00240020', 20, 20240013);``
        
 ### Datos Tabla: Evaluacion
 ``INSERT INTO Evaluacion (ID_Evaluacion, Competencias_Evaluadas, Result_Evaluacion, Duracion_Evaluacion)
