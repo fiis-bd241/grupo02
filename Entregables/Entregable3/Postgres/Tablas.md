@@ -261,12 +261,14 @@ INSERT INTO Sueldo (ID_Sueldo, Monto_Salario_Base) VALUES
 (8, 1500.00);
 ``
 ### Datos Tabla: Modificación
+``
 INSERT INTO Modificacion (ID_Modificacion, Tipo_Modificacion, Monto_Modificacion) VALUES
 (1, ‘Aumento’, 500.00),
 (2, ‘Bonificación’, 200.00),
 (3, ‘Descuento’, 100.00),
 (4, ‘Incentivo’, 300.00),
 (5, ‘Comisión’, 150.50);
+``
 ### Datos Tabla: Pago Total
 ``
 INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
