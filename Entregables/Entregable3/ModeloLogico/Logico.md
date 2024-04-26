@@ -85,6 +85,7 @@
 |  ID_Licencia |                 Identificador único de la licencia.                 | 999999 |   Int  | NOT NULL |
 |    Tipo    | Tipo de la licencia, por ejemplo, aprobada, pendiente, rechazada. |    AAA   |   String   | NOT NULL |
 |  Observación |      Observaciones o comentarios relacionados con la licencia.      |    AAA   |   String   | NOT NULL |
+|    ID_Supervisor    | Código del supervisor encargado de evaluar la licencia |    999999   |   Int   | NOT NULL |
 |     Fecha    |                        Fecha de la licencia.                        |  AAAMMDD |    DATE    | NOT NULL |
 | Hora_Inicio |                   Hora de entrada de la licencia.                   | HH:MM:SS |    TIME    | NOT NULL |
 |  Hora_Fin |                    Hora de salida de la licencia.                   | HH:MM:SS |    TIME    | NOT NULL |
@@ -95,6 +96,7 @@
 | ID_Permiso |                  Identificador único del permiso                  | 999999 |   Int  | NOT NULL |
 |    Tipo    | Tipo de permiso, por ejemplo, médico, personal, capacitación, etc |   AAA   |   String   | NOT NULL |
 |   Motivo   |             Motivo por el cual se solicita el permiso             |   AAA   |   String   | NOT NULL |
+|    ID_Supervisor    | Código del supervisor encargado de evaluar el permiso |    999999   |   Int   | NOT NULL |
 |  Duración  |                        Duración del permiso                       | 999999 |   Int  | NOT NULL |
 |   Estado   |  Estado del permiso, por ejemplo, aprobado, pendiente, rechazado  |   AAA   |   String   | NOT NULL |
 ### Entidad: Cese
@@ -103,6 +105,7 @@
 |:-----------------:|:-------------------------------------------------------:|:--------:|:----------:|:--------:|
 |      ID_Cese      |            Código único del registro de cese            | 999999 |   Int  | NOT NULL |
 |    Estado_Cese    | Estado del cese (voluntario, despido, jubilación, etc.) |    AAA   |   String   | NOT NULL |
+|    ID_Supervisor    | Código del supervisor encargado del cese |    999999   |   Int   | NOT NULL |
 | Fecha_Inicio_Cese |                 Fecha de inicio del cese                | AAAAMMDD |    DATE    | NOT NULL |
 ### Entidad: Cuestionario_Salida
 #### Descripción: Almacena la información relacionada con las renuncias de los empleados.
