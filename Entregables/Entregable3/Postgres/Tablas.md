@@ -123,7 +123,20 @@ FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese)
 ``CREATE TABLE Programa_Capacitador(
 ID_Programa_C INTEGER primary key,
 Fecha_Inicio DATE,
-Fecha_Fin DATE);
+Fecha_Fin DATE,
+Motivo VARCHAR(256),
+ID_Departamento
+FOREIGN KEY(ID_Departamento) REFERENCES Departamento(ID_Departamento)
+);
+``
+### Entidad: Lista_Matricula
+``CREATE TABLE Lista_Matricula(
+ID_Programa_C INTEGER ,
+ID_Empleado INTEGER,
+Estado_Matricula VARCHAR(256)
+FOREIGN KEY(ID_Programa_C) REFERENCES Programa_Capacitador(ID_Programa_C)
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);
 ``
 
 ### Entidad: Sesion
@@ -147,13 +160,6 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
 
-### Entidad: Instructor
-``CREATE TABLE Instructor(
-ID_Instructor INTEGER primary key,
-ID_Empleado INTEGER,
-FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-);``
-
 ### Entidad: Evaluacion_Sesion
 ``CREATE TABLE Evaluacion_Sesion(
 ID_Evaluacion INTEGER,
@@ -167,7 +173,7 @@ ID_Evaluacion INTEGER,
 Duracion_Evaluacion INTEGER,
 Hora TIME,
 ID_Instructor INTEGER,
-FOREIGN KEY(ID_Instructor) REFERENCES Instructor(ID_Instructor)
+FOREIGN KEY(ID_Instructor) REFERENCES Empleado(ID_Empleado)
 );
 ``
 
