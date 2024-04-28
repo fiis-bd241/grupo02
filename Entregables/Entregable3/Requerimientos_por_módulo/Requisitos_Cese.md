@@ -44,4 +44,6 @@
 |            6             | Guarda el registro.                                                                                                                              
 #### Prototipo
 
-![ ](../Front/RegistrarCese.png)
+![alt text](../Front/RegistroCese1.png)
+![alt text](../Front/RegistroCese2.png)
+![alt text](../Front/RegistroCese3.png)
