@@ -608,7 +608,7 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (7, '2023-10-01', '2023-12-31','Gestión Logística y Distribución de Productos Frescos', 7),
 (8, '2024-01-14', '2024-02-28','Estrategias de Marketing para Productos Agroalimentarios', 8);
 ``
-### Datos Tabla: Programa-Capacitador
+### Datos Tabla: Lista_Matricula
 ``INSERT INTO Lista_Matricula VALUES
 (1,'20230011','Matriculado'),
 (1,'20240006','Matriculado'),
