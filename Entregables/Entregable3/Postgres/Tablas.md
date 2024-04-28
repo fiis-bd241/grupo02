@@ -593,17 +593,20 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (20200034, 'Antonia', 'Hernández', 912345758, 'Av. Los Lirios 456, Lima', 'antonia.hernandez@gmail.com', '1983-07-25', 1, 'Casado', 12, 4),
 (20200037, 'Felipe', 'Martínez', 912345761, 'Av. Las Azucenas 567, Lima', 'felipe.martinez@gmail.com', '1984-02-10', 0, 'Soltero', 13, 4);``
 
-### Datos Tabla: Instructor
-``INSERT INTO Instructor(ID_Instructor, ID_Empleado) VALUES
-(1,20210003), (2,20210006), (3,20210008), (4,20210009), (5,20230006), (6,20230007), (7,20230012), (8,20230013), (9,20220004), (10,20220005), (11,20240027);
-``
 ### Datos Tabla: Supervisor
 ``INSERT INTO supervisor VALUES
 (1, 20230007), (2, 20200004), (3, 20200006), (4, 20200005), (5, 20200009), (6, 20200007), (7, 20200008), (8, 20200010), (9, 20220005), (10, 20230013), (11, 20200016), (12, 20200019), (13, 20200022), (14, 20200023), (15, 20210009), (16, 20200025), (17, 20200026), (18, 20200028), (19, 20200029), (20, 20200030), (21, 20200031), (22, 20200034), (23, 20200037);
 ``
 ### Datos Tabla: Programa-Capacitador
-``INSERT INTO Programa_Capacitador(ID_Programa_C,Fecha_Inicio,Fecha_Fin) VALUES
-(1, '2021-01-01', '2021-02-15'), (2, '2021-03-15', '2021-05-01'), (3, '2021-08-01', '2021-11-30'), (4, '2022-01-15', '2022-02-15'), (5, '2022-09-15', '2022-11-30'), (6, '2023-03-01', '2023-05-31'), (7, '2023-10-01', '2023-12-31'), (8, '2024-01-14', '2024-02-28');
+``INSERT INTO Programa_Capacitador(ID_Programa_C,Fecha_Inicio,Fecha_Fin,Motivo,ID_Departamento) VALUES
+(1, '2021-01-01', '2021-02-15','Técnicas de Cultivo de Frutas Tropicales',1), 
+(2, '2021-03-15', '2021-05-01','Manejo y Almacenamiento de Productos Perecederos', 2),
+(3, '2021-08-01', '2021-11-30','Control de Calidad en la Industria Alimentaria', 3),
+(4, '2022-01-15', '2022-02-15','Elaboración de Mermeladas Artesanales', 4),
+(5, '2022-09-15', '2022-11-30','Proceso de Confitado de Frutas', 5),
+(6, '2023-03-01', '2023-05-31','Innovación y Desarrollo de Nuevos Productos', 6),
+(7, '2023-10-01', '2023-12-31','Gestión Logística y Distribución de Productos Frescos', 7),
+(8, '2024-01-14', '2024-02-28','Estrategias de Marketing para Productos Agroalimentarios', 8);
 ``
 ### Datos Tabla: Sesión
 ``INSERT INTO Sesion(ID_Sesion,Estado,Fecha,Hora,ID_Programa_C) VALUES
@@ -639,8 +642,8 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 ``
 ### Datos Tabla: Evaluación-Capacitación
 ``INSERT INTO Evaluacion_Capacitacion VALUES
-(1,1,'19:00:00',20240027),(2,1,'19:00:00',1),(3,1,'19:00:00',1),(4,1,'19:00:00',1),(5,1,'19:00:00',1),
-(6,1,'19:00:00',1),(7,1,'19:00:00',1);
+(1,1,'19:00:00',20210003),(2,1,'19:00:00',20210003),(3,1,'19:00:00',20210003),(4,1,'19:00:00',20210003),(5,1,'19:00:00',20210003),
+(6,1,'19:00:00',20210003),(7,1,'19:00:00',20210003);
 ``
 ### Datos Tabla: Evaluación-Sesión
 ``INSERT INTO Evaluacion_Sesion VALUES
