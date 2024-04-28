@@ -73,11 +73,6 @@
 |     Fecha     |       Fecha en la que se registró la asistencia       |  AAAMMDD |    DATE    | NOT NULL |
 |  Hora_Entrada |             Hora de entrada del empleado             | HH:MM:SS |    TIME    | NOT NULL |
 |  Hora_Salida  |              Hora de salida del empleado             | HH:MM:SS |    TIME    | NOT NULL |
-### Entidad: Supervisor
-#### Descripción: Trabajador que dirige las actividades de otros.
-|    Atributo   |         Descripción         | Formato | Naturaleza |  Valores |
-|:-------------:|:---------------------------:|:-------:|:----------:|:--------:|
-| ID_Supervisor | Código único del supervisor | 999999 |   Int  | NOT NULL |
 ### Entidad: Licencia
 #### Descripción: Almacena la información relacionada con las licencias o permisos de los empleados.
 |   Atributo   |                             Descripción                            |  Formato | Naturaleza |  Valores |
@@ -104,9 +99,17 @@
 |      Atributo     |                       Descripción                       |  Formato | Naturaleza |  Valores |
 |:-----------------:|:-------------------------------------------------------:|:--------:|:----------:|:--------:|
 |      ID_Cese      |            Código único del registro de cese            | 999999 |   Int  | NOT NULL |
-|    Estado_Cese    | Estado del cese (voluntario, despido, jubilación, etc.) |    AAA   |   String   | NOT NULL |
+|    Tipo_Cese    | Tipo de cese (voluntario, despido, jubilación, etc.) |  TAB1   |  CHAR(1)  | NOT NULL |
 |    ID_Supervisor    | Código del supervisor encargado del cese |    999999   |   Int   | NOT NULL |
 | Fecha_Inicio_Cese |                 Fecha de inicio del cese                | AAAAMMDD |    DATE    | NOT NULL |
+| Motivo_Cese |                 Descripción corta del motivo del cese         | X(64) |    Varchar(64)    | NOT NULL |
+##### TAB 1:
+| CODIGO | SIGNIFICADO         |
+|--------|---------------------|
+|      D | Despido             |
+|      R | Renuncia            |
+|      C | Término de contrato |
+|      J | Juvilación          |
 ### Entidad: Cuestionario_Salida
 #### Descripción: Almacena la información relacionada con las renuncias de los empleados.
 |      Atributo      |                       Descripción                       | Formato | Naturaleza |  Valores |
@@ -118,7 +121,8 @@
 | Atributo |                             Descripción                            | Formato | Naturaleza |  Valores |
 |:--------:|:------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | ID_Pregunta |                  Identificador único de la pregunta.                  | 999999 |   Int  | NOT NULL |
-|   Pregunta_Salida   | Tipo de pregunta salida en el cuestionario. |   AAA   |   String   | NOT NULL |
+|   Pregunta_Salida   | Pregunta salida en el cuestionario. |   AAA   |   String   | NOT NULL |
+|   Respuesta_Salida   | Respuesta de la pregunta salida en el cuestionario. |   AAA   |   String   | NOT NULL |
 ### Entidad: Beneficios_Cese
 #### Descripción: Almacena la información relacionada con los beneficios de cese que se designa a un empleado.
 |   Atributo   |                                  Descripción                                 | Formato | Naturaleza |  Valores |
