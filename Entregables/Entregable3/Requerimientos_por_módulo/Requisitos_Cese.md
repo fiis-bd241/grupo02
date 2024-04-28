@@ -24,11 +24,7 @@
    - El sistema debe mantener un historial completo de todos los ceses de empleados, incluyendo detalles como fechas, motivos y trámites realizados.
    - Debe ser posible acceder a esta información para consultas futuras y análisis de tendencias.
 
-7. **Informes y Estadísticas:**
-   - Deben generarse informes periódicos sobre los ceses de personal, proporcionando estadísticas relevantes sobre los motivos de salida, tasas de rotación y otros indicadores clave.
-   - Estos informes pueden ayudar a identificar áreas problemáticas y tomar medidas correctivas para mejorar la retención de empleados.
-
-8. **Seguimiento de Indicadores:**
+7. . **Seguimiento de Indicadores:**
    - Debe ser posible realizar un seguimiento de indicadores relacionados con los ceses de personal, como el tiempo promedio de permanencia en la empresa y la frecuencia de ceses por departamento o área.
    - Estos indicadores pueden ayudar a identificar patrones y tendencias que requieran atención especial.
 
