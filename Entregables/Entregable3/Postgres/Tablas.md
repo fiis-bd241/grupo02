@@ -176,6 +176,15 @@ ID_Instructor INTEGER,
 FOREIGN KEY(ID_Instructor) REFERENCES Empleado(ID_Empleado)
 );
 ``
+### Entidad: Evaluacion_Empleado
+``CREATE TABLE Evaluacion_Empleado(
+ID_Evaluacion INTEGER,
+ID_Empleado INTEGER,
+Resultado VARCHAR(64),
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+FOREIGN KEY(ID_Evaluacion) REFERENCES Evaluacion_Capacitacion(ID_Evaluacion)
+);
+``
 
 ### Entidad: Permiso
 ``CREATE TABLE Permiso(
