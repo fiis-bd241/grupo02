@@ -7,27 +7,27 @@
 |     Atributo     |                  Descripción                  |   Formato   | Naturaleza |  Valores |
 |:----------------:|:---------------------------------------------:|:-----------:|:----------:|:--------:|
 |    ID_Empleado   |              Código del empleado              |  99999999   |     Int    | NOT NULL |
-|  Nombre_Empleado |          Nombre completo del empleado         |     AAA     |   String   | NOT NULL |
+|  Nombre_Empleado |          Nombre completo del empleado         |     AAA     |   VARCHAR(64)   | NOT NULL |
 |       Tipo       |                Tipo de empleado               |     AAA     |   Varchar  | NOT NULL |
 |     Teléfono     |        Número de teléfono del empleado        | 999 999 999 |    Char    | NOT NULL |
 |     Dirección    |      Dirección de residencia del empleado     |   999-AAA   |   Varchar  | NOT NULL |
 |      Correo      | Dirección del correo electrónico del empleado |   999-AAA   |   Varchar  | NOT NULL |
 | Fecha_Nacimineto |        Fecha de nacimiento del empleado       |     999     |     Int    | NOT NULL |
-|   Estado_Civil   |           Estado civil del empleado           |     AAA     |   String   | NOT NULL |
+|   Estado_Civil   |           Estado civil del empleado           |     AAA     |   VARCHAR(64)   | NOT NULL |
 |  Cantidad_Hijos  |          Número de hijos del empleado         |      99     |  Small-Int |  (0-99)  |
 ### Entidad: Cargo
 #### Descripción: Puesto de trabajo que ejerce el empleado.
 |     Atributo    |          Descripción          | Formato | Naturaleza |  Valores |
 |:---------------:|:-----------------------------:|:-------:|:----------:|:--------:|
 |      ID_Cargo     |      Código único del cargo     | 9999 |   Int  | NOT NULL |
-| Descripción_Cargo | Descripción detallada del cargo |   AAA   |   String   | NOT NULL |
-|    Nombre_Cargo   |         Nombre del cargo        |   AAA   |   String   | NOT NULL |
+| Descripción_Cargo | Descripción detallada del cargo |   AAA   |   VARCHAR(64)   | NOT NULL |
+|    Nombre_Cargo   |         Nombre del cargo        |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Departamento
 #### Descripción: División administrativa de la empresa que agrupa a un conjunto de empleados.
 |      Atributo     |                     Descripción                    | Formato | Naturaleza |  Valores |
 |:-----------------:|:--------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Departamento  |            Código único del departamento           | 9999 |   Int  | NOT NULL |
-|       Nombre      |               Nombre del departamento              |   AAA   |   String   | NOT NULL |
+|       Nombre      |               Nombre del departamento              |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Sueldo
 #### Descripción: Información sobre el salario del empleado.
 |      Atributo      |                Descripción               | Formato | Naturaleza |  Valores |
@@ -40,9 +40,9 @@
 |:-------------:|:-------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Cuenta_B  |         Código único de la cuenta bancaria        | 999999 |   Int  | NOT NULL |
 | Número_Cuenta |            Número de la cuenta bancaria           |   9999  |   Varchar  | NOT NULL |
-|  Nombre_Banco |   Nombre del banco donde se encuentra la cuenta   |   AAA   |   String   | NOT NULL |
-|  Tipo_Cuenta  | Tipo de cuenta bancaria (ahorro, corriente, etc.) |   AAA   |   String   | NOT NULL |
-|     Moneda    |     Moneda en la que está denominada la cuenta    |   AAA   |   String   | NOT NULL |
+|  Nombre_Banco |   Nombre del banco donde se encuentra la cuenta   |   AAA   |   VARCHAR(64)   | NOT NULL |
+|  Tipo_Cuenta  | Tipo de cuenta bancaria (ahorro, corriente, etc.) |   AAA   |   VARCHAR(64)   | NOT NULL |
+|     Moneda    |     Moneda en la que está denominada la cuenta    |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Nomina
 #### Descripción: Registro de los pagos realizados a los empleados.
 |      Atributo     |                  Descripción                 |  Formato | Naturaleza |  Valores |
@@ -55,7 +55,7 @@
 |   Atributo  |             Descripción             |  Formato | Naturaleza |  Valores |
 |:-----------:|:-----------------------------------:|:--------:|:----------:|:--------:|
 |   ID_Modificacion  |  Código único de las modificaciones de nómina | 999999 |   Int  | NOT NULL |
-|  Tipo_Modificacion | Tipo de concepto (pago o deducción) |    AAA   |   String   | NOT NULL |
+|  Tipo_Modificacion | Tipo de concepto (pago o deducción) |    AAA   |   VARCHAR(64)   | NOT NULL |
 |    Monto_Modificacion    |          Monto de la modificación         |  999.99  |   Double   |  [0.0;+> |
 ### Entidad: Pago Total
 #### Descripción: Información sobre el pago total que se le asignará en la la nómina de los empleados.
@@ -68,8 +68,8 @@
 |    Atributo   |                      Descripción                      |  Formato | Naturaleza |  Valores |
 |:-------------:|:-----------------------------------------------------:|:--------:|:----------:|:--------:|
 | ID_Asistencia |   Identificador único de cada registro de asistencia  | 999999 |   Int  | NOT NULL |
-|     Estado    |   Estado de la asistencia (presente, ausente, etc.)   |    AAA   |   String   | NOT NULL |
-|  Observación  | Observaciones o notas adicionales sobre la asistencia |    AAA   |   String   | NOT NULL |
+|     Estado    |   Estado de la asistencia (presente, ausente, etc.)   |    AAA   |   VARCHAR(64)   | NOT NULL |
+|  Observación  | Observaciones o notas adicionales sobre la asistencia |    AAA   |   VARCHAR(64)   | NOT NULL |
 |     Fecha     |       Fecha en la que se registró la asistencia       |  AAAMMDD |    DATE    | NOT NULL |
 |  Hora_Entrada |             Hora de entrada del empleado             | HH:MM:SS |    TIME    | NOT NULL |
 |  Hora_Salida  |              Hora de salida del empleado             | HH:MM:SS |    TIME    | NOT NULL |
@@ -78,8 +78,8 @@
 |   Atributo   |                             Descripción                            |  Formato | Naturaleza |  Valores |
 |:------------:|:------------------------------------------------------------------:|:--------:|:----------:|:--------:|
 |  ID_Licencia |                 Identificador único de la licencia.                 | 999999 |   Int  | NOT NULL |
-|    Tipo    | Tipo de la licencia, por ejemplo, aprobada, pendiente, rechazada. |    AAA   |   String   | NOT NULL |
-|  Observación |      Observaciones o comentarios relacionados con la licencia.      |    AAA   |   String   | NOT NULL |
+|    Tipo    | Tipo de la licencia, por ejemplo, aprobada, pendiente, rechazada. |    AAA   |   VARCHAR(64)   | NOT NULL |
+|  Observación |      Observaciones o comentarios relacionados con la licencia.      |    AAA   |   VARCHAR(64)   | NOT NULL |
 |    ID_Supervisor    | Código del supervisor encargado de evaluar la licencia |    999999   |   Int   | NOT NULL |
 |     Fecha    |                        Fecha de la licencia.                        |  AAAMMDD |    DATE    | NOT NULL |
 | Hora_Inicio |                   Hora de entrada de la licencia.                   | HH:MM:SS |    TIME    | NOT NULL |
@@ -89,11 +89,11 @@
 |  Atributo  |                            Descripción                            | Formato | Naturaleza |  Valores |
 |:----------:|:-----------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | ID_Permiso |                  Identificador único del permiso                  | 999999 |   Int  | NOT NULL |
-|    Tipo    | Tipo de permiso, por ejemplo, médico, personal, capacitación, etc |   AAA   |   String   | NOT NULL |
-|   Motivo   |             Motivo por el cual se solicita el permiso             |   AAA   |   String   | NOT NULL |
+|    Tipo    | Tipo de permiso, por ejemplo, médico, personal, capacitación, etc |   AAA   |   VARCHAR(64)   | NOT NULL |
+|   Motivo   |             Motivo por el cual se solicita el permiso             |   AAA   |   VARCHAR(64)   | NOT NULL |
 |    ID_Supervisor    | Código del supervisor encargado de evaluar el permiso |    999999   |   Int   | NOT NULL |
 |  Duración  |                        Duración del permiso                       | 999999 |   Int  | NOT NULL |
-|   Estado   |  Estado del permiso, por ejemplo, aprobado, pendiente, rechazado  |   AAA   |   String   | NOT NULL |
+|   Estado   |  Estado del permiso, por ejemplo, aprobado, pendiente, rechazado  |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Cese
 #### Descripción: Retiro de un trabajador de su cargo en la empresa.
 |      Atributo     |                       Descripción                       |  Formato | Naturaleza |  Valores |
@@ -121,15 +121,16 @@
 | Atributo |                             Descripción                            | Formato | Naturaleza |  Valores |
 |:--------:|:------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | ID_Pregunta |                  Identificador único de la pregunta.                  | 999999 |   Int  | NOT NULL |
-|   Pregunta_Salida   | Pregunta salida en el cuestionario. |   AAA   |   String   | NOT NULL |
-|   Respuesta_Salida   | Respuesta de la pregunta salida en el cuestionario. |   AAA   |   String   | NOT NULL |
+|   Pregunta_Salida   | Pregunta salida en el cuestionario. |   X(16)   |   VARCHAR(64)   | NOT NULL |
+|   Respuesta_Salida   | Respuesta de la pregunta salida en el cuestionario. |   TAB2   |      | NOT NULL |
 ### Entidad: Beneficios_Cese
 #### Descripción: Almacena la información relacionada con los beneficios de cese que se designa a un empleado.
 |   Atributo   |                                  Descripción                                 | Formato | Naturaleza |  Valores |
 |:------------:|:----------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Beneficio |                  Código de identificación único del beneficio.                 | 999999 |   Int  | NOT NULL |
-| Tipo_Beneficio | Tipo de beneficio. |   AAA   |   String   | NOT NULL |
+| Tipo_Beneficio | Tipo de beneficio. |   X(16)   |   VARCHAR(16)   | NOT NULL |
 |  Monto_Beneficio |                      Monto de beneficio o descuento que se le asigna.                      |   999.9   |   Double   | NOT NULL |
+
 ### Entidad: Instructor
 #### Descripción: Almacena la información relacionada con los instructores que imparten los programas de capacitación.
 |    Atributo   |           Descripción           | Formato | Naturaleza |  Valores |
@@ -153,7 +154,7 @@
 |  Atributo |                          Descripción                          | Formato | Naturaleza |  Valores |
 |:---------:|:-------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | ID_Sesión |          Identificador único de cada sesión de capacitación.         | 999999 |   Int  | NOT NULL |
-|   Estado  | Estado de la sesión (programada, en curso, finalizada, etc.). |   AAA   |   String   | NOT NULL |
+|   Estado  | Estado de la sesión (programada, en curso, finalizada, etc.). |   AAA   |   VARCHAR(64)   | NOT NULL |
 |  Duración |             Duración de la sesión de capacitación.            |    99   |    Char    | NOT NULL |
 |   Fecha   |     Fecha en la que se realizó la sesión de capacitación.     | AAAMMDD |    DATE    | NOT NULL |
 | Hora_Inicio_Sesión |                   Hora de entrada de la sesión de capacitación.                   | HH:MM:SS |    TIME    | NOT NULL |
@@ -170,18 +171,18 @@
 |    Atributo    |                   Descripción                  | Formato | Naturaleza |  Valores |
 |:--------------:|:----------------------------------------------:|:-------:|:----------:|:--------:|
 |     Id_Vac     |       Identificador único de cada vacante.      | 999999 |   Int  | NOT NULL |
-|  Nivel_Exp_Req | Nivel de experiencia requerido para la vacante. |   AAA   |   String   | NOT NULL |
-|    Ubicación   |             Ubicación de la vacante.            |   AAA   |   String   | NOT NULL |
-|    Benefício   |      Beneficios ofrecidos para la vacante.      |   AAA   |   String   | NOT NULL |
+|  Nivel_Exp_Req | Nivel de experiencia requerido para la vacante. |   AAA   |   VARCHAR(64)   | NOT NULL |
+|    Ubicación   |             Ubicación de la vacante.            |   AAA   |   VARCHAR(64)   | NOT NULL |
+|    Benefício   |      Beneficios ofrecidos para la vacante.      |   AAA   |   VARCHAR(64)   | NOT NULL |
 |     Salario    |          Rango salarial de la vacante.          | 9999.99 |   Double   |  [0.0;+> |
-| Requisitos_Esp |      Requisitos específicos de la vacante.      |   AAA   |   String   | NOT NULL |
+| Requisitos_Esp |      Requisitos específicos de la vacante.      |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Solicitud_Empleo
 #### Descripción: Almacena la información relacionada con las solicitudes de empleo presentadas por los candidatos.
 |     Atributo     |                              Descripción                              | Formato | Naturaleza |  Valores |
 |:----------------:|:---------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |      ID_sol      |            Identificador único de cada solicitud de empleo.            | 999999 |   Int  | NOT NULL |
-|   Est_Solicitud  | Estado actual de la solicitud (en proceso, aceptada, rechazada, etc.). |   AAA   |   String   | NOT NULL |
-| Vacante_aplicada |        Identificador de la vacante a la que el candidato aplicó.       |   AAA   |   String   | NOT NULL |
+|   Est_Solicitud  | Estado actual de la solicitud (en proceso, aceptada, rechazada, etc.). |   AAA   |   VARCHAR(64)   | NOT NULL |
+| Vacante_aplicada |        Identificador de la vacante a la que el candidato aplicó.       |   AAA   |   VARCHAR(64)   | NOT NULL |
 |  Fech_aplicación |                Fecha en la que se presentó la solicitud.               | AAAMMDD |    DATE    | NOT NULL |
 ### Entidad: Entrevista
 #### Descripción: Almacena la información relacionada con las entrevistas realizadas a los candidatos durante el proceso de reclutamiento y selección.
@@ -189,33 +190,33 @@
 |:--------:|:----------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Entrevista  |  Identificador único de cada entrevista para el reclutamiento. | 999999 |   Int  | NOT NULL |
 |       Fecha_Entrevista       |           Fecha en la que se realizó la entrevista.           | AAAMMDD |    DATE    | NOT NULL |
-|       Respuesta_Entrevista       |           Respuestas o resultados de la entrevista.          |  AAA    |   String   | NOT NULL |
+|       Respuesta_Entrevista       |           Respuestas o resultados de la entrevista.          |  AAA    |   VARCHAR(64)   | NOT NULL |
 |     Resultado_Entrevista    | Resultado final de la entrevista. |  99.99  |   Double   | NOT NULL |
 ### Entidad: Evaluación
 #### Descripción: Almacena la información relacionada con la evaluación de los candidatos durante el proceso de reclutamiento y selección.
 |       Atributo       |                          Descripción                         | Formato | Naturaleza |  Valores |
 |:--------------------:|:------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | ID_Eva_Reclutamiento |            Identificador único de cada evaluación.            | 999999 |   Int  | NOT NULL |
-|       Resultado_Evaluación     |           Resultado de la evaluación.          |  AAA    |   String   | NOT NULL |
+|       Resultado_Evaluación     |           Resultado de la evaluación.          |  AAA    |   VARCHAR(64)   | NOT NULL |
 |  Duración_Evaluación |             Duración de la sesión de evaluación.            |    99   |    Char    | NOT NULL |
 ### Entidad: Candidato
 #### Descripción: Almacena la información relacionada con los candidatos que participan en el proceso de reclutamiento y selección.
 |  Atributo |              Descripción              | Formato | Naturaleza |  Valores |
 |:---------:|:-------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Candidato  | Identificador único de cada candidato. | 999999 |   Int  | NOT NULL |
-|   Nombre_Candidato  |          Nombre del candidato.         |   AAA   |   String   | NOT NULL |
-|  Apell_Candidato |         Apellido del candidato.        |   AAA   |   String   | NOT NULL |
+|   Nombre_Candidato  |          Nombre del candidato.         |   AAA   |   VARCHAR(64)   | NOT NULL |
+|  Apell_Candidato |         Apellido del candidato.        |   AAA   |   VARCHAR(64)   | NOT NULL |
 | Fecha_Nac_Candidato |   Fecha de nacimiento del candidato.   | AAAMMDD |    DATE    | NOT NULL |
 |     Dirección_Candidato    |      Dirección de residencia del candidato.     |   999-AAA   |   Varchar  | NOT NULL |
 |      Correo_Candidato      | Dirección del correo electrónico del candidato. |   999-AAA   |   Varchar  | NOT NULL |
 |     Num_Teléfono     |        Número de teléfono del candidato.        | 999 999 999 |    Char    | NOT NULL |
-|  Exp_Lab  |   Experiencia laboral del candidato.   |   AAA   |   String   | NOT NULL |
+|  Exp_Lab  |   Experiencia laboral del candidato.   |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Currículum
 #### Descripción: Información del postulante con sus experiencias y logros (certificados).
 |     Atributo    |               Descripción              |   Formato   | Naturaleza |  Valores |
 |:---------------:|:--------------------------------------:|:-----------:|:----------:|:--------:|
 |  ID_Curriculum  | Identificador único de cada currículum. | 999999 |   Int  | NOT NULL |
-| Grado_Educación |      Nivel educativo del candidato.     |     AAA     |   String   | NOT NULL |
+| Grado_Educación |      Nivel educativo del candidato.     |     AAA     |   VARCHAR(64)   | NOT NULL |
 
 
 
@@ -234,7 +235,7 @@
 |    Atributo   |                              Descripción                              | Formato | Naturaleza |  Valores |
 |:-------------:|:---------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |  ID_Cuestionario  |                   Identificador único del cuestionario.                  | 999999 |   Int  | NOT NULL |
-| Tipo_Cuestionario | Tipo de cuestionario, por ejemplo, de satisfacción, de clima laboral, etc |   AAA   |   String   | NOT NULL |
+| Tipo_Cuestionario | Tipo de cuestionario, por ejemplo, de satisfacción, de clima laboral, etc |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Retroalimentación.
 #### Descripción: Almacena la información relacionada con la charla de retroalimentaciones de los empleados.
 |   Atributo   |              Descripción             |  Formato | Naturaleza |  Valores |
@@ -254,10 +255,10 @@
 |    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
 |:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |   Id_Esp_Rec   |            Identificador único de cada especialista de reclutamiento.           | 999999 |   Int  | NOT NULL |
-|     Nombre     |                    Nombre del especialista de reclutamiento.                    |   AAA   |   String   | NOT NULL |
-|    Apellido    |                   Apellido del especialista de reclutamiento.                   |   AAA   |   String   | NOT NULL |
-| Disponibilidad | Disponibilidad del especialista de reclutamiento para participar en el proceso. |   AAA   |   String   | NOT NULL |
-|  Área_Especial |                     Área de especialización del reclutador.                     |   AAA   |   String   | NOT NULL |
+|     Nombre     |                    Nombre del especialista de reclutamiento.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
+|    Apellido    |                   Apellido del especialista de reclutamiento.                   |   AAA   |   VARCHAR(64)   | NOT NULL |
+| Disponibilidad | Disponibilidad del especialista de reclutamiento para participar en el proceso. |   AAA   |   VARCHAR(64)   | NOT NULL |
+|  Área_Especial |                     Área de especialización del reclutador.                     |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Reunión
 #### Descripción: Almacena datos de la reunión programada
 |    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
@@ -270,15 +271,15 @@
 |    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
 |:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |   Id_Perfil   |            Identificador único de cada perfil requerido para cierto puesto.           | 999999 |   Int  | NOT NULL |
-|     Conocimiento_Req     |                    Nombre del área de dominio necesario para el Cargo.                    |   AAA   |   String   | NOT NULL |
+|     Conocimiento_Req     |                    Nombre del área de dominio necesario para el Cargo.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
 |    Años_Exp    |                   Cantidad de años de experiencia en el puesto.                   |   999   |   INT   | 0<= |
-| Titulo_Requerido | Nombre del título de dominio necesario para el Cargo.  |   AAA   |   String   | NOT NULL |
+| Titulo_Requerido | Nombre del título de dominio necesario para el Cargo.  |   AAA   |   VARCHAR(64)   | NOT NULL |
 ### Entidad: Experiencia_Laboral
 #### Descripción: Descripción de la experiencia laboral del postulante
 |    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
 |:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |   Id_Experiencia   |            Identificador único de cada experiencia de un postulante.           | 999999 |   Int  | NOT NULL |
-|     Nombre_lugar     |                    Nombre del lugar donde trabajó el postulante.                    |   AAA   |   String   | NOT NULL |
+|     Nombre_lugar     |                    Nombre del lugar donde trabajó el postulante.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
 |    Cargo_ejercido    |                   Cargo que ejerció el postulante en dicho lugar.                   |   AAA   |   INT   | 0<= |
 | Tiempo_ejercido | Tiempo ejercido en dicho lugar en meses.  |   999   |   INT   | 0<= |
 ### Entidad: Certificados
@@ -286,7 +287,7 @@
 |    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
 |:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 |   Id_Certificado   |            Identificador único de cada certificado de un postulante.           | 999999 |   Int  | NOT NULL |
-|     Curso_certificado     |                    Nombre del cursó que completó el postulante.                    |   AAA   |   String   | NOT NULL |
+|     Curso_certificado     |                    Nombre del cursó que completó el postulante.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
 |    Nivel_certificado    |                   Nivel de dominio del curso que tomó (Básico, Intermedio o Avanzado).                   |   AAA   |   Varchar   | NOT NULL |
 
 ## Relaciones
