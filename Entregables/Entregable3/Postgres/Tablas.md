@@ -608,6 +608,15 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (7, '2023-10-01', '2023-12-31','Gestión Logística y Distribución de Productos Frescos', 7),
 (8, '2024-01-14', '2024-02-28','Estrategias de Marketing para Productos Agroalimentarios', 8);
 ``
+### Datos Tabla: Programa-Capacitador
+``INSERT INTO Lista_Matricula VALUES
+(1,'20230011','Matriculado'),
+(1,'20240006','Matriculado'),
+(1,'20240024','Matriculado'),
+(1,'20240021','Matriculado'),
+(1,'20240010','Retirado');
+``
+
 ### Datos Tabla: Sesión
 ``INSERT INTO Sesion(ID_Sesion,Estado,Fecha,Hora,ID_Programa_C) VALUES
 (1,'Completa','2021-01-01','17:30:00',1),(2,'Completa','2021-01-08','17:30:00',1),
@@ -656,6 +665,19 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (7,7,'Satisfactorio'),
 (8,8,'Regular'),
 (9,9,'Satisfactorio')
+;
+``
+### Datos Tabla: Evaluación-Empleado
+``INSERT INTO Evaluacion_Empleado VALUES
+(1,20230011,'Satisfactorio'),(1,20240006,'Satisfactorio'), (1,20240024,'Satisfactorio'),(1,20240021,'Satisfactorio'), 
+(2,20230011,'Satisfactorio'),(2,20240006,'Regular'), (2,20240024,'Regular'),(2,20240021,'Deficiente'), 
+(3,20230011,'Deficiente'),(3,20240006,'Regular'), (3,20240024,'Regular'),(3,20240021,'Deficiente'), 
+(4,20230011,'Satisfactorio'),(4,20240006,'Satisfactorio'), (4,20240024,'Regular'),(4,20240021,'Satisfactorio'), 
+(5,20230011,'Regular'),(5,20240006,'Satisfactorio'), (5,20240024,'Satisfactorio'),(5,20240021,'Satisfactorio'),
+(6,20230011,'Regular'),(6,20240006,'Regular'), (6,20240024,'Satisfactorio'),(6,20240021,'Regular'),
+(7,20230011,'Satisfactorio'),(7,20240006,'Satisfactorio'), (7,20240024,'Regular'),(7,20240021,'Satisfactorio'),
+(8,20230011,'Regular'),(8,20240006,'Regular'), (8,20240024,'Regular'),(8,20240021,'Regular'),
+(9,20230011,'Satisfactorio'),(9,20240006,'Satisfactorio'), (9,20240024,'Satisfactorio'),(9,20240021,'Satisfactorio'),
 ;
 ``
 
