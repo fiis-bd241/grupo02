@@ -226,8 +226,6 @@
 |  ID_Curriculum  | Identificador único de cada currículum. | 999999 |   Int  | NOT NULL |
 | Grado_Educación |      Nivel educativo del candidato.     |     AAA     |   VARCHAR(64)   | NOT NULL |
 
-
-
 ### Entidad: Cuestionario
 #### Descripción: Instrumento para evaluar a los trabajadores de distinto tipo.
 |             **Atributo**             |                     **Descripción**                    | **Formato** | **Naturaleza** |           **Valores**          |
