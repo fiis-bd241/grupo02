@@ -123,7 +123,6 @@
 |:--------:|:------------------------------------------------------------------:|:-------:|:----------:|:--------:|
 | ID_Pregunta |                  Identificador único de la pregunta.                  | 999999 |   Int  | NOT NULL |
 |   Pregunta_Salida   | Pregunta salida en el cuestionario. |   X(16)   |   VARCHAR(64)   | NOT NULL |
-|   Respuesta_Salida   | Respuesta de la pregunta salida en el cuestionario. |   TAB2   |      | NOT NULL |
 ### Entidad: Respuesta_Salida
 #### Descripción: Almacena las diferentes preguntas que son parte del cuestionario salida.
 | Atributo |                             Descripción                            | Formato | Naturaleza |  Valores |
