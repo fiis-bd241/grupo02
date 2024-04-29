@@ -125,7 +125,7 @@ ID_Programa_C INTEGER primary key,
 Fecha_Inicio DATE,
 Fecha_Fin DATE,
 Motivo VARCHAR(256),
-ID_Departamento
+ID_Departamento INTEGER,
 FOREIGN KEY(ID_Departamento) REFERENCES Departamento(ID_Departamento)
 );
 ``
@@ -134,7 +134,7 @@ FOREIGN KEY(ID_Departamento) REFERENCES Departamento(ID_Departamento)
 ID_Programa_C INTEGER ,
 ID_Empleado INTEGER,
 Estado_Matricula VARCHAR(256)
-FOREIGN KEY(ID_Programa_C) REFERENCES Programa_Capacitador(ID_Programa_C)
+FOREIGN KEY(ID_Programa_C) REFERENCES Programa_Capacitador(ID_Programa_C),
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
@@ -159,23 +159,26 @@ FOREIGN KEY(ID_Sesion) REFERENCES Sesion(ID_Sesion),
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
-
-### Entidad: Evaluacion_Sesion
-``CREATE TABLE Evaluacion_Sesion(
-ID_Evaluacion INTEGER,
-ID_Sesion INTEGER,
-Resultado VARCHAR(64)
-);``
-
 ### Entidad: Evaluacion_Capacitacion
 ``CREATE TABLE Evaluacion_Capacitacion(
-ID_Evaluacion INTEGER,
+ID_Evaluacion INTEGER primary key,
 Duracion_Evaluacion INTEGER,
 Hora TIME,
 ID_Instructor INTEGER,
 FOREIGN KEY(ID_Instructor) REFERENCES Empleado(ID_Empleado)
 );
 ``
+
+### Entidad: Evaluacion_Sesion
+``CREATE TABLE Evaluacion_Sesion(
+ID_Evaluacion INTEGER,
+ID_Sesion INTEGER,
+Resultado VARCHAR(64)
+FOREIGN KEY(ID_Sesion) REFERENCES Sesion(ID_Sesion),
+FOREIGN KEY(ID_Evaluacion) REFERENCES Evaluacion_Capacitacion(ID_Evaluacion)
+);``
+
+
 ### Entidad: Evaluacion_Empleado
 ``CREATE TABLE Evaluacion_Empleado(
 ID_Evaluacion INTEGER,
@@ -650,9 +653,8 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (7,20230011,'Asistio'),(7,20240006,'Falto'),(7,20240024,'Asistio'),(7,20240021,'Asistio');
 ``
 ### Datos Tabla: Evaluación-Capacitación
-``INSERT INTO Evaluacion_Capacitacion VALUES
-(1,1,'19:00:00',20210003),(2,1,'19:00:00',20210003),(3,1,'19:00:00',20210003),(4,1,'19:00:00',20210003),(5,1,'19:00:00',20210003),
-(6,1,'19:00:00',20210003),(7,1,'19:00:00',20210003);
+``INSERT INTO Evaluacion_Capacitacion VALUES  (1,1,'19:00:00',20210003),(2,1,'19:00:00',20210003),(3,1,'19:00:00',20210003),
+(4,1,'19:00:00',20210003),(5,1,'19:00:00',20210003), (6,1,'19:00:00',20210003),(7,1,'19:00:00',20210003),(8,1,'19:00:00',20210003),(9,1,'19:00:00',20210003);
 ``
 ### Datos Tabla: Evaluación-Sesión
 ``INSERT INTO Evaluacion_Sesion VALUES
