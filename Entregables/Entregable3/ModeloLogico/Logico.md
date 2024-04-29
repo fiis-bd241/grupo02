@@ -228,110 +228,113 @@
 
 
 
-### Entidad: Gerente_RRHH
-#### Descripción: Almacena la información de los gerentes de recursos humanos.
-|      Atributo      |                      Descripción                     |  Formato | Naturaleza |  Valores |
-|:------------------:|:----------------------------------------------------:|:--------:|:----------:|:--------:|
-|     ID_Gerente     | Identificador único del gerente de recursos humanos. | 999999 |   Int  | NOT NULL |
-### Entidad: Especialista
-#### Descripción: Almacena la información de los especialistas en relaciones laborales.
-|       Atributo      |              Descripción             |  Formato | Naturaleza |  Valores |
-|:-------------------:|:------------------------------------:|:--------:|:----------:|:--------:|
-|   ID_Especialista   | Identificador único del especialista. | 999999 |   Int  | NOT NULL |
 ### Entidad: Cuestionario
-#### Descripción: Almacena la información relacionada con los cuestionarios.
-|    Atributo   |                              Descripción                              | Formato | Naturaleza |  Valores |
-|:-------------:|:---------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|  ID_Cuestionario  |                   Identificador único del cuestionario.                  | 999999 |   Int  | NOT NULL |
-| Tipo_Cuestionario | Tipo de cuestionario, por ejemplo, de satisfacción, de clima laboral, etc |   AAA   |   VARCHAR(64)   | NOT NULL |
-### Entidad: Retroalimentación.
-#### Descripción: Almacena la información relacionada con la charla de retroalimentaciones de los empleados.
-|   Atributo   |              Descripción             |  Formato | Naturaleza |  Valores |
-|:------------:|:------------------------------------:|:--------:|:----------:|:--------:|
-|   ID_Retroalimentación |   Identificador único de la charla.   | 999999 |   Int  | NOT NULL |
-| Fecha_Retroalimentación | Fecha en la que se realizó la charla. |  AAAMMDD |    DATE    | NOT NULL |
-|  Hora_Retroalimentación |  Hora en la que se realizó la charla. | HH:MM:SS |    TIME    | NOT NULL |
+#### Descripción: Instrumento para evaluar a los trabajadores de distinto tipo.
+|             **Atributo**             |                     **Descripción**                    | **Formato** | **Naturaleza** |           **Valores**          |
+|:------------------------------------:|:------------------------------------------------------:|:-----------:|:--------------:|:------------------------------:|
+|            ID_Cuestionario           |  Identificador único del cuestionario  |   99999999  |       INT      |     Números enteros únicos     |
+| ID_Especialista_Relaciones_Laborales | Identificador del especialista en relaciones laborales |   99999999  |       INT      |         Números enteros        |
+|           Tipo_Cuestionario          |                  Tipo de cuestionario                  | VARCHAR(15) |      CHAR      |  Cadena de hasta 15 caracteres |
+|            Fecha_Creacion            |           Fecha de creación del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
+|             Hora_Creacion            |            Hora de creación del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
+|         Fecha_Envio_Gerencia         |       Fecha de envío del cuestionario a gerencia       |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
+|          Hora_Envio_Gerencia         |        Hora de envío del cuestionario a gerencia       |   HH:MM:SS  |      TIME      |           Hora válida          |
+|              ID_Gerente              |                Identificador del gerente               |   99999999  |       INT      |         Números enteros        |
+|           Estado_Aprobacion          |          Estado de aprobación del cuestionario         |    X(256)   |      CHAR      | Cadena de hasta 256 caracteres |
+|            Fecha_Revision            |           Fecha de revisión del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
+|             Hora_Revision            |            Hora de revisión del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
+
+### Entidad: Pregunta_Cuestionario
+#### Descripción: Preguntas que están dentro del cuestionario de cada tipo.
+|    **Atributo**    |           **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
+|:------------------:|:----------------------------------:|:------------:|:--------------:|:------------------------------:|
+|     ID_Pregunta    | Identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
+| Enunciado_Pregunta |      Enunciado de la pregunta      | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+
+### Entidad: Cuestionario_Empleado
+#### Descripción: Cuestionario completado por algún empleado.
+|       **Atributo**       |                  **Descripción**                 | **Formato** | **Naturaleza** |          **Valores**          |
+|:------------------------:|:------------------------------------------------:|:-----------:|:--------------:|:-----------------------------:|
+| ID_Cuestionario_Empleado | Identificador único del cuestionario de empleado |   INTEGER   |       INT      |     Números enteros únicos    |
+|      Fecha_Rellenado     |      Fecha en que se rellenó el cuestionario     |   AAAAMMDD  |      DATE      | Fecha válida en el calendario |
+|      Hora_Rellenado      |      Hora en que se rellenó el cuestionario      |   HH:MM:SS  |      TIME      |          Hora válida          |
+
+### Entidad: Respuesta_Cuestionario
+#### Descripción: Respuesta a las preguntas del cuestionario de algún empleado.
+|     **Atributo**    |                    **Descripción**                   |  **Formato** | **Naturaleza** |           **Valores**          |
+|:-------------------:|:----------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
+|     ID_Respuesta    | Identificador único de la respuesta |   99999999   |       INT      |     Números enteros únicos     |
+| Enunciado_Respuesta |               Enunciado de la respuesta              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+
 ### Entidad: Reporte
-#### Descripción: Almacena la información relacionada con los reportes de los empleados.
-|        Atributo        |                      Descripción                     | Formato | Naturaleza |  Valores |
-|:----------------------:|:----------------------------------------------------:|:-------:|:----------:|:--------:|
-|       ID_Reporte       |            Identificador único del reporte.           | 999999 |   Int  | NOT NULL |
-| Fecha_Ingreso_Empleado |             Fecha de ingreso del empleado.            | AAAMMDD |    DATE    | NOT NULL |
-|  Calificación_Empleado | Calificación o evaluación del desempeño del empleado. |  99.99  |   Double   |  [0.0;+> |
-### Entidad: Especialista
-#### Descripción: Almacena la información relacionada con los especialistas de reclutamiento que participan en el proceso.
-|    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
-|:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   Id_Esp_Rec   |            Identificador único de cada especialista de reclutamiento.           | 999999 |   Int  | NOT NULL |
-|     Nombre     |                    Nombre del especialista de reclutamiento.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
-|    Apellido    |                   Apellido del especialista de reclutamiento.                   |   AAA   |   VARCHAR(64)   | NOT NULL |
-| Disponibilidad | Disponibilidad del especialista de reclutamiento para participar en el proceso. |   AAA   |   VARCHAR(64)   | NOT NULL |
-|  Área_Especial |                     Área de especialización del reclutador.                     |   AAA   |   VARCHAR(64)   | NOT NULL |
+#### Descripción: Informe del desempeño del empleado en la evaluación.
+|     **Atributo**    |                    **Descripción**                   |  **Formato** | **Naturaleza** |           **Valores**          |
+|:-------------------:|:----------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
+|     ID_Respuesta    | Identificador único de la respuesta  |   99999999   |       INT      |     Números enteros únicos     |
+| Enunciado_Respuesta |               Enunciado de la respuesta              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+
+### Entidad: Reporte
+#### Descripción: Informe del desempeño del empleado en la evaluación.
+|             **Atributo**             |                        **Descripción**                       |  **Formato** | **Naturaleza** |           **Valores**          |
+|:------------------------------------:|:------------------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
+|         ID_Retroalimentacion         | Identificador único de la retroalimentación |   99999999   |       INT      |     Números enteros únicos     |
+|      Enunciado_Retroalimentacion     |               Enunciado de la retroalimentación              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+|              ID_Gerente              |             Identificador del gerente responsable            |   99999999   |       INT      |         Números enteros        |
+| ID_Especialista_Relaciones_Laborales |    Identificador del especialista en relaciones laborales    |   99999999   |       INT      |         Números enteros        |
+|        Fecha_Retroalimentacion       |                 Fecha de la retroalimentación                |   AAAAMMDD   |      DATE      |  Fecha válida en el calendario |
+|        Hora_Retroalimentacion        |                 Hora de la retroalimentación                 |   HH:MM:SS   |      TIME      |           Hora válida          |
+
+### Entidad: Retroalimentación
+#### Descripción: Comentario o retroalimentación brindada por algún especialista en relaciones laborales o el gerente de RR. HH. a algún empleado.
+|  **Atributo**  |          **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
+|:--------------:|:---------------------------------:|:------------:|:--------------:|:------------------------------:|
+|   ID_Reunion   | Identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
+| Asunto_Reunion |        Asunto de la reunión       | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+|  Fecha_Reunion |        Fecha de la reunión        |   AAAAMMDD   |      DATE      |  Fecha válida en el calendario |
+|  Hora_Reunion  |         Hora de la reunión        |   HH:MM:SS   |      TIME      |           Hora válida          |
+
 ### Entidad: Reunión
-#### Descripción: Almacena datos de la reunión programada
-|    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
-|:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   Id_Reunion   |            Identificador único de cada reunión.           | 999999 |   Int  | NOT NULL |
-|     Fecha_Reunión     |                    Fecha en la que se realizará la reunión.                    |   AAAMMDD   |   DATE   | NOT NULL |
-|    Hora_Reunión    |                   Hora en la que se realizará la reunión.                   |   HH:MM:SS   |   TIME   | NOT NULL |
-### Entidad: Perfil
-#### Descripción: Perfil del personal que se busca contratar.
-|    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
-|:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   Id_Perfil   |            Identificador único de cada perfil requerido para cierto puesto.           | 999999 |   Int  | NOT NULL |
-|     Conocimiento_Req     |                    Nombre del área de dominio necesario para el Cargo.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
-|    Años_Exp    |                   Cantidad de años de experiencia en el puesto.                   |   999   |   INT   | 0<= |
-| Titulo_Requerido | Nombre del título de dominio necesario para el Cargo.  |   AAA   |   VARCHAR(64)   | NOT NULL |
-### Entidad: Experiencia_Laboral
-#### Descripción: Descripción de la experiencia laboral del postulante
-|    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
-|:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   Id_Experiencia   |            Identificador único de cada experiencia de un postulante.           | 999999 |   Int  | NOT NULL |
-|     Nombre_lugar     |                    Nombre del lugar donde trabajó el postulante.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
-|    Cargo_ejercido    |                   Cargo que ejerció el postulante en dicho lugar.                   |   AAA   |   INT   | 0<= |
-| Tiempo_ejercido | Tiempo ejercido en dicho lugar en meses.  |   999   |   INT   | 0<= |
-### Entidad: Certificados
-#### Descripción: Descripción de los certificados que posee el postulante
-|    Atributo    |                                   Descripción                                   | Formato | Naturaleza |  Valores |
-|:--------------:|:-------------------------------------------------------------------------------:|:-------:|:----------:|:--------:|
-|   Id_Certificado   |            Identificador único de cada certificado de un postulante.           | 999999 |   Int  | NOT NULL |
-|     Curso_certificado     |                    Nombre del cursó que completó el postulante.                    |   AAA   |   VARCHAR(64)   | NOT NULL |
-|    Nivel_certificado    |                   Nivel de dominio del curso que tomó (Básico, Intermedio o Avanzado).                   |   AAA   |   Varchar   | NOT NULL |
+#### Descripción: Reunión realizada por algún  especialista en relaciones laborales o el gerente de RR. HH. para establecer temas puntuales sobre el desempeño.
+|  **Atributo**  |          **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
+|:--------------:|:---------------------------------:|:------------:|:--------------:|:------------------------------:|
+|   ID_Reunion   | Identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
+| Asunto_Reunion |        Asunto de la reunión       | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+|  Fecha_Reunion |        Fecha de la reunión        |     DATE     |    AAAAMMDD    |  Fecha válida en el calendario |
+|  Hora_Reunion  |         Hora de la reunión        |     TIME     |    HH:MM:SS    |           Hora válida          |
+
 
 ## Relaciones
-| Nombre_Relación |       Entidad Participante 1      |  Entidad Participante 2 | Cardinalidad |                              Atributos Propios de la Evaluación                             | ¿Entidad aparte? |                   Identificador                  |
-|:---------------:|:---------------------------------:|:-----------------------:|:------------:|:-------------------------------------------------------------------------------------------:|:----------------:|:------------------------------------------------:|
-|     CONTIENE    |             Entrevista            |        Preguntas        |      1:N     |                                              -                                              |        NO        |                 ID_Ent+ID_Factura                |
-|     UTILIZA     |      Evaluación_Reclutamiento     |        Entrevista       |      1:1     |                                              -                                              |        NO        |            Id_Eva_Reclutamiento+Id_Ent           |
-|     NECESITA    |          Solicitud_Empleo         |        Curriculum       |      1:1     |                                              -                                              |        NO        |               ID_Sol+ID_Curriculum               |
-|     PRESENTA    |             Candidato             |     Solicitud_Empleo    |      1:N     |                                              -                                              |        NO        |            ID_Can+ID_Solicitud_Empleo            |
-|     CALIFICA    |      Evaluación_Reclutamiento     |        Candidato        |      1:1     |                                     Resultado_Evaluacion                                    |        NO        |               ID_Eva+ID_Ent+ID_Can               |
-|     PROCESA     |     Especialista_Reclutamiento    |         Vacante         |      1:N     |                                              -                                              |        NO        |                 ID_Esp+ID_Vacante                |
-|     SOLICITA    |            Departamento           |         Vacante         |      1:N     |                                              -                                              |        NO        |            ID_Departamento+ID_Vacante            |
-|      SIGUE      |               Sesión              |   Programa_Capacitador  |      N:1     |                                              -                                              |        NO        |                  ID_Sesion+ID_PC                 |
-|     SOLICITA    |              Empleado             |          Sesión         |      N:M     |                                          Asistencia                                         |        SI        |                  ID_Sesion+ID_PC                 |
-|      DIRIGE     |             Instructor            | Evaluación_Capacitación |      1:N     |                                              -                                              |        NO        |        CodEvaluación+CodSesión+CodEmpleado       |
-|     SOLICITA    |              Empleado             |         Licencia        |      1:N     |                                              -                                              |        NO        |             Cod_Licencia+ID_Empleado             |
-|       PIDE      |              Empleado             |         Permiso         |      1:N     |                                              -                                              |        NO        |              Cod_Permiso+ID_Empleado             |
-|      GENERA     |              Empleado             |        Asistencia       |      1:N     |                                              -                                              |        NO        | Cod_Asistencia+ID_Empleado                       |
-|      TIENE      |       Cese       |          Beneficios_Cese          |      1:N     |                                              -                                              |        NO        | ID_Cese+ID_Beneficios_Cese     |
-|      GENERA     |              Cese             |  Cuestionario_Salida  |      1:1     |                                              -                                              |        NO        | ID_Cese+ID_Cuestionario_Salida     |
-|      GENERA     |                Cuestionario_Salida               |  Pregunta_Salida  |      1:1     |                   -    |        NO        | ID_Cuestionario_Salida+ID_Pregunta_Salida    |
-|     SOLICITA    |              Empleado             |         Cese        |      1:N     |                                              -                                              |        NO        | ID_Empleado+ID_Cese                          |
-|      RECIBE     |              Empleado             |          Nómina         |      1:N     |                                              -                                              |        NO        | ID_Empleado+ID_Nómina                            |
-|      POSEE      |               Nómina              |          Pago_Total          |      1:1     |                                              -                                              |        NO        | ID_Nómina+ID_Pago_Total                               |
-|      REVISA     |               Pago_Total               |      Sueldo     |      1:1     |                                              -                                              |        NO        | ID_Pago_Total+ID_Sueldo                       |
-|    DESCUENTA    |               Pago_Total               |       Modificaciones       |      1:1     |                                              -                                              |        NO        | ID_Pago_Total+ID_Modificaciones                          |
-|      POSEE      |              Empleado             |     Cuenta_Bancaria     |      1:1     |                                              -                                              |        NO        | ID_Empleado+ID_Cuenta_Bancaria                   |
-|      CUMPLE     |              Empleado             |           Cargo           |      1:1     |                                              -                                              |        NO        | ID_Empleado+ID_Cargo                               |
-|    PERTENECE    |              Empleado             |       Departamento      |      1:1     |                                              -                                              |        NO        | ID_Empleado+ID_Departamento                      |
-|      TIENE      |              Empleado             |          Sueldo         |      1:1     |                                              -                                              |        NO        | ID_Empleado+ID_Sueldo                            |
-|      RECIBE     |              Empleado             |         Cuestionario        |      N:N     |                               Fecha_rellenado, Hora_rellenado                               |        SI        | ID_Empleado+ID_Cuestionario                          |
-|      REVISA     |            Gerente_RRHH           |         Cuestionario        |      1:N     | Fecha_envío_gerencia, Hora_envío_gerencia, Fecha_revisión, Hora_revisión, Estado_aprobación |        SI        | ID_Gerente_RRHH+ID_Cuestionario                      |
-|      GENERA     |              Cuestionario             |         Reporte         |      1:N     |                                    -                                              |        NO        | ID_Cuestionario+ID_Reporte                           |
-|      EVALUA     |              Reporte              |         Empleado        |      N:1     |                                              -                                              |        NO        | ID_Reporte+ID_Empleado                           |
-|    PERTENECE    |            Gerente_RRHH           |         Empleado        |      1:1     |                                              -                                              |        NO        | ID_Gerente_RRHH+ID_Empleado                      |
-|       CREA      | Especialista |         Cuestionario        |      1:N     |                                              Fecha_creación, Hora_creación, Estado_creación                                              |        SI        | ID_Especialista+ID_Cuestionario |
-
+| **Nombre_Relación** | **Entidad Participante 1** | **Entidad Participante 2** | **Cardinalidad** |          **Atributos Propios de la Evaluación**         | **¿Entidad aparte?** |             **Identificador**             |
+|:-------------------:|:--------------------------:|:--------------------------:|:----------------:|:-------------------------------------------------------:|:--------------------:|:-----------------------------------------:|
+|       CONTIENE      |         Entrevista         |          Preguntas         |        1:N       |                            -                            |          NO          |             ID_Ent+ID_Factura             |
+|       UTILIZA       |  Evaluación_Reclutamiento  |         Entrevista         |        1:1       |                            -                            |          NO          |        Id_Eva_Reclutamiento+Id_Ent        |
+|       NECESITA      |      Solicitud_Empleo      |         Curriculum         |        1:1       |                            -                            |          NO          |            ID_Sol+ID_Curriculum           |
+|       PRESENTA      |          Candidato         |      Solicitud_Empleo      |        1:N       |                            -                            |          NO          |         ID_Can+ID_Solicitud_Empleo        |
+|       CALIFICA      |  Evaluación_Reclutamiento  |          Candidato         |        1:1       |                   Resultado_Evaluacion                  |          NO          |            ID_Eva+ID_Ent+ID_Can           |
+|       PROCESA       | Especialista_Reclutamiento |           Vacante          |        1:N       |                            -                            |          NO          |             ID_Esp+ID_Vacante             |
+|       SOLICITA      |        Departamento        |           Vacante          |        1:N       |                            -                            |          NO          |         ID_Departamento+ID_Vacante        |
+|        SIGUE        |           Sesión           |    Programa_Capacitador    |        N:1       |                            -                            |          NO          |              ID_Sesion+ID_PC              |
+|       SOLICITA      |          Empleado          |           Sesión           |        N:M       |                        Asistencia                       |          SI          |              ID_Sesion+ID_PC              |
+|        DIRIGE       |         Instructor         |   Evaluación_Capacitación  |        1:N       |                            -                            |          NO          |    CodEvaluación+CodSesión+CodEmpleado    |
+|       SOLICITA      |          Empleado          |          Licencia          |        1:N       |                            -                            |          NO          |          Cod_Licencia+ID_Empleado         |
+|         PIDE        |          Empleado          |           Permiso          |        1:N       |                            -                            |          NO          |          Cod_Permiso+ID_Empleado          |
+|        GENERA       |          Empleado          |         Asistencia         |        1:N       |                            -                            |          NO          |         Cod_Asistencia+ID_Empleado        |
+|        TIENE        |            Cese            |       Beneficios_Cese      |        1:N       |                            -                            |          NO          |         ID_Cese+ID_Beneficios_Cese        |
+|        GENERA       |            Cese            |     Cuestionario_Salida    |        1:1       |                            -                            |          NO          |       ID_Cese+ID_Cuestionario_Salida      |
+|        GENERA       |     Cuestionario_Salida    |       Pregunta_Salida      |        1:1       |                            -                            |          NO          | ID_Cuestionario_Salida+ID_Pregunta_Salida |
+|       SOLICITA      |          Empleado          |            Cese            |        1:N       |                            -                            |          NO          |            ID_Empleado+ID_Cese            |
+|        RECIBE       |          Empleado          |           Nómina           |        1:N       |                            -                            |          NO          |           ID_Empleado+ID_Nómina           |
+|        POSEE        |           Nómina           |         Pago_Total         |        1:1       |                            -                            |          NO          |          ID_Nómina+ID_Pago_Total          |
+|        REVISA       |         Pago_Total         |           Sueldo           |        1:1       |                            -                            |          NO          |          ID_Pago_Total+ID_Sueldo          |
+|      DESCUENTA      |         Pago_Total         |       Modificaciones       |        1:1       |                            -                            |          NO          |      ID_Pago_Total+ID_Modificaciones      |
+|        POSEE        |          Empleado          |       Cuenta_Bancaria      |        1:1       |                            -                            |          NO          |       ID_Empleado+ID_Cuenta_Bancaria      |
+|        CUMPLE       |          Empleado          |            Cargo           |        1:1       |                            -                            |          NO          |            ID_Empleado+ID_Cargo           |
+|      PERTENECE      |          Empleado          |        Departamento        |        1:1       |                            -                            |          NO          |        ID_Empleado+ID_Departamento        |
+|        TIENE        |          Empleado          |           Sueldo           |        1:1       |                            -                            |          NO          |           ID_Empleado+ID_Sueldo           |
+|       COMPLETA      |          Empleado          |        Cuestionario        |        1:1       | Id_Cuestionario_Empleado Fecha_Rellenado Hora_Rellenado |          Sí          |        ID_Empleado+ID_Cuestionario        |
+|       INCLUYE       |        Cuestionario        |    Pregunta_Cuestionario   |        1:N       |                         Empleado                        |          No          |        ID_Cuestionario+ID_Pregunta        |
+|       CONTIENE      |    Pregunta_Cuestionario   |   Respuesta_Cuestionario   |        1:1       |                            -                            |          No          |          ID_Pregunta+ID_Respuesta         |
+|        GENERA       |        Cuestionario        |           Reporte          |        1:1       |                            -                            |          No          |         ID_Cuestionario+ID_Reporte        |
+|        RECIBE       |           Reporte          |      Retroalimentacion     |        1:N       |                            -                            |          No          |      ID_Reporte+ID_Retroalimentacion      |
 ---
 ***[Volver al inicio](../../../README.md)***
