@@ -116,6 +116,7 @@
 |:------------------:|:-------------------------------------------------------:|:-------:|:----------:|:--------:|
 |   ID_Cuestionario  |   Identificador único de cuestionario salida.   | 999999 |   Int  | NOT NULL |
 | Fecha_Cuestionario | Fecha en la que se realizó el cuestionario de salida. | AAAMMDD |    DATE    | NOT NULL |
+
 ### Entidad: Pregunta_Salida
 #### Descripción: Almacena las diferentes preguntas que son parte del cuestionario salida.
 | Atributo |                             Descripción                            | Formato | Naturaleza |  Valores |

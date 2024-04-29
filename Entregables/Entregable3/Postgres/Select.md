@@ -107,72 +107,119 @@
 ## Módulo: Cese de personal
 ### Registrar el cese:
 
-	SELECT 
-		E.id_empleado as ID_Empleado,
-		E.nombre_empleado ||' '|| apellido_empleado as Nombre_Completo,
-		C.estadocese as Estado_Cese
-	FROM empleado as E
-	INNER JOIN cese as C ON E.id_empleado=C.id_empleado;
+	-- Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Registrar_cese (TIPOC CHAR(1), MOTC VARCHAR(64), FECC date, SUPC INTEGER, EMPC INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO Registrar_cese (id_cese, tipo_cese, motivo_cese, fecha_inicio_cese, id_supervisor, id_empleado)
+			VALUES (
+				(SELECT id_beneficios FROM beneficios_cese
+				ORDER BY id_beneficios DESC
+				LIMIT 1)+1,
+			TIPOC, MOTC, FECC, SUPC, EMPC);
+	END;
+	$$ LANGUAGE plpgsql;
 
-![Estado](imágenes/Estado_Cese.png)
+	-- Si llenan el campo "Motivo Cese": CALL Registrar_cese ("tipo_cese", "motivo_cese", "fecha_inicio_cese", "id_supervisor", "id_empleado");
+	-- Si NO llenan el campo "Motivo Cese": CALL Registrar_cese ("tipo_cese", null, "fecha_inicio_cese", "id_supervisor", "id_empleado");
+	
+
 ![alt text](../Front/RegistroCese1.png)
 
 ### Registrar los beneficios y descuentos:
 
-	SELECT 
-		C.id_empleado as ID_Empleado,
-		C.estadocese as Estado_Cese,
-		B.tipo as Tipo,
-		SUM(B.monto) as Monto,
-		CASE
-				WHEN SUM(B.monto) < 0 THEN 'Descuento'
-				WHEN SUM(B.monto) > 0 THEN 'Bono'
-				ELSE 'No hay'
-			END AS CASO
-	FROM beneficios_cese as B
-	INNER JOIN cese as C ON B.id_cese=C.id_cese
-	GROUP BY C.id_empleado, C.estadocese, B.tipo
-![Monto](imágenes/Monto_Cese.png)
+	--Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Insertar_beneficio (TIPO_B varchar(32), MONTO_B FLOAT, ID_B INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO beneficios_cese (id_beneficios, tipo, monto, id_Cese)
+			VALUES (
+				(SELECT id_beneficios FROM beneficios_cese
+				ORDER BY id_beneficios DESC
+				LIMIT 1)+1,
+			TIPO_B, MONTO_B, ID_B);
+	END;
+	$$ LANGUAGE plpgsql;
+	--Ejecutar el procedimiento
+	-- Cuando seleccionan Liquidación: CALL Insert_beneficio ('Liquidación', "monto", "id_cese");
+	-- Cuando seleccionan CTS: CALL Insert_beneficio ('CTS', "monto", "id_cese");
+	...
+
 ![alt text](../Front/RegistroCese2.png)
 
 ### Mostrar la ficha del cese
 
-	SELECT 
-		C.id_empleado as ID_Empleado,
-		S.fecha_cuestionario as Fecha,
-		P.pregunta_salida as Pregunta,
-		P.respuesta_salida as Respuesta
-	FROM cuestionario_salida as S
-	INNER JOIN cese as C ON S.id_cese=C.id_cese
-	INNER JOIN pregunta_salida as P ON S.id_cuestionario = P.id_cuestionario
+	-- Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Mostrar_cese (IDC INTEGER)
+	AS $$
+	BEGIN
+			SELECT
+				C.id_empleado as Codigo_cesado,
+				E.nombre_empleado as Nombre_cesado,
+				D.nombre_departamento as Nombre_departamento,
+				CA.nombre as Cargo_cesado,
+				SUM(B.monto) as Suma_beneficios_descuentos,
+				C.fecha_inicio_cese as Fecha_Cese,
+				CASE
+					WHEN C.tipo_cese = 'D' THEN 'Despido'
+					WHEN C.tipo_cese = 'R' THEN 'Renuncia'
+					WHEN C.tipo_cese = 'C' THEN 'Término de contrato'
+					WHEN C.tipo_cese = 'J' THEN 'Juvilación'
+					ELSE 'No especificado'
+				END AS Tipo_Cese,
+				C.motivo_cese as Motivo_Cese,
+				C.id_supervisor as Código_Supervisor
+			FROM Cese as C
+			INNER JOIN Empleado as E On C.id_empleado=E.id_empleado
+			INNER JOIN Departamento as D On E.id_departamento=D.id_departamento
+			INNER JOIN cargo as CA On E.id_cargo = CA.id_cargo
+			INNER JOIN beneficios_cese as B on C.id_cese=B.id_cese
+			WHERE C.id_Cese = IDC
+			GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
+	END;
+	$$ LANGUAGE plpgsql;
 
-![Cuestionario_Cese](imágenes/Cuestionario_Cese.png)
+	-- Ejecutar el procedimiento: CALL Mostrar_Cese(id_cese);
+
 ![alt text](../Front/RegistroCese3.png)
 
 ### Registrar preguntas para la persona a cesar:
 
-	SELECT 
-		C.id_empleado as ID_Empleado,
-		S.fecha_cuestionario as Fecha,
-		P.pregunta_salida as Pregunta,
-		P.respuesta_salida as Respuesta
-	FROM cuestionario_salida as S
-	INNER JOIN cese as C ON S.id_cese=C.id_cese
-	INNER JOIN pregunta_salida as P ON S.id_cuestionario = P.id_cuestionario
+	--Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Anadir_pregunta (PREG varchar(256), ID_C INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO pregunta_salida (id_pregunta, pregunta_salida, id_cuestionario)
+			VALUES (
+				(SELECT id_pregunta FROM pregunta_salida
+				ORDER BY id_pregunta DESC
+				LIMIT 1)+1,
+			PREG, ID_C);
+	END;
+	$$ LANGUAGE plpgsql;
 
-![Cuestionario_Cese](imágenes/Cuestionario_Cese.png)
+	--Insertar una pregunta: CALL Anadir_pregunta("Pregunta1","ID_Cuestionario");
+	--Insertar otra pregunta: CALL Anadir_pregunta("Pregunta2","ID_Cuestionario");
+	...
+
 ![alt text](../Front/RegistroCese4.png)
 
 ### Resolver cuestionario:
 
-	SELECT 
-		C.id_empleado as ID_Empleado,
-		S.fecha_cuestionario as Fecha,
-		P.pregunta_salida as Pregunta,
-		P.respuesta_salida as Respuesta
-	FROM cuestionario_salida as S
-	INNER JOIN cese as C ON S.id_cese=C.id_cese
-	INNER JOIN pregunta_salida as P ON S.id_cuestionario = P.id_cuestionario
+	--Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Anadir_respuesta (RESP varchar(256), ID_P INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO respuesta_salida (id_respuesta, respuesta_salida, id_pregunta)
+			VALUES (
+				(SELECT id_respuesta FROM respuesta_salida
+				ORDER BY id_respuesta DESC
+				LIMIT 1)+1,
+			RESP , ID_P);
+	END;
+	$$ LANGUAGE plpgsql;
 
-![Cuestionario_Cese](imágenes/Cuestionario_Cese.png)
+	--Insertar una respuesta: CALL Anadir_respuesta("respuesta1","ID_Pregunta");
+	--Insertar otra respuesta: CALL Anadir_respuesta("respuesta2","ID_Pregunta");
+
 ![alt text](../Front/CuestionarioCese.png)
