@@ -15,7 +15,6 @@
 ## Entidad: Departamento
 | **ID_Departamento** |        **Nombre_Departamento**        |
 |:-------------------:|:-------------------------------------:|
-|        Codigo       |                 Nombre                |
 |          1          |       Producción de Fruta Fresca      |
 |          2          |  Recepción y Almacenamiento de Fruta  |
 |          3          |           Control de Calidad          |
@@ -29,3 +28,11 @@
 |          11         | Mantenimiento y Reparación de Equipos |
 |          12         |          Seguridad e Higiene          |
 |          13         |   Gestión Ambiental y Sostenibilidad  |
+
+## Entidad: Cuestionario
+| **ID_Cuestionario** | **Nombre_Departamento** |
+|:-------------------:|:-----------------------:|
+|          1          |       Subordinados      |
+|          2          |       Supervisores      |
+|          3          |          Jefes          |
+|          4          |         Gerentes        |
