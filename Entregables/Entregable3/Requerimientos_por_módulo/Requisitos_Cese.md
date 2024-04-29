@@ -28,22 +28,40 @@
    - Debe ser posible realizar un seguimiento de indicadores relacionados con los ceses de personal, como el tiempo promedio de permanencia en la empresa y la frecuencia de ceses por departamento o área.
    - Estos indicadores pueden ayudar a identificar patrones y tendencias que requieran atención especial.
 
-## Caso de uso 5 : Registrar cese de personal
+## Caso de uso 1 : Registrar cese de personal
 
-|         Objetivo         | Registrar el cese de un empleado en el sistema de Recursos Humanos                                                                                                           |
+|         Objetivo         | Registrar el cese de un empleado en el sistema por parte de su supervisor                                                                                                 |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|       Descripción        | El responsable de Recursos Humanos registra el cese de un empleado en el sistema, incluyendo el código del empleado, la fecha de fin de contrato y motivo del cese|
+|       Descripción        | El supervisor registra el cese de un empleado en el sistema, incluyendo el código del empleado, la fecha de fin de contrato y motivo del cese|
 |          Actor           | <p align="center">	Analista de recursos humanos                                                                                                                           |
-|       Precondición       | <p align="center"> El empleado ha sido notificado de su cese y la información del cese está disponible                                                                       |
+|       Precondición       | <p align="center"> El empleado ha sido notificado de su cese                                                                       |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                              |
 |            1             | El responsable de Recursos Humanos ingresa al módulo de Cese de Personal                                                                                                     |
 |            2             | Selecciona la opción "Registrar cese de personal".                                                                                                                           |
 |            3             | Completa el formulario con la información del cese (fecha, motivo, etc.).                                                                                                    |
 |            4             | Luego, si hay alguna liquidación final, ingresa la información de la liquidación final.                                                                                                                   |
 |            5             | Revisa y valida la información ingresada.                                                                                                                                    |
-|            6             | Guarda el registro.                                                                                                                              
+|            6             | Proponer preguntas para el cese o seleccionar las predeterminadas.                                                                                                                                    |
+|            7             | Confirma los cambios.                                                                                                    
 #### Prototipo
 
 ![alt text](../Front/RegistroCese1.png)
 ![alt text](../Front/RegistroCese2.png)
 ![alt text](../Front/RegistroCese3.png)
+![alt text](../Front/RegistroCese4.png)
+
+## Caso de uso 2 : Responder cuestionario de salida
+
+|         Objetivo         | Resolver el cuestionario de salida planteado por el supervisor ingresa a su cuestionario de cese                                                                                               |
+| :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       Descripción        | El empleado cesado responde las preguntas que le dejó el supervisor que lo cesó |
+|          Actor           | <p align="center">	Empleado                                                                                                                           |
+|       Precondición       | <p align="center"> Se registró exitosamente el cese de personal                                                                       |
+| <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                              |
+|            1             | El empleado entra al cuestionario de cese.                                                                                                    |
+|            2             | Resuelve las preguntas del cese.                                                                                                                           |
+|            3             | Confirma los cambios.                                                                                                    |
+                                                                                                
+#### Prototipo
+
+![alt text](../Front/CuestionarioCese.png)

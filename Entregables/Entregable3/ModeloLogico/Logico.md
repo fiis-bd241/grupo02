@@ -123,6 +123,13 @@
 | ID_Pregunta |                  Identificador único de la pregunta.                  | 999999 |   Int  | NOT NULL |
 |   Pregunta_Salida   | Pregunta salida en el cuestionario. |   X(16)   |   VARCHAR(64)   | NOT NULL |
 |   Respuesta_Salida   | Respuesta de la pregunta salida en el cuestionario. |   TAB2   |      | NOT NULL |
+### Entidad: Respuesta_Salida
+#### Descripción: Almacena las diferentes preguntas que son parte del cuestionario salida.
+| Atributo |                             Descripción                            | Formato | Naturaleza |  Valores |
+|:--------:|:------------------------------------------------------------------:|:-------:|:----------:|:--------:|
+| ID_Respuesta |                  Identificador único de la respuesta.                  | 999999 |   Int  | NOT NULL |
+|   Respuesta_Salida   | Respuesta dada en el cuestionario. |   X(16)   |   VARCHAR(64)   | NOT NULL |
+
 ### Entidad: Beneficios_Cese
 #### Descripción: Almacena la información relacionada con los beneficios de cese que se designa a un empleado.
 |   Atributo   |                                  Descripción                                 | Formato | Naturaleza |  Valores |
