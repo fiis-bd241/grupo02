@@ -174,10 +174,10 @@
 	CREATE OR REPLACE PROCEDURE Registrar_cese (TIPOC CHAR(1), MOTC VARCHAR(64), FECC date, SUPC INTEGER, EMPC INTEGER)
 	AS $$
 	BEGIN
-			INSERT INTO Registrar_cese (id_cese, tipo_cese, motivo_cese, fecha_inicio_cese, id_supervisor, id_empleado)
+			INSERT INTO cese (id_cese, tipo_cese, motivo_cese, fecha_inicio_cese, id_supervisor, id_empleado)
 			VALUES (
-				(SELECT id_beneficios FROM beneficios_cese
-				ORDER BY id_beneficios DESC
+				(SELECT id_cese FROM cese
+				ORDER BY id_cese DESC
 				LIMIT 1)+1,
 			TIPOC, MOTC, FECC, SUPC, EMPC);
 	END;
@@ -204,8 +204,8 @@
 	END;
 	$$ LANGUAGE plpgsql;
 	--Ejecutar el procedimiento
-	-- Cuando seleccionan Liquidación: CALL Insert_beneficio ('Liquidación', "monto", "id_cese");
-	-- Cuando seleccionan CTS: CALL Insert_beneficio ('CTS', "monto", "id_cese");
+	-- Cuando seleccionan Liquidación: CALL Insertar_beneficio ('Liquidación', "monto", "id_cese");
+	-- Cuando seleccionan CTS: CALL Insertar_beneficio ('CTS', "monto", "id_cese");
 	...
 
 ![alt text](../Front/RegistroCese2.png)
