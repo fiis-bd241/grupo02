@@ -213,36 +213,47 @@
 ### Mostrar la ficha del cese
 
 	-- Crear el procedimiento
-	CREATE OR REPLACE PROCEDURE Mostrar_cese (IDC INTEGER)
-	AS $$
+	CREATE OR REPLACE FUNCTION Mostrar_cese (IDC INTEGER)
+	RETURNS TABLE (
+	    Codigo_cesado INTEGER,
+	    Nombre_cesado VARCHAR(64),
+	    Nombre_departamento VARCHAR(64),
+	    Cargo_cesado VARCHAR(64),
+	    Suma_beneficios_descuentos FLOAT,
+	    Fecha_Cese DATE,
+	    Tipo_Cese TEXT,
+	    Motivo_Cese VARCHAR(64),
+	    Código_Supervisor INTEGER
+	) AS $$
 	BEGIN
-			SELECT
-				C.id_empleado as Codigo_cesado,
-				E.nombre_empleado as Nombre_cesado,
-				D.nombre_departamento as Nombre_departamento,
-				CA.nombre as Cargo_cesado,
-				SUM(B.monto) as Suma_beneficios_descuentos,
-				C.fecha_inicio_cese as Fecha_Cese,
-				CASE
-					WHEN C.tipo_cese = 'D' THEN 'Despido'
-					WHEN C.tipo_cese = 'R' THEN 'Renuncia'
-					WHEN C.tipo_cese = 'C' THEN 'Término de contrato'
-					WHEN C.tipo_cese = 'J' THEN 'Juvilación'
-					ELSE 'No especificado'
-				END AS Tipo_Cese,
-				C.motivo_cese as Motivo_Cese,
-				C.id_supervisor as Código_Supervisor
-			FROM Cese as C
-			INNER JOIN Empleado as E On C.id_empleado=E.id_empleado
-			INNER JOIN Departamento as D On E.id_departamento=D.id_departamento
-			INNER JOIN cargo as CA On E.id_cargo = CA.id_cargo
-			INNER JOIN beneficios_cese as B on C.id_cese=B.id_cese
-			WHERE C.id_Cese = IDC
-			GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
+	    RETURN QUERY
+	        SELECT
+	            C.id_empleado,
+	            E.nombre_empleado,
+	            D.nombre_departamento,
+	            CA.nombre,
+	            SUM(B.monto),
+	            C.fecha_inicio_cese,
+	            CASE
+	                WHEN C.tipo_cese = 'D' THEN 'Despido'
+	                WHEN C.tipo_cese = 'R' THEN 'Renuncia'
+	                WHEN C.tipo_cese = 'C' THEN 'Término de contrato'
+	                WHEN C.tipo_cese = 'J' THEN 'Jubilación'
+	                ELSE 'No especificado'
+	            END AS Tipo_Cese,
+	            C.motivo_cese,
+	            C.id_supervisor
+	        FROM cese AS C
+	        INNER JOIN empleado AS E ON C.id_empleado = E.id_empleado
+	        INNER JOIN departamento AS D ON E.id_departamento = D.id_departamento
+	        INNER JOIN cargo AS CA ON E.id_cargo = CA.id_cargo
+	        INNER JOIN beneficios_cese AS B ON C.id_cese = B.id_cese
+	        WHERE C.id_cese = IDC
+	        GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
 	END;
 	$$ LANGUAGE plpgsql;
-
-	-- Ejecutar el procedimiento: CALL Mostrar_Cese(id_cese);
+	
+	-- Ejecutar el procedimiento: SELECT * FROM Mostrar_cese("id_Cese");
 
 ![alt text](../Front/RegistroCese3.png)
 
