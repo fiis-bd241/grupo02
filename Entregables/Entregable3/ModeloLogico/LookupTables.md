@@ -30,7 +30,7 @@
 |          13         |   Gestión Ambiental y Sostenibilidad  |
 
 ## Entidad: Cuestionario
-| **ID_Cuestionario** | **Nombre_Departamento** |
+| **ID_Cuestionario** | **Tipo_Cuestionario** |
 |:-------------------:|:-----------------------:|
 |          1          |       Subordinados      |
 |          2          |       Supervisores      |
