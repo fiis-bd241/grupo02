@@ -273,8 +273,8 @@
 |     ID_Respuesta    | Identificador único de la respuesta  |   99999999   |       INT      |     Números enteros únicos     |
 | Enunciado_Respuesta |               Enunciado de la respuesta              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
 
-### Entidad: Reporte
-#### Descripción: Informe del desempeño del empleado en la evaluación.
+### Entidad: Retroalimentación
+#### Descripción: Comentario o retroalimentación brindada por algún especialista en relaciones laborales o el gerente de RR. HH. a algún empleado.
 |             **Atributo**             |                        **Descripción**                       |  **Formato** | **Naturaleza** |           **Valores**          |
 |:------------------------------------:|:------------------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
 |         ID_Retroalimentacion         | Identificador único de la retroalimentación |   99999999   |       INT      |     Números enteros únicos     |
@@ -283,15 +283,6 @@
 | ID_Especialista_Relaciones_Laborales |    Identificador del especialista en relaciones laborales    |   99999999   |       INT      |         Números enteros        |
 |        Fecha_Retroalimentacion       |                 Fecha de la retroalimentación                |   AAAAMMDD   |      DATE      |  Fecha válida en el calendario |
 |        Hora_Retroalimentacion        |                 Hora de la retroalimentación                 |   HH:MM:SS   |      TIME      |           Hora válida          |
-
-### Entidad: Retroalimentación
-#### Descripción: Comentario o retroalimentación brindada por algún especialista en relaciones laborales o el gerente de RR. HH. a algún empleado.
-|  **Atributo**  |          **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
-|:--------------:|:---------------------------------:|:------------:|:--------------:|:------------------------------:|
-|   ID_Reunion   | Identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
-| Asunto_Reunion |        Asunto de la reunión       | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
-|  Fecha_Reunion |        Fecha de la reunión        |   AAAAMMDD   |      DATE      |  Fecha válida en el calendario |
-|  Hora_Reunion  |         Hora de la reunión        |   HH:MM:SS   |      TIME      |           Hora válida          |
 
 ### Entidad: Reunión
 #### Descripción: Reunión realizada por algún  especialista en relaciones laborales o el gerente de RR. HH. para establecer temas puntuales sobre el desempeño.
