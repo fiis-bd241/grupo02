@@ -70,21 +70,84 @@
 	INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil;
 
 ## Módulo: Registro de asistencias y solicitudes
-### Obtener la lista de asistencias de un empleado en particular:
-    SELECT a.ID_Asistencia, a.Estado, a.Observacion, a.Fecha, a.Hora_entrada, a.Hora_salida
-	FROM Asistencia a
-	INNER JOIN Empleado e ON a.ID_Empleado = e.ID_Empleado
-	WHERE e.ID_Empleado = <<ID del empleado>>; 
-### Obtener la lista de solicitudes de permiso pendientes de aprobación:
-    SELECT p.ID_Permiso, p.Tipo, p.Motivo, p.Duracion
-	FROM Permiso p
-	WHERE p.Estado = 'Pendiente';
-### Obtener la lista de licencias aprobadas para un supervisor en particular:
-    SELECT l.ID_Licencia, l.Tipo, l.Estado, l.Fecha_inicio, l.Fecha_fin
-	FROM Licencia l
-	INNER JOIN Supervisor s ON l.ID_Supervisor = s.ID_Supervisor
- 	WHERE s.ID_Supervisor = <<ID del supervisor>> AND l.Estado = 'Aprobado';
- 
+### Para solicitar una licencia médica:
+    
+	-- Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE SolicitarLicenciaMedica(
+    IN p_ID_Empleado INTEGER,
+    IN p_Motivo VARCHAR(128),
+    IN p_FechaInicio DATE,
+    IN p_FechaFin DATE
+    )
+    AS $$
+    BEGIN
+            INSERT INTO Permiso (Tipo, Motivo, Duracion, Estado, ID_Empleado, ID_Supervisor)
+            VALUES ('Licencia Médica', p_Motivo, 'Más de un día', 'Pendiente', p_ID_Empleado, NULL);
+
+            INSERT INTO Licencia (Tipo, Estado, Fecha_inicio, Fecha_fin, ID_Empleado, ID_Supervisor)
+            VALUES ('Licencia Médica', 'Pendiente', p_FechaInicio, p_FechaFin, p_ID_Empleado, NULL);
+
+	END;
+	$$ LANGUAGE plpgsql;
+
+![alt text](../Front/SolicitudFalta.png)
+
+### Para aceptar o rechazar solicitudes de licencia de cualquier tipo:
+
+    -- Crear el procedimiento
+    CREATE OR REPLACE PROCEDURE AceptarRechazarSolicitudLicencia(
+    IN p_ID_Licencia INTEGER,
+    IN p_Estado VARCHAR(64)
+    )
+    AS $$
+    BEGIN
+    UPDATE Licencia
+    SET Estado = p_Estado
+    WHERE ID_Licencia = p_ID_Licencia;
+		
+	END;
+	$$ LANGUAGE plpgsql;
+
+![alt text](../Front/AceptarSolicitud.png)
+
+### Para registrar asistencias:
+
+    -- Crear el procedimiento
+    CREATE OR REPLACE PROCEDURE RegistrarAsistencia(
+    IN p_ID_Empleado INTEGER,
+    IN p_Fecha DATE,
+    IN p_HoraEntrada TIME,
+    IN p_HoraSalida TIME
+    )
+    AS $$
+    BEGIN
+            INSERT INTO Asistencia (ID_Empleado, Estado, Observacion, Fecha, Hora_entrada, Hora_salida)
+            VALUES (p_ID_Empleado, 'Presente', NULL, p_Fecha, p_HoraEntrada, p_HoraSalida);
+    END;
+    $$ LANGUAGE plpgsql;
+
+![alt text](../Front/RegistroAsistencia.png)
+
+### Para generar un reporte de asistencia:
+
+    -- Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE GenerarReporteAsistencia(
+    IN p_ID_Departamento INTEGER,
+    IN p_FechaDesde DATE,
+    IN p_FechaHasta DATE
+    )
+    AS $$
+    BEGIN
+            SELECT A.Fecha, A.Hora_entrada, A.Hora_salida
+            FROM Asistencia A
+              INNER JOIN Empleado E ON A.ID_Empleado = E.ID_Empleado
+              WHERE E.ID_Departamento = p_ID_Departamento
+              AND A.Fecha BETWEEN p_FechaDesde AND p_FechaHasta;
+    END;
+    $$ LANGUAGE plpgsql;
+
+![alt text](../Front/GenerarReportes.png)
+
 ## Módulo: Capacitación de Personal
 
  ### Select para obtener el nombre de los instructores
