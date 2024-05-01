@@ -123,7 +123,20 @@ FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese)
 ``CREATE TABLE Programa_Capacitador(
 ID_Programa_C INTEGER primary key,
 Fecha_Inicio DATE,
-Fecha_Fin DATE);
+Fecha_Fin DATE,
+Motivo VARCHAR(256),
+ID_Departamento INTEGER,
+FOREIGN KEY(ID_Departamento) REFERENCES Departamento(ID_Departamento)
+);
+``
+### Entidad: Lista_Matricula
+``CREATE TABLE Lista_Matricula(
+ID_Programa_C INTEGER ,
+ID_Empleado INTEGER,
+Estado_Matricula VARCHAR(256)
+FOREIGN KEY(ID_Programa_C) REFERENCES Programa_Capacitador(ID_Programa_C),
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+);
 ``
 
 ### Entidad: Sesion
@@ -146,40 +159,45 @@ FOREIGN KEY(ID_Sesion) REFERENCES Sesion(ID_Sesion),
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
-
-### Entidad: Instructor
-``CREATE TABLE Instructor(
-ID_Instructor INTEGER primary key,
-ID_Empleado INTEGER,
-FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-);``
+### Entidad: Evaluacion_Capacitacion
+``CREATE TABLE Evaluacion_Capacitacion(
+ID_Evaluacion INTEGER primary key,
+Duracion_Evaluacion INTEGER,
+Hora TIME,
+ID_Instructor INTEGER,
+FOREIGN KEY(ID_Instructor) REFERENCES Empleado(ID_Empleado)
+);
+``
 
 ### Entidad: Evaluacion_Sesion
 ``CREATE TABLE Evaluacion_Sesion(
 ID_Evaluacion INTEGER,
 ID_Sesion INTEGER,
 Resultado VARCHAR(64)
+FOREIGN KEY(ID_Sesion) REFERENCES Sesion(ID_Sesion),
+FOREIGN KEY(ID_Evaluacion) REFERENCES Evaluacion_Capacitacion(ID_Evaluacion)
 );``
 
-### Entidad: Evaluacion_Capacitacion
-``CREATE TABLE Evaluacion_Capacitacion(
+
+### Entidad: Evaluacion_Empleado
+``CREATE TABLE Evaluacion_Empleado(
 ID_Evaluacion INTEGER,
-Duracion_Evaluacion INTEGER,
-Hora TIME,
-ID_Instructor INTEGER,
-FOREIGN KEY(ID_Instructor) REFERENCES Instructor(ID_Instructor)
+ID_Empleado INTEGER,
+Resultado VARCHAR(64),
+FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+FOREIGN KEY(ID_Evaluacion) REFERENCES Evaluacion_Capacitacion(ID_Evaluacion)
 );
 ``
 
 ### Entidad: Permiso
 ``CREATE TABLE Permiso(
 ID_Permiso INTEGER primary key,
-ID_Empleado INTEGER ,
-ID_Supervisor INTEGER,
 Tipo VARCHAR(64),
 Motivo VARCHAR(128),
-Duracion TIME,
-Estado CHAR,
+Duracion VARCHAR(16),
+Estado VARCHAR(64),
+ID_Empleado INTEGER ,
+ID_Supervisor INTEGER,
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
 FOREIGN KEY(ID_Supervisor) REFERENCES Supervisor(ID_Supervisor)
 );``
@@ -187,12 +205,12 @@ FOREIGN KEY(ID_Supervisor) REFERENCES Supervisor(ID_Supervisor)
 ### Entidad: Licencia
 ``CREATE TABLE Licencia(
 ID_Licencia INTEGER primary key,
-ID_Empleado INTEGER ,
-ID_Supervisor INTEGER,
 Tipo VARCHAR(64),
+Estado VARCHAR(64),
 Fecha_inicio DATE,
 Fecha_fin DATE,
-Estado CHAR,
+ID_Empleado INTEGER ,
+ID_Supervisor INTEGER,
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
 FOREIGN KEY(ID_Supervisor) REFERENCES Supervisor(ID_Supervisor)
 );
@@ -210,203 +228,81 @@ Hora_salida TIME,
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
-### Entidad: Gerente_RR_HH
-``CREATE TABLE Gerente_RR_HH(
-		ID_Gerente INTEGER,
-		ID_Empleado INTEGER,
-		PRIMARY KEY(ID_Gerente),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-	);``
-		
-### Entidad: Especialista_Relaciones_Laborales
-``CREATE TABLE Especialista_Relaciones_Laborales(
-		ID_Especialista INTEGER,
-		ID_Empleado INTEGER,
-		PRIMARY KEY(ID_Especialista),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-	);``
-	
-
 ### Entidad: Cuestionario
 ``CREATE TABLE Cuestionario(
-		ID_Cuestionario INTEGER,
-		Tipo_Cuestionario VARCHAR(15),
-		PRIMARY KEY(ID_Cuestionario)
-	);``
-	
-### Entidad: Pregunta_Cuestionario
-``CREATE TABLE Pregunta_Cuestionario(
-		ID_Pregunta INTEGER,
-		ID_Cuestionario INTEGER,
-		Enunciado_Pregunta VARCHAR(256),
-		PRIMARY KEY(ID_Pregunta),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
-	);``
-	
-### Entidad: Cuestionario_Empleado
-``CREATE TABLE Cuestionario_Empleado(
-		ID_Empleado INTEGER,
-		ID_Cuestionario INTEGER,
-		ID_Pregunta INTEGER, 
-		Respuesta VARCHAR(15),
-		Fecha_Rellenado DATE,
-		Hora_Rellenado TIME,
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta)
-	);``
-	
- ### Entidad: Cuestionario_Especialista
-``CREATE TABLE Cuestionario_Especialista(
-		ID_Cuestionario INTEGER,
-		ID_Especialista INTEGER,
+		ID_Cuestionario INTEGER primary key,
+		ID_Especialista_Relaciones_Laborales INTEGER,
+		Tipo_Cuestionario VARCHAR(12),
 		Fecha_Creacion DATE,
 		Hora_Creacion TIME,
 		Fecha_Envio_Gerencia DATE,
 		Hora_Envio_Gerencia TIME,
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));``
-		
- ### Entidad: Cuestionario_Gerente_RR_HH
-``CREATE TABLE Cuestionario_Gerente_RR_HH(
-		ID_Cuestionario INTEGER,
 		ID_Gerente INTEGER,
-		Fecha_Revision DATE,
-		Hora_Revision TIME,
 		Estado_Aprobacion VARCHAR (256),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));``
-	
- ### Entidad: Reporte
+		Fecha_Revision DATE,
+		Hora_Revision TIME
+	);``
+### Entidad: Pregunta_Cuestionario
+``CREATE TABLE Pregunta_Cuestionario(
+		ID_Pregunta INTEGER primary key,
+		ID_Cuestionario INTEGER,
+		Enunciado_Pregunta VARCHAR(256),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);``
+
+ ### Entidad: Cuestionario_Empleado
+``CREATE TABLE Cuestionario_Empleado(
+		ID_Cuestionario_Empleado INTEGER primary key,
+		ID_Empleado INTEGER,
+		ID_Cuestionario INTEGER,
+		Fecha_Rellenado DATE,
+		Hora_Rellenado TIME,
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);``
+ 
+### Entidad: Respuesta_Cuestionario
+``CREATE TABLE Respuesta_Cuestionario(
+		ID_Respuesta Integer primary key,
+		ID_Pregunta INTEGER,
+		ID_Cuestionario_Empleado INTEGER,
+		Enunciado_Respuesta VARCHAR(12),
+		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta),
+		FOREIGN KEY(ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado)
+	);``
+
+### Entidad: Reporte
 ``CREATE TABLE Reporte(
-		ID_Reporte INTEGER,
-		ID_Empleado INTEGER,
-		ID_Cuestionario INTEGER,
+		ID_Reporte INTEGER primary key,
+		ID_Cuestionario_Empleado INTEGER,
 		Fecha_Ingreso_Empleado DATE,
-		Calificacion_Empleado VARCHAR(15),
-		PRIMARY KEY(ID_Reporte),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario));``
-		
- ### Entidad: Retroalimentacion
+		Calificacion_Empleado VARCHAR(12),
+		FOREIGN KEY (ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado)
+	);``
+
+### Entidad: Retroalimentación
 ``CREATE TABLE Retroalimentacion(
-		ID_Retroalimentacion INTEGER,
-		ID_Empleado INTEGER,
-		ID_Cuestionario INTEGER,
+		ID_Retroalimentacion INTEGER primary key,
 		ID_Reporte INTEGER,
-		ID_Gerente INTEGER,
-		ID_Especialista INTEGER,
 		Enunciado_Retroalimentacion VARCHAR(256),
+		ID_Gerente INTEGER,
+		ID_Especialista_Relaciones_Laborales INTEGER,
 		Fecha_Retroalimentacion DATE,
 		Hora_Retroalimentacion TIME,
-		PRIMARY KEY(id_Retroalimentacion),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));``
-	
-### Entidad: Reunion
-``CREATE TABLE Reunion(
-		ID_Reunion INTEGER,
-		ID_Especialista INTEGER,
-		ID_Gerente INTEGER,
+		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte)
+	);``
+
+
+### Entidad: Reunión
+	CREATE TABLE Reunion(
+		ID_Reunion INTEGER primary key,
+		ID_Empleado INTEGER,
 		Asunto_Reunion VARCHAR(256),
 		Fecha_Reunion DATE,
 		Hora_Reunion TIME,
-		PRIMARY KEY(ID_Reunion),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));``
+		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
+	);
 
-### Entidad: Vacante
-
-CREATE TABLE Vacante (
-    ID_Vac VARCHAR(8) PRIMARY KEY,
-    ID_Departamento INT,
-    ID_Cargo INT,
-    ID_Perfil INT,
-    Ubicación VARCHAR(255),
-    Beneficio VARCHAR(255),
-    Salario DECIMAL(8, 2),
-    Horario VARCHAR(255),
-    FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento),
-    FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo),
-    FOREIGN KEY (ID_Perfil) REFERENCES Perfil(ID_Perfil)
-);
-### Entidad: Solicitud_Empleo
-CREATE TABLE Solicitud_Empleo (
-    ID_solicitud VARCHAR(8) PRIMARY KEY,
-    ID_Vacante VARCHAR(8),
-    Est_solicitud VARCHAR(50),
-    Vacante_aplicada VARCHAR(255),
-    Horario_disponible VARCHAR(255),
-    Fecha_aplicación DATE,
-    ID_cand INT,
-    ID_curriculum INT,
-    FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac),
-    FOREIGN KEY (ID_cand) REFERENCES Candidato(ID_cand),
-    FOREIGN KEY (ID_curriculum) REFERENCES Curriculum(ID_curriculum)
-);
-### Entidad: Perfil
-CREATE TABLE Perfil (
-    ID_Perfil INT PRIMARY KEY,
-    ID_Vacante VARCHAR(8),
-    Conocimiento_Req VARCHAR(255),
-    Años_Exp INT,
-    Titulo_Requerido VARCHAR(255),
-    FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac)
-);
-### Entidad: Entrevista
-CREATE TABLE Entrevista (
-    ID_Entrevista INT PRIMARY KEY,
-    Fecha_Eva DATE,
-    Hora_entrevista TIME,
-    Resp_Eva VARCHAR(255),
-    Resultado_eva VARCHAR(50),
-    ID_Solicitud VARCHAR(8),
-    ID_Evaluacion INT,
-    FOREIGN KEY (ID_Solicitud) REFERENCES Solicitud_Empleo(ID_solicitud),
-    FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion)
-);
-### Entidad: Evaluacion
-CREATE TABLE Evaluacion (
-    ID_Evaluacion INT PRIMARY KEY,
-    Competencias_Evaluadas VARCHAR(255),
-    Result_Evaluacion VARCHAR(255),
-    Duracion_Evaluacion TIME
-);
-### Entidad: Candidato
-CREATE TABLE Candidato (
-    ID_cand INT PRIMARY KEY,
-    Nombre_cand VARCHAR(255),
-    Apell_cand VARCHAR(255),
-    Fecha_Nac_cand DATE,
-    Direccion_cand VARCHAR(255),
-    Correo_cand VARCHAR(255),
-    Num_Telefono VARCHAR(20)
-);
-### Entidad: Curriculum
-CREATE TABLE Curriculum (
-    ID_curriculum INT PRIMARY KEY,
-    Grado_Educación VARCHAR(255),
-    Id_experiencia INT,
-    Id_certificado INT,
-    FOREIGN KEY (ID_experiencia) REFERENCES Experiencia_Laboral(ID_experiencia),
-    FOREIGN KEY (ID_certificado) REFERENCES Certificados(ID_certificado)
-);
-### Entidad: Experiencia_Laboral
-CREATE TABLE Experiencia_Laboral (
-    ID_experiencia INT PRIMARY KEY,
-    Nombre_lugar VARCHAR(255),
-    Cargo_ejercido VARCHAR(255),
-    Tiempo_ejercido VARCHAR(255)
-);
-### Entidad: Certificados
-CREATE TABLE Certificados (
-    ID_certificado INT PRIMARY KEY,
-    Curso_certificado VARCHAR(255),
-    Nivel_certificado VARCHAR(255)
-);
 
 
 ## Llenado de datos
@@ -571,18 +467,30 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (20200034, 'Antonia', 'Hernández', 912345758, 'Av. Los Lirios 456, Lima', 'antonia.hernandez@gmail.com', '1983-07-25', 1, 'Casado', 12, 4),
 (20200037, 'Felipe', 'Martínez', 912345761, 'Av. Las Azucenas 567, Lima', 'felipe.martinez@gmail.com', '1984-02-10', 0, 'Soltero', 13, 4);``
 
-### Datos Tabla: Instructor
-``INSERT INTO Instructor(ID_Instructor, ID_Empleado) VALUES
-(1,20210003), (2,20210006), (3,20210008), (4,20210009), (5,20230006), (6,20230007), (7,20230012), (8,20230013), (9,20220004), (10,20220005), (11,20240027);
-``
 ### Datos Tabla: Supervisor
 ``INSERT INTO supervisor VALUES
 (1, 20230007), (2, 20200004), (3, 20200006), (4, 20200005), (5, 20200009), (6, 20200007), (7, 20200008), (8, 20200010), (9, 20220005), (10, 20230013), (11, 20200016), (12, 20200019), (13, 20200022), (14, 20200023), (15, 20210009), (16, 20200025), (17, 20200026), (18, 20200028), (19, 20200029), (20, 20200030), (21, 20200031), (22, 20200034), (23, 20200037);
 ``
 ### Datos Tabla: Programa-Capacitador
-``INSERT INTO Programa_Capacitador(ID_Programa_C,Fecha_Inicio,Fecha_Fin) VALUES
-(1, '2021-01-01', '2021-02-15'), (2, '2021-03-15', '2021-05-01'), (3, '2021-08-01', '2021-11-30'), (4, '2022-01-15', '2022-02-15'), (5, '2022-09-15', '2022-11-30'), (6, '2023-03-01', '2023-05-31'), (7, '2023-10-01', '2023-12-31'), (8, '2024-01-14', '2024-02-28');
+``INSERT INTO Programa_Capacitador(ID_Programa_C,Fecha_Inicio,Fecha_Fin,Motivo,ID_Departamento) VALUES
+(1, '2021-01-01', '2021-02-15','Técnicas de Cultivo de Frutas Tropicales',1), 
+(2, '2021-03-15', '2021-05-01','Manejo y Almacenamiento de Productos Perecederos', 2),
+(3, '2021-08-01', '2021-11-30','Control de Calidad en la Industria Alimentaria', 3),
+(4, '2022-01-15', '2022-02-15','Elaboración de Mermeladas Artesanales', 4),
+(5, '2022-09-15', '2022-11-30','Proceso de Confitado de Frutas', 5),
+(6, '2023-03-01', '2023-05-31','Innovación y Desarrollo de Nuevos Productos', 6),
+(7, '2023-10-01', '2023-12-31','Gestión Logística y Distribución de Productos Frescos', 7),
+(8, '2024-01-14', '2024-02-28','Estrategias de Marketing para Productos Agroalimentarios', 8);
 ``
+### Datos Tabla: Lista_Matricula
+``INSERT INTO Lista_Matricula VALUES
+(1,'20230011','Matriculado'),
+(1,'20240006','Matriculado'),
+(1,'20240024','Matriculado'),
+(1,'20240021','Matriculado'),
+(1,'20240010','Retirado');
+``
+
 ### Datos Tabla: Sesión
 ``INSERT INTO Sesion(ID_Sesion,Estado,Fecha,Hora,ID_Programa_C) VALUES
 (1,'Completa','2021-01-01','17:30:00',1),(2,'Completa','2021-01-08','17:30:00',1),
@@ -616,10 +524,36 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion) VALUES
 (7,20230011,'Asistio'),(7,20240006,'Falto'),(7,20240024,'Asistio'),(7,20240021,'Asistio');
 ``
 ### Datos Tabla: Evaluación-Capacitación
-``INSERT INTO Evaluacion_Capacitacion VALUES
-(1,1,'19:00:00',20240027),(2,1,'19:00:00',1),(3,1,'19:00:00',1),(4,1,'19:00:00',1),(5,1,'19:00:00',1),
-(6,1,'19:00:00',1),(7,1,'19:00:00',1);
+``INSERT INTO Evaluacion_Capacitacion VALUES  (1,1,'19:00:00',20210003),(2,1,'19:00:00',20210003),(3,1,'19:00:00',20210003),
+(4,1,'19:00:00',20210003),(5,1,'19:00:00',20210003), (6,1,'19:00:00',20210003),(7,1,'19:00:00',20210003),(8,1,'19:00:00',20210003),(9,1,'19:00:00',20210003);
 ``
+### Datos Tabla: Evaluación-Sesión
+``INSERT INTO Evaluacion_Sesion VALUES
+(1,1,'Satisfactorio'),
+(2,2,'Regular'),
+(3,3,'Deficiente'),
+(4,4,'Satisfactorio'),
+(5,5,'Satisfactorio'),
+(6,6,'Regular'),
+(7,7,'Satisfactorio'),
+(8,8,'Regular'),
+(9,9,'Satisfactorio')
+;
+``
+### Datos Tabla: Evaluación-Empleado
+``INSERT INTO Evaluacion_Empleado VALUES
+(1,20230011,'Satisfactorio'),(1,20240006,'Satisfactorio'), (1,20240024,'Satisfactorio'),(1,20240021,'Satisfactorio'), 
+(2,20230011,'Satisfactorio'),(2,20240006,'Regular'), (2,20240024,'Regular'),(2,20240021,'Deficiente'), 
+(3,20230011,'Deficiente'),(3,20240006,'Regular'), (3,20240024,'Regular'),(3,20240021,'Deficiente'), 
+(4,20230011,'Satisfactorio'),(4,20240006,'Satisfactorio'), (4,20240024,'Regular'),(4,20240021,'Satisfactorio'), 
+(5,20230011,'Regular'),(5,20240006,'Satisfactorio'), (5,20240024,'Satisfactorio'),(5,20240021,'Satisfactorio'),
+(6,20230011,'Regular'),(6,20240006,'Regular'), (6,20240024,'Satisfactorio'),(6,20240021,'Regular'),
+(7,20230011,'Satisfactorio'),(7,20240006,'Satisfactorio'), (7,20240024,'Regular'),(7,20240021,'Satisfactorio'),
+(8,20230011,'Regular'),(8,20240006,'Regular'), (8,20240024,'Regular'),(8,20240021,'Regular'),
+(9,20230011,'Satisfactorio'),(9,20240006,'Satisfactorio'), (9,20240024,'Satisfactorio'),(9,20240021,'Satisfactorio'),
+;
+``
+
 ### Datos Tabla: Cese
 
 ``INSERT INTO Cese VALUES
@@ -729,54 +663,54 @@ INSERT INTO Beneficios_Cese VALUES
 ``
 ### Datos Tabla: Licencia
 ``INSERT INTO Licencia VALUES (ID_Licencia, Tipo, Estado, Fecha_inicio, Fecha_fin, ID_Empleado, ID_Supervisor) VALUES
-(1, "Sindical", "Aceptado", 2021-03-12, 2021-04-12, 20240032, 20230007)
-(2, "Por paternidad", "Aprobado", '2020-06-15', '2020-06-29', 20210002, 20200004),
-(3, "Por lactancia", "Rechazado", '2021-07-01', '2021-07-15', 20210003, 20200006),
-(4, "Por adopción", "Aprobado", '2022-08-10', '2022-08-24', 20210004, 20200005),
-(5, "Sindical", "Rechazado", '2020-09-20', '2020-10-05', 20210005, 20200009),
-(6, "Por familiares graves", "Aprobado", '2021-11-11', '2021-11-25', 20210006, 20200007),
-(7, "Comité SST", "Rechazado", '2022-12-01', '2022-12-15', 20210007, 20200008),
-(8, "Por asistencia médica a un familiar", "Aprobado", '2020-01-16', '2020-01-30', 20210008, 20200010),
-(9, "Por ser bombero voluntario", "Rechazado", '2021-02-14', '2021-02-28', 20210009, 20220005),
-(10, "Por maternidad", "Aprobado", '2022-03-10', '2022-03-24', 20210010, 20230013),
-(11, "Por paternidad", "Rechazado", '2020-04-12', '2020-04-26', 20200001, 20200016),
-(12, "Por lactancia", "Aprobado", '2021-05-09', '2021-05-23', 20230002, 20200019),
-(13, "Por adopción", "Rechazado", '2022-06-07', '2022-06-21', 20230005, 20200022),
-(14, "Sindical", "Aprobado", '2020-07-05', '2020-07-19', 20230006, 20200023),
-(15, "Por familiares graves", "Rechazado", '2021-08-03', '2021-08-17', 20230007, 20210009),
-(16, "Comité SST", "Aprobado", '2022-09-01', '2022-09-15', 20230008, 20200025),
-(17, "Por asistencia médica a un familiar", "Rechazado", '2020-10-13', '2020-10-27', 20230009, 20200026),
-(18, "Por ser bombero voluntario", "Aprobado", '2021-11-11', '2021-11-25', 20230010, 20200028),
-(19, "Por maternidad", "Rechazado", '2022-12-09', '2022-12-23', 20230011, 20200029),
-(20, "Por paternidad", "Aprobado", '2020-02-14', '2020-02-28', 20230012, 20200030)
+(1, 'Sindical', 'Aceptado', 2021-03-12, 2021-04-12, 20240032, 2)
+(2, 'Por paternidad", 'Aprobado', '2020-06-15', '2020-06-29', 20210002, 4),
+(3, 'Por lactancia", 'Rechazado', '2021-07-01', '2021-07-15', 20210003, 6),
+(4, 'Por adopción', 'Aprobado', '2022-08-10', '2022-08-24', 20210004, 5),
+(5, 'Sindical', 'Rechazado', '2020-09-20', '2020-10-05', 20210005, 9),
+(6, 'Por familiares graves', 'Aprobado', '2021-11-11', '2021-11-25', 20210006, 7),
+(7, 'Comité SST', 'Rechazado', '2022-12-01', '2022-12-15', 20210007, 8),
+(8, 'Por asistencia médica a un familiar', 'Aprobado', '2020-01-16', '2020-01-30', 20210008, 1),
+(9, 'Por ser bombero voluntario', 'Rechazado', '2021-02-14', '2021-02-28', 20210009,5),
+(10, 'Por maternidad', 'Aprobado', '2022-03-10', '2022-03-24', 20210010, 3),
+(11, 'Por paternidad', 'Rechazado', '2020-04-12', '2020-04-26', 20200001, 6),
+(12, 'Por lactancia', 'Aprobado', '2021-05-09', '2021-05-23', 20230002, 9),
+(13, 'Por adopción', 'Rechazado', '2022-06-07', '2022-06-21', 20230005, 2),
+(14, 'Sindical", "Aprobado', '2020-07-05', '2020-07-19', 20230006, 3),
+(15, 'Por familiares graves', 'Rechazado', '2021-08-03', '2021-08-17', 20230007, 9),
+(16, 'Comité SST', 'Aprobado', '2022-09-01', '2022-09-15', 20230008, 5),
+(17, 'Por asistencia médica a un familiar', 'Rechazado', '2020-10-13', '2020-10-27', 20230009, 6),
+(18, 'Por ser bombero voluntario', 'Aprobado', '2021-11-11', '2021-11-25', 20230010, 8),
+(19, 'Por maternidad', 'Rechazado', '2022-12-09', '2022-12-23', 20230011, 9),
+(20, 'Por paternidad', 'Aprobado', '2020-02-14', '2020-02-28', 20230012, 1)
 ``
 ### Datos Tabla: Permiso
 ``INSERT INTO Permiso VALUES (ID_Permiso, Tipo, Motivo, Duracion, Estado, ID_Empleado, ID_Supervisor) VALUES
-(1, "Mudanza", "Me mudo por motivos familiares", 10 días, "Aprobado", 20200023, 20230007)
-(2, "Matrimonio", "Casamiento con mi pareja de larga data", '15 días', "Aprobado", 20210001, 20200004),
-(3, "Nacimiento de un familiar", "Nacimiento de mi sobrino", '7 días', "Rechazado", 20210002, 20200006),
-(4, "Fallecimiento de un familiar", "Falleció mi abuelo", '5 días', "Aprobado", 20210003, 20200005),
-(5, "Accidente de un familiar", "Mi hermano tuvo un accidente", '20 días', "Rechazado", 20210004, 20200009),
-(6, "Enfermedad grave de un familiar", "Mi madre está gravemente enferma", '30 días', "Aprobado", 20210005, 20200007),
-(7, "Deberes inexcusables", "Debo asistir a una cita judicial", '3 días', "Rechazado", 20210006, 20200008),
-(8, "Exámenes prenatales", "Control prenatal de mi pareja", '1 día', "Aprobado", 20210007, 20200010),
-(9, "Funciones sindicales", "Participación en asamblea sindical", '2 días', "Rechazado", 20210008, 20220005),
-(10, "Hijos prematuros", "Cuidado de mi hijo prematuro", '25 días', "Aprobado", 20210009, 20230013),
-(11, "Formación", "Curso de actualización profesional", '10 días', "Rechazado", 20210010, 20200016),
-(12, "Despido objetivo", "Gestiones por despido", '14 días', "Aprobado", 20200001, 20200019),
-(13, "Mudanza", "Cambio de residencia por trabajo", '12 días', "Rechazado", 20230002, 20200022),
-(14, "Matrimonio", "Mi boda", '15 días', "Aprobado", 20230005, 20200023),
-(15, "Nacimiento de un familiar", "Nacimiento de mi hija", '7 días', "Rechazado", 20230006, 20210009),
-(16, "Fallecimiento de un familiar", "Falleció mi tío", '5 días', "Aprobado", 20230007, 20200025),
-(17, "Accidente de un familiar", "Mi prima sufrió un accidente", '20 días', "Rechazado", 20230008, 20200026),
-(18, "Enfermedad grave de un familiar", "Mi padre tiene una enfermedad grave", '30 días', "Aprobado", 20230009, 20200028),
-(19, "Deberes inexcusables", "Obligaciones legales imprevistas", '3 días', "Rechazado", 20230010, 20200029),
-(20, "Exámenes prenatales", "Exámenes prenatales de mi esposa", '1 día', "Aprobado", 20230011, 20200030),
-(21, "Funciones sindicales", "Reunión sindical importante", '2 días', "Rechazado", 20230012, 20200031),
-(22, "Hijos prematuros", "Atención a mi hijo recién nacido", '25 días', "Aprobado", 20230013, 20200034),
-(23, "Formación", "Seminario de desarrollo personal", '10 días', "Rechazado", 20230014, 20200037),
-(24, "Despido objetivo", "Proceso de despido laboral", '14 días', "Aprobado", 20230015, 20230007),
-(25, "Mudanza", "Relocalización por motivos de salud", '12 días', "Rechazado", 20220001, 20200004)
+(1, 'Mudanza', 'Me mudo por motivos familiares', '10 días', 'Aprobado', 20200023, 7)
+(2, 'Matrimonio', 'Casamiento con mi pareja de larga data', '15 días', 'Aprobado', 20210001, 4),
+(3, 'Nacimiento de un familiar', "Nacimiento de mi sobrino", '7 días', 'Rechazado', 20210002, 6),
+(4, 'Fallecimiento de un familiar', 'Falleció mi abuelo', '5 días', 'Aprobado', 20210003, 5),
+(5, 'Accidente de un familiar', 'Mi hermano tuvo un accidente', '20 días', 'Rechazado', 20210004, 9),
+(6, 'Enfermedad grave de un familiar', 'Mi madre está gravemente enferma', '30 días', 'Aprobado', 20210005, 7),
+(7, 'Deberes inexcusables', 'Debo asistir a una cita judicial', '3 días', 'Rechazado', 20210006, 8),
+(8, 'Exámenes prenatales', 'Control prenatal de mi pareja', '1 día', 'Aprobado', 20210007, 1),
+(9, 'Funciones sindicales', 'Participación en asamblea sindical', '2 días', 'Rechazado', 20210008, 5),
+(10, 'Hijos prematuros', 'Cuidado de mi hijo prematuro', '25 días', 'Aprobado', 20210009, 3),
+(11, 'Formación', 'Curso de actualización profesional', '10 días', 'Rechazado', 20210010, 6),
+(12, 'Despido objetivo', 'Gestiones por despido', '14 días', 'Aprobado', 20200001, 9),
+(13, 'Mudanza', 'Cambio de residencia por trabajo', '12 días', 'Rechazado', 20230002, 2),
+(14, 'Matrimonio', 'Mi boda', '15 días', 'Aprobado', 20230005, 3),
+(15, 'Nacimiento de un familiar', 'Nacimiento de mi hija', '7 días', 'Rechazado', 20230006, 9),
+(16, 'Fallecimiento de un familiar', 'Falleció mi tío', '5 días', 'Aprobado', 20230007, 5),
+(17, 'Accidente de un familiar', 'Mi prima sufrió un accidente', '20 días', 'Rechazado', 20230008, 6),
+(18, 'Enfermedad grave de un familiar', 'Mi padre tiene una enfermedad grave', '30 días', 'Aprobado', 20230009, 8),
+(19, 'Deberes inexcusables', 'Obligaciones legales imprevistas', '3 días', 'Rechazado', 20230010, 9),
+(20, 'Exámenes prenatales', 'Exámenes prenatales de mi esposa', '1 día', 'Aprobado', 20230011, 1),
+(21, 'Funciones sindicales', 'Reunión sindical importante', '2 días', 'Rechazado', 20230012, 1),
+(22, 'Hijos prematuros', 'Atención a mi hijo recién nacido', '25 días', 'Aprobado', 20230013, 4),
+(23, 'Formación', 'Seminario de desarrollo personal', '10 días', 'Rechazado', 20230014, 7),
+(24, 'Despido objetivo', 'Proceso de despido laboral', '14 días', 'Aprobado', 20230015, 7),
+(25, 'Mudanza', 'Relocalización por motivos de salud', '12 días', 'Rechazado', 20220001, 4)
 ``
 
 

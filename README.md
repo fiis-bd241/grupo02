@@ -15,4 +15,6 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 
 5. [Videos personales por módulo](Videos.md)
 
+6. [Videos personales por módulo_Entregable 2](Videos_2.md)
+
    
