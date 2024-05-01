@@ -230,7 +230,7 @@
 |             **Atributo**             |                     **Descripción**                    | **Formato** | **Naturaleza** |           **Valores**          |
 |:------------------------------------:|:------------------------------------------------------:|:-----------:|:--------------:|:------------------------------:|
 |            ID_Cuestionario           |    Primary key, identificador único del cuestionario   |   99999999  |       INT      |     Números enteros únicos     |
-| ID_Especialista_Relaciones_Laborales | Identificador del especialista en relaciones laborales |   99999999  |       INT      |         Números enteros        |
+| ID_Especialista_Relaciones_Laborales | Foreign key, identificador del especialista en relaciones laborales |   99999999  |       INT      |         Números enteros        |
 |           Tipo_Cuestionario          |                  Tipo de cuestionario                  |    X(12)    |      VARCHAR      |  Cadena de hasta 12 caracteres |
 |            Fecha_Creacion            |           Fecha de creación del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Creacion            |            Hora de creación del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
@@ -253,7 +253,7 @@
 #### Descripción: Cuestionario completado por algún empleado.
 |       **Atributo**       |                  **Descripción**                 | **Formato** | **Naturaleza** |          **Valores**          |
 |:------------------------:|:------------------------------------------------:|:-----------:|:--------------:|:-----------------------------:|
-| ID_Cuestionario_Empleado | Primary Key, identificador único del cuestionario de empleado |   INT   |       INT      |     Números enteros únicos    |
+| ID_Cuestionario_Empleado | Primary Key, identificador único del cuestionario de empleado |   99999999   |       INT      |     Números enteros únicos    |
 |    ID_Empleado   |              Foreign key, código único del empleado              |  99999999   |     INT    |  Números enteros únicos |
 |            ID_Cuestionario           |    Foreign key, identificador único del cuestionario   |   99999999  |       INT      |     Números enteros únicos     |
 |      Fecha_Rellenado     |      Fecha en que se rellenó el cuestionario     |   AAAAMMDD  |      DATE      | Fecha válida en el calendario |
@@ -265,7 +265,7 @@
 |:-------------------:|:----------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
 |     ID_Respuesta    | Identificador único de la respuesta |   99999999   |       INT      |     Números enteros únicos     |
 |     ID_Pregunta    | Foreign key, identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
-| ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario de empleado |   INTEGER   |       INT      |     Números enteros únicos    |
+| ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario de empleado |   99999999   |       INT      |     Números enteros únicos    |
 | Enunciado_Respuesta |               Enunciado de la respuesta              | X(12) |      VARCHAR      | Cadena de hasta 12 caracteres |
 
 ### Entidad: Reporte
