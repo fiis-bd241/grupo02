@@ -23,3 +23,11 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 [PPT_Evaluación_De_Desempeño_Entregable 2](Material_Videos/Evaluación_Desempeño_Tineo_Rodrigo_PC2.pdf)
+
+### Registro de asistencias y solicitudes
+
+- **Alumno: Rosales Avila, Edison Edwin**
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=sHtiTfoPeVI
+" target="_blank"><img src="http://img.youtube.com/vi/sHtiTfoPeVI/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
