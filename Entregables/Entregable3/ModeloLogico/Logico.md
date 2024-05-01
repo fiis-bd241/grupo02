@@ -229,15 +229,15 @@
 #### Descripción: Instrumento para evaluar a los trabajadores de distinto tipo.
 |             **Atributo**             |                     **Descripción**                    | **Formato** | **Naturaleza** |           **Valores**          |
 |:------------------------------------:|:------------------------------------------------------:|:-----------:|:--------------:|:------------------------------:|
-|            ID_Cuestionario           |  Identificador único del cuestionario  |   99999999  |       INT      |     Números enteros únicos     |
+|            ID_Cuestionario           |    Primary key, identificador único del cuestionario   |   99999999  |       INT      |     Números enteros únicos     |
 | ID_Especialista_Relaciones_Laborales | Identificador del especialista en relaciones laborales |   99999999  |       INT      |         Números enteros        |
-|           Tipo_Cuestionario          |                  Tipo de cuestionario                  | VARCHAR(15) |      CHAR      |  Cadena de hasta 15 caracteres |
+|           Tipo_Cuestionario          |                  Tipo de cuestionario                  |    X(12)    |      VARCHAR      |  Cadena de hasta 12 caracteres |
 |            Fecha_Creacion            |           Fecha de creación del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Creacion            |            Hora de creación del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
 |         Fecha_Envio_Gerencia         |       Fecha de envío del cuestionario a gerencia       |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |          Hora_Envio_Gerencia         |        Hora de envío del cuestionario a gerencia       |   HH:MM:SS  |      TIME      |           Hora válida          |
 |              ID_Gerente              |                Identificador del gerente               |   99999999  |       INT      |         Números enteros        |
-|           Estado_Aprobacion          |          Estado de aprobación del cuestionario         |    X(256)   |      CHAR      | Cadena de hasta 256 caracteres |
+|           Estado_Aprobacion          |          Estado de aprobación del cuestionario         |    X(256)   |      VARCHAR      | Cadena de hasta 256 caracteres |
 |            Fecha_Revision            |           Fecha de revisión del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Revision            |            Hora de revisión del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
 
@@ -245,14 +245,17 @@
 #### Descripción: Preguntas que están dentro del cuestionario de cada tipo.
 |    **Atributo**    |           **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
 |:------------------:|:----------------------------------:|:------------:|:--------------:|:------------------------------:|
-|     ID_Pregunta    | Identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
-| Enunciado_Pregunta |      Enunciado de la pregunta      | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+|     ID_Pregunta    | Primary key, identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
+|            ID_Cuestionario           |    Foreign key, identificador único del cuestionario   |   99999999  |       INT      |     Números enteros únicos     |
+| Enunciado_Pregunta |      Enunciado de la pregunta      | X (256) |      VARCHAR      | Cadena de hasta 256 caracteres |
 
 ### Entidad: Cuestionario_Empleado
 #### Descripción: Cuestionario completado por algún empleado.
 |       **Atributo**       |                  **Descripción**                 | **Formato** | **Naturaleza** |          **Valores**          |
 |:------------------------:|:------------------------------------------------:|:-----------:|:--------------:|:-----------------------------:|
-| ID_Cuestionario_Empleado | Identificador único del cuestionario de empleado |   INTEGER   |       INT      |     Números enteros únicos    |
+| ID_Cuestionario_Empleado | Primary Key, identificador único del cuestionario de empleado |   INT   |       INT      |     Números enteros únicos    |
+|    ID_Empleado   |              Foreign key, código único del empleado              |  99999999   |     INT    |  Números enteros únicos |
+|            ID_Cuestionario           |    Foreign key, identificador único del cuestionario   |   99999999  |       INT      |     Números enteros únicos     |
 |      Fecha_Rellenado     |      Fecha en que se rellenó el cuestionario     |   AAAAMMDD  |      DATE      | Fecha válida en el calendario |
 |      Hora_Rellenado      |      Hora en que se rellenó el cuestionario      |   HH:MM:SS  |      TIME      |          Hora válida          |
 
@@ -261,21 +264,27 @@
 |     **Atributo**    |                    **Descripción**                   |  **Formato** | **Naturaleza** |           **Valores**          |
 |:-------------------:|:----------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
 |     ID_Respuesta    | Identificador único de la respuesta |   99999999   |       INT      |     Números enteros únicos     |
+|     ID_Pregunta    | Foreign key, identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
+| ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario de empleado |   INTEGER   |       INT      |     Números enteros únicos    |
 | Enunciado_Respuesta |               Enunciado de la respuesta              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
 
 ### Entidad: Reporte
 #### Descripción: Informe del desempeño del empleado en la evaluación.
-|     **Atributo**    |                    **Descripción**                   |  **Formato** | **Naturaleza** |           **Valores**          |
-|:-------------------:|:----------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
-|     ID_Respuesta    | Identificador único de la respuesta  |   99999999   |       INT      |     Números enteros únicos     |
-| Enunciado_Respuesta |               Enunciado de la respuesta              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+|         Atributo         |                                           Descripción                                           |  Formato |  Naturaleza |            Valores            |
+|:------------------------:|:-----------------------------------------------------------------------------------------------:|:--------:|:-----------:|:-----------------------------:|
+|        ID_Reporte        |                           Primary key, identificador único del reporte                          | 99999999 |     INT     |     Números enteros únicos    |
+| ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario completado por algún empleado (clave externa) | 99999999 |     INT     |     Números enteros únicos    |
+|  Fecha_Ingreso_Empleado  |                     Fecha en que se ingresó el cuestionario por el empleado                     | AAAAMMDD |     DATE    | Fecha válida en el calendario |
+|   Calificacion_Empleado  |                           Calificación del empleado en el cuestionario                          |   X(12)  | VARCHAR(12) | Cadena de hasta 12 caracteres |
+
 
 ### Entidad: Retroalimentación
 #### Descripción: Comentario o retroalimentación brindada por algún especialista en relaciones laborales o el gerente de RR. HH. a algún empleado.
 |             **Atributo**             |                        **Descripción**                       |  **Formato** | **Naturaleza** |           **Valores**          |
 |:------------------------------------:|:------------------------------------------------------------:|:------------:|:--------------:|:------------------------------:|
-|         ID_Retroalimentacion         | Identificador único de la retroalimentación |   99999999   |       INT      |     Números enteros únicos     |
-|      Enunciado_Retroalimentacion     |               Enunciado de la retroalimentación              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+|         ID_Retroalimentacion         | Primary key, identificador único de la retroalimentación |   99999999   |       INT      |     Números enteros únicos     |
+|        ID_Reporte        |                           Foreign key, identificador único del reporte                          | 99999999 |     INT     |     Números enteros únicos    |
+|      Enunciado_Retroalimentacion     |               Enunciado de la retroalimentación              | X(256) |      VARCHAR      | Cadena de hasta 256 caracteres |
 |              ID_Gerente              |             Identificador del gerente responsable            |   99999999   |       INT      |         Números enteros        |
 | ID_Especialista_Relaciones_Laborales |    Identificador del especialista en relaciones laborales    |   99999999   |       INT      |         Números enteros        |
 |        Fecha_Retroalimentacion       |                 Fecha de la retroalimentación                |   AAAAMMDD   |      DATE      |  Fecha válida en el calendario |
@@ -285,7 +294,8 @@
 #### Descripción: Reunión realizada por algún  especialista en relaciones laborales o el gerente de RR. HH. para establecer temas puntuales sobre el desempeño.
 |  **Atributo**  |          **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
 |:--------------:|:---------------------------------:|:------------:|:--------------:|:------------------------------:|
-|   ID_Reunion   | Identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
+|   ID_Reunion   | Primary key, identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
+|    ID_Empleado   |              Foreign key, código único del empleado que programa la reunión             |  99999999   |     INT    |  Números enteros únicos |
 | Asunto_Reunion |        Asunto de la reunión       | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
 |  Fecha_Reunion |        Fecha de la reunión        |     DATE     |    AAAAMMDD    |  Fecha válida en el calendario |
 |  Hora_Reunion  |         Hora de la reunión        |     TIME     |    HH:MM:SS    |           Hora válida          |
