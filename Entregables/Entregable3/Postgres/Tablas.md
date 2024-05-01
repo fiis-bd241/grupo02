@@ -324,12 +324,6 @@ CREATE TABLE Vacante (
 );
 ### Entidad: Solicitud_Empleo
 CREATE TABLE Solicitud_Empleo (
-=======
-);``
-
-### Entidad: Solicitud_Empleo
-``CREATE TABLE Solicitud_Empleo (
->>>>>>> 9b7cc982e084a4b8cefec7ae4451f32abf7fb78c
     ID_solicitud VARCHAR(8) PRIMARY KEY,
     ID_Vacante VARCHAR(8),
     Est_solicitud VARCHAR(50),
@@ -341,8 +335,9 @@ CREATE TABLE Solicitud_Empleo (
     FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac),
     FOREIGN KEY (ID_cand) REFERENCES Candidato(ID_cand),
     FOREIGN KEY (ID_curriculum) REFERENCES Curriculum(ID_curriculum)
-<<<<<<< HEAD
 );
+
+
 ### Entidad: Perfil
 CREATE TABLE Perfil (
     ID_Perfil INT PRIMARY KEY,
@@ -352,10 +347,7 @@ CREATE TABLE Perfil (
     Titulo_Requerido VARCHAR(255),
     FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac)
 );
-### Entidad: Entrevista
-CREATE TABLE Entrevista (
-=======
-);``
+
 
 ### Entidad: Perfil
 ``CREATE TABLE Perfil (
@@ -367,7 +359,7 @@ CREATE TABLE Entrevista (
 
 ### Entidad: Entrevista
 ``CREATE TABLE Entrevista (
->>>>>>> 9b7cc982e084a4b8cefec7ae4451f32abf7fb78c
+
     ID_Entrevista INT PRIMARY KEY,
     Fecha_Eva DATE,
     Hora_entrevista TIME,
@@ -375,20 +367,22 @@ CREATE TABLE Entrevista (
     Resultado_eva VARCHAR(50),
     ID_Solicitud VARCHAR(8),
     ID_Evaluacion INT,
-<<<<<<< HEAD
     FOREIGN KEY (ID_Solicitud) REFERENCES Solicitud_Empleo(ID_solicitud),
     FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion)
 );
 ### Entidad: Evaluacion
+
 CREATE TABLE Evaluacion (
+
     ID_Evaluacion INT PRIMARY KEY,
     Competencias_Evaluadas VARCHAR(255),
     Result_Evaluacion VARCHAR(255),
     Duracion_Evaluacion TIME
 );
 ### Entidad: Candidato
+
 CREATE TABLE Candidato (
-=======
+
     ID_Empleado INT,
     FOREIGN KEY (ID_Solicitud) REFERENCES Solicitud_Empleo(ID_solicitud),
     FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion),
@@ -396,16 +390,17 @@ CREATE TABLE Candidato (
 );``
 
 ### Entidad: Evaluacion
-``CREATE TABLE Evaluacion (
+CREATE TABLE Evaluacion (
+
     ID_Evaluacion INT PRIMARY KEY,
     Competencias_Evaluadas VARCHAR(255),
     Result_Evaluacion VARCHAR(255),
     Duracion_Evaluacion INT
-);``
+);
 
 ### Entidad: Candidato
-``CREATE TABLE Candidato (
->>>>>>> 9b7cc982e084a4b8cefec7ae4451f32abf7fb78c
+CREATE TABLE Candidato (
+
     ID_cand INT PRIMARY KEY,
     Nombre_cand VARCHAR(255),
     Apell_cand VARCHAR(255),
@@ -413,53 +408,49 @@ CREATE TABLE Candidato (
     Direccion_cand VARCHAR(255),
     Correo_cand VARCHAR(255),
     Num_Telefono VARCHAR(20)
-<<<<<<< HEAD
+
 );
-### Entidad: Curriculum
-CREATE TABLE Curriculum (
-=======
-);``
 
 ### Entidad: Curriculum
-``CREATE TABLE Curriculum (
->>>>>>> 9b7cc982e084a4b8cefec7ae4451f32abf7fb78c
+CREATE TABLE Curriculum (
+
     ID_curriculum INT PRIMARY KEY,
     Grado_Educación VARCHAR(255),
     Id_experiencia INT,
     Id_certificado INT,
     FOREIGN KEY (ID_experiencia) REFERENCES Experiencia_Laboral(ID_experiencia),
     FOREIGN KEY (ID_certificado) REFERENCES Certificados(ID_certificado)
-<<<<<<< HEAD
+
 );
-### Entidad: Experiencia_Laboral
-CREATE TABLE Experiencia_Laboral (
-=======
-);``
+
 
 ### Entidad: Experiencia_Laboral
-``CREATE TABLE Experiencia_Laboral (
->>>>>>> 9b7cc982e084a4b8cefec7ae4451f32abf7fb78c
+CREATE TABLE Experiencia_Laboral (
+
     ID_experiencia INT PRIMARY KEY,
     Nombre_lugar VARCHAR(255),
     Cargo_ejercido VARCHAR(255),
     Tiempo_ejercido VARCHAR(255)
-<<<<<<< HEAD
+
 );
 ### Entidad: Certificados
 CREATE TABLE Certificados (
+
+    ID_certificado INT PRIMARY KEY,
+    Curso_certificado VARCHAR(255),
+    Nivel_certificado VARCHAR(255)
+
+);
+
+
+### Entidad: Certificados
+CREATE TABLE Certificados (
+    
     ID_certificado INT PRIMARY KEY,
     Curso_certificado VARCHAR(255),
     Nivel_certificado VARCHAR(255)
 );
-=======
 
-### Entidad: Certificados
-``CREATE TABLE Certificados (
-    ID_certificado INT PRIMARY KEY,
-    Curso_certificado VARCHAR(255),
-    Nivel_certificado VARCHAR(255)
-);``
->>>>>>> 9b7cc982e084a4b8cefec7ae4451f32abf7fb78c
 
 
 

@@ -31,3 +31,9 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=sHtiTfoPeVI
 " target="_blank"><img src="http://img.youtube.com/vi/sHtiTfoPeVI/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+### Reclutamiento y selección de Personal
+
+<a href="https://www.youtube.com/watch?v=hYwXOR7ZEqg" target="_blank">
+    <img src="http://img.youtube.com/vi/hYwXOR7ZEqg/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
+</a>

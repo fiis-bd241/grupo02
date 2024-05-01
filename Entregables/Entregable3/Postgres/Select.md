@@ -69,12 +69,19 @@
 	INNER JOIN Solicitud_Empleo se ON c.ID_cand = se.ID_cand;
 
 
-### Seleccionar id de candidatos con sus solicitudes de empleo y estado de solicitud:
+### Seleccionar vista general de las vacantes, sus departamentos asociados, los cargos y los perfiles requeridos.:
 	SELECT v.ID_Vac, d.Nombre_departamento, c.Nombre, p.Conocimiento_Req
 	FROM Vacante v
 	INNER JOIN Departamento d ON v.ID_Departamento = d.ID_Departamento
 	INNER JOIN Cargo c ON v.ID_Cargo = c.ID_Cargo
 	INNER JOIN Perfil p ON v.ID_Perfil = p.ID_Perfil;
+### Saber los candidatos que fuero aceptados
+	SELECT c.ID_cand, c.Nombre_cand, c.Apell_cand
+	FROM Candidato c
+	INNER JOIN Solicitud_Empleo se ON c.ID_cand = se.ID_cand
+	INNER JOIN Entrevista e ON se.ID_solicitud = e.ID_Solicitud
+	INNER JOIN Evaluacion ev ON e.ID_Evaluacion = ev.ID_Evaluacion
+	WHERE ev.Estado_Evaluacion = 'Aprobado';
 
 ## Módulo: Registro de asistencias y solicitudes
 ### Para solicitar una licencia médica:

@@ -32,20 +32,24 @@ CREATE TABLE Cuestionario_Gerente_RR_HH( ID_Cuestionario INTEGER, ID_Gerente INT
 CREATE TABLE Reporte( ID_Reporte INTEGER, ID_Empleado INTEGER, ID_Cuestionario INTEGER, Fecha_Ingreso_Empleado DATE, Calificacion_Empleado VARCHAR(15), PRIMARY KEY(ID_Reporte), FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	 FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario));
 CREATE TABLE Retroalimentacion( ID_Retroalimentacion INTEGER, ID_Empleado INTEGER, ID_Cuestionario INTEGER, ID_Reporte INTEGER, ID_Gerente INTEGER, ID_Especialista INTEGER, Enunciado_Retroalimentacion VARCHAR(256), Fecha_Retroalimentacion DATE, Hora_Retroalimentacion TIME, PRIMARY KEY(id_Retroalimentacion), FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado), FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario), FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte), FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente), FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));
 CREATE TABLE Reunion( ID_Reunion INTEGER, ID_Especialista INTEGER, ID_Gerente INTEGER, Asunto_Reunion VARCHAR(256), Fecha_Reunion DATE, Hora_Reunion TIME, PRIMARY KEY(ID_Reunion), FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista), FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));
-CREATE TABLE Evaluacion ( ID_Evaluacion INT PRIMARY KEY, Competencias_Evaluadas VARCHAR(255), Result_Evaluacion VARCHAR(255), Duracion_Evaluacion INT);
+CREATE TABLE Evaluacion (
+    ID_Evaluacion INT PRIMARY KEY,
+    Competencias_Evaluadas VARCHAR(255),
+    Result_Evaluacion VARCHAR(255),
+    Duracion_Evaluacion INT,
+    Estado_Evaluacion VARCHAR(50)
+);
 CREATE TABLE Certificados ( ID_certificado INT PRIMARY KEY, Curso_certificado VARCHAR(255), Nivel_certificado VARCHAR(255) );
 CREATE TABLE Experiencia_Laboral ( ID_experiencia INT PRIMARY KEY, Nombre_lugar VARCHAR(255), Cargo_ejercido VARCHAR(255), Tiempo_ejercido VARCHAR(255) );
 CREATE TABLE Curriculum ( ID_curriculum INT PRIMARY KEY, Grado_Educación VARCHAR(255), Id_experiencia INT, Id_certificado INT, FOREIGN KEY (ID_experiencia) REFERENCES Experiencia_Laboral(ID_experiencia), FOREIGN KEY (ID_certificado) REFERENCES Certificados(ID_certificado) );
-CREATE TABLE Candidato ( ID_cand INT PRIMARY KEY, Nombre_cand VARCHAR(255), Apell_cand VARCHAR(255), Fecha_Nac_cand DATE, Direccion_cand VARCHAR(255), Correo_cand VARCHAR(255), Num_Telefono VARCHAR(20) );
+CREATE TABLE Candidato ( ID_cand INT PRIMARY KEY, Nombre_cand VARCHAR(255), Apell_cand VARCHAR(255), Fecha_Nac_cand DATE, Direccion_cand VARCHAR(255), Correo_cand VARCHAR(255), Num_Telefono VARCHAR(20), ID_curriculum INT, FOREIGN KEY (ID_curriculum) REFERENCES Curriculum(ID_curriculum) );
 CREATE TABLE Perfil ( ID_Perfil INT PRIMARY KEY,     Conocimiento_Req VARCHAR(255), Años_Exp INT, Titulo_Requerido VARCHAR(255) );
 CREATE TABLE Vacante ( ID_Vac VARCHAR(8) PRIMARY KEY, ID_Departamento INT, ID_Cargo INT, ID_Perfil INT, Ubicación VARCHAR(255), Beneficio VARCHAR(255), Salario DECIMAL(8, 2), Horario VARCHAR(255), FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento), FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo), FOREIGN KEY (ID_Perfil) REFERENCES Perfil(ID_Perfil) );
-CREATE TABLE Solicitud_Empleo ( ID_solicitud VARCHAR(8) PRIMARY KEY, ID_Vacante VARCHAR(8), Est_solicitud VARCHAR(50), Vacante_aplicada VARCHAR(255), Horario_disponible VARCHAR(255), Fecha_aplicación DATE, ID_cand INT, ID_curriculum INT, FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac), FOREIGN KEY (ID_cand) REFERENCES Candidato(ID_cand), FOREIGN KEY (ID_curriculum) REFERENCES Curriculum(ID_curriculum) );
+CREATE TABLE Solicitud_Empleo ( ID_solicitud VARCHAR(8) PRIMARY KEY, ID_Vacante VARCHAR(8), Est_solicitud VARCHAR(50), Vacante_aplicada VARCHAR(255), Horario_disponible VARCHAR(255), Fecha_aplicación DATE, ID_cand INT, FOREIGN KEY (ID_Vacante) REFERENCES Vacante(ID_Vac), FOREIGN KEY (ID_cand) REFERENCES Candidato(ID_cand) );
 CREATE TABLE Entrevista (
     ID_Entrevista INT PRIMARY KEY,
     Fecha_Eva DATE,
     Hora_entrevista TIME,
-    Resp_Eva VARCHAR(255),
-    Resultado_eva VARCHAR(50),
     ID_Solicitud VARCHAR(8),
     ID_Evaluacion INT,
     ID_Empleado INT,
@@ -153,29 +157,95 @@ INSERT INTO Reunion(ID_Reunion,ID_Especialista,ID_Gerente,Asunto_Reunion,Fecha_R
 INSERT INTO Certificados (ID_certificado, Curso_certificado, Nivel_certificado) VALUES (301, 'Certificación en Gestión de Calidad ISO 9001', 'Avanzado'), (302, 'Diplomado en Administración de Empresas', 'Intermedio'), (303, 'Certificado en Control de Calidad Alimentaria', 'Avanzado'), (304, 'Curso en Finanzas Corporativas', 'Intermedio'), (305, 'Certificación en Seguridad Alimentaria HACCP', 'Avanzado'), (306, 'Certificado en Desarrollo de Software', 'Avanzado'), (307, 'Curso en Logística y Distribución', 'Intermedio'), (308, 'Diplomado en Marketing Digital', 'Intermedio'), (309, 'Certificación en Contabilidad Financiera', 'Avanzado'), (310, 'Maestría en Recursos Humanos', 'Avanzado'), (311, 'Curso en Mantenimiento Industrial', 'Intermedio'), (312, 'Diplomado en Seguridad e Higiene Ocupacional', 'Intermedio'), (313, 'Certificado en Gestión Ambiental', 'Avanzado'), (314, 'Diplomado en Ingeniería Agroindustrial', 'Intermedio'), (315, 'Curso en Gestión de Almacenes', 'Intermedio'), (316, 'Certificación en Química Analítica', 'Avanzado'), (317, 'Curso en Tecnología de Alimentos', 'Intermedio'), (318, 'Diplomado en Producción de Frutas', 'Intermedio'), (319, 'Certificado en Biología Molecular', 'Avanzado'), (320, 'Maestría en Logística y Transporte', 'Avanzado');
 INSERT INTO Experiencia_Laboral (ID_experiencia, Nombre_lugar, Cargo_ejercido, Tiempo_ejercido) VALUES (201, 'Empresa A', 'Gerente de Producción', '5 años'), (202, 'Empresa B', 'Jefe de Recepción', '3 años'), (203, 'Empresa C', 'Especialista de Control de Calidad', '4 años'), (204, 'Empresa D', 'Supervisor de Producción de Mermelada', '6 años'), (205, 'Empresa E', 'Técnico de Producción de Fruta Confitada', '2 años'), (206, 'Empresa F', 'Profesional de Investigación y Desarrollo', '7 años'), (207, 'Empresa G', 'Asistente de Logística y Distribución', '4 años'), (208, 'Empresa H', 'Operario de Marketing y Ventas', '3 años'), (209, 'Empresa I', 'Gerente de Finanzas y Contabilidad', '5 años'), (210, 'Empresa J', 'Jefe de Recursos Humanos', '6 años'), (211, 'Empresa K', 'Especialista de Mantenimiento y Reparación de Equipos', '4 años'), (212, 'Empresa L', 'Supervisor de Seguridad e Higiene', '3 años'), (213, 'Empresa M', 'Técnico de Gestión Ambiental y Sostenibilidad', '5 años'), (214, 'Empresa N', 'Profesional de Producción de Fruta Fresca', '6 años'), (215, 'Empresa O', 'Asistente de Recepción y Almacenamiento de Fruta', '4 años'), (216, 'Empresa P', 'Operario de Control de Calidad', '3 años'), (217, 'Empresa Q', 'Gerente de Producción de Mermelada', '5 años'), (218, 'Empresa R', 'Jefe de Producción de Fruta Confitada', '4 años'), (219, 'Empresa S', 'Especialista de Investigación y Desarrollo', '6 años'), (220, 'Empresa T', 'Supervisor de Logística y Distribución', '3 años');
 INSERT INTO Curriculum (ID_curriculum, Grado_Educación, ID_experiencia, ID_certificado) VALUES (101, 'Licenciatura en Ingeniería Industrial', 201, 301), (102, 'Maestría en Administración de Empresas', 202, 302), (103, 'Técnico en Control de Calidad', 203, 303), (104, 'Licenciatura en Administración de Empresas', 204, 304), (105, 'Técnico en Producción de Alimentos', 205, 305), (106, 'Maestría en Ciencias de la Computación', 206, 306), (107, 'Licenciatura en Logística', 207, 307), (108, 'Técnico en Mercadotecnia', 208, 308), (109, 'Licenciatura en Contaduría Pública', 209, 309), (110, 'Maestría en Recursos Humanos', 210, 310), (111, 'Técnico en Mantenimiento Industrial', 211, 311), (112, 'Especialidad en Seguridad Laboral', 212, 312), (113, 'Maestría en Gestión Ambiental', 213, 313), (114, 'Licenciatura en Ingeniería Agroindustrial', 214, 314), (115, 'Técnico en Almacenamiento y Distribución', 215, 315), (116, 'Licenciatura en Química', 216, 316), (117, 'Maestría en Producción de Alimentos', 217, 317), (118, 'Técnico en Producción de Frutas', 218, 318), (119, 'Licenciatura en Biología', 219, 319), (120, 'Maestría en Logística y Transporte', 220, 320);
-INSERT INTO Candidato (ID_cand, Nombre_cand, Apell_cand, Fecha_Nac_cand, Direccion_cand, Correo_cand, Num_Telefono) VALUES ('101', 'Juan', 'González', '1990-05-15', 'Calle 123, Ciudad', 'juan.gonzalez@example.com', '123-456-7890'), ('102', 'María', 'López', '1985-08-20', 'Avenida XYZ, Ciudad', 'maria.lopez@example.com', '234-567-8901'), ('103', 'Pedro', 'Martínez', '1992-03-10', 'Carrera ABC, Ciudad', 'pedro.martinez@example.com', '345-678-9012'), ('104', 'Ana', 'Rodríguez', '1988-11-25', 'Calle 456, Ciudad', 'ana.rodriguez@example.com', '456-789-0123'), ('105', 'Carlos', 'Pérez', '1991-07-02', 'Avenida UVW, Ciudad', 'carlos.perez@example.com', '567-890-1234'), ('106', 'Laura', 'Sánchez', '1987-09-18', 'Carrera DEF, Ciudad', 'laura.sanchez@example.com', '678-901-2345'), ('107', 'Daniel', 'Gómez', '1993-01-05', 'Calle 789, Ciudad', 'daniel.gomez@example.com', '789-012-3456'), ('108', 'Sofía', 'Hernández', '1989-06-30', 'Avenida GHI, Ciudad', 'sofia.hernandez@example.com', '890-123-4567'), ('109', 'Javier', 'Díaz', '1994-04-12', 'Carrera JKL, Ciudad', 'javier.diaz@example.com', '901-234-5678'), ('110', 'Paula', 'Torres', '1986-12-28', 'Calle 012, Ciudad', 'paula.torres@example.com', '012-345-6789'), ('111', 'Andrés', 'Ruiz', '1990-02-14', 'Avenida MNO, Ciudad', 'andres.ruiz@example.com', '123-456-7890'), ('112', 'Carmen', 'García', '1984-10-31', 'Carrera PQR, Ciudad', 'carmen.garcia@example.com', '234-567-8901'), ('113', 'Luis', 'Vázquez', '1995-07-17', 'Calle 345, Ciudad', 'luis.vazquez@example.com', '345-678-9012'), ('114', 'Marta', 'Fernández', '1983-03-04', 'Avenida STU, Ciudad', 'marta.fernandez@example.com', '456-789-0123'), ('115', 'Diego', 'Ortega', '1988-05-22', 'Carrera VWX, Ciudad', 'diego.ortega@example.com', '567-890-1234'), ('116', 'Elena', 'Núñez', '1992-09-09', 'Calle 678, Ciudad', 'elena.nunez@example.com', '678-901-2345'), ('117', 'Roberto', 'Jiménez', '1986-12-17', 'Avenida YZA, Ciudad', 'roberto.jimenez@example.com', '789-012-3456'), ('118', 'Isabel', 'Morales', '1993-02-03', 'Carrera BCD, Ciudad', 'isabel.morales@example.com', '890-123-4567'), ('119', 'Manuel', 'Silva', '1985-08-11', 'Calle 901, Ciudad', 'manuel.silva@example.com', '901-234-5678'), ('120', 'Sara', 'Gutiérrez', '1991-04-27', 'Avenida EFG, Ciudad', 'sara.gutierrez@example.com', '012-345-6789');
-INSERT INTO Evaluacion (ID_Evaluacion, Competencias_Evaluadas, Result_Evaluacion, Duracion_Evaluacion) VALUES  (1, 'Habilidades técnicas', 'Aprobado', 60), (2, 'Habilidades interpersonales', 'Aprobado', 45), (3, 'Conocimientos específicos', 'Rechazado', 30), (4, 'Capacidad de resolución de problemas', 'Aprobado', 50), (5, 'Comunicación efectiva', 'Rechazado', 40), (6, 'Adaptabilidad', 'Aprobado', 55), (7, 'Trabajo en equipo', 'Aprobado', 60), (8, 'Gestión del tiempo', 'Rechazado', 35), (9, 'Liderazgo', 'Aprobado', 50), (10, 'Creatividad', 'Rechazado', 45), (11, 'Pensamiento crítico', 'Aprobado', 55), (12, 'Resiliencia', 'Aprobado', 60), (13, 'Ética profesional', 'Rechazado', 40), (14, 'Toma de decisiones', 'Aprobado', 50), (15, 'Resolución de conflictos', 'Rechazado', 45), (16, 'Planificación y organización', 'Aprobado', 60), (17, 'Innovación', 'Aprobado', 55), (18, 'Capacidad analítica', 'Rechazado', 30), (19, 'Empatía', 'Aprobado', 50), (20, 'Negociación', 'Rechazado', 45);
+INSERT INTO Candidato (ID_cand, Nombre_cand, Apell_cand, Fecha_Nac_cand, Direccion_cand, Correo_cand, Num_Telefono, ID_curriculum) 
+VALUES 
+('101', 'Juan', 'González', '1990-05-15', 'Calle 123, Ciudad', 'juan.gonzalez@example.com', '123-456-7890', 101),
+('102', 'María', 'López', '1985-08-20', 'Avenida XYZ, Ciudad', 'maria.lopez@example.com', '234-567-8901', 102),
+('103', 'Pedro', 'Martínez', '1992-03-10', 'Carrera ABC, Ciudad', 'pedro.martinez@example.com', '345-678-9012', 103),
+('104', 'Ana', 'Rodríguez', '1988-11-25', 'Calle 456, Ciudad', 'ana.rodriguez@example.com', '456-789-0123', 104),
+('105', 'Carlos', 'Pérez', '1991-07-02', 'Avenida UVW, Ciudad', 'carlos.perez@example.com', '567-890-1234', 105),
+('106', 'Laura', 'Sánchez', '1987-09-18', 'Carrera DEF, Ciudad', 'laura.sanchez@example.com', '678-901-2345', 106),
+('107', 'Daniel', 'Gómez', '1993-01-05', 'Calle 789, Ciudad', 'daniel.gomez@example.com', '789-012-3456', 107),
+('108', 'Sofía', 'Hernández', '1989-06-30', 'Avenida GHI, Ciudad', 'sofia.hernandez@example.com', '890-123-4567', 108),
+('109', 'Javier', 'Díaz', '1994-04-12', 'Carrera JKL, Ciudad', 'javier.diaz@example.com', '901-234-5678', 109),
+('110', 'Paula', 'Torres', '1986-12-28', 'Calle 012, Ciudad', 'paula.torres@example.com', '012-345-6789', 110),
+('111', 'Andrés', 'Ruiz', '1990-02-14', 'Avenida MNO, Ciudad', 'andres.ruiz@example.com', '123-456-7890', 111),
+('112', 'Carmen', 'García', '1984-10-31', 'Carrera PQR, Ciudad', 'carmen.garcia@example.com', '234-567-8901', 112),
+('113', 'Luis', 'Vázquez', '1995-07-17', 'Calle 345, Ciudad', 'luis.vazquez@example.com', '345-678-9012', 113),
+('114', 'Marta', 'Fernández', '1983-03-04', 'Avenida STU, Ciudad', 'marta.fernandez@example.com', '456-789-0123', 114),
+('115', 'Diego', 'Ortega', '1988-05-22', 'Carrera VWX, Ciudad', 'diego.ortega@example.com', '567-890-1234', 115),
+('116', 'Elena', 'Núñez', '1992-09-09', 'Calle 678, Ciudad', 'elena.nunez@example.com', '678-901-2345', 116),
+('117', 'Roberto', 'Jiménez', '1986-12-17', 'Avenida YZA, Ciudad', 'roberto.jimenez@example.com', '789-012-3456', 117),
+('118', 'Isabel', 'Morales', '1993-02-03', 'Carrera BCD, Ciudad', 'isabel.morales@example.com', '890-123-4567', 118),
+('119', 'Manuel', 'Silva', '1985-08-11', 'Calle 901, Ciudad', 'manuel.silva@example.com', '901-234-5678', 119),
+('120', 'Sara', 'Gutiérrez', '1991-04-27', 'Avenida EFG, Ciudad', 'sara.gutierrez@example.com', '012-345-6789', 120);
+
+INSERT INTO Evaluacion (ID_Evaluacion, Competencias_Evaluadas, Result_Evaluacion, Duracion_Evaluacion, Estado_Evaluacion) 
+VALUES  
+(1, 'Habilidades técnicas', 'Oferta de empleo extendida', 60, 'Aprobado'),
+(2, 'Habilidades interpersonales', 'Oferta de empleo extendida', 45, 'Aprobado'),
+(3, 'Conocimientos específicos', 'No cumple con requisitos mínimos', 30, 'Rechazado'),
+(4, 'Capacidad de resolución de problemas', 'Oferta de empleo extendida', 50, 'Aprobado'),
+(5, 'Comunicación efectiva', 'No cumple con perfil solicitado', 40, 'Rechazado'),
+(6, 'Adaptabilidad', 'Oferta de empleo extendida', 55, 'Aprobado'),
+(7, 'Trabajo en equipo', 'Oferta de empleo extendida', 60, 'Aprobado'),
+(8, 'Gestión del tiempo', 'No cumple con requisitos mínimos', 35, 'Rechazado'),
+(9, 'Liderazgo', 'Oferta de empleo extendida', 50, 'Aprobado'),
+(10, 'Creatividad', 'No cumple con perfil solicitado', 45, 'Rechazado'),
+(11, 'Pensamiento crítico', 'Oferta de empleo extendida', 55, 'Aprobado'),
+(12, 'Resiliencia', 'Oferta de empleo extendida', 60, 'Aprobado'),
+(13, 'Ética profesional', 'No cumple con requisitos mínimos', 40, 'Rechazado'),
+(14, 'Toma de decisiones', 'Oferta de empleo extendida', 50, 'Aprobado'),
+(15, 'Resolución de conflictos', 'No cumple con perfil solicitado', 45, 'Rechazado'),
+(16, 'Planificación y organización', 'Oferta de empleo extendida', 60, 'Aprobado'),
+(17, 'Innovación', 'Oferta de empleo extendida', 55, 'Aprobado'),
+(18, 'Capacidad analítica', 'No cumple con requisitos mínimos', 30, 'Rechazado'),
+(19, 'Empatía', 'Oferta de empleo extendida', 50, 'Aprobado'),
+(20, 'Negociación', 'No cumple con perfil solicitado', 45, 'Rechazado');
 INSERT INTO Perfil (ID_Perfil, Conocimiento_Req, Años_Exp, Titulo_Requerido) VALUES  (1, 'Experiencia en producción', 5, 'Licenciatura en Ingeniería Industrial'), (2, 'Manejo de inventarios', 3, 'Técnico en Logística'), (3, 'Control de calidad', 4, 'Ingeniero en Alimentos'), (4, 'Supervisión de personal', 2, 'Diplomado en Gestión de Equipos'), (5, 'Procesamiento de frutas', 3, 'Técnico en Procesamiento de Alimentos'), (6, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'), (7, 'Manejo de inventarios', 2, 'Técnico en Logística'), (8, 'Marketing digital', 3, 'Licenciatura en Marketing'), (9, 'Contabilidad financiera', 4, 'Licenciatura en Contaduría Pública'), (10, 'Gestión de personal', 3, 'Licenciatura en Recursos Humanos'), (11, 'Mantenimiento de equipos', 5, 'Ingeniero Mecánico'), (12, 'Normativas de seguridad', 4, 'Diplomado en Seguridad Industrial'), (13, 'Gestión ambiental', 3, 'Ingeniero Ambiental'), (14, 'Producción de frutas', 5, 'Ingeniero Agrónomo'), (15, 'Recepción y almacenamiento', 2, 'Técnico en Almacenamiento'), (16, 'Control de calidad', 3, 'Técnico en Control de Calidad'), (17, 'Producción de mermelada', 4, 'Ingeniero en Alimentos'), (18, 'Producción de frutas confitadas', 3, 'Técnico en Procesamiento de Alimentos'), (19, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'), (20, 'Logística y distribución', 4, 'Licenciatura en Logística');
 INSERT INTO Vacante (ID_Vac, ID_Departamento, ID_Cargo, ID_Perfil, Ubicación, Beneficio, Salario, Horario) VALUES ('00200001', 1, 1, 1, 'Ciudad A', 'Seguro de vida', 2500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200002', 2, 2, 2, 'Ciudad B', 'Bonos de productividad', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200003', 3, 3, 3, 'Ciudad C', 'Transporte subsidiado', 2000.00, 'Lunes a Viernes de 7am a 4pm'), ('00200004', 4, 4, 4, 'Ciudad D', 'Comida subsidiada', 3500.00, 'Lunes a Viernes de 10am a 7pm'), ('00200005', 5, 5, 5, 'Ciudad E', 'Seguro médico', 4000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200006', 6, 6, 6, 'Ciudad F', 'Gimnasio en la empresa', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200007', 7, 7, 7, 'Ciudad G', 'Días libres adicionales', 2000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200008', 8, 8, 8, 'Ciudad H', 'Teletrabajo', 4500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200009', 9, 1, 9, 'Ciudad I', 'Bonos por resultados', 3000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200010', 10, 2, 10, 'Ciudad J', 'Oportunidades de crecimiento', 2500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200011', 11, 3, 11, 'Ciudad K', 'Estacionamiento gratuito', 3500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200012', 12, 4, 12, 'Ciudad L', 'Comedor en la empresa', 2000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200013', 13, 5, 13, 'Ciudad M', 'Seguro dental', 4000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200014', 1, 6, 1, 'Ciudad N', 'Asistencia médica', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200015', 2, 7, 2, 'Ciudad O', 'Horario flexible', 2000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200016', 3, 8, 3, 'Ciudad P', 'Reembolso de educación', 3500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200017', 4, 1, 4, 'Ciudad Q', 'Bono de cumpleaños', 2500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200018', 5, 2, 5, 'Ciudad R', 'Descuentos en productos', 4000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200019', 6, 3, 6, 'Ciudad S', 'Vacaciones adicionales', 3000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200020', 7, 4, 7, 'Ciudad T', 'Programas de bienestar', 2000.00, 'Lunes a Viernes de 9am a 6pm');
-INSERT INTO Solicitud_Empleo (ID_solicitud, ID_Vacante, Est_solicitud, Vacante_aplicada, Horario_disponible, Fecha_aplicación, ID_cand, ID_curriculum) VALUES ('00240001', '00200001', 'En proceso', 'Gerente de Producción', 'Lunes a Viernes de 8am a 5pm', '2024-04-20', 101, 101), ('00240002', '00200002', 'En revisión', 'Jefe de Recepción', 'Lunes a Viernes de 9am a 6pm', '2024-04-21', 102, 102), ('00240003', '00200003', 'Pendiente', 'Especialista de Control de Calidad', 'Lunes a Viernes de 7am a 4pm', '2024-04-22', 103, 103), ('00240004', '00200004', 'Pendiente', 'Supervisor de Producción de Mermelada', 'Lunes a Viernes de 10am a 7pm', '2024-04-23', 104, 104), ('00240005', '00200005', 'Pendiente', 'Técnico de Producción de Fruta Confitada', 'Lunes a Viernes de 8am a 5pm', '2024-04-24', 105, 105), ('00240006', '00200006', 'Pendiente', 'Profesional de Investigación y Desarrollo', 'Lunes a Viernes de 9am a 6pm', '2024-04-25', 106, 106), ('00240007', '00200007', 'Pendiente', 'Asistente de Logística y Distribución', 'Lunes a Viernes de 8am a 5pm', '2024-04-26', 107, 107), ('00240008', '00200008', 'Pendiente', 'Operario de Marketing y Ventas', 'Lunes a Viernes de 9am a 6pm', '2024-04-27', 108, 108), ('00240009', '00200009', 'Pendiente', 'Gerente de Finanzas y Contabilidad', 'Lunes a Viernes de 8am a 5pm', '2024-04-28', 109, 109), ('00240010', '00200010', 'Pendiente', 'Jefe de Recursos Humanos', 'Lunes a Viernes de 9am a 6pm', '2024-04-29', 110, 110), ('00240011', '00200011', 'Pendiente', 'Especialista de Mantenimiento y Reparación de Equipos', 'Lunes a Viernes de 8am a 5pm', '2024-04-30', 111, 111), ('00240012', '00200012', 'Pendiente', 'Supervisor de Seguridad e Higiene', 'Lunes a Viernes de 9am a 6pm', '2024-05-01', 112, 112), ('00240013', '00200013', 'Pendiente', 'Técnico de Gestión Ambiental y Sostenibilidad', 'Lunes a Viernes de 8am a 5pm', '2024-05-02', 113, 113), ('00240014', '00200014', 'Pendiente', 'Profesional de Producción de Fruta Fresca', 'Lunes a Viernes de 9am a 6pm', '2024-05-03', 114, 114), ('00240015', '00200015', 'Pendiente', 'Asistente de Recepción y Almacenamiento de Fruta', 'Lunes a Viernes de 8am a 5pm', '2024-05-04', 115, 115), ('00240016', '00200016', 'Pendiente', 'Operario de Control de Calidad', 'Lunes a Viernes de 9am a 6pm', '2024-05-05', 116, 116), ('00240017', '00200017', 'Pendiente', 'Gerente de Producción de Mermelada', 'Lunes a Viernes de 8am a 5pm', '2024-05-06', 117, 117), ('00240018', '00200018', 'Pendiente', 'Jefe de Producción de Fruta Confitada', 'Lunes a Viernes de 9am a 6pm', '2024-05-07', 118, 118), ('00240019', '00200019', 'Pendiente', 'Especialista de Investigación y Desarrollo', 'Lunes a Viernes de 8am a 5pm', '2024-05-08', 119, 119), ('00240020', '00200020', 'Pendiente', 'Supervisor de Logística y Distribución', 'Lunes a Viernes de 9am a 6pm', '2024-05-09', 120, 120);
-INSERT INTO Entrevista (ID_Entrevista, Fecha_Eva, Hora_entrevista, Resp_Eva, Resultado_eva, ID_Solicitud, ID_Evaluacion, ID_Empleado) VALUES 
-(1, '2024-04-20', '09:00', 'Aprobado', 'Oferta de empleo extendida', '00240001', 1, 20240014), 
-(2, '2024-04-21', '09:30', 'En proceso', 'Entrevista pendiente', '00240002', 2, 20240014), 
-(3, '2024-04-22', '10:00', 'Rechazado', 'No cumple con requisitos mínimos', '00240003', 3, 20240015), 
-(4, '2024-04-23', '10:30', 'En proceso', 'Entrevista pendiente', '00240004', 4, 20240014), 
-(5, '2024-04-24', '11:00', 'Rechazado', 'No cumple con perfil solicitado', '00240005', 5, 20240014), 
-(6, '2024-04-25', '11:30', 'Aprobado', 'Oferta de empleo extendida', '00240006', 6, 20240014), 
-(7, '2024-04-26', '12:00', 'En proceso', 'Entrevista pendiente', '00240007', 7, 20240014), 
-(8, '2024-04-27', '12:30', 'Rechazado', 'No cumple con requisitos mínimos', '00240008', 8, 20240014), 
-(9, '2024-04-28', '13:00', 'En proceso', 'Entrevista pendiente', '00240009', 9, 20240014), 
-(10, '2024-04-29', '13:30', 'Rechazado', 'No cumple con perfil solicitado', '00240010', 10, 20240015), 
-(11, '2024-04-30', '14:00', 'Aprobado', 'Oferta de empleo extendida', '00240011', 11, 20240013), 
-(12, '2024-05-01', '14:30', 'En proceso', 'Entrevista pendiente', '00240012', 12, 20240014), 
-(13, '2024-05-02', '15:00', 'Rechazado', 'No cumple con requisitos mínimos', '00240013', 13, 20240015), 
-(14, '2024-05-03', '15:30', 'En proceso', 'Entrevista pendiente', '00240014', 14, 20240015), 
-(15, '2024-05-04', '16:00', 'Rechazado', 'No cumple con perfil solicitado', '00240015', 15, 20240014), 
-(16, '2024-05-05', '16:30', 'Aprobado', 'Oferta de empleo extendida', '00240016', 16, 20240014), 
-(17, '2024-05-06', '17:00', 'En proceso', 'Entrevista pendiente', '00240017', 17, 20240013), 
-(18, '2024-05-07', '17:30', 'Rechazado', 'No cumple con requisitos mínimos', '00240018', 18, 20240014), 
-(19, '2024-05-08', '18:00', 'En proceso', 'Entrevista pendiente', '00240019', 19, 20240015), 
-(20, '2024-05-09', '18:30', 'Rechazado', 'No cumple con perfil solicitado', '00240020', 20, 20240013);
+INSERT INTO Solicitud_Empleo (ID_solicitud, ID_Vacante, Est_solicitud, Vacante_aplicada, Horario_disponible, Fecha_aplicación, ID_cand) 
+VALUES 
+('00240001', '00200001', 'En proceso', 'Gerente de Producción', 'Lunes a Viernes de 8am a 5pm', '2024-04-20', 101),
+('00240002', '00200002', 'En revisión', 'Jefe de Recepción', 'Lunes a Viernes de 9am a 6pm', '2024-04-21', 102),
+('00240003', '00200003', 'Pendiente', 'Especialista de Control de Calidad', 'Lunes a Viernes de 7am a 4pm', '2024-04-22', 103),
+('00240004', '00200004', 'Pendiente', 'Supervisor de Producción de Mermelada', 'Lunes a Viernes de 10am a 7pm', '2024-04-23', 104),
+('00240005', '00200005', 'Pendiente', 'Técnico de Producción de Fruta Confitada', 'Lunes a Viernes de 8am a 5pm', '2024-04-24', 105),
+('00240006', '00200006', 'Pendiente', 'Profesional de Investigación y Desarrollo', 'Lunes a Viernes de 9am a 6pm', '2024-04-25', 106),
+('00240007', '00200007', 'Pendiente', 'Asistente de Logística y Distribución', 'Lunes a Viernes de 8am a 5pm', '2024-04-26', 107),
+('00240008', '00200008', 'Pendiente', 'Operario de Marketing y Ventas', 'Lunes a Viernes de 9am a 6pm', '2024-04-27', 108),
+('00240009', '00200009', 'Pendiente', 'Gerente de Finanzas y Contabilidad', 'Lunes a Viernes de 8am a 5pm', '2024-04-28', 109),
+('00240010', '00200010', 'Pendiente', 'Jefe de Recursos Humanos', 'Lunes a Viernes de 9am a 6pm', '2024-04-29', 110),
+('00240011', '00200011', 'Pendiente', 'Especialista de Mantenimiento y Reparación de Equipos', 'Lunes a Viernes de 8am a 5pm', '2024-04-30', 111),
+('00240012', '00200012', 'Pendiente', 'Supervisor de Seguridad e Higiene', 'Lunes a Viernes de 9am a 6pm', '2024-05-01', 112),
+('00240013', '00200013', 'Pendiente', 'Técnico de Gestión Ambiental y Sostenibilidad', 'Lunes a Viernes de 8am a 5pm', '2024-05-02', 113),
+('00240014', '00200014', 'Pendiente', 'Profesional de Producción de Fruta Fresca', 'Lunes a Viernes de 9am a 6pm', '2024-05-03', 114),
+('00240015', '00200015', 'Pendiente', 'Asistente de Recepción y Almacenamiento de Fruta', 'Lunes a Viernes de 8am a 5pm', '2024-05-04', 115),
+('00240016', '00200016', 'Pendiente', 'Operario de Control de Calidad', 'Lunes a Viernes de 9am a 6pm', '2024-05-05', 116),
+('00240017', '00200017', 'Pendiente', 'Gerente de Producción de Mermelada', 'Lunes a Viernes de 8am a 5pm', '2024-05-06', 117),
+('00240018', '00200018', 'Pendiente', 'Jefe de Producción de Fruta Confitada', 'Lunes a Viernes de 9am a 6pm', '2024-05-07', 118),
+('00240019', '00200019', 'Pendiente', 'Especialista de Investigación y Desarrollo', 'Lunes a Viernes de 8am a 5pm', '2024-05-08', 119),
+('00240020', '00200020', 'Pendiente', 'Supervisor de Logística y Distribución', 'Lunes a Viernes de 9am a 6pm', '2024-05-09', 120);
+
+INSERT INTO Entrevista (ID_Entrevista, Fecha_Eva, Hora_entrevista, ID_Solicitud, ID_Evaluacion, ID_Empleado) 
+VALUES 
+(1, '2024-04-20', '09:00', '00240001', 1, 20240014), 
+(2, '2024-04-21', '09:30', '00240002', 2, 20240014), 
+(3, '2024-04-22', '10:00', '00240003', 3, 20240015), 
+(4, '2024-04-23', '10:30', '00240004', 4, 20240014), 
+(5, '2024-04-24', '11:00', '00240005', 5, 20240014), 
+(6, '2024-04-25', '11:30', '00240006', 6, 20240014), 
+(7, '2024-04-26', '12:00', '00240007', 7, 20240014), 
+(8, '2024-04-27', '12:30', '00240008', 8, 20240014), 
+(9, '2024-04-28', '13:00', '00240009', 9, 20240014), 
+(10, '2024-04-29', '13:30', '00240010', 10, 20240015), 
+(11, '2024-04-30', '14:00', '00240011', 11, 20240013), 
+(12, '2024-05-01', '14:30', '00240012', 12, 20240014), 
+(13, '2024-05-02', '15:00', '00240013', 13, 20240015), 
+(14, '2024-05-03', '15:30', '00240014', 14, 20240015), 
+(15, '2024-05-04', '16:00', '00240015', 15, 20240014), 
+(16, '2024-05-05', '16:30', '00240016', 16, 20240014), 
+(17, '2024-05-06', '17:00', '00240017', 17, 20240013), 
+(18, '2024-05-07', '17:30', '00240018', 18, 20240014), 
+(19, '2024-05-08', '18:00', '00240019', 19, 20240015), 
+(20, '2024-05-09', '18:30', '00240020', 20, 20240013);
