@@ -22,4 +22,4 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
   " target="_blank"><img src="http://img.youtube.com/vi/2_S_PovnwSU/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-[PPT_Evaluación_De_Desempeño](Material_Videos/Evaluación_Desempeño_Tineo_Rodrigo_PC2.pdf)
+[PPT_Evaluación_De_Desempeño_Entregable 2](Material_Videos/Evaluación_Desempeño_Tineo_Rodrigo_PC2.pdf)
