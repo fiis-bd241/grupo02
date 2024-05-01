@@ -266,7 +266,7 @@
 |     ID_Respuesta    | Identificador único de la respuesta |   99999999   |       INT      |     Números enteros únicos     |
 |     ID_Pregunta    | Foreign key, identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
 | ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario de empleado |   INTEGER   |       INT      |     Números enteros únicos    |
-| Enunciado_Respuesta |               Enunciado de la respuesta              | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+| Enunciado_Respuesta |               Enunciado de la respuesta              | X(12) |      VARCHAR      | Cadena de hasta 12 caracteres |
 
 ### Entidad: Reporte
 #### Descripción: Informe del desempeño del empleado en la evaluación.
@@ -275,7 +275,7 @@
 |        ID_Reporte        |                           Primary key, identificador único del reporte                          | 99999999 |     INT     |     Números enteros únicos    |
 | ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario completado por algún empleado (clave externa) | 99999999 |     INT     |     Números enteros únicos    |
 |  Fecha_Ingreso_Empleado  |                     Fecha en que se ingresó el cuestionario por el empleado                     | AAAAMMDD |     DATE    | Fecha válida en el calendario |
-|   Calificacion_Empleado  |                           Calificación del empleado en el cuestionario                          |   X(12)  | VARCHAR(12) | Cadena de hasta 12 caracteres |
+|   Calificacion_Empleado  |                           Calificación del empleado en el cuestionario                          |   X(12)  | VARCHAR | Cadena de hasta 12 caracteres |
 
 
 ### Entidad: Retroalimentación
@@ -296,7 +296,7 @@
 |:--------------:|:---------------------------------:|:------------:|:--------------:|:------------------------------:|
 |   ID_Reunion   | Primary key, identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
 |    ID_Empleado   |              Foreign key, código único del empleado que programa la reunión             |  99999999   |     INT    |  Números enteros únicos |
-| Asunto_Reunion |        Asunto de la reunión       | VARCHAR(256) |      CHAR      | Cadena de hasta 256 caracteres |
+| Asunto_Reunion |        Asunto de la reunión       | X(256) |      VARCHAR      | Cadena de hasta 256 caracteres |
 |  Fecha_Reunion |        Fecha de la reunión        |     DATE     |    AAAAMMDD    |  Fecha válida en el calendario |
 |  Hora_Reunion  |         Hora de la reunión        |     TIME     |    HH:MM:SS    |           Hora válida          |
 
