@@ -32,28 +32,6 @@
 		Respuesta_Cuestionario RC ON PC.ID_Pregunta = RC.ID_Pregunta AND CE.ID_Cuestionario_Empleado = RC.ID_Cuestionario_Empleado
 	JOIN 
 		Reporte R ON CE.ID_Cuestionario_Empleado = R.ID_Cuestionario_Empleado;
-
-### Obtener empleados, cargo, departamento y sus respuestas a las preguntas del cuestionario:
-	SELECT E.Nombre_Empleado,E.Apellido_Empleado,Ca.nombre as Cargo_Empleado,D.Nombre_Departamento,C.Tipo_Cuestionario,
-    PC.Enunciado_Pregunta, RC.Enunciado_Respuesta,CE.Fecha_Rellenado,
-    CE.Hora_Rellenado
-	FROM 
-		Empleado E
-	JOIN 
-		Cargo Ca on Ca.ID_cargo=E.ID_Cargo
-	JOIN 
-		Departamento D ON E.ID_Departamento = D.ID_Departamento
-	JOIN 
-		Cuestionario_Empleado CE ON E.ID_Empleado = CE.ID_Empleado
-	JOIN 
-		Cuestionario C ON CE.ID_Cuestionario = C.ID_Cuestionario
-	JOIN 
-		Pregunta_Cuestionario PC ON C.ID_Cuestionario = PC.ID_Cuestionario
-	JOIN 
-		Respuesta_Cuestionario RC ON PC.ID_Pregunta = RC.ID_Pregunta AND CE.ID_Cuestionario_Empleado = RC.ID_Cuestionario_Empleado
-	JOIN 
-		Reporte R ON CE.ID_Cuestionario_Empleado = R.ID_Cuestionario_Empleado;
-
  
  ### Obtener retroalimentación proporcionada a los empleados:
 	SELECT
