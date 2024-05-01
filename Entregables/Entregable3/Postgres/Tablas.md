@@ -228,113 +228,80 @@ Hora_salida TIME,
 FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
-### Entidad: Gerente_RR_HH
-``CREATE TABLE Gerente_RR_HH(
-		ID_Gerente INTEGER,
-		ID_Empleado INTEGER,
-		PRIMARY KEY(ID_Gerente),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-	);``
-		
-### Entidad: Especialista_Relaciones_Laborales
-``CREATE TABLE Especialista_Relaciones_Laborales(
-		ID_Especialista INTEGER,
-		ID_Empleado INTEGER,
-		PRIMARY KEY(ID_Especialista),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-	);``
-	
-
 ### Entidad: Cuestionario
 ``CREATE TABLE Cuestionario(
-		ID_Cuestionario INTEGER,
-		Tipo_Cuestionario VARCHAR(15),
-		PRIMARY KEY(ID_Cuestionario)
-	);``
-	
-### Entidad: Pregunta_Cuestionario
-``CREATE TABLE Pregunta_Cuestionario(
-		ID_Pregunta INTEGER,
-		ID_Cuestionario INTEGER,
-		Enunciado_Pregunta VARCHAR(256),
-		PRIMARY KEY(ID_Pregunta),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
-	);``
-	
-### Entidad: Cuestionario_Empleado
-``CREATE TABLE Cuestionario_Empleado(
-		ID_Empleado INTEGER,
-		ID_Cuestionario INTEGER,
-		ID_Pregunta INTEGER, 
-		Respuesta VARCHAR(15),
-		Fecha_Rellenado DATE,
-		Hora_Rellenado TIME,
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta)
-	);``
-	
- ### Entidad: Cuestionario_Especialista
-``CREATE TABLE Cuestionario_Especialista(
-		ID_Cuestionario INTEGER,
-		ID_Especialista INTEGER,
+		ID_Cuestionario INTEGER primary key,
+		ID_Especialista_Relaciones_Laborales INTEGER,
+		Tipo_Cuestionario VARCHAR(12),
 		Fecha_Creacion DATE,
 		Hora_Creacion TIME,
 		Fecha_Envio_Gerencia DATE,
 		Hora_Envio_Gerencia TIME,
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));``
-		
- ### Entidad: Cuestionario_Gerente_RR_HH
-``CREATE TABLE Cuestionario_Gerente_RR_HH(
-		ID_Cuestionario INTEGER,
 		ID_Gerente INTEGER,
-		Fecha_Revision DATE,
-		Hora_Revision TIME,
 		Estado_Aprobacion VARCHAR (256),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),	
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));``
-	
- ### Entidad: Reporte
+		Fecha_Revision DATE,
+		Hora_Revision TIME
+	);``
+### Entidad: Pregunta_Cuestionario
+``CREATE TABLE Pregunta_Cuestionario(
+		ID_Pregunta INTEGER primary key,
+		ID_Cuestionario INTEGER,
+		Enunciado_Pregunta VARCHAR(256),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);``
+
+ ### Entidad: Cuestionario_Empleado
+``CREATE TABLE Cuestionario_Empleado(
+		ID_Cuestionario_Empleado INTEGER primary key,
+		ID_Empleado INTEGER,
+		ID_Cuestionario INTEGER,
+		Fecha_Rellenado DATE,
+		Hora_Rellenado TIME,
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);``
+ 
+### Entidad: Respuesta_Cuestionario
+``CREATE TABLE Respuesta_Cuestionario(
+		ID_Respuesta Integer primary key,
+		ID_Pregunta INTEGER,
+		ID_Cuestionario_Empleado INTEGER,
+		Enunciado_Respuesta VARCHAR(12),
+		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta),
+		FOREIGN KEY(ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado)
+	);``
+
+### Entidad: Reporte
 ``CREATE TABLE Reporte(
-		ID_Reporte INTEGER,
-		ID_Empleado INTEGER,
-		ID_Cuestionario INTEGER,
+		ID_Reporte INTEGER primary key,
+		ID_Cuestionario_Empleado INTEGER,
 		Fecha_Ingreso_Empleado DATE,
-		Calificacion_Empleado VARCHAR(15),
-		PRIMARY KEY(ID_Reporte),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),	
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario));``
-		
- ### Entidad: Retroalimentacion
+		Calificacion_Empleado VARCHAR(12),
+		FOREIGN KEY (ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado)
+	);``
+
+### Entidad: Retroalimentación
 ``CREATE TABLE Retroalimentacion(
-		ID_Retroalimentacion INTEGER,
-		ID_Empleado INTEGER,
-		ID_Cuestionario INTEGER,
+		ID_Retroalimentacion INTEGER primary key,
 		ID_Reporte INTEGER,
-		ID_Gerente INTEGER,
-		ID_Especialista INTEGER,
 		Enunciado_Retroalimentacion VARCHAR(256),
+		ID_Gerente INTEGER,
+		ID_Especialista_Relaciones_Laborales INTEGER,
 		Fecha_Retroalimentacion DATE,
 		Hora_Retroalimentacion TIME,
-		PRIMARY KEY(id_Retroalimentacion),
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista));``
-	
-### Entidad: Reunion
-``CREATE TABLE Reunion(
-		ID_Reunion INTEGER,
-		ID_Especialista INTEGER,
-		ID_Gerente INTEGER,
+		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte)
+	);``
+
+
+### Entidad: Reunión
+	CREATE TABLE Reunion(
+		ID_Reunion INTEGER primary key,
+		ID_Empleado INTEGER,
 		Asunto_Reunion VARCHAR(256),
 		Fecha_Reunion DATE,
 		Hora_Reunion TIME,
-		PRIMARY KEY(ID_Reunion),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente));``
+		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
+	);
 
 ### Entidad: Vacante
 ``CREATE TABLE Vacante (
@@ -841,93 +808,90 @@ INSERT INTO Beneficios_Cese VALUES
 (24, 'Despido objetivo', 'Proceso de despido laboral', '14 días', 'Aprobado', 20230015, 7),
 (25, 'Mudanza', 'Relocalización por motivos de salud', '12 días', 'Rechazado', 20220001, 4)
 ``
-
-### Datos Tabla: Gerente_RR_HH
-``INSERT INTO Gerente_RR_HH (ID_Gerente,ID_Empleado) VALUES(00000001,20200001);``
-		
-### Datos Tabla: Especialista_Relaciones_Laborales	
-``INSERT INTO Especialista_Relaciones_Laborales(ID_Especialista,ID_Empleado) VALUES
-(1,20210003),
-(2,20210006),
-(3,20210008),
-(4,20220004),
-(5,20230006),
-(6,20230012),
-(7,20240027);``
-		
-### Datos Tabla: Cuestionario
-``INSERT INTO Cuestionario(ID_Cuestionario,Tipo_Cuestionario) VALUES
-(1,'Subordinados'),
-(2,'Supervisores'),
-(3,'Jefes'),
-(4,'Gerentes');``
 	
-### Datos Tabla: Pregunta_Cuestionario
+### Datos Tabla: Cuestionario
+``INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values
+(1001,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'),
+(1002,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'),	
+(2001,2,'¿Cómo calificarías la efectividad de tu estilo de liderazgo en el rendimiento del equipo?'),
+(2002,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),		
+(3001,3,'¿Qué calificación le darías a tu visión para el equipo/departamento/empresa a corto y largo plazo?'),
+(3002,3,'¿Qué calificación le darías a la efectividad de tu comunicación con los miembros del equipo?'),		
+(4001,4,'¿Cómo calificarías tu capacidad para asegurarte de que las actividades del equipo estén alineadas con los objetivos 			organizacionales?'),
+(4002,4,'¿Qué calificación le darías a la cultura organizacional positiva y de alto rendimiento que fomentas?');
+  ``
+
+  ### Datos Tabla: Pregunta_Cuestionario
 ``INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values
 (1001,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'),
 (1002,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'),
 (2001,2,'¿Cómo calificarías la efectividad de tu estilo de liderazgo en el rendimiento del equipo?'),
-(2002,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),	
+(2002,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),
 (3001,3,'¿Qué calificación le darías a tu visión para el equipo/departamento/empresa a corto y largo plazo?'),
 (3002,3,'¿Qué calificación le darías a la efectividad de tu comunicación con los miembros del equipo?'),
 (4001,4,'¿Cómo calificarías tu capacidad para asegurarte de que las actividades del equipo estén alineadas con los objetivos organizacionales?'),
 (4002,4,'¿Qué calificación le darías a la cultura organizacional positiva y de alto rendimiento que fomentas?');``
-		
+	
+	
+	
 ### Datos Tabla: Cuestionario_Empleado
-``INSERT INTO Cuestionario_Empleado(ID_Empleado,ID_Cuestionario,ID_Pregunta,Respuesta,Fecha_Rellenado,Hora_Rellenado) VALUES
-(20210005,1,1001,'Positivo','2024-06-15','15:30'),
-(20210005,1,1002,'Muy Negativo','2024-06-15','15:30'),
-(20210009,2,2001,'Muy positivo','2024-06-17','18:30'),
-(20210009,2,2002,'Muy Negativo','2024-06-17','18:30'),
-(20210002,3,3001,'Positivo','2024-06-14','19:30'),
-(20210002,3,3001,'Muy Positivo','2024-06-14','19:30'),
-(20200001,4,4001,'Negativo','2024-06-13','12:30'),
-(20200001,4,4002,'Muy Positivo','2024-06-13','12:30'),
-(20220006,1,1001,'Negativo','2024-06-15','17:30'),
-(20220006,1,1002,'Muy Negativo','2024-06-15','17:30'),
-(20220005,2,2001,'Positivo','2024-06-17','11:30'),
-(20220005,2,2002,'Muy Negativo','2024-06-17','11:30'),
-(20210007,3,3001,'Positivo','2024-06-14','20:30'),
-(20210007,3,3001,'Positivo','2024-06-14','20:30');``
+``INSERT INTO Cuestionario_Empleado(ID_Cuestionario_Empleado,ID_Empleado,ID_Cuestionario,Fecha_Rellenado,Hora_Rellenado) VALUES
+(1,20210005,1,'2024-06-15','15:30'),
+(2,20210009,2,'2024-06-17','18:30'),
+(3,20210002,3,'2024-06-14','19:30'),
+(4,20200001,4,'2024-06-13','12:30'),
+(5,20220006,1,'2024-06-15','17:30'),
+(6,20220005,2,'2024-06-17','11:30'),
+(7,20210007,3,'2024-06-14','20:30');``
 	
-### Datos Tabla: Cuestionario_Especialista
-``INSERT INTO Cuestionario_Especialista(ID_Cuestionario,ID_Especialista,Fecha_Creacion,Hora_Creacion,Fecha_Envio_Gerencia,Hora_Envio_Gerencia) VALUES
-(1,2,'2024-04-18','18:30','2024-05-18','15:25'),
-(2,3,'2024-04-18','17:30','2024-05-18','17:20'),
-(3,4,'2024-04-18','16:30','2024-05-18','18:35'),
-(4,5,'2024-04-18','19:30','2024-05-18','19:55');``
 	
-### Datos Tabla: Cuestionario_Gerente_RR_HH
-``INSERT INTO Cuestionario_Gerente_RR_HH(ID_Cuestionario,ID_Gerente,Fecha_Revision,Hora_Revision,Estado_Aprobacion) VALUES
-(1,1,'2024-05-19','18:30','Aprobado'),
-(2,1,'2024-05-19','20:30','Aprobado'),
-(3,1,'2024-05-19','21:30','Aprobado'),
-(4,1,'2024-05-19','22:30','Aprobado');``
+### Datos Tabla: Respuesta_Cuestionario
+``INSERT INTO Respuesta_Cuestionario(ID_Respuesta,ID_Pregunta,ID_Cuestionario_Empleado,Enunciado_Respuesta) VALUES
+(1,1001,1,'Positivo'),
+(2,1002,1,'Muy Negativo'),
+(3,2001,2,'Muy positivo'),
+(4,2002,2,'Muy Negativo'),
+(5,3001,3,'Positivo'),
+(6,3001,3,'Muy Positivo'),
+(7,4001,4,'Negativo'),
+(8,4002,4,'Muy Positivo'),
+(9,1001,5,'Negativo'),
+(10,1002,5,'Muy Negativo'),
+(11,2001,6,'Positivo'),
+(12,2002,6,'Muy Negativo'),
+(13,3001,7,'Positivo'),
+(14,3001,7,'Positivo')
+;``
 	
 ### Datos Tabla: Reporte
-``INSERT INTO Reporte(ID_Reporte,ID_Empleado,ID_Cuestionario,Fecha_Ingreso_Empleado,Calificacion_Empleado) VALUES
-(1,20210005,1,'2024-01-15','Positivo'),
-(2,20210009,2,'2023-05-12','Negativo'),
-(3,20210002,3,'2023-08-11','Positivo'),
-(4,20200001,4,'2023-09-16','Negativo'),
-(5,20220006,1,'2023-05-14','Negativo'),
-(6,20220005,2,'2023-07-13','Negativo'),
-(7,20210007,3,'2023-12-21','Negativo');``
-	
+``INSERT INTO Reporte(ID_Reporte,ID_Cuestionario_Empleado,Fecha_Ingreso_Empleado,Calificacion_Empleado) VALUES
+(1,1,'2024-01-15','Positivo'),
+(2,2,'2023-05-12','Negativo'),
+(3,3,'2023-08-11','Positivo'),
+(4,4,'2023-09-16','Negativo'),
+(5,5,'2023-05-14','Positivo'),
+(6,6,'2023-07-13','Positivo'),
+(7,7,'2023-12-21','Negativo')
+	;``
+ 
 ### Datos Tabla: Retroalimentacion
-``INSERT INTO Retroalimentacion(ID_Retroalimentacion,ID_Empleado,ID_Cuestionario,ID_Reporte,ID_Gerente,ID_Especialista,Enunciado_Retroalimentacion,Fecha_Retroalimentacion,Hora_Retroalimentacion) VALUES 
-(1,20210005,1,1, NULL,6, 'Falta mejorar algunos puntos en el trabajo.','2024-06-21','18:30'),
-(2,20210009,2,2, 1,NULL, 'Debes pulir algunos detalles.','2024-06-21','18:30'),
-(3,20210002,3,3,1,NULL, 'Se pueden hacer mejoras en ciertos aspectos.','2024-06-21','18:30'),
-(4,20220006,1,5, NULL,3, 'Algunos puntos necesitan ser perfeccionados.','2024-06-22','15:30'),
-(5,20220005,2,6, NULL,5, 'Se deben abordar algunas deficiencias.','2024-06-22','19:30'),
-(6,20210007,3,7,NULL,6, 'Es necesario afinar ciertos aspectos.','2024-06-22','20:30');``
+``INSERT INTO Retroalimentacion(ID_Retroalimentacion,ID_Reporte,Enunciado_Retroalimentacion,ID_Gerente,ID_Especialista_Relaciones_Laborales,Fecha_Retroalimentacion,Hora_Retroalimentacion) VALUES 
+(1,1,'Falta mejorar algunos puntos en el trabajo.',NULL,20230012,'2024-06-21','18:30'),
+(2,2,'Debes pulir algunos detalles.',20200001,NULL,'2024-06-21','18:30'),
+(3,3,'Se pueden hacer mejoras en ciertos aspectos.',20200001,NULL,'2024-06-21','18:30'),
+(4,4,'Algunos puntos necesitan ser perfeccionados.',NULL,20210008,'2024-06-22','15:30'),
+(5,5,'Se deben abordar algunas deficiencias.',NULL,20230006,'2024-06-22','19:30'),
+(6,6,'Es necesario afinar ciertos aspectos.',NULL,20240027,'2024-06-22','20:30')
+;``
+	
 	
 ### Datos Tabla: Reunion
-``INSERT INTO Reunion(ID_Reunion,ID_Especialista,ID_Gerente,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
-(1,1,null,'Explicación de la evaluación de desempeño','2024-06-12','15:30'),
-(2,NULL,1,'Retroalimentación general','2024-06-20','18:30'),
-(3,5,1,'Evaluación técnica','2024-06-21','18:30');``
+	``INSERT INTO Reunion(ID_Reunion,ID_Empleado,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
+	(1,20200001,'Explicación de la evaluación de desempeño','2024-06-12','15:30'),
+	(2,20210003,'Retroalimentación general','2024-06-20','18:30'),
+	(3,20230006,'Evaluación técnica','2024-06-21','18:30')
+	;``
+	
 
 ### Datos Tabla: Vacante
 ``INSERT INTO Vacante (ID_Vac, ID_Departamento, ID_Cargo, ID_Perfil, Ubicación, Beneficio, Salario, Horario)
