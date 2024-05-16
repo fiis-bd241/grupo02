@@ -1,0 +1,121 @@
+# Querys para registrar acciones
+
+## Registrar el cese:
+
+	INSERT INTO cese (id_cese, tipo_cese, motivo_cese, fecha_inicio_cese, id_supervisor, id_empleado)
+	VALUES (
+				(SELECT id_cese FROM cese
+				ORDER BY id_cese DESC
+				LIMIT 1)+1,
+			TIPOC, MOTC, FECC, SUPC, EMPC);
+
+![alt text](../Entregable3/Front/RegistroCese1.png)
+
+## Registrar los beneficios y descuentos:
+
+	--Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Insertar_beneficio (TIPO_B varchar(32), MONTO_B FLOAT, ID_B INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO beneficios_cese (id_beneficios, tipo, monto, id_Cese)
+			VALUES (
+				(SELECT id_beneficios FROM beneficios_cese
+				ORDER BY id_beneficios DESC
+				LIMIT 1)+1,
+			TIPO_B, MONTO_B, ID_B);
+	END;
+	$$ LANGUAGE plpgsql;
+	--Ejecutar el procedimiento
+	-- Cuando seleccionan Liquidación: CALL Insertar_beneficio ('Liquidación', "monto", "id_cese");
+	-- Cuando seleccionan CTS: CALL Insertar_beneficio ('CTS', "monto", "id_cese");
+	...
+
+![alt text](../Entregable3/Front/RegistroCese2.png)
+
+## Mostrar la ficha del cese
+
+	-- Crear el procedimiento
+	CREATE OR REPLACE FUNCTION Mostrar_cese (IDC INTEGER)
+	RETURNS TABLE (
+	    Codigo_cesado INTEGER,
+	    Nombre_cesado VARCHAR(64),
+	    Nombre_departamento VARCHAR(64),
+	    Cargo_cesado VARCHAR(64),
+	    Suma_beneficios_descuentos FLOAT,
+	    Fecha_Cese DATE,
+	    Tipo_Cese TEXT,
+	    Motivo_Cese VARCHAR(64),
+	    Código_Supervisor INTEGER
+	) AS $$
+	BEGIN
+	    RETURN QUERY
+	        SELECT
+	            C.id_empleado,
+	            E.nombre_empleado,
+	            D.nombre_departamento,
+	            CA.nombre,
+	            SUM(B.monto),
+	            C.fecha_inicio_cese,
+	            CASE
+	                WHEN C.tipo_cese = 'D' THEN 'Despido'
+	                WHEN C.tipo_cese = 'R' THEN 'Renuncia'
+	                WHEN C.tipo_cese = 'C' THEN 'Término de contrato'
+	                WHEN C.tipo_cese = 'J' THEN 'Jubilación'
+	                ELSE 'No especificado'
+	            END AS Tipo_Cese,
+	            C.motivo_cese,
+	            C.id_supervisor
+	        FROM cese AS C
+	        INNER JOIN empleado AS E ON C.id_empleado = E.id_empleado
+	        INNER JOIN departamento AS D ON E.id_departamento = D.id_departamento
+	        INNER JOIN cargo AS CA ON E.id_cargo = CA.id_cargo
+	        INNER JOIN beneficios_cese AS B ON C.id_cese = B.id_cese
+	        WHERE C.id_cese = IDC
+	        GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
+	END;
+	$$ LANGUAGE plpgsql;
+	
+	-- Ejecutar el procedimiento: SELECT * FROM Mostrar_cese("id_Cese");
+
+![alt text](../Entregable3/Front/RegistroCese3.png)
+
+## Registrar preguntas para la persona a cesar:
+
+	--Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Anadir_pregunta (PREG varchar(256), ID_C INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO pregunta_salida (id_pregunta, pregunta_salida, id_cuestionario)
+			VALUES (
+				(SELECT id_pregunta FROM pregunta_salida
+				ORDER BY id_pregunta DESC
+				LIMIT 1)+1,
+			PREG, ID_C);
+	END;
+	$$ LANGUAGE plpgsql;
+
+	--Insertar una pregunta: CALL Anadir_pregunta("Pregunta1","ID_Cuestionario");
+	--Insertar otra pregunta: CALL Anadir_pregunta("Pregunta2","ID_Cuestionario");
+	...
+
+![alt text](../Entregable3/Front/RegistroCese4.png)
+
+## Resolver cuestionario:
+
+	--Crear el procedimiento
+	CREATE OR REPLACE PROCEDURE Anadir_respuesta (RESP varchar(256), ID_P INTEGER)
+	AS $$
+	BEGIN
+			INSERT INTO respuesta_salida (id_respuesta, respuesta_salida, id_pregunta)
+			VALUES (
+				(SELECT id_respuesta FROM respuesta_salida
+				ORDER BY id_respuesta DESC
+				LIMIT 1)+1,
+			RESP , ID_P);
+	END;
+	$$ LANGUAGE plpgsql;
+
+	--Insertar una respuesta: CALL Anadir_respuesta("respuesta1","ID_Pregunta");
+	--Insertar otra respuesta: CALL Anadir_respuesta("respuesta2","ID_Pregunta");
+
+![alt text](../Entregable3/Front/CuestionarioCese.png)
