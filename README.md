@@ -8,13 +8,13 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 - [Entregable 1](Entregables/Entregable1/Detalles.md)
 - [Entregable 2](Entregables/Entregable2/Entregable2.md)
 - [Entregable 3](Entregables/Entregable3/Entregable3.md)
+- [Entregable 4](Entregables/Entregable4/Entregable4.md)
 
 3. [Glosario de Términos](Glosario.md)
 
 4. [Entrevista](Entrevistas/ActaReunion.md)
 
-5. [Videos personales por módulo](Videos/Videos.md)
+5. [Videos personales por módulo](Videos/Video.md)
 
-6. [Videos personales por módulo_Entregable 2](Videos/Videos_2.md)
 
    
