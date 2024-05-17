@@ -33,22 +33,21 @@
 |         Objetivo         | Registrar el cese de un empleado en el sistema por parte de su supervisor                                                                                                 |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El supervisor registra el cese de un empleado en el sistema, incluyendo el código del empleado, la fecha de fin de contrato y motivo del cese|
-|          Actor           | <p align="center">	Analista de recursos humanos                                                                                                                           |
+|          Actor           | <p align="center">	Supervisor                                                                                                                           |
 |       Precondición       | <p align="center"> El empleado ha sido notificado de su cese                                                                       |
 | <p align="center">  Paso | <p align="center">  Acción </p>                                                                                                                                              |
-|            1             | El responsable de Recursos Humanos ingresa al módulo de Cese de Personal                                                                                                     |
+|            1             | El supervisor de área ingresa al módulo de Cese de Personal en su intranet                                                                                                     |
 |            2             | Selecciona la opción "Registrar cese de personal".                                                                                                                           |
-|            3             | Completa el formulario con la información del cese (fecha, motivo, etc.).                                                                                                    |
-|            4             | Luego, si hay alguna liquidación final, ingresa la información de la liquidación final.                                                                                                                   |
+|            3             | Completa el formulario con la información del cese con el DNI del empleado a cesar (dato que podrá conseguir usando la lupa e insertando el apellido del empleado), tipo de cese, motivo del cese (opcional), fecha en la que aplicará el cese y pulsa el botón "REGISTRAR".                                                                                                    |
+|            4             | Luego, selecciona alguna opción para la pregunta "¿El trabajador posee alguna deuda con la empresa? Si la respuesta es positiva selecciona el botón "SÍ" e ingresa el dato de dicha deuda, si es negativa simplemente presiona "NO"                                                     |
 |            5             | Revisa y valida la información ingresada.                                                                                                                                    |
 |            6             | Proponer preguntas para el cese o seleccionar las predeterminadas.                                                                                                                                    |
 |            7             | Confirma los cambios.                                                                                                    
 #### Prototipo
 
-![alt text](../Front/RegistroCese1.png)
-![alt text](../Front/RegistroCese2.png)
-![alt text](../Front/RegistroCese3.png)
-![alt text](../Front/RegistroCese4.png)
+![alt text](../Front/RCese1.png)
+![alt text](../Front/RCese2.png)
+![alt text](../Front/RCese3.png)
 
 ## Caso de uso 2 : Responder cuestionario de salida
 

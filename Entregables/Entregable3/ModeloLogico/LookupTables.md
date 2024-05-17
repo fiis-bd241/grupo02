@@ -36,3 +36,11 @@
 |          2          |       Supervisores      |
 |          3          |          Jefes          |
 |          4          |         Gerentes        |
+
+## Entidad: Tipo_Cese
+| **ID_Tipo** | **Nombre_Tipo** |
+|:-------------------:|:-----------------------:|
+|          1          |       Indemnización por despido      |
+|          2          |       CTS      |
+|          3          |          Pago de salario pendiente          |
+|          4          |         Pago de vacaciones no disfrutadas        |
