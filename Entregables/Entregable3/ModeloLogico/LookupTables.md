@@ -44,3 +44,4 @@
 |          2          |       CTS      |
 |          3          |          Pago de salario pendiente          |
 |          4          |         Pago de vacaciones no disfrutadas        |
+|          5          |         Deuda de empleado con la empresa        |
