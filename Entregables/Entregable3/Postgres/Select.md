@@ -84,102 +84,67 @@
 	WHERE ev.Estado_Evaluacion = 'Aprobado';
 
 ## Módulo: Registro de asistencias y solicitudes
-### Para solicitar una licencia médica:
-    
-	-- Crear el procedimiento
-	CREATE OR REPLACE PROCEDURE SolicitarLicenciaMedica(
-    IN p_ID_Empleado INTEGER,
-    IN p_Motivo VARCHAR(128),
-    IN p_FechaInicio DATE,
-    IN p_FechaFin DATE
-    )
-    AS $$
-    BEGIN
-            INSERT INTO Permiso (Tipo, Motivo, Duracion, Estado, ID_Empleado, ID_Supervisor)
-            VALUES ('Licencia Médica', p_Motivo, 'Más de un día', 'Pendiente', p_ID_Empleado, NULL);
 
-            INSERT INTO Licencia (Tipo, Estado, Fecha_inicio, Fecha_fin, ID_Empleado, ID_Supervisor)
-            VALUES ('Licencia Médica', 'Pendiente', p_FechaInicio, p_FechaFin, p_ID_Empleado, NULL);
+### Select para ver el registro de permisos
+    SELECT
+        P.ID_Permiso,
+        CASE
+            WHEN P.Tipo = 'V' THEN 'Vacaciones'
+            WHEN P.Tipo = 'E' THEN 'Enfermedad'
+            WHEN P.Tipo = 'C' THEN 'Calamidad'
+            ELSE P.Tipo
+        END AS Tipo_Permiso,
+        P.Motivo,
+        P.Duracion,
+        P.Estado,
+        P.ID_Empleado,
+        E.nombre_empleado || ' ' || E.apellido_empleado AS Nombre_Empleado,
+        P.ID_Supervisor,
+        S.nombre_supervisor || ' ' || S.apellido_supervisor AS Nombre_Supervisor
+    FROM Permiso P
+    INNER JOIN Empleado E ON P.ID_Empleado = E.ID_Empleado
+    INNER JOIN Supervisor S ON P.ID_Supervisor = S.ID_Supervisor;
 
-	END;
-	$$ LANGUAGE plpgsql;
-
-![alt text](../Front/SolicitudFalta.png)
-
-### Para aceptar o rechazar solicitudes de licencia de cualquier tipo:
-
-    -- Crear el procedimiento
-    CREATE OR REPLACE PROCEDURE AceptarRechazarSolicitudLicencia(
-    IN p_ID_Licencia INTEGER,
-    IN p_Estado VARCHAR(64)
-    )
-    AS $$
-    BEGIN
-    UPDATE Licencia
-    SET Estado = p_Estado
-    WHERE ID_Licencia = p_ID_Licencia;
-		
-	END;
-	$$ LANGUAGE plpgsql;
-
-![alt text](../Front/AceptarSolicitud.png)
-
-### Para registrar asistencias:
-
-    -- Crear el procedimiento
-    CREATE OR REPLACE PROCEDURE RegistrarAsistencia(
-    IN p_ID_Empleado INTEGER,
-    IN p_Fecha DATE,
-    IN p_HoraEntrada TIME,
-    IN p_HoraSalida TIME
-    )
-    AS $$
-    BEGIN
-            INSERT INTO Asistencia (ID_Empleado, Estado, Observacion, Fecha, Hora_entrada, Hora_salida)
-            VALUES (p_ID_Empleado, 'Presente', NULL, p_Fecha, p_HoraEntrada, p_HoraSalida);
-    END;
-    $$ LANGUAGE plpgsql;
-
-![alt text](../Front/RegistroAsistencia.png)
-
-### Para generar un reporte de asistencia:
-
-    -- Crear el procedimiento
-	CREATE OR REPLACE PROCEDURE GenerarReporteAsistencia(
-    IN p_ID_Departamento INTEGER,
-    IN p_FechaDesde DATE,
-    IN p_FechaHasta DATE
-    )
-    AS $$
-    BEGIN
-            SELECT A.Fecha, A.Hora_entrada, A.Hora_salida
-            FROM Asistencia A
-              INNER JOIN Empleado E ON A.ID_Empleado = E.ID_Empleado
-              WHERE E.ID_Departamento = p_ID_Departamento
-              AND A.Fecha BETWEEN p_FechaDesde AND p_FechaHasta;
-    END;
-    $$ LANGUAGE plpgsql;
-
-![alt text](../Front/GenerarReportes.png)
-
-## Módulo: Capacitación de Personal
-
- ### Select para obtener el nombre de los instructores
-	SELECT Instructor.ID_Instructor, Empleado.Nombre_Empleado, Empleado.Apellido_Empleado
-	FROM Instructor
-	INNER JOIN Empleado ON Empleado.ID_Empleado = Instructor.ID_Empleado;
-
-### Select para obtener la asistencia de los empleados en la Sesión 1 
-	SELECT Empleado.Nombre_Empleado,Empleado.Apellido_Empleado, Empleado_Sesion.Asistencia
-	FROM Empleado 
-	INNER JOIN Empleado_Sesion ON Empleado.ID_Empleado = Empleado_Sesion.ID_Empleado
-	WHERE Empleado_Sesion.Asistencia='Asistio' AND Empleado_Sesion.ID_Sesion= 1;
-
-### Select para identificar todos los resultados del programa capacitador 1, donde la evaluación de las sesiones hayan sido  satisfactorias
-	SELECT Evaluacion_Sesion.ID_Sesion,Evaluacion_Sesion.ID_Evaluacion
- 	FROM Evaluacion_Sesion 
-	INNER JOIN Sesion ON Sesion.ID_Sesion=Evaluacion_Sesion.ID_Sesion
-	WHERE Sesion.ID_Programa_C=1 AND Evaluacion_Sesion.Resultado='Satisfactorio' ;
+### Select para ver el registro de licencias
+    SELECT
+        L.ID_Licencia,
+            CASE
+            WHEN L.Tipo = 'M' THEN 'Médica'
+            WHEN L.Tipo = 'P' THEN 'Paternidad'
+            WHEN L.Tipo = 'M' THEN 'Maternidad'
+            ELSE L.Tipo
+        END AS Tipo_Licencia,
+        L.Estado,
+        L.Fecha_inicio,
+        L.Fecha_fin,
+        L.ID_Empleado,
+        E.nombre_empleado || ' ' || E.apellido_empleado AS Nombre_Empleado,
+        L.ID_Supervisor,
+        S.nombre_supervisor || ' ' || S.apellido_supervisor AS Nombre_Supervisor
+    FROM Licencia L
+    INNER JOIN Empleado E ON L.ID_Empleado = E.ID_Empleado
+    INNER JOIN Supervisor S ON L.ID_Supervisor = S.ID_Supervisor;
+	
+### Select para ver el registro de asistencias
+    SELECT
+        A.ID_Asistencia,
+            CASE
+            WHEN A.Estado = 'P' THEN 'Presente'
+            WHEN A.Estado = 'A' THEN 'Ausente'
+            WHEN A.Estado = 'R' THEN 'Retardo'
+        END AS Estado_Asistencia,
+        A.Observacion,
+        A.Fecha,
+        A.Hora_entrada,
+        A.Hora_salida,
+        A.ID_Empleado,
+        E.nombre_empleado || ' ' || E.apellido_empleado AS Nombre_Empleado,
+        D.nombre_departamento AS Departamento,
+        C.nombre AS Cargo
+    FROM Asistencia A
+    INNER JOIN Empleado E ON A.ID_Empleado = E.ID_Empleado
+    INNER JOIN Departamento D ON E.id_departamento = D.id_departamento
+    INNER JOIN Cargo C ON E.id_cargo = C.id_cargo;
 
 ## Módulo: Cese de personal
 
