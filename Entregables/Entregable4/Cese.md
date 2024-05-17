@@ -9,7 +9,7 @@
 				LIMIT 1)+1,
 			TIPOC, MOTC, FECC, SUPC, EMPC);
 
-![alt text](../Entregable3/Front/RegistroCese1.png)
+![alt text](../Entregable3/Front/RCese1.png)
 
 ## Registrar los beneficios y descuentos:
 
@@ -20,7 +20,7 @@
 			LIMIT 1)+1,
 		TIPO_B, MONTO_B, ID_B);
 
-![alt text](../Entregable3/Front/RegistroCese2.png)
+![alt text](../Entregable3/Front/RCese2.png)
 
 ## Mostrar la ficha del cese
 
@@ -48,7 +48,7 @@
 	WHERE C.id_cese = IDC
 	GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
 
-![alt text](../Entregable3/Front/RegistroCese3.png)
+![alt text](../Entregable3/Front/RCese3.png)
 
 ## Registrar preguntas para la persona a cesar:
 

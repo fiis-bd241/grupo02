@@ -13,7 +13,7 @@
         ID_S
 );
 
-![alt text](../Front/SolicitudFalta.png)
+![alt text](../Entregable3/Front/SolicitudFalta.png)
 
 ## Para aceptar o rechazar solicitudes de licencia de cualquier tipo:
 
@@ -27,7 +27,7 @@
     SET estado = 'R'
     WHERE id_licencia = 789 AND estado = 'P';
 
-![alt text](../Front/AceptarSolicitud.png)
+![alt text](../Entregable3/Front/AceptarSolicitud.png)
 
 ## Para registrar asistencias:
 
@@ -42,7 +42,7 @@
         ID_A,
 );
 
-![alt text](../Front/RegistroAsistencia.png)
+![alt text](../Entregable3/Front/RegistroAsistencia.png)
 
 ## Para generar un reporte de asistencia:
 
@@ -63,4 +63,4 @@
     WHERE A.fecha BETWEEN '2020-01-01' AND '2020-12-31'
     ORDER BY A.fecha DESC, A.hora_entrada DESC;
  
-![alt text](../Front/GenerarReportes.png)
+![alt text](../Entregable3/Front/GenerarReportes.png)
