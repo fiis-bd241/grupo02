@@ -20,3 +20,25 @@ Al poner confirmar, se procederá a programar las n sesiones mediante n inserts.
   ![Resistrar Sesion](https://github.com/fiis-bd241/grupo02/assets/164259064/ecbba794-9d27-4f99-8985-f04f5a01147d)
 
 Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesión es "Pendiente" por default, por lo que se le agregan las fechas programadas para las sesiones y el horario de la sesion además se refiere al programa capacitador actual.
+
+## Registrar Empleados:
+	INSERT INTO Lista_Matricula(ID_Programa_C,ID_Empleado,Estado_Matricula)
+ 	VALUES(
+  		IDPROG,IDEMP,ESTM);
+
+![Matricula Empleado Programa](https://github.com/fiis-bd241/grupo02/assets/164259064/4521524a-5523-4fc5-aeaf-9eae8f561f44)
+
+## Muestra de Empleados Matriculados en la Capacitación 
+
+	SELECT 
+ 	CONCAT(Empleado.Nombre_Empleado, ' ', Empleado.Apellido_Empleado) AS Nombre_Completo
+   		Empleado.ID_Empleado,
+     		Lista_Matricula.Estado_Matricula
+   	FROM Empleado
+    	JOIN Listra_Matricula ON Empleado.ID_Empleado= Lista_Matricula.ID_Empleado
+     	JOIN Programa_Capacitador ON Lista_Matricula.ID_Programa_C = Programa_Capacitador.ID_Programa_C
+	WHERE Programa_Capacitador.ID_Programa_C = @IDPrograma;
+![Lista Capacitacion](https://github.com/fiis-bd241/grupo02/assets/164259064/da74a241-66ab-435a-b518-e88a9afb91e5)
+
+ 
+ 
