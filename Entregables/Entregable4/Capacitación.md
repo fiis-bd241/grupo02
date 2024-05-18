@@ -38,7 +38,9 @@ Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesi
     	JOIN Listra_Matricula ON Empleado.ID_Empleado= Lista_Matricula.ID_Empleado
      	JOIN Programa_Capacitador ON Lista_Matricula.ID_Programa_C = Programa_Capacitador.ID_Programa_C
 	WHERE Programa_Capacitador.ID_Programa_C = @IDPrograma;
-![Lista Capacitacion](https://github.com/fiis-bd241/grupo02/assets/164259064/da74a241-66ab-435a-b518-e88a9afb91e5)
+
+![Lista Capacitacion](https://github.com/fiis-bd241/grupo02/assets/164259064/a5f8d22f-74dd-48d5-8b92-b794c6331ffb)
+
 
  
  
