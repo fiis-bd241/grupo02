@@ -14,21 +14,26 @@ Nombre_Departamento VARCHAR(64)
 );``
 
 ### Entidad: Empleado
-``CREATE TABLE Empleado(
-ID_Empleado INTEGER primary key,
-Nombre_Empleado VARCHAR(32),
-Apellido_Empleado VARCHAR(32),
-Telefono INTEGER,
-Direccion VARCHAR(64),
-Correo VARCHAR(32),
-Fecha_Nacimiento DATE,
-Cant_Hijos INTEGER,
-Estado_Civil VARCHAR(16),
-ID_Departamento INTEGER,
-ID_Cargo INTEGER,
-FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento),
-FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo)
+
+``CREATE TABLE Empleado (
+    ID_Empleado INTEGER PRIMARY KEY,
+    Nombre_Empleado VARCHAR(32) NOT NULL,
+    Apellido_Empleado VARCHAR(32) NOT NULL,
+    Telefono VARCHAR(15),
+    Direccion VARCHAR(64),
+    Correo VARCHAR(32) UNIQUE,
+    Fecha_Nacimiento DATE NOT NULL,
+    Cant_Hijos INTEGER DEFAULT 0,
+    Estado_Civil VARCHAR(16),
+    DNI CHAR(8) NOT NULL, 
+    ID_Departamento INTEGER,
+    ID_Cargo INTEGER,
+    FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento),
+    FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo),
+    CHECK (DNI ~ '^[0-9]{8}$') 
 );``
+
+
 
 ### Entidad: Cuenta Bancaria
 ``CREATE TABLE Cuenta_Bancaria(
