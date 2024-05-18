@@ -836,30 +836,30 @@ INSERT INTO Beneficios_Cese VALUES
 ### Datos Tabla: Permiso
 ``INSERT INTO Permiso VALUES (ID_Permiso, Tipo, Motivo, Duracion, Estado, ID_Empleado, ID_Supervisor) VALUES
 (1, 'Mudanza', 'Me mudo por motivos familiares', '10 días', 'Aprobado', 20200023, 7)
-(2, 'Matrimonio', 'Casamiento con mi pareja de larga data', '15 días', 'Aprobado', 20210001, 4),
+(2, 'Matrimonio', 'Casamiento con mi pareja de larga data', '15 días', 'Pendiente', 20210001, 4),
 (3, 'Nacimiento de un familiar', "Nacimiento de mi sobrino", '7 días', 'Rechazado', 20210002, 6),
 (4, 'Fallecimiento de un familiar', 'Falleció mi abuelo', '5 días', 'Aprobado', 20210003, 5),
 (5, 'Accidente de un familiar', 'Mi hermano tuvo un accidente', '20 días', 'Rechazado', 20210004, 9),
-(6, 'Enfermedad grave de un familiar', 'Mi madre está gravemente enferma', '30 días', 'Aprobado', 20210005, 7),
+(6, 'Enfermedad grave de un familiar', 'Mi madre está gravemente enferma', '30 días', 'Pendiente', 20210005, 7),
 (7, 'Deberes inexcusables', 'Debo asistir a una cita judicial', '3 días', 'Rechazado', 20210006, 8),
 (8, 'Exámenes prenatales', 'Control prenatal de mi pareja', '1 día', 'Aprobado', 20210007, 1),
 (9, 'Funciones sindicales', 'Participación en asamblea sindical', '2 días', 'Rechazado', 20210008, 5),
-(10, 'Hijos prematuros', 'Cuidado de mi hijo prematuro', '25 días', 'Aprobado', 20210009, 3),
+(10, 'Hijos prematuros', 'Cuidado de mi hijo prematuro', '25 días', 'Pendiente', 20210009, 3),
 (11, 'Formación', 'Curso de actualización profesional', '10 días', 'Rechazado', 20210010, 6),
 (12, 'Despido objetivo', 'Gestiones por despido', '14 días', 'Aprobado', 20200001, 9),
 (13, 'Mudanza', 'Cambio de residencia por trabajo', '12 días', 'Rechazado', 20230002, 2),
 (14, 'Matrimonio', 'Mi boda', '15 días', 'Aprobado', 20230005, 3),
-(15, 'Nacimiento de un familiar', 'Nacimiento de mi hija', '7 días', 'Rechazado', 20230006, 9),
+(15, 'Nacimiento de un familiar', 'Nacimiento de mi hija', '7 días', 'Pendiente', 20230006, 9),
 (16, 'Fallecimiento de un familiar', 'Falleció mi tío', '5 días', 'Aprobado', 20230007, 5),
 (17, 'Accidente de un familiar', 'Mi prima sufrió un accidente', '20 días', 'Rechazado', 20230008, 6),
 (18, 'Enfermedad grave de un familiar', 'Mi padre tiene una enfermedad grave', '30 días', 'Aprobado', 20230009, 8),
 (19, 'Deberes inexcusables', 'Obligaciones legales imprevistas', '3 días', 'Rechazado', 20230010, 9),
 (20, 'Exámenes prenatales', 'Exámenes prenatales de mi esposa', '1 día', 'Aprobado', 20230011, 1),
 (21, 'Funciones sindicales', 'Reunión sindical importante', '2 días', 'Rechazado', 20230012, 1),
-(22, 'Hijos prematuros', 'Atención a mi hijo recién nacido', '25 días', 'Aprobado', 20230013, 4),
+(22, 'Hijos prematuros', 'Atención a mi hijo recién nacido', '25 días', 'Pendiente', 20230013, 4),
 (23, 'Formación', 'Seminario de desarrollo personal', '10 días', 'Rechazado', 20230014, 7),
 (24, 'Despido objetivo', 'Proceso de despido laboral', '14 días', 'Aprobado', 20230015, 7),
-(25, 'Mudanza', 'Relocalización por motivos de salud', '12 días', 'Rechazado', 20220001, 4)
+(25, 'Mudanza', 'Relocalización por motivos de salud', '12 días', 'Pendiente', 20220001, 4)
 ``
 
 
