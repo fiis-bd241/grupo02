@@ -42,13 +42,12 @@ Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesi
 ![Lista Capacitacion](https://github.com/fiis-bd241/grupo02/assets/164259064/a5f8d22f-74dd-48d5-8b92-b794c6331ffb)
 
 ## Muestra de Capacitaciones:
-	
 	SELECT 
 	    d.Nombre_Departamento, 
 	    p.ID_Departamento, 
-	    COUNT(s.ID_Sesion) AS Numero_Sesiones, 
+	    COUNT(DISTINCT s.ID_Sesion) AS Numero_Sesiones, 
 	    p.Fecha_Inicio AS Fecha_Programa, 
-	    COUNT(lm.ID_Empleado) AS Total_Empleados, 
+	    COUNT(DISTINCT lm.ID_Empleado) AS Total_Empleados, 
 	    p.Motivo
 	FROM 
 	    Programa_Capacitador p
