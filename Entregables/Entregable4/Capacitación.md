@@ -69,3 +69,17 @@ Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesi
  
  ![Solicitud de Capacitacion Muestra](https://github.com/fiis-bd241/grupo02/assets/164259064/33e1fea1-c165-4ffa-b711-a836c1ae4adc)
 
+## Actualizar Asistencia de Sesiones:
+	UPDATE Empleado_Sesion
+	SET Asistencia = 'Asistió'
+	WHERE ID_Sesion IN (@ID_sesion) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
+ 
+ 	UPDATE Empleado_Sesion
+	SET Asistencia = 'Faltó'
+	WHERE ID_Sesion IN (@ID_sesion) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
+ 
+ ![image](https://github.com/fiis-bd241/grupo02/assets/164259064/8cc82c86-e497-4819-948c-97d2e36b73d5)
+
+Se actualizará el estado de la tabla Empleado_Sesion, eligiendo una sesión específica y el ID de los empleados obtenidos en el parámetro, de la misma forma para las ausencias de los mismos empleados.
+ 
+
