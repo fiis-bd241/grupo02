@@ -66,6 +66,8 @@ Si el supervisor selecciona la opción sí en la pregunta '¿El trabajador posee
 
 ### El supervisor selecciona la opción 'NO' o seleccionando 'CONFIRMAR'(Pantalla de carga)
 
+![alt text](Carga.png)
+
 	INSERT INTO beneficios_cese (id_beneficios, id_tipo, monto, id_Cese)
 		VALUES
 			((SELECT id_beneficios FROM beneficios_cese
