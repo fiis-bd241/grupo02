@@ -31,7 +31,7 @@ Nombre_Departamento VARCHAR(64)
     ID_Cargo INTEGER,
     FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento),
     FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo),
-    CHECK (DNI ~ '^[0-9]{8}$') 
+    CHECK (DNI '^[0-9]{8}$') 
 );``
 
 
