@@ -232,6 +232,16 @@ Cuando seleccionan el botón de CONFIRMAR y han escrito más preguntas propias (
 ### Quinta pantalla
 ![alt text](../Entregable3/Front/C5.png)
 
+#### Accion 8
+El empleado cesado entra a un link que se le envía al correo registrado donde aparece la pantalla 5, cuando le da click al botón CONTINUAR para poder cargar las preguntas del cuestionario
+
+	SELECT pregunta_salida 
+	FROM pregunta_salida
+	WHERE id_cuestionario=@Id_cese
+
+### Sexta pantalla
+![alt text](../Entregable3/Front/C6.png)
+
 #### Accion 9
 Luego de llenar las preguntas de su cuestionario seleccionar el boton de SIGUIENTE
 
@@ -242,4 +252,3 @@ Luego de llenar las preguntas de su cuestionario seleccionar el boton de SIGUIEN
 			LIMIT 1)+1,
 			RESP , ID_P);
 	
-![alt text](../Entregable3/Front/CuestionarioCese.png)
