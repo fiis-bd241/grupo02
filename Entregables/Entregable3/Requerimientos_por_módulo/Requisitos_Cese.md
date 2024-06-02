@@ -43,11 +43,6 @@
 |            5             | Revisa y valida la información ingresada.                                                                                                                                    |
 |            6             | Proponer preguntas para el cese o seleccionar las predeterminadas.                                                                                                                                    |
 |            7             | Confirma los cambios.                                                                                                    
-#### Prototipo
-
-![alt text](../Front/RCese1.png)
-![alt text](../Front/RCese2.png)
-![alt text](../Front/RCese3.png)
 
 ## Caso de uso 2 : Responder cuestionario de salida
 
@@ -61,6 +56,3 @@
 |            2             | Resuelve las preguntas del cese.                                                                                                                           |
 |            3             | Confirma los cambios.                                                                                                    |
                                                                                                 
-#### Prototipo
-
-![alt text](../Front/CuestionarioCese.png)
