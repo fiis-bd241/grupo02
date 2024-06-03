@@ -1,0 +1,6 @@
+id_cuenta_b,numero_cuenta,nombre_banco,tipo_cuenta,moneda,id_empleado
+1001,01234567890123456789,Banco de Crédito del Perú,Cuenta corriente,Soles,20210001
+1002,12345678901234567890,Interbank,Cuenta de ahorros,Dólares,20220004
+1003,23456789012345678901,Scotiabank,Cuenta corriente,Soles,20240020
+1004,34567890123456789012,BBVA Continental,Cuenta de ahorros,Soles,20240034
+1005,45678901234567890123,Banco de la Nación,Cuenta corriente,Dólares,20240008

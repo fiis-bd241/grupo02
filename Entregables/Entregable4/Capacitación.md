@@ -34,11 +34,11 @@ Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesi
 ## Muestra de Empleados Matriculados en la Capacitación 
 
 	SELECT 
- 	CONCAT(Empleado.Nombre_Empleado, ' ', Empleado.Apellido_Empleado) AS Nombre_Completo
+ 	CONCAT(Empleado.Nombre_Empleado, ' ', Empleado.Apellido_Empleado) AS Nombre_Completo,
    		Empleado.ID_Empleado,
      		Lista_Matricula.Estado_Matricula
    	FROM Empleado
-    	JOIN Listra_Matricula ON Empleado.ID_Empleado= Lista_Matricula.ID_Empleado
+    	JOIN Lista_Matricula ON Empleado.ID_Empleado= Lista_Matricula.ID_Empleado
      	JOIN Programa_Capacitador ON Lista_Matricula.ID_Programa_C = Programa_Capacitador.ID_Programa_C
 	WHERE Programa_Capacitador.ID_Programa_C = @IDPrograma;
 

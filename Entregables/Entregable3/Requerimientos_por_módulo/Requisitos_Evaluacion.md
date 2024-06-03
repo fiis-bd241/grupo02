@@ -33,7 +33,7 @@
 
 ## Requerimientos de Evaluación de Desempeño:
 
-## Caso de uso 1: Crer un cuestionario
+## Caso de uso 22: Crear un cuestionario
 | **Objetivo** |          **Permitir al especialista en relaciones laborales crear y editar cuestionarios para distintos tipos de empleados.**          |
 |:------------:|:--------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El especialista puede crear cuestionarios dirigidos a subordinados, supervisores, jefes y gerentes, o editar cuestionarios existentes. |
@@ -53,7 +53,7 @@
 ![ ](../Front/ED1.png)
 
 
-## Caso de uso 2: Editar un cuestionario
+## Caso de uso 23: Editar un cuestionario
 | **Objetivo** |                                                             **Permitir al especialista en relaciones laborales editar un cuestionario existente para distintos tipos de empleados.**                                                             |
 |:------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El especialista puede seleccionar el tipo de cuestionario que desea editar y agregar, eliminar o modificar preguntas. Además, puede visualizar el estado de envío y aprobación del cuestionario, así como enviarlo a gerencia una vez terminado. |
@@ -73,7 +73,7 @@
 ![ ](../Front/ED2.png)
 
 
-## Caso de uso 3: Aprobar Cuestionario
+## Caso de uso 24: Aprobar Cuestionario
 | **Objetivo** |                                                                        **Permitir al gerente de Recursos Humanos aprobar un cuestionario existente para distintos tipos de empleados.**                                                                        |
 |:------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El gerente puede seleccionar el tipo de cuestionario que desea aprobar y visualizar el cuestionario actual del tipo seleccionado, incluyendo ID de pregunta y enunciado. Además, puede ingresar el estado de aprobación correspondiente y enviar dicho estado. |
@@ -90,7 +90,7 @@
 ![ ](../Front/ED3.png)
 
 
-## Caso de uso 4: Responder cuestionario
+## Caso de uso 25: Responder cuestionario
 | **Objetivo** |                                                                                                                                                                        **Permitir al empleado responder un cuestionario aprobado para su tipo (subordinado, supervisor, jefe o gerente).**                                                                                                                                                                       |
 |:------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El empleado primero ingresa su ID de empleado y selecciona el tipo de cuestionario que desea responder. Luego, se muestra el cuestionario actual del tipo seleccionado, incluyendo ID de pregunta y enunciado. Para cada pregunta, se presenta una lista desplegable con las posibles respuestas (muy negativo, negativo, positivo o muy positivo). Finalmente, el empleado puede enviar sus respuestas al cuestionario utilizando el botón "Enviar respuestas". |
@@ -106,7 +106,7 @@
 ![ ](../Front/ED4.png)
 
 
-## Caso de uso 5: Revisar cuestionarios
+## Caso de uso 26: Revisar cuestionarios
 | **Objetivo** |                                                                                                                                                                                                         **Permitir a los especialistas en relaciones laborales revisar los cuestionarios completados por los empleados.**                                                                                                                                                                                                         |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | Al ingresar a la página, se mostrará una lista de empleados que han completado su cuestionario, incluyendo el ID del empleado, apellido y nombre. Se proporcionará la opción de generar un informe mediante el botón "Realizar reporte", el cual llevará a otra página para realizar el reporte. Además, se permitirá filtrar la lista de empleados por apellido utilizando el campo "Buscar por apellido". También se podrá filtrar por tipo de cuestionario y por la calificación recibida en el cuestionario de los empleados. |
@@ -123,7 +123,7 @@
 ![ ](../Front/ED5.png)
 
 
-## Caso de uso 6: Realizar reporte
+## Caso de uso 27: Realizar reporte
 | **Objetivo** | **Permitir al especialista en relaciones laborales visualizar y calificar los cuestionarios completados por los empleados, proporcionando retroalimentación.** |
 |:------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción |   El especialista puede acceder a los cuestionarios completados por los empleados, ver sus detalles y calificarlos, además de proporcionar retroalimentación.  |
@@ -142,7 +142,7 @@
 ![ ](../Front/ED6.png)
 
 
-## Caso de uso 7: Mis resultados
+## Caso de uso 28: Mis resultados
 | **Objetivo** |                         **Permitir al empleado acceder y visualizar sus resultados de cuestionarios previamente completados.**                        |
 |:------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El empleado puede ver su ID, fecha de ingreso a la empresa, calificación obtenida y retroalimentación proporcionada en sus cuestionarios completados. |
@@ -159,7 +159,7 @@
 ![ ](../Front/ED7.png)
 
 
-## Caso de uso 8: Programar reunión
+## Caso de uso 29: Programar reunión
 | **Objetivo** |                                                               **Permitir al gerente de recursos humanos o especialista en relaciones laborales programar una reunión.**                                                               |
 |:------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El gerente de recursos humanos o especialista en relaciones laborales puede ingresar su ID, el asunto de la reunión, la fecha y la hora de la reunión, y luego confirmar la programación de la reunión mediante el botón "Programar". |
@@ -175,7 +175,7 @@
 #### Prototipo
 ![ ](../Front/ED8.png)
 
-## Caso de uso 9: Mostrar reuniones pendientes
+## Caso de uso 30: Mostrar reuniones pendientes
 | **Objetivo** |                                                      **Permitir a los trabajadores o empleados ver las reuniones pendientes.**                                                     |
 |:------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | Los trabajadores o empleados pueden acceder a la página de reuniones pendientes donde se mostrarán el asunto de la reunión, la fecha y la hora de todas las reuniones programadas. |
