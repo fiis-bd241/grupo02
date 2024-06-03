@@ -1,13 +1,30 @@
 # Querys para registrar acciones
 
-## Primer caso de uso (Para solicitar una licencia médica):
-![alt text](../Entregable3/Front/SolicitudFalta.png)
+## Para el supervisor
 
-### El empleado ingresa a la pantalla de solicitud de licencias:
-Primero se guarda el nuevo identificador de la solicitud de licencia:
+### Primera pantalla opcional:
+
+![alt text](../Entregable3/Front/R01.jpg)
+
+#### Acción opcional 1.1:
+Se elige la opción de registrar asistencias del personal en la intranet del supervisor:
+
+	@Id_asistencia = (SELECT id_asistencia FROM asistencia ORDER BY id_asistencia DESC LIMIT 1)
+
+### Segunda pantalla opcional:
+
+![alt text](../Entregable3/Front/R02.jpg)
+
+#### Acción opcional 1.2:
+Se elige la opción de revisar solicitudes de licencias del personal en la intranet del supervisor:
+
 	@Id_licencia = (SELECT id_licencia FROM licencia ORDER BY id_licencia DESC LIMIT 1)
 
-### Búsqueda del empleado por su código (En la barra de códigos):
+## R-016 / Caso de Uso 16: Gestión de solicitudes de ausencia
+
+![alt text](../Entregable3/Front/R03.jpg)
+
+### Acción 1: Búsqueda del empleado por su código (En la barra de códigos)
 Si el empleado escribe su código, digamos '20220003' y le da a buscar se ejecuta:
 
 	SELECT 
@@ -17,7 +34,7 @@ Si el empleado escribe su código, digamos '20220003' y le da a buscar se ejecut
 	INNER JOIN departamento AS D ON E.id_departamento=D.id_departamento
 	WHERE E.ID_Empleado= '%20220003%'
 
-### Solicitar licencia médica:
+### Acción 2: Solicitar licencia médica
 El empleado con id @emp ya identificó su código de empleado, ya redactó el motivo de su solicitud de licencia, aclaró las fechas de inicio y de fin y adjuntó su constancia médica.
 
 Si el empleado le da al botón 'CONFIRMAR':
@@ -42,38 +59,52 @@ Si el empleado le da al botón 'CONFIRMAR':
 		WHERE id_licencia=@Id_licencia
 	);
 
-## Segundo caso de uso (Para aceptar o rechazar solicitudes de licencia de cualquier tipo):
-![alt text](../Entregable3/Front/AceptarSolicitud.png)
+## R-017 / Caso de Uso 17: Aprobación de solicitudes de ausencia
+
+![alt text](../Entregable3/Front/R04.jpg)
+
+### Acción única:
 
     -- Aceptar una licencia
     UPDATE Licencia
     SET estado = 'Aprobado'
-    WHERE id_licencia = 456 AND estado = 'Pendiente';
+    WHERE id_licencia = #id_lic# AND estado = 'Pendiente';
 
     -- Rechazar una licencia  
     UPDATE Licencia
     SET estado = 'Rechazado'
-    WHERE id_licencia = 789 AND estado = 'Pendiente';
+    WHERE id_licencia = #id_lic# AND estado = 'Pendiente';
 
-## Para registrar asistencias:
-![alt text](../Entregable3/Front/RegistroAsistencia.png)
+## R-015 / Caso de Uso 15: Registro de asistencias diarias
 
-    INSERT INTO Asistencia (ID_Asistencia, Estado, Observacion, Fecha, Hora_entrada, Hora_salida, ID_Empleado)
-        VALUES (
-            (SELECT COALESCE(MAX(ID_Asistencia), 0) + 1 FROM Asistencia),
-        EST,
-        OBS,
-        FEC,
-        HRE,
-        HRS,
-        ID_A,
-);
+![alt text](../Entregable3/Front/R05.jpg)
 
-## Para generar un reporte de asistencia:
-![alt text](../Entregable3/Front/GenerarReportes.png)
+### Acción 1: Seleccionar área de donde se va a registrar la asistencia
+
+    SELECT Id_Departamento, Nombre_Departamento FROM Departamento;
+
+### Acción 2: Registrar asistencia
+
+    UPDATE Asistencia
+    SET Asistencia = 'Asistió'
+    WHERE ID_Asistencia IN (@ID_asistencia) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
+
+    UPDATE Asistencia
+    SET Asistencia = 'Faltó'
+    WHERE ID_Asistencia IN (@ID_sesion) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
+
+## R-018 / Caso de Uso 18: Reporte de asistencia
+
+![alt text](../Entregable3/Front/R06.jpg)
+
+### Acción 1: Elegir las especificaciones para el reporte de asistencias:
+
+    SELECT Id_Departamento, Nombre_Departamento FROM Departamento;
+
+### Acción 2: Generar el reporte de asistencia
 
     SELECT
-        A.ID_Asistencia,
+        A.Id_Asistencia,
         A.Estado,
         A.Observacion,
         A.Fecha,
@@ -81,7 +112,7 @@ Si el empleado le da al botón 'CONFIRMAR':
         A.Hora_salida,
         E.Nombre_Empleado,
         D.Nombre_Departamento,
-        C.Nombre
+        C.Nombre 
     FROM Asistencia A
     INNER JOIN Empleado E ON A.id_empleado = E.id_empleado
     INNER JOIN Departamento D ON E.id_departamento = D.id_departamento
