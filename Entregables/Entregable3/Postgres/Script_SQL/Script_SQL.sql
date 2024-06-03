@@ -454,10 +454,10 @@ INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion, Monto_Pagar) 
 
 INSERT INTO Nomina (ID_Nomina, Fecha_Emision, Periodo_Pago, ID_Empleado, ID_Pago_Total) VALUES 
     (2001, '2024-04-15', 'Quincenal', 20210001, 1), 
-    (2002, '2024-04-30', 'Mensual', 20220004, 1), 
-    (2003, '2024-03-31', 'Mensual', 20220007, 1), 
-    (2004, '2024-05-15', 'Quincenal', 20230007, 1), 
-    (2005, '2024-05-31', 'Mensual', 20230014, 1); 
+    (2002, '2024-04-30', 'Mensual', 20220004, 2), 
+    (2003, '2024-03-31', 'Mensual', 20220007, 3), 
+    (2004, '2024-05-15', 'Quincenal', 20230007, 4), 
+    (2005, '2024-05-31', 'Mensual', 20230014, 5); 
 
 INSERT INTO Supervisor VALUES 
     (1, 20230007), 
