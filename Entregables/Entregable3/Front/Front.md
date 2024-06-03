@@ -13,7 +13,7 @@
 ![](c4.png)
 
 ## I-005
-![](../Front/C5.png)
+![alt text](C5.png)
 
 ## I-006
 ![](C6.png)
