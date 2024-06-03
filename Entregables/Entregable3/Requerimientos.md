@@ -294,7 +294,7 @@
 |       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 
-## R022 / Caso de uso 22: Crer un cuestionario
+## R022 / Caso de uso 22: Crear un cuestionario
 | **Objetivo** |          **Permitir al especialista en relaciones laborales crear y editar cuestionarios para distintos tipos de empleados.**          |
 |:------------:|:--------------------------------------------------------------------------------------------------------------------------------------:|
 |  Descripción | El especialista puede crear cuestionarios dirigidos a subordinados, supervisores, jefes y gerentes, o editar cuestionarios existentes. |
