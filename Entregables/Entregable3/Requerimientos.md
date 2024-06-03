@@ -1,6 +1,6 @@
 # Requerimientos
 
-## Caso de uso 1 : Registro de nuevo empleado
+## R001 / Caso de uso 1 : Registro de nuevo empleado
 
 |         Objetivo         | Registrar la información de un nuevo empleado                                                                                                                                                         |
 | :----------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,7 +15,7 @@
 |            5             | Revisa y valida la información ingresada                                                                                                                                                              |
 |            6             | Guarda el registro                                                                                                                                                                                    |
 
-## Caso de uso 2 : Modificar información de un empleado
+## R002 / Caso de uso 2 : Modificar información de un empleado
 
 |         Objetivo         | Modificar la información de un empleado en el sistema de Recursos Humanos                                                                                  |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@
 |            5             | Revisa y valida la información actualizada                                                                                                                 |
 |            6             | Guardar los cambios                                                                                                                                        |
 
-## Caso de uso 3 : Solicitar capacitación
+## R003 / Caso de uso 3 : Solicitar capacitación
 
 |         Objetivo         | Un empleado solicita una capacitación a través del sistema de Recursos Humanos                                                    |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,7 +46,7 @@
 |            6             | Envía la solicitud                                                                                                                |
 
 
-## Caso de uso 4 : Aprobar solicitud de capacitación
+## R004 / Caso de uso 4 : Aprobar solicitud de capacitación
 
 |         Objetivo         | El responsable de Recursos Humanos aprueba o rechaza la solicitud de capacitación de un empleado                                            |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@
 |            5             | Si la solicitud es rechazada, indica el motivo del rechazo                                                                                  |
 |            6             | Envía la respuesta al empleado                                                                                                              |
 
-## Caso de uso 5 : Registrar cese de personal
+## R005 / Caso de uso 5 : Registrar cese de personal
 
 |         Objetivo         | Registrar el cese de un empleado en el sistema por parte de su supervisor                                                                                                 |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,7 +76,7 @@
 |            5             | Revisa y valida la información ingresada.                                                                                                                                    |
 |            6             | Proponer preguntas para el cese o seleccionar las predeterminadas.                                                                                                                                    |
 |            7             | Confirma los cambios.                                                                             
-## Caso de uso 6 : Registrar evaluación de desempeño
+## R006 / Caso de uso 6 : Registrar evaluación de desempeño
 
 |         Objetivo         | Registrar la evaluación de desempeño de un empleado en el sistema de Recursos Humanos                                                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,7 +89,7 @@
 |            3             | Completa el formulario de evaluación con las calificaciones y comentarios correspondientes.                                                       |
 |            4             | Revisa y valida la información ingresada.                                                                                                         |
 |            5             | Guarda la evaluación                                                                                                                              |
-## Caso de uso 7 : Registrar asistencia a la inducción
+## R007 / Caso de uso 7 : Registrar asistencia a la inducción
 |         Objetivo         | Registrar la asistencia de los nuevos empleados a la inducción del personal                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------- |
 |       Descripción        | El responsable de la inducción registra la asistencia de los nuevos empleados a la sesión de inducción  |
@@ -101,7 +101,7 @@
 |            3             | Marca la asistencia de los nuevos empleados que asistieron.                                             |
 |            4             | Guarda la información.                                                                                  |
 
-## Caso de uso 8 : Publicar vacante
+## R008 / Caso de uso 8 : Publicar vacante
 
 |         Objetivo         | Publicar una vacante en el portal de empleo de la empresa                                                                                                                         |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -116,7 +116,7 @@
 |            5             | Revisa y valida la información ingresada                                                                                                                                          |
 |            6             | Publica la vacante                                                                                                                                                                |
 
-## Caso de uso 9 : Recepción de CVs
+## R009 / Caso de uso 9 : Recepción de CVs
 
 |         Objetivo         | Recepción de Curriculums Vitae (CVs) de candidatos a una vacante                                                                                               |
 | :----------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,7 +129,7 @@
 |            3             | Completan el formulario de postulación o envían su CV directamente                                                                                             |
 |            4             | Envían el formulario o CV por correo electrónico o a través del portal de empleo                                                                               |
 
-## Caso de uso 10 : Preselección de candidatos
+## R010 / Caso de uso 10 : Preselección de candidatos
 
 |         Objetivo         | Seleccionar a los candidatos que cumplen con los requisitos mínimos para la vacante                                                              |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -143,7 +143,7 @@
 |            4             | Selecciona a los candidatos que cumplen con los requisitos mínimos para la vacante                                                               |
 |            5             | Guarda la información de los candidatos preseleccionados                                                                                         |
 
-## Caso de uso 11 : Entrevista a candidatos
+## R011 / Caso de uso 11 : Entrevista a candidatos
 
 |         Objetivo         | Realizar entrevistas a los candidatos preseleccionados para la vacante                                                           |
 | :----------------------: | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -155,7 +155,7 @@
 |            2             | Realiza la entrevista a los candidatos, utilizando las preguntas predefinidas                                                    |
 |            3             | Evalúa las respuestas de los candidatos y toma notas                                                                             |
 |            4             | Al final de la entrevista, informa al candidato sobre los próximos pasos                                                         |
-## Caso de uso 12 : Seleccionar candidato final
+## R012 / Caso de uso 12 : Seleccionar candidato final
 |         Objetivo         | Seleccionar al candidato final para la vacante                                                                                 |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------ |
 |       Descripción        | El responsable de Recursos Humanos, junto con el jefe del área y/o la gerencia, seleccionan al candidato final para la vacante |
@@ -168,7 +168,7 @@
 |            4             | Informan al candidato seleccionado sobre su decisión                                                                           |
 |            5             | Notifican a los candidatos no seleccionados                                                                                    |
 
-## Caso de uso 13: Incluir al nuevo empleado
+## R013 / Caso de uso 13: Incluir al nuevo empleado
 
 |         Objetivo         | Integrar al nuevo empleado a la empresa y a su equipo de trabajo                                                                                                            |
 | :----------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -181,7 +181,7 @@
 |            3             | El jefe del área asigna un mentor al nuevo empleado para que lo acompañe en su proceso de integración                                                                       |
 |            4             | Se realizan actividades de integración para que el nuevo empleado se familiarice con la empresa y sus compañeros                                                            |
 
-## Caso de uso 14: Evaluar la satisfacción del cliente
+## R014 / Caso de uso 14: Evaluar la satisfacción del cliente
 
 
 |         Objetivo         | Evaluar la satisfacción del cliente con el servicio de reclutamiento y selección de personal                                                                         |
@@ -197,7 +197,7 @@
 ---
 
 
-## Caso de Uso 15: Registro de Asistencia
+## R015 / Caso de Uso 15: Registro de Asistencia
 
 |         Objetivo         | Registrar la asistencia de los empleados.                                                                                                                           |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -212,7 +212,7 @@
 |            5             | Guarda el registro de asistencia.                                                                                                                                   |
 |       Postcondición      | El registro de asistencia del empleado queda registrado en el sistema.                                                                                              |
 
-## Caso de Uso 16: Gestión de Solicitudes de Ausencia
+## R016 / Caso de Uso 16: Gestión de Solicitudes de Ausencia
 
 |         Objetivo         | Gestionar las solicitudes de ausencia de los empleados.                                                                                                             |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -226,7 +226,7 @@
 |            4             | Envía la solicitud de ausencia.                                                                                                                                    |
 |       Postcondición      | La solicitud de ausencia queda registrada en el sistema y pendiente de aprobación por parte del supervisor.                                                         |
 
-## Caso de Uso 17: Aprobación de Solicitudes de Ausencia
+## R017 / Caso de Uso 17: Aprobación de Solicitudes de Ausencia
 
 |         Objetivo         | Aprobar o rechazar las solicitudes de ausencia de los empleados.                                                                                                     |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -240,7 +240,7 @@
 |            4             | En caso de aprobación, el supervisor puede ajustar el horario del empleado si es necesario.                                                                         |
 |       Postcondición      | La solicitud de ausencia queda aprobada o rechazada en el sistema, y se notifica al empleado correspondiente.                                                       |
 
-## Caso de Uso 18: Reportes de Asistencia
+## R018 / Caso de Uso 18: Reportes de Asistencia
 
 |         Objetivo         | Generar reportes sobre la asistencia de los empleados.                                                                                                               |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -253,7 +253,7 @@
 |            3             | Genera el reporte de asistencia.                                                                                                                                    |
 |       Postcondición      | Se genera un reporte detallado sobre la asistencia de los empleados, que puede ser utilizado para análisis y seguimiento.                                           |
 
-## Caso de Uso 19: Integración con el Módulo de Nómina
+## R019 / Caso de Uso 19: Integración con el Módulo de Nómina
 
 |         Objetivo         | Integrar la información de asistencia con el módulo de nómina.                                                                                                       |
 | :----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -266,7 +266,7 @@
 |            3             | Actualiza los registros de nómina con los cálculos realizados.                                                                                                       |
 |       Postcondición      | La información de nómina se actualiza automáticamente con los datos de asistencia registrados.                                                                      |
 
-## Caso de uso 20: Registro y Actualización de Beneficios
+## R020 / Caso de uso 20: Registro y Actualización de Beneficios
 
 | **Objetivo** | Permitir a los administradores registrar y actualizar los beneficios ofrecidos a los empleados, así como garantizar la precisión y transparencia en la gestión de esta información. |
 |:------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -280,7 +280,7 @@
 |       4      | Asigna el beneficio a los empleados correspondientes o actualiza la asignación según sea necesario.                                                                          |
 |       5      | Confirma los cambios y guarda la información en el sistema.                                                                                                                  |
 
-## Caso de uso 21: Programación y Gestión de Pagos
+## R021 / Caso de uso 21: Programación y Gestión de Pagos
 
 | **Objetivo** | Facilitar la programación y gestión de los pagos relacionados con los beneficios y compensaciones de los empleados, garantizando su realización de manera oportuna y eficiente. |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -294,7 +294,7 @@
 |       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 
-## Caso de uso 22 : Creación de la encuesta
+## R022 / Caso de uso 22 : Creación de la encuesta
 
 | **Objetivo** |             **Permitir a los especialistas en relaciones laborales crear y revisar encuestas para distintos tipos de empleados.**             |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -306,7 +306,7 @@
 |       2      |                                                  Acceder al módulo de creación de encuestas.                                                  |
 |       3      |                            Seleccionar el tipo de encuesta a crear (subordinados, supervisores, jefes o gerentes).                            |
 
-## Caso de uso 23: Editar encuesta
+## R023 / Caso de uso 23: Editar encuesta
 
 | **Objetivo** |                                                                                         **Permitir a los especialistas en Relaciones laborales editar una encuesta existente.**                                                                                        |
 |:------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -319,7 +319,7 @@
 |       3      |                                                                                            Verificar si la encuesta puede ser enviada a gerencia para revisión y aprobación.                                                                                           |
 |       4      |                                                                                                 Revisar el estado actual de aprobación o rechazo por parte de gerencia.                                                                                                |
 
-## Caso de uso 24: Revisar notificaciones pendientes
+## R024 / Caso de uso 24: Revisar notificaciones pendientes
 
 | **Objetivo** |                                            **Permitir a los trabajadores revisar las encuestas pendientes, calificaciones, charlas programadas y retroalimentación relacionada.**                                           |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -333,7 +333,7 @@
 |       4      |                                                                              Verificar las charlas programadas relacionadas con las encuestas.                                                                              |
 |       5      |                                                                Revisar los comentarios o retroalimentaciones recibidas a partir de las encuestas completadas.                                                               |
 
-## Caso de uso 25: Revisión de las encuestas
+## R025 / Caso de uso 25: Revisión de las encuestas
 
 | **Objetivo** |               **Permitir a la Gerencia de Recursos Humanos revisar los resultados de las encuestas por área, calificación y tipo de trabajador.**               |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -346,7 +346,7 @@
 |       3      |                                          Visualizar los resultados de las encuestas según los parámetros seleccionados.                                         |
 |       4      |                                          Analizar el desempeño del personal basado en los resultados de las encuestas.                                          |
 
-## Caso de uso 26: Aprobar encuestas y programar reuniones
+## R026 / Caso de uso 26: Aprobar encuestas y programar reuniones
 
 | **Objetivo** |             **Permitir aprobar o rechazar las encuestas, revisar los resultados y programar reuniones o charlas según sea necesario.**             |
 |:------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -360,7 +360,7 @@
 |       4      |                                                       Programar reuniones o charlas basadas en los resultados de las encuestas.                                                      |
 
 
-## Caso de uso 27 : Responder cuestionario de salida
+## R027 / Caso de uso 27 : Responder cuestionario de salida
 
 |         Objetivo         | Resolver el cuestionario de salida planteado por el supervisor ingresa a su cuestionario de cese                                                                                               |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

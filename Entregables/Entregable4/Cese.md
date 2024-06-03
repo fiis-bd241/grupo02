@@ -1,6 +1,6 @@
 # Querys para registrar acciones
 
-## Para el supervisor
+## R-005 / Caso de Uso 5: Registrar cese de personal
 
 ### Primera pantalla
 ![alt text](../Entregable3/Front/C1.png)
@@ -227,7 +227,7 @@ Cuando seleccionan el botón de CONFIRMAR y han escrito más preguntas propias (
 		@Id_cese
 	);
 
-## Para el empleado cesado
+## R-027 / Caso de uso 27: Responder cuestionario de salida
 
 ### Quinta pantalla
 ![alt text](../Entregable3/Front/C5.png)

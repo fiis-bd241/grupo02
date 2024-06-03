@@ -28,7 +28,7 @@
    - Debe ser posible realizar un seguimiento de indicadores relacionados con los ceses de personal, como el tiempo promedio de permanencia en la empresa y la frecuencia de ceses por departamento o área.
    - Estos indicadores pueden ayudar a identificar patrones y tendencias que requieran atención especial.
 
-## Caso de uso 1 : Registrar cese de personal
+## Caso de uso 5 : Registrar cese de personal
 
 |         Objetivo         | Registrar el cese de un empleado en el sistema por parte de su supervisor                                                                                                 |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@
 |            6             | Proponer preguntas para el cese o seleccionar las predeterminadas.                                                                                                                                    |
 |            7             | Confirma los cambios.                                                                                                    
 
-## Caso de uso 2 : Responder cuestionario de salida
+## Caso de uso 27 : Responder cuestionario de salida
 
 |         Objetivo         | Resolver el cuestionario de salida planteado por el supervisor ingresa a su cuestionario de cese                                                                                               |
 | :----------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
