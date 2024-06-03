@@ -424,8 +424,8 @@ INSERT INTO Empleado (ID_Empleado, Nombre_Empleado, Apellido_Empleado, Telefono,
 INSERT INTO Cuenta_Bancaria (ID_Cuenta_B, Numero_Cuenta, Nombre_Banco, Tipo_Cuenta, Moneda, ID_Empleado) VALUES 
     (1001, '01234567890123456789', 'Banco de Crédito del Perú', 'Cuenta corriente', 'Soles', 20210001), 
     (1002, '12345678901234567890', 'Interbank', 'Cuenta de ahorros', 'Dólares', 20220004), 
-    (1003, '23456789012345678901', 'Scotiabank', 'Cuenta corriente', 'Soles', 2022007), 
-    (1004, '34567890123456789012', 'BBVA Continental', 'Cuenta de ahorros', 'Soles', 2023007), 
+    (1003, '23456789012345678901', 'Scotiabank', 'Cuenta corriente', 'Soles', 20220007), 
+    (1004, '34567890123456789012', 'BBVA Continental', 'Cuenta de ahorros', 'Soles', 20230007), 
     (1005, '45678901234567890123', 'Banco de la Nación', 'Cuenta corriente', 'Dólares', 20230014);
     
 INSERT INTO Sueldo (ID_Sueldo, Monto_Salario_Bruto) VALUES 
