@@ -2,7 +2,7 @@
 
 ## R-005 / Caso de Uso 5: Registrar cese de personal
 
-### Primera pantalla
+### Primera pantalla / I-001
 ![alt text](../Entregable3/Front/C1.png)
 
 #### Acción 1:
@@ -10,7 +10,7 @@ Elegir la opción de cese de personal en la intranet del supervisor
 
 	@Id_cese = (SELECT id_cese FROM cese ORDER BY id_cese DESC LIMIT 1)
 
-### Segunda pantalla
+### Segunda pantalla / I-002
 ![alt text](../Entregable3/Front/C2.png)
 
 #### Accion 2
@@ -187,10 +187,10 @@ Seleccionar el botón NO en la pregunta
 		WHERE C.id_cese = @Id_cese
 		GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
 
-### Tercera pantalla
+### Tercera pantalla / I-003
 ![alt text](../Entregable3/Front/C3.png)
 
-### Cuarta pantalla
+### Cuarta pantalla / I-004
 ![alt text](../Entregable3/Front/C4.png)
 
 #### Accion 6
@@ -229,7 +229,7 @@ Cuando seleccionan el botón de CONFIRMAR y han escrito más preguntas propias (
 
 ## R-027 / Caso de uso 27: Responder cuestionario de salida
 
-### Quinta pantalla
+### Quinta pantalla / I-005
 ![alt text](../Entregable3/Front/C5.png)
 
 #### Accion 8
@@ -239,7 +239,7 @@ El empleado cesado entra a un link que se le envía al correo registrado donde a
 	FROM pregunta_salida
 	WHERE id_cuestionario=@Id_cese
 
-### Sexta pantalla
+### Sexta pantalla / I-006
 ![alt text](../Entregable3/Front/C6.png)
 
 #### Accion 9
