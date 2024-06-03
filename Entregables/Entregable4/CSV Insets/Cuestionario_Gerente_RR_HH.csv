@@ -1,0 +1,5 @@
+id_cuestionario,id_gerente,fecha_revision,hora_revision,estado_aprobacion
+1,1,2024-05-19,18:30:00,Aprobado
+2,1,2024-05-19,20:30:00,Aprobado
+3,1,2024-05-19,21:30:00,Aprobado
+4,1,2024-05-19,22:30:00,Aprobado

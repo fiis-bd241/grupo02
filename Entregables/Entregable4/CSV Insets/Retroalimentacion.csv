@@ -1,0 +1,7 @@
+id_retroalimentacion,id_empleado,id_cuestionario,id_reporte,id_gerente,id_especialista,enunciado_retroalimentacion,fecha_retroalimentacion,hora_retroalimentacion
+1,20210005,1,1,,6,Falta mejorar algunos puntos en el trabajo.,2024-06-21,18:30:00
+2,20210009,2,2,1,,Debes pulir algunos detalles.,2024-06-21,18:30:00
+3,20210002,3,3,1,,Se pueden hacer mejoras en ciertos aspectos.,2024-06-21,18:30:00
+4,20220006,1,5,,3,Algunos puntos necesitan ser perfeccionados.,2024-06-22,15:30:00
+5,20220005,2,6,,5,Se deben abordar algunas deficiencias.,2024-06-22,19:30:00
+6,20210007,3,7,,6,Es necesario afinar ciertos aspectos.,2024-06-22,20:30:00

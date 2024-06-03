@@ -1,0 +1,8 @@
+id_reporte,id_empleado,id_cuestionario,fecha_ingreso_empleado,calificacion
+1,20210005,1,2024-01-15,Positivo
+2,20210009,2,2023-05-12,Negativo
+3,20210002,3,2023-08-11,Positivo
+4,20240001,4,2023-09-16,Negativo
+5,20220006,1,2023-05-14,Negativo
+6,20220005,2,2023-07-13,Negativo
+7,20210007,3,2023-12-21,Negativo
