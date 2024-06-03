@@ -67,10 +67,10 @@
 ![](Programar_pago.png)
 
 ## I-023
-![](Reclutamientoparte1.png)
+![](Reclutamientoparte2.png)
 
 ## I-024
-![](Reclutamientoparte2.png)
+![](Reclutamientoparte1.png)
 
 ## I-025
 ![](Registrar_beneficio.png)

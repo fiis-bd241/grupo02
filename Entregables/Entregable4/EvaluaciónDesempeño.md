@@ -1,10 +1,10 @@
 # Sentencias SQL para el prototipo del módulo de Evaluación de Desempeño
 
-## CREAR UN CUESTIONARIO
+## 1. CREAR UN CUESTIONARIO
 
-| Código requerimiento | R-001 |
+| Código requerimiento | R-0022 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-001 |
+|    Código interfaz   | I-022 |
 |    Imagen interfaz   |    ![ED1](../Entregable3/Front/ED1.png)   |
 
 ### Sentencias SQL
@@ -25,10 +25,10 @@
 3. Botón 'Editar': Redirecciona a la página para editar el cuestionario.
 
 
-## EDITAR UN CUESTIONARIO
-| Código requerimiento | R-002 |
+## 2. EDITAR UN CUESTIONARIO
+| Código requerimiento | R-023 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-002 |
+|    Código interfaz   | I-023 |
 |    Imagen interfaz   |    ![ED2](../Entregable3/Front/ED2.png)     |
 
 ### Sentencias SQL
@@ -44,14 +44,14 @@
 			WHEN (Select Id_Tipo_Cuestionario from Cuestionario where Id_Cuestionario=@ID_Cuestionario)=<1> AND (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario WHERE ID_Cuestionario=1) IS NULL THEN 1001 ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
 			END, @ID_Cuestionario,<2>);
 
-4. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
+3. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
 
 	   SELECT PC.ID_Pregunta, PC.Enunciado_Pregunta 
 	    FROM Pregunta_Cuestionario PC 
 	    INNER JOIN Cuestionario C ON PC.ID_Cuestionario = C.ID_Cuestionario 
 	    WHERE C.ID_Tipo_Cuestionario = <2>;
 
-5. Eliminar Pregunta: Se Eliminirá una pregunta dependiendo del tipo de cuestionario.
+4. Eliminar Pregunta: Se Eliminirá una pregunta dependiendo del tipo de cuestionario.
 
 		DELETE FROM Pregunta_Cuestionario
 		WHERE ID_Cuestionario IN (
@@ -59,23 +59,23 @@
 		FROM Cuestionario Cu
 		WHERE Cu.ID_Tipo_Cuestionario =<1>) AND ID_Pregunta = <4>;
 
-6. Estado de envío: Se muestra el estado de envío del cuestionario.
+5. Estado de envío: Se muestra el estado de envío del cuestionario.
 	
 		Select Estado_Envio from Cuestionario where Id_Tipo_Cuestionario=<2>;
 
-7. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
+6. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
 
 		Select Estado_Aprobacion from Cuestionario where Id_Tipo_Cuestionario=<2>;
 
-8. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
+7. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
 
 		Update Cuestionario set Estado_Envio='Enviado', Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
 
-## APROBAR CUESTIONARIO
-| Código requerimiento | R-003 |
+## 3. APROBAR CUESTIONARIO
+| Código requerimiento | R-024 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-003 |
+|    Código interfaz   | I-024 |
 |    Imagen interfaz   |   ![ED3](../Entregable3/Front/ED3.png)       |
 
 ### Sentencias SQL
@@ -85,26 +85,26 @@
 
 	   Select Id_Tipo_Cuestionario,Tipo from Tipo_Cuestionario;
 
-3. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
+2. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
 
 	    SELECT PC.ID_Pregunta, PC.Enunciado_Pregunta 
 	    FROM Pregunta_Cuestionario PC 
 	    INNER JOIN Cuestionario C ON PC.ID_Cuestionario = C.ID_Cuestionario 
 	    WHERE C.ID_Tipo_Cuestionario = <1>;
 
-5. Mostrar estado de envío: Se muestra el estado de envío del cuestionario.
+3. Mostrar estado de envío: Se muestra el estado de envío del cuestionario.
 
 	   Select Estado_Envio from Cuestionario where Id_Tipo_Cuestionario=<1>;
 
-7. Botón 'Enviar Estado de Aprobación': Se actualiza el estado de aprobación del cuestionario.
+4. Botón 'Enviar Estado de Aprobación': Se actualiza el estado de aprobación del cuestionario.
 
 	   Update Cuestionario set Estado_Aprobacion=<3>,Fecha_Revision=Current_Date,Hora_Revision=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
 
-## RESPONDER CUESTIONARIO
-| Código requerimiento | R-004 |
+## 4. RESPONDER CUESTIONARIO
+| Código requerimiento | R-025 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-004 |
+|    Código interfaz   | I-025 |
 |    Imagen interfaz   |   ![ED4](../Entregable3/Front/ED4.png)       |
 
 ### Sentencias SQL
@@ -132,10 +132,10 @@
 
 	   SELECT Id_Tipo_Respuesta,Tipo from Tipo_Respuesta;
 
-## REVISAR CUESTIONARIOS
-| Código requerimiento | R-005 |
+## 5. REVISAR CUESTIONARIOS
+| Código requerimiento | R-026 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-005 |
+|    Código interfaz   | I-026 |
 |    Imagen interfaz   |   ![ED5](../Entregable3/Front/ED5.png)       |
 
 ### Sentencias SQL
@@ -167,10 +167,10 @@
 
 
 
-## REALIZAR REPORTE
-| Código requerimiento | R-005 |
+## 6. REALIZAR REPORTE
+| Código requerimiento | R-027 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-006 |
+|    Código interfaz   | I-027 |
 |    Imagen interfaz   |    ![ED6](../Entregable3/Front/ED6.png)      |
 
 ### Sentencias SQL
@@ -230,10 +230,10 @@
 	        <5>, <6>, CURRENT_DATE, CURRENT_TIME(0)
 	    );
 
-## REVISAR MIS RESULTADOS
-| Código requerimiento | R-006 |
+## 7. REVISAR MIS RESULTADOS
+| Código requerimiento | R-028 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-007 |
+|    Código interfaz   | I-028 |
 |    Imagen interfaz   |   ![ED7](../Entregable3/Front/ED7.png)       |
 
 ### Sentencias SQL
@@ -257,10 +257,10 @@
 	        Em.ID_Empleado = <1>; 
 
 
-## PROGRAMAR REUNIÓN
-| Código requerimiento | R-007 |
+## 8. PROGRAMAR REUNIÓN
+| Código requerimiento | R-029 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-008 |
+|    Código interfaz   | I-029 |
 |    Imagen interfaz   |   ![ED8](../Entregable3/Front/ED8.png)       |
 
 ### Sentencias SQL
@@ -274,10 +274,10 @@
 	            ELSE (SELECT MAX(ID_Reunion) FROM Reunion) + 1 
 	        END, <1>, <2>, <3>,<4>);
 
-## REUNIONES PENDIENTES
-| Código requerimiento | R-008 |
+## 9. REUNIONES PENDIENTES
+| Código requerimiento | R-030 |
 |:--------------------:|:-----:|
-|    Código interfaz   | I-009 |
+|    Código interfaz   | I-030 |
 |    Imagen interfaz   |    ![ED9](../Entregable3/Front/ED9.png)      |
 
 ### Sentencias SQL
@@ -286,4 +286,23 @@
 	   
 		SELECT Asunto_Reunion, Fecha_Reunion, Hora_Reunion
 		    FROM Reunion;
+
+# Funcionalidad primaria elegida: Gestión de los cuestionarios de Evaluación del Desempeño
+## Sustentación
+Este flujo de actividades abarca un proceso completo dentro del módulo de Evaluación de Desempeño, desde la creación inicial de un cuestionario hasta la respuesta por parte de los empleados. Esta funcionalidad es fundamental para la gestión efectiva del desempeño de los empleados dentro de una organización, ya que permite recopilar y analizar información valiosa sobre su rendimiento y satisfacción laboral.
+
+## Mapeo a Nivel de Requerimientos e Interfaces de Usuario
+El mapeo a nivel de requerimientos e interfaces de usuario abarca la creación (R-022 / I-022), edición (R-023 / I-023), aprobación ((R-024 / I-024)) y respuesta de cuestionarios (R-025 / I-025), cada uno representado por páginas con formularios interactivos y opciones de visualización de cuestionarios existentes. Estas interfaces presentan botones de acción para operaciones como guardar, enviar, editar y eliminar cuestionarios y respuestas. Además, incluyen campos de entrada para la identificación del empleado, el tipo de cuestionario y las respuestas a las preguntas, lo que facilita una experiencia fluida y completa en la gestión del proceso de evaluación del desempeño.
+
+## Flujo de actividades
+| **Actividad** |                                                                                                                                                                                                                                                                                                      **Descripción**                                                                                                                                                                                                                                                                                                     |
+|:-------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|       1       |                                       La "Creación de Cuestionario" facilita a los especialistas en relaciones laborales la elaboración de nuevas evaluaciones de desempeño. Desde la página designada, estos profesionales ingresan su identificación y eligen el tipo de cuestionario a desarrollar, ya sea para subordinados, supervisores, jefes o gerentes. Luego, agregan preguntas relevantes asegurándose de evitar duplicaciones y finalmente guardan el cuestionario creado con el botón correspondiente, permitiendo así su posterior uso en la evaluación del personal. ![ED1](../Entregable3/Front/ED1.png)                                      |
+|       2       | La actividad de "Edición de Cuestionario" brinda a los especialistas en relaciones laborales y gerentes de recursos humanos la capacidad de actualizar y mejorar cuestionarios existentes. Desde la página de edición, seleccionan el tipo de cuestionario a modificar y revisan su contenido actual. Aquí, pueden agregar nuevas preguntas, editar las existentes o eliminar aquellas que consideren innecesarias. Además, tienen la opción de ajustar el estado de envío y aprobación del cuestionario para reflejar los cambios realizados, garantizando así la precisión y relevancia del instrumento de evaluación. ![ED2](../Entregable3/Front/ED2.png) |
+|       3       |                                                                       La "Aprobación de Cuestionario" permite a los gerentes de recursos humanos validar los cuestionarios elaborados por los especialistas en relaciones laborales antes de su distribución. Desde la página de aprobación, seleccionan el tipo de cuestionario a revisar y visualizan su contenido actual. Aquí, ingresan el estado de aprobación correspondiente, confirmando así la idoneidad del cuestionario para su implementación en el proceso de evaluación del personal. ![ED3](../Entregable3/Front/ED3.png)                                                                      |
+|       4       |                         La actividad de "Respuesta al Cuestionario" capacita a los empleados para completar las evaluaciones de desempeño asignadas. Desde la página de respuesta, ingresan su identificación y seleccionan el tipo de cuestionario a completar. Luego, visualizan las preguntas del cuestionario junto con las opciones de respuesta disponibles, seleccionando la más apropiada para cada pregunta. Una vez que han respondido todas las preguntas, envían sus respuestas haciendo clic en el botón correspondiente, lo que completa el proceso de evaluación de su desempeño. ![ED4](../Entregable3/Front/ED4.png)                        |
+
+
+
+
 

@@ -1,0 +1,5 @@
+id_cuestionario,id_especialista,fecha_creacion,hora_creacion,fecha_envio_gerencia,hora_envio_gerencia
+1,2,2024-04-18,18:30:00,2024-05-18,15:25:00
+2,3,2024-04-18,17:30:00,2024-05-18,17:20:00
+3,4,2024-04-18,16:30:00,2024-05-18,18:35:00
+4,5,2024-04-18,19:30:00,2024-05-18,19:55:00
