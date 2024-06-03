@@ -13,7 +13,7 @@
 ![](c4.png)
 
 ## I-005
-![](C5.png)
+![alt text](c5.png)
 
 ## I-006
 ![](C6.png)
@@ -86,3 +86,6 @@
 
 ## I-029
 ![](SolicitudFalta.png)
+
+
+[def]: C5.png
