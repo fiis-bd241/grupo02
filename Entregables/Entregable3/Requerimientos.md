@@ -406,9 +406,6 @@
 |       4      |                                                                                                    Ingresar la hora de la reunión.                                                                                                    |
 |       5      |                                                                             Confirmar la programación de la reunión haciendo clic en el botón "Programar".                                                                            |
 
-#### Prototipo
-![ ](../Front/ED8.png)
-
 ## R030 / Caso de uso 30: Mostrar reuniones pendientes
 | **Objetivo** |                                                      **Permitir a los trabajadores o empleados ver las reuniones pendientes.**                                                     |
 |:------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
