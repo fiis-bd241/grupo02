@@ -1,6 +1,6 @@
 # Sentencias SQL para el prototipo del módulo de Evaluación de Desempeño
 
-## CREAR UN CUESTIONARIO
+## 1. CREAR UN CUESTIONARIO
 
 | Código requerimiento | R-0022 |
 |:--------------------:|:-----:|
@@ -25,7 +25,7 @@
 3. Botón 'Editar': Redirecciona a la página para editar el cuestionario.
 
 
-## EDITAR UN CUESTIONARIO
+## 2. EDITAR UN CUESTIONARIO
 | Código requerimiento | R-023 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-023 |
@@ -44,14 +44,14 @@
 			WHEN (Select Id_Tipo_Cuestionario from Cuestionario where Id_Cuestionario=@ID_Cuestionario)=<1> AND (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario WHERE ID_Cuestionario=1) IS NULL THEN 1001 ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
 			END, @ID_Cuestionario,<2>);
 
-4. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
+3. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
 
 	   SELECT PC.ID_Pregunta, PC.Enunciado_Pregunta 
 	    FROM Pregunta_Cuestionario PC 
 	    INNER JOIN Cuestionario C ON PC.ID_Cuestionario = C.ID_Cuestionario 
 	    WHERE C.ID_Tipo_Cuestionario = <2>;
 
-5. Eliminar Pregunta: Se Eliminirá una pregunta dependiendo del tipo de cuestionario.
+4. Eliminar Pregunta: Se Eliminirá una pregunta dependiendo del tipo de cuestionario.
 
 		DELETE FROM Pregunta_Cuestionario
 		WHERE ID_Cuestionario IN (
@@ -59,20 +59,20 @@
 		FROM Cuestionario Cu
 		WHERE Cu.ID_Tipo_Cuestionario =<1>) AND ID_Pregunta = <4>;
 
-6. Estado de envío: Se muestra el estado de envío del cuestionario.
+5. Estado de envío: Se muestra el estado de envío del cuestionario.
 	
 		Select Estado_Envio from Cuestionario where Id_Tipo_Cuestionario=<2>;
 
-7. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
+6. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
 
 		Select Estado_Aprobacion from Cuestionario where Id_Tipo_Cuestionario=<2>;
 
-8. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
+7. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
 
 		Update Cuestionario set Estado_Envio='Enviado', Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
 
-## APROBAR CUESTIONARIO
+## 3. APROBAR CUESTIONARIO
 | Código requerimiento | R-024 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-024 |
@@ -85,23 +85,23 @@
 
 	   Select Id_Tipo_Cuestionario,Tipo from Tipo_Cuestionario;
 
-3. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
+2. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
 
 	    SELECT PC.ID_Pregunta, PC.Enunciado_Pregunta 
 	    FROM Pregunta_Cuestionario PC 
 	    INNER JOIN Cuestionario C ON PC.ID_Cuestionario = C.ID_Cuestionario 
 	    WHERE C.ID_Tipo_Cuestionario = <1>;
 
-5. Mostrar estado de envío: Se muestra el estado de envío del cuestionario.
+3. Mostrar estado de envío: Se muestra el estado de envío del cuestionario.
 
 	   Select Estado_Envio from Cuestionario where Id_Tipo_Cuestionario=<1>;
 
-7. Botón 'Enviar Estado de Aprobación': Se actualiza el estado de aprobación del cuestionario.
+4. Botón 'Enviar Estado de Aprobación': Se actualiza el estado de aprobación del cuestionario.
 
 	   Update Cuestionario set Estado_Aprobacion=<3>,Fecha_Revision=Current_Date,Hora_Revision=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
 
-## RESPONDER CUESTIONARIO
+## 4. RESPONDER CUESTIONARIO
 | Código requerimiento | R-025 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-025 |
@@ -132,7 +132,7 @@
 
 	   SELECT Id_Tipo_Respuesta,Tipo from Tipo_Respuesta;
 
-## REVISAR CUESTIONARIOS
+## 5. REVISAR CUESTIONARIOS
 | Código requerimiento | R-026 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-026 |
@@ -167,7 +167,7 @@
 
 
 
-## REALIZAR REPORTE
+## 6. REALIZAR REPORTE
 | Código requerimiento | R-027 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-027 |
@@ -230,7 +230,7 @@
 	        <5>, <6>, CURRENT_DATE, CURRENT_TIME(0)
 	    );
 
-## REVISAR MIS RESULTADOS
+## 7. REVISAR MIS RESULTADOS
 | Código requerimiento | R-028 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-028 |
@@ -257,7 +257,7 @@
 	        Em.ID_Empleado = <1>; 
 
 
-## PROGRAMAR REUNIÓN
+## 8. PROGRAMAR REUNIÓN
 | Código requerimiento | R-029 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-029 |
@@ -274,7 +274,7 @@
 	            ELSE (SELECT MAX(ID_Reunion) FROM Reunion) + 1 
 	        END, <1>, <2>, <3>,<4>);
 
-## REUNIONES PENDIENTES
+## 9. REUNIONES PENDIENTES
 | Código requerimiento | R-030 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-030 |
