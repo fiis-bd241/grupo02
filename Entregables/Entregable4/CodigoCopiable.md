@@ -1,4 +1,48 @@
 # Código copiable
+		
+	DROP TABLE IF EXISTS Entrevista;
+	DROP TABLE IF EXISTS Solicitud_Empleo;
+	DROP TABLE IF EXISTS Vacante;
+	DROP TABLE IF EXISTS Perfil;
+	DROP TABLE IF EXISTS Candidato;
+	DROP TABLE IF EXISTS Curriculum;
+	DROP TABLE IF EXISTS Experiencia_Laboral;
+	DROP TABLE IF EXISTS Certificados;
+	DROP TABLE IF EXISTS Evaluacion;
+	DROP TABLE IF EXISTS Reunion;
+	DROP TABLE IF EXISTS Retroalimentacion;
+	DROP TABLE IF EXISTS Reporte;
+	DROP TABLE IF EXISTS Cuestionario_Gerente_RR_HH;
+	DROP TABLE IF EXISTS Cuestionario_Especialista;
+	DROP TABLE IF EXISTS Cuestionario_Empleado;
+	DROP TABLE IF EXISTS Pregunta_Cuestionario;
+	DROP TABLE IF EXISTS Cuestionario;
+	DROP TABLE IF EXISTS Especialista_Relaciones_Laborales;
+	DROP TABLE IF EXISTS Gerente_RR_HH;
+	DROP TABLE IF EXISTS Asistencia;
+	DROP TABLE IF EXISTS Licencia;
+	DROP TABLE IF EXISTS Permiso;
+	DROP TABLE IF EXISTS Evaluacion_Empleado;
+	DROP TABLE IF EXISTS Evaluacion_Sesion;
+	DROP TABLE IF EXISTS Evaluacion_Capacitacion;
+	DROP TABLE IF EXISTS Empleado_Sesion;
+	DROP TABLE IF EXISTS Sesion;
+	DROP TABLE IF EXISTS Lista_Matricula;
+	DROP TABLE IF EXISTS Programa_Capacitador;
+	DROP TABLE IF EXISTS Beneficios_Cese;
+	DROP TABLE IF EXISTS Pregunta_Salida;
+	DROP TABLE IF EXISTS Cuestionario_Salida;
+	DROP TABLE IF EXISTS Cese;
+	DROP TABLE IF EXISTS Supervisor;
+	DROP TABLE IF EXISTS Nomina;
+	DROP TABLE IF EXISTS Pago_Total;
+	DROP TABLE IF EXISTS Sueldo;
+	DROP TABLE IF EXISTS Modificacion;
+	DROP TABLE IF EXISTS Cuenta_Bancaria;
+	DROP TABLE IF EXISTS Empleado;
+	DROP TABLE IF EXISTS Departamento;
+	DROP TABLE IF EXISTS Cargo;
+
 
 	CREATE TABLE Cargo (
 		ID_Cargo INTEGER PRIMARY KEY,
@@ -484,22 +528,28 @@
 	(6, '2023-03-01', '2023-05-31','Innovación y Desarrollo de Nuevos Productos', 6),
 	(7, '2023-10-01', '2023-12-31','Gestión Logística y Distribución de Productos Frescos', 7),
 	(8, '2024-01-14', '2024-02-28','Estrategias de Marketing para Productos Agroalimentarios', 8);
-	INSERT INTO Lista_Matricula VALUES (1,'20230011','Matriculado'),(1,'20240006','Matriculado'),(1,'20240024','Matriculado'),(1,'20240020','Matriculado'),(1,'20240010','Retirado');
+	INSERT INTO Lista_Matricula VALUES (1,'20230011','Matriculado'),(1,'20240006','Matriculado'),(1,'20240024','Matriculado'),(1,'20240020','Matriculado'),(1,'20240010','Retirado'),(2,20210002,'Matriculado'),
+(2,20210005,'Matriculado'),(2,20220001,'Matriculado'),(2,20230008,'Matriculado'), (2,20230009,'Matriculado'),(2,20240002,'Matriculado'),
+(3,20210004,'Matriculado'),(3,20210006,'Matriculado'),(3,20220002,'Matriculado'),(3,20230010,'Matriculado'),(3,20230003,'Matriculado')
+;
 	INSERT INTO Sesion(ID_Sesion,Estado,Fecha,Hora,ID_Programa_C) VALUES (1,'Completa','2021-01-01','17:30:00',1),(2,'Completa','2021-01-08','17:30:00',1), (3,'Completa','2021-01-15','17:30:00',1),(4,'Completa','2021-01-22','17:30:00',1), (5,'Completa','2021-01-29','17:30:00',1),(6,'Completa','2021-02-05','17:30:00',1), (7,'Completa','2021-02-12','17:30:00',1),(8,'Completa','2021-03-15','20:00:00',2), (9,'Completa','2021-03-29','20:00:00',2),(10,'Completa','2021-04-13','20:00:00',2), (11,'Completa','2021-04-27','20:00:00',2),(12,'Completa','2021-05-11','20:00:00',2), (13,'Completa','2021-08-01','08:00:00',3),(14,'Completa','2021-09-01','08:00:00',3), (15,'Completa','2021-10-01','08:00:00',3),(16,'Completa','2021-11-01','08:00:00',3), (17,'Completa','2022-01-15','09:00:00',4),(18,'Completa','2022-01-29','09:00:00',4), (19,'Completa','2022-02-12','09:00:00',4),(20,'Completa','2022-09-15','20:00:00',5), (21,'Completa','2022-11-15','20:00:00',5),(22,'Completa','2023-03-01','08:00:00',6), (23,'Completa','2023-03-15','08:00:00',6),(24,'Completa','2023-04-01','08:00:00',6), (25,'Completa','2023-04-15','08:00:00',6),(26,'Completa','2023-05-01','08:00:00',6), (27,'Completa','2023-05-15','08:00:00',6),(28,'Completa','2023-05-31','08:00:00',6), (29,'Completa','2023-10-01','08:00:00',7),(30,'Completa','2023-11-01','08:00:00',7), (31,'Completa','2024-01-15','16:00:00',8),(32,'Completa','2024-01-30','16:00:00',8), (33,'Completa','2024-02-15','16:00:00',8); 
-	INSERT INTO Empleado_Sesion VALUES (1,20230011,'Asistio'),(1,20240006,'Falto'),(1,20240024,'Asistio'),(1,20240021,'Falto'), (2,20230011,'Asistio'),(2,20240006,'Asistio'),(2,20240024,'Asistio'),(2,20240021,'Asistio'), (3,20230011,'Asistio'),(3,20240006,'Asistio'),(3,20240024,'Asistio'),(3,20240021,'Falto'), (4,20230011,'Asistio'),(4,20240006,'Asistio'),(4,20240024,'Asistio'),(4,20240021,'Asistio'), (5,20230011,'Asistio'),(5,20240006,'Falto'),(5,20240024,'Asistio'),(5,20240021,'Falto'), (6,20230011,'Asistio'),(6,20240006,'Asistio'),(6,20240024,'Asistio'),(6,20240021,'Asistio'), (7,20230011,'Asistio'),(7,20240006,'Falto'),(7,20240024,'Asistio'),(7,20240021,'Asistio'); 
+	INSERT INTO Empleado_Sesion VALUES (1,20230011,'Asistio'),(1,20240006,'Falto'),(1,20240024,'Asistio'),(1,20240021,'Falto'), (2,20230011,'Asistio'),(2,20240006,'Asistio'),(2,20240024,'Asistio'),(2,20240021,'Asistio'), (3,20230011,'Asistio'),(3,20240006,'Asistio'),(3,20240024,'Asistio'),(3,20240021,'Falto'), (4,20230011,'Asistio'),(4,20240006,'Asistio'),(4,20240024,'Asistio'),(4,20240021,'Asistio'), (5,20230011,'Asistio'),(5,20240006,'Falto'),(5,20240024,'Asistio'),(5,20240021,'Falto'), (6,20230011,'Asistio'),(6,20240006,'Asistio'),(6,20240024,'Asistio'),(6,20240021,'Asistio'), (7,20230011,'Asistio'),(7,20240006,'Falto'),(7,20240024,'Asistio'),(7,20240021,'Asistio'),(8,20210002,'Asistio'),(8,20210005,'Asistio'),(8,20220001,'Asistio'),(8,20230008,'Asistio'),
+(8,20230009,'Asistio'),(8,20240002,'Asistio'),(9,20210002,'Asistio'),(9,20210005,'Asistio'),
+(9,20220001,'Asistio'),(9,20230008,'Asistio'),(9,20230009,'Asistio'),(9,20240002,'Asistio'),
+(10,20210002,'Asistio'),(10,20210005,'Asistio'),(10,20220001,'Asistio'),(10,20230008,'Asistio'),(10,20230009,'Asistio'),(10,20240002,'Asistio'),(11,20210002,'Asistio'),(11,20210005,'Asistio'),(11,20220001,'Asistio'),(11,20230008,'Asistio'),(11,20230009,'Asistio'),(11,20240002,'Asistio'),(12,20210002,'Asistio'),(12,20210005,'Asistio'),(12,20220001,'Asistio'),(12,20230008,'Asistio'),(12,20230009,'Asistio'),(12,20240002,'Asistio'),(13,20210004,'Asistio'),(13,20210006,'Asistio'),(13,20220002,'Asistio'),(13,20230010,'Asistio'),(13,20230003,'Asistio'),(14,20210004,'Asistio'),(14,20210006,'Asistio'),(14,20220002,'Asistio'),(14,20230010,'Asistio'),(14,20230003,'Asistio'),(15,20210004,'Asistio'),(15,20210006,'Asistio'),(15,20220002,'Asistio'),(15,20230010,'Asistio'),(15,20230003,'Asistio'),(16,20210004,'Asistio'),(16,20210006,'Asistio'),(16,20220002,'Asistio'),(16,20230010,'Asistio'),(16,20230003,'Asistio')
+; 
 	INSERT INTO Evaluacion_Capacitacion VALUES  (1,1,'19:00:00',20210003),(2,1,'19:00:00',20210003),(3,1,'19:00:00',20210003),(4,1,'19:00:00',20210003),(5,1,'19:00:00',20210003),
-	(6,1,'19:00:00',20210003),(7,1,'19:00:00',20210003),(8,1,'19:00:00',20210003),(9,1,'19:00:00',20210003);
-	INSERT INTO Evaluacion_Sesion VALUES (1,1,'Satisfactorio'),(2,2,'Regular'),(3,3,'Deficiente'),(4,4,'Satisfactorio'),(5,5,'Satisfactorio'),(6,6,'Regular'),(7,7,'Satisfactorio'),(8,8,'Regular'),(9,9,'Satisfactorio');
-	INSERT INTO Evaluacion_Empleado VALUES (1,20230011,'Satisfactorio'),(1,20240006,'Satisfactorio'), (1,20240024,'Satisfactorio'),(1,20240021,'Satisfactorio'),
-	(2,20230011,'Satisfactorio'),(2,20240006,'Regular'), (2,20240024,'Regular'),(2,20240021,'Deficiente'), 
-	(3,20230011,'Deficiente'),(3,20240006,'Regular'), (3,20240024,'Regular'),(3,20240021,'Deficiente'), 
-	(4,20230011,'Satisfactorio'),(4,20240006,'Satisfactorio'), (4,20240024,'Regular'),(4,20240021,'Satisfactorio'), 
-	(5,20230011,'Regular'),(5,20240006,'Satisfactorio'), (5,20240024,'Satisfactorio'),(5,20240021,'Satisfactorio'),
-	(6,20230011,'Regular'),(6,20240006,'Regular'), (6,20240024,'Satisfactorio'),(6,20240021,'Regular'),
-	(7,20230011,'Satisfactorio'),(7,20240006,'Satisfactorio'), (7,20240024,'Regular'),(7,20240021,'Satisfactorio'),
-	(8,20230011,'Regular'),(8,20240006,'Regular'), (8,20240024,'Regular'),(8,20240021,'Regular'),
-	(9,20230011,'Satisfactorio'),(9,20240006,'Satisfactorio'), (9,20240024,'Satisfactorio'),(9,20240021,'Satisfactorio')
-	;
+(6,1,'19:00:00',20210003),(7,1,'19:00:00',20210003),(8,2,'22:00:00',20210006),(9,2,'22:00:00',20210006),(10,2,'22:00:00',20210006),(11,2,'22:00:00',20210006),(12,2,'22:00:00',20210006),
+(13,1,'10:00:00',20210003),(14,1,'10:00:00',20210003),(15,1,'10:00:00',20210003),(16,1,'10:00:00',20210003)
+;
+	INSERT INTO Evaluacion_Sesion VALUES (1,20230011,'Satisfactorio'),(1,20240006,'Satisfactorio'), (1,20240024,'Satisfactorio'),(1,20240021,'Satisfactorio'),(2,20230011,'Satisfactorio'),(2,20240006,'Regular'), (2,20240024,'Regular'),(2,20240021,'Deficiente'), 
+(3,20230011,'Deficiente'),(3,20240006,'Regular'), (3,20240024,'Regular'),(3,20240021,'Deficiente'), 
+(4,20230011,'Satisfactorio'),(4,20240006,'Satisfactorio'), (4,20240024,'Regular'),(4,20240021,'Satisfactorio'), 
+(5,20230011,'Regular'),(5,20240006,'Satisfactorio'), (5,20240024,'Satisfactorio'),(5,20240021,'Satisfactorio'),
+(6,20230011,'Regular'),(6,20240006,'Regular'), (6,20240024,'Satisfactorio'),(6,20240021,'Regular'),
+(7,20230011,'Satisfactorio'),(7,20240006,'Satisfactorio'), (7,20240024,'Regular'),(7,20240021,'Satisfactorio'),
+(8,20210002,'Satisfactorio'),(8,20210005,'Regular'),(8,20220001,'Satisfactorio'),(8,20230008,'Deficiente'),(8,20230009,'Satisfactorio'),(8,20240002,'Regular'),(9,20210002,'Regular'),(9,20210005,'Deficiente'),(9,20220001,'Satisfactorio'),(9,20230008,'Regular'),(9,20230009,'Regular'),(9,20240002,'Deficiente'),(10,20210002,'Regular'),(10,20210005,'Satisfactorio'),(10,20220001,'Satisfactorio'),(10,20230008,'Satisfactorio'),(10,20230009,'Regular'),(10,20240002,'Regular'),(11,20210002,'Deficiente'),(11,20210005,'Regular'),(11,20220001,'Satisfactorio'),(11,20230008,'Deficiente'),(11,20230009,'Deficiente'),(11,20240002,'Regular'),(12,20210002,'Satisfactorio'),(12,20210005,'Regular'),(12,20220001,'Regular'),(12,20230008,'Satisfactorio'),(12,20230009,'Regular'),(12,20240002,'Satisfactorio'),(13,20210004,'Deficiente'),(13,20210006,'Deficiente'),(13,20220002,'Deficiente'),(13,20230010,'Regular'),(13,20230003,'Regular'),(14,20210004,'Satisfactorio'),(14,20210006,'Satisfactorio'),(14,20220002,'Regular'),(14,20230010,'Regular'),(14,20230003,'Satisfactorio'),(15,20210004,'Regular'),(15,20210006,'Regular'),(15,20220002,'Deficiente'),(15,20230010,'Satisfactorio'),(15,20230003,'Regular'),(16,20210004,'Satisfactorio'),(16,20210006,'Satisfactorio'),(16,20220002,'Satisfactorio'),(16,20230010,'Satisfactorio'),(16,20230003,'Regular');
+
 	INSERT INTO Cese VALUES (1,'Pendiente','2022-08-15',20240024),(2,'Completado','2022-07-15',20210009),(3,'Rechazado','2022-05-15',20240018),(4,'Rechazado','2022-04-15',20240004),(5,'Rechazado','2022-03-15',20230014),(6,'Pendiente','2022-11-15',20220007),(7,'Completado','2022-11-15',20240016); 
 	INSERT INTO Cuestionario_Salida VALUES (1,2,2,'2022-07-16'),(2,3,7,'2022-11-16'); 
 	INSERT INTO Pregunta_Salida VALUES (1,'¿Que tal fue su experiencia en la empresa?', 'Buena',1),(2,'¿Qué mejoraría en el trato a los empleados de la empresa?', 'Me gustaría que dieran más tiempo de refrigerio',1),(3,'¿Cuál fue el motivo de su renuncia?', 'Me voy a ir del país',1),(4,'¿Por qué trató de tomar pertenencias de la empresa?', 'Necesitaba el dinero',2);
