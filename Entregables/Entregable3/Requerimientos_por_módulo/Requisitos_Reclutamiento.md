@@ -60,10 +60,10 @@
 #### Prototipo
 
 ##### Parte 1
-![ ](../Front/Reclutamientoparte1.png)
+![ ](../Front/Reclutamientoparte2.png)
 
 ##### Parte 2
-![ ](../Front/Reclutamientoparte2.png)
+![ ](../Front/Reclutamientoparte1.png)
 
 ## Caso de uso 10 : Preselección de candidatos
 
