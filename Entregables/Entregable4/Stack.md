@@ -1,0 +1,57 @@
+# 1. Documentación de la Arquitectura
+## 1.1 Descripción General
+La arquitectura de la aplicación está dividida en tres capas principales:
+
+- Frontend: La interfaz de usuario construida con React.js.
+- Backend: Servidor y lógica de la aplicación manejados por Django.
+- Base de Datos: PostgreSQL gestionada a través de la librería psycopg2 en Python.
+
+## 1.2 Componentes y Herramientas
+1. Frontend:
+
+- React.js: Biblioteca de JavaScript para construir interfaces de usuario. Se utilizará para crear una interfaz de usuario dinámica.
+
+2. Backend:
+
+- Django: Framework web de alto nivel en Python que fomenta el desarrollo rápido y el diseño limpio y pragmático.
+- Django REST framework: Conjunto de herramientas potentes y flexibles para construir APIs web en Django.
+- psycopg2: Librería PostgreSQL para Python. Se usará para interactuar con la base de datos desde el backend.
+
+3. Base de Datos:
+
+- PostgreSQL: Sistema de gestión de bases de datos relacional y orientado a objetos, conocido por su robustez y rendimiento.
+
+## 1.3 Descripción de la Interacción entre Componentes
+1. Frontend:
+
+- El usuario interactúa con la aplicación a través de la interfaz construida en React.js.
+- Las acciones del usuario en el frontend disparan solicitudes HTTP (GET, POST, PUT, DELETE) hacia el backend.
+
+2. Backend:
+
+- Django recibe las solicitudes HTTP desde el frontend y las procesa.
+- Se utiliza Django REST framework para manejar estas solicitudes y devolver las respuestas adecuadas.
+- Django interactúa con la base de datos PostgreSQL utilizando la librería psycopg2 para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
+
+3. Base de Datos:
+
+- PostgreSQL almacena los datos de la aplicación.
+- psycopg2 permite a Django ejecutar consultas SQL y manejar transacciones con PostgreSQL.
+
+# 2. Herramientas y Librerías
+## 2.1 Frontend
+- React.js: react, react-dom
+- Herramientas de desarrollo: npm, webpack, babel
+
+## 2.2 Backend
+- Django: django, djangorestframework
+- psycopg2: psycopg2-binary
+
+## 2.3 Base de Datos
+- PostgreSQL: Asegúrate de tener PostgreSQL instalado en tu servidor o utilizar un servicio gestionado como Heroku Postgres, Amazon RDS, etc.
+
+# 3. Diagrama de la Arquitectura
+El diagrama se vería algo así:
+<br>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<img src="Relacion.png" width="700" height="200"><br>
