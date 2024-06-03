@@ -3,7 +3,7 @@
 ## R-005 / Caso de Uso 5: Registrar cese de personal
 
 ### Primera pantalla / I-001
-![alt text](../Entregable3/Front/C1.png)
+![alt text](../Entregable3/Front/c1.png)
 
 #### Acción 1:
 Elegir la opción de cese de personal en la intranet del supervisor
@@ -188,10 +188,10 @@ Seleccionar el botón NO en la pregunta
 		GROUP BY C.id_empleado, E.nombre_empleado, C.tipo_cese, D.nombre_departamento, CA.nombre, C.fecha_inicio_cese, C.motivo_cese, C.id_supervisor;
 
 ### Tercera pantalla / I-003
-![alt text](../Entregable3/Front/C3.png)
+![alt text](../Entregable3/Front/c3.png)
 
 ### Cuarta pantalla / I-004
-![alt text](../Entregable3/Front/C4.png)
+![alt text](../Entregable3/Front/c4.png)
 
 #### Accion 6
 Si seleccionan el botón que dice "Usar preguntas predeterminadas"
@@ -230,7 +230,8 @@ Cuando seleccionan el botón de CONFIRMAR y han escrito más preguntas propias (
 ## R-027 / Caso de uso 27: Responder cuestionario de salida
 
 ### Quinta pantalla / I-005
-![alt text](../Entregable3/Front/C5.png)
+![alt text](..\Entregable3\Front\C5.png)
+
 
 #### Accion 8
 El empleado cesado entra a un link que se le envía al correo registrado donde aparece la pantalla 5, cuando le da click al botón CONTINUAR para poder cargar las preguntas del cuestionario
