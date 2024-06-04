@@ -213,7 +213,7 @@
 	    WHERE 
 	        Em.id_empleado = <1>;
         
-3. Mostrar tipps de calificación: Selección del tipo de calificación.
+3. Mostrar tipos de calificación: Selección del tipo de calificación.
    
 	    SELECT Id_Tipo_Respuesta,Tipo from Tipo_Respuesta;
 
