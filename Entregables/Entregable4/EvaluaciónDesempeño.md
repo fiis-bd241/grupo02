@@ -39,19 +39,26 @@
 
 2. Botón 'Agregar': Agrega una pregunta al cuestionario del tipo elegido.
 
-   		@ID_Cuestionario=Select Id_Cuestionario from Cuestionario where Id_Tipo_Cuestionario=<1>;
-
-		INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) VALUES
-		(CASE 
-			WHEN (Select Id_Tipo_Cuestionario from Cuestionario where Id_Cuestionario=@ID_Cuestionario)=<1> AND (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario WHERE ID_Cuestionario=1) IS NULL THEN 1001 ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
-			END, @ID_Cuestionario,<2>);
+		DO $$
+		DECLARE
+			vID_Cuestionario INTEGER;
+		BEGIN
+			vID_Cuestionario=(Select Id_Cuestionario from Cuestionario where Id_Tipo_Cuestionario=<1>);
+			
+			INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) VALUES
+			(CASE 
+				WHEN (Select Id_Tipo_Cuestionario from Cuestionario where Id_Cuestionario=vID_Cuestionario)=1 AND (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario 
+				WHERE ID_Cuestionario=vID_Cuestionario) IS NULL THEN 1 
+			 	ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
+				END, vID_Cuestionario,<2>);
+		END $$;	
 
 3. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
 
 	   SELECT PC.ID_Pregunta, PC.Enunciado_Pregunta 
 	    FROM Pregunta_Cuestionario PC 
 	    INNER JOIN Cuestionario C ON PC.ID_Cuestionario = C.ID_Cuestionario 
-	    WHERE C.ID_Tipo_Cuestionario = <2>;
+	    WHERE C.ID_Tipo_Cuestionario = <1>;
 
 4. Eliminar Pregunta: Se Eliminirá una pregunta dependiendo del tipo de cuestionario.
 
