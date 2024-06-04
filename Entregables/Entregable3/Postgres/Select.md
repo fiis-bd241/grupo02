@@ -18,13 +18,16 @@
 ### Obtener el id_cuestionario, tipo de cuestionario, id_pregunta y los enunciados de las preguntas:
 	SELECT 
 		C.ID_Cuestionario, 
-		C.Tipo_Cuestionario, 
+		TC.Tipo, 
 		PC.ID_Pregunta, 
 		PC.Enunciado_Pregunta
 	FROM 
 		Cuestionario C
+	JOIN
+		Tipo_Cuestionario TC ON C.Id_Tipo_Cuestionario=TC.Id_Tipo_Cuestionario
 	JOIN 
-		Pregunta_Cuestionario PC ON C.ID_Cuestionario = PC.ID_Cuestionario;
+		Pregunta_Cuestionario PC ON C.ID_Cuestionario = PC.ID_Cuestionario;	
+
 
 ### Obtener empleados, cargo, departamento y sus respuestas a las preguntas del cuestionario:
 	SELECT 
@@ -32,11 +35,11 @@
 		E.Apellido_Empleado,
 		Ca.nombre as Cargo_Empleado,
 		D.Nombre_Departamento,
-		C.Tipo_Cuestionario,
-    	PC.Enunciado_Pregunta, 
-		RC.Enunciado_Respuesta,
+		TC.Tipo,
+		PC.Enunciado_Pregunta, 
+		TR.Tipo as Tipo_Respuesta,
 		CE.Fecha_Rellenado,
-    	CE.Hora_Rellenado
+		CE.Hora_Rellenado
 	FROM 
 		Empleado E
 	JOIN 
@@ -52,17 +55,20 @@
 	JOIN 
 		Respuesta_Cuestionario RC ON PC.ID_Pregunta = RC.ID_Pregunta AND CE.ID_Cuestionario_Empleado = RC.ID_Cuestionario_Empleado
 	JOIN 
-		Reporte R ON CE.ID_Cuestionario_Empleado = R.ID_Cuestionario_Empleado;
+		Reporte R ON CE.ID_Cuestionario_Empleado = R.ID_Cuestionario_Empleado
+	JOIN
+		Tipo_Cuestionario TC ON C.Id_Tipo_Cuestionario=TC.Id_Tipo_Cuestionario
+	JOIN
+		Tipo_Respuesta TR ON RC.Id_Tipo_Respuesta=TR.Id_Tipo_Respuesta;
  
  ### Obtener retroalimentación proporcionada a los empleados:
 	SELECT
 		E.ID_Empleado,
-		RE.ID_Gerente,
-		Re.ID_Especialista_Relaciones_Laborales,
-    	E.Nombre_Empleado,
-    	E.Apellido_Empleado,
+		RE.ID_Evaluador,
+		E.Nombre_Empleado,
+		E.Apellido_Empleado,
 		RE.Id_Retroalimentacion,
-    	RE.Enunciado_Retroalimentacion
+		RE.Enunciado_Retroalimentacion
 	FROM
 		Retroalimentacion RE
 	JOIN
