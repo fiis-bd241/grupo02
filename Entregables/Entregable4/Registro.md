@@ -91,7 +91,7 @@ Si el empleado le da al botón 'CONFIRMAR':
 
     UPDATE Asistencia
     SET Asistencia = 'Faltó'
-    WHERE ID_Asistencia IN (@ID_sesion) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
+    WHERE ID_Asistencia IN (@ID_asistencia) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
 
 ## R-018 / Caso de Uso 18: Reporte de asistencia
 
