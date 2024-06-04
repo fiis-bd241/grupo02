@@ -20,10 +20,10 @@ Seleccionar la lupa para buscar el empleado por medio de su Apellido
 		E.DNI, 
 		E.nombre_empleado as NOMBRE,
 		E.apellido_empleado as APELLIDO,
-		D.nombre_departamento,
+		D.nombre_departamento
 	FROM empleado as E
 	INNER JOIN departamento AS D ON E.id_departamento=D.id_departamento
-	WHERE E.apellido_empleado= '%INGRESO%'
+	WHERE E.apellido_empleado LIKE 'INGRESO%'
 
 #### Accion 3
 Seleccionar el botón de SI para responder la pregunta sobre la deuda que podría poseer el trabajador con la empresa

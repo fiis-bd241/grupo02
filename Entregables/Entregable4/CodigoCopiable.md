@@ -30,6 +30,8 @@
 	DROP TABLE IF EXISTS Lista_Matricula;
 	DROP TABLE IF EXISTS Programa_Capacitador;
 	DROP TABLE IF EXISTS Beneficios_Cese;
+	DROP TABLE IF EXISTS Tipo_Cese;
+	DROP TABLE IF EXISTS Respuesta_Salida;
 	DROP TABLE IF EXISTS Pregunta_Salida;
 	DROP TABLE IF EXISTS Cuestionario_Salida;
 	DROP TABLE IF EXISTS Cese;
@@ -119,37 +121,50 @@
 		FOREIGN KEY (id_empleado) REFERENCES Empleado(id_empleado)
 	);
 
-	CREATE TABLE Cese(
-		id_cese INTEGER PRIMARY KEY,
-		estado_cese VARCHAR(32) NOT NULL,
-		fecha_inicio_cese DATE NOT NULL,
-		id_empleado INTEGER NOT NULL,
-		FOREIGN KEY (id_empleado) REFERENCES Empleado(id_empleado)
+	CREATE TABLE Cese (
+		ID_Cese INTEGER PRIMARY KEY,
+		Tipo_Cese CHAR(1) NOT NULL,
+		Fecha_Inicio_Cese DATE NOT NULL,
+		ID_Empleado INTEGER NOT NULL,
+		ID_Supervisor INTEGER NOT NULL,
+		Motivo_Cese VARCHAR(64),
+		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
 	);
 
-	CREATE TABLE Cuestionario_Salida(
-		id_cuestionario INTEGER PRIMARY KEY,
-		id_supervisor INTEGER NOT NULL,
-		id_cese INTEGER NOT NULL,
-		fecha_cuestionario DATE NOT NULL,
-		FOREIGN KEY (id_supervisor) REFERENCES Supervisor(id_supervisor),
-		FOREIGN KEY (id_cese) REFERENCES Cese(id_cese)
+	CREATE TABLE Cuestionario_Salida (
+		ID_Cuestionario INTEGER PRIMARY KEY,
+		ID_Cese INTEGER NOT NULL,
+		Fecha_Cuestionario DATE NOT NULL,
+		FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese)
 	);
 
-	CREATE TABLE Pregunta_Salida(
-		id_pregunta INTEGER PRIMARY KEY,
-		pregunta_salida VARCHAR(256) NOT NULL,
-		respuesta_salida VARCHAR(256) NOT NULL,
-		id_cuestionario INTEGER NOT NULL,
-		FOREIGN KEY (id_cuestionario) REFERENCES Cuestionario_Salida(id_cuestionario)
+	CREATE TABLE Pregunta_Salida (
+		ID_Pregunta INTEGER PRIMARY KEY,
+		Pregunta_Salida VARCHAR(256) NOT NULL,
+		ID_Cuestionario INTEGER NOT NULL,
+		FOREIGN KEY (ID_Cuestionario) REFERENCES Cuestionario_Salida(ID_Cuestionario)
 	);
 
-	CREATE TABLE Beneficios_Cese(
-		id_beneficios INTEGER PRIMARY KEY,
-		tipo VARCHAR(32) NOT NULL,
-		monto DECIMAL(10, 2) NOT NULL,
-		id_cese INTEGER NOT NULL,
-		FOREIGN KEY (id_cese) REFERENCES Cese(id_cese)
+	CREATE TABLE Respuesta_Salida (
+		ID_Respuesta INTEGER PRIMARY KEY,
+		Respuesta_Salida VARCHAR(256) NOT NULL,
+		ID_Pregunta INTEGER NOT NULL,
+		FOREIGN KEY (ID_Pregunta) REFERENCES Pregunta_Salida(ID_Pregunta)
+	);
+
+	CREATE TABLE Tipo_Cese (
+		ID_Tipo INTEGER PRIMARY KEY,
+		Nombre VARCHAR(64) NOT NULL,
+		Descripción VARCHAR(256) NOT NULL
+	);
+
+	CREATE TABLE Beneficios_Cese (
+		ID_Beneficios INTEGER PRIMARY KEY,
+		ID_Tipo INTEGER NOT NULL,
+		Monto FLOAT NOT NULL,
+		ID_Cese INTEGER NOT NULL,
+		FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese),
+		FOREIGN KEY (ID_Tipo) REFERENCES Tipo_Cese(ID_Tipo)
 	);
 
 	CREATE TABLE Programa_Capacitador(
@@ -552,10 +567,42 @@
 		(7,20230011,'Satisfactorio'),(7,20240006,'Satisfactorio'), (7,20240024,'Regular'),(7,20240021,'Satisfactorio'),
 		(8,20210002,'Satisfactorio'),(8,20210005,'Regular'),(8,20220001,'Satisfactorio'),(8,20230008,'Deficiente'),(8,20230009,'Satisfactorio'),(8,20240002,'Regular'),(9,20210002,'Regular'),(9,20210005,'Deficiente'),(9,20220001,'Satisfactorio'),(9,20230008,'Regular'),(9,20230009,'Regular'),(9,20240002,'Deficiente'),(10,20210002,'Regular'),(10,20210005,'Satisfactorio'),(10,20220001,'Satisfactorio'),(10,20230008,'Satisfactorio'),(10,20230009,'Regular'),(10,20240002,'Regular'),(11,20210002,'Deficiente'),(11,20210005,'Regular'),(11,20220001,'Satisfactorio'),(11,20230008,'Deficiente'),(11,20230009,'Deficiente'),(11,20240002,'Regular'),(12,20210002,'Satisfactorio'),(12,20210005,'Regular'),(12,20220001,'Regular'),(12,20230008,'Satisfactorio'),(12,20230009,'Regular'),(12,20240002,'Satisfactorio'),(13,20210004,'Deficiente'),(13,20210006,'Deficiente'),(13,20220002,'Deficiente'),(13,20230010,'Regular'),(14,20210004,'Satisfactorio'),(14,20210006,'Satisfactorio'),(14,20220002,'Regular'),(14,20230010,'Regular'),(15,20210004,'Regular'),(15,20210006,'Regular'),(15,20220002,'Deficiente'),(15,20230010,'Satisfactorio'),(16,20210004,'Satisfactorio'),(16,20210006,'Satisfactorio'),(16,20220002,'Satisfactorio'),(16,20230010,'Satisfactorio');
 
-	INSERT INTO Cese VALUES (1,'Pendiente','2022-08-15',20240024),(2,'Completado','2022-07-15',20210009),(3,'Rechazado','2022-05-15',20240018),(4,'Rechazado','2022-04-15',20240004),(5,'Rechazado','2022-03-15',20230014),(6,'Pendiente','2022-11-15',20220007),(7,'Completado','2022-11-15',20240016); 
-	INSERT INTO Cuestionario_Salida VALUES (1,2,2,'2022-07-16'),(2,3,7,'2022-11-16'); 
-	INSERT INTO Pregunta_Salida VALUES (1,'¿Que tal fue su experiencia en la empresa?', 'Buena',1),(2,'¿Qué mejoraría en el trato a los empleados de la empresa?', 'Me gustaría que dieran más tiempo de refrigerio',1),(3,'¿Cuál fue el motivo de su renuncia?', 'Me voy a ir del país',1),(4,'¿Por qué trató de tomar pertenencias de la empresa?', 'Necesitaba el dinero',2);
-	INSERT INTO Beneficios_Cese VALUES (1,'CTS',5674.12,2),(2,'Deuda por robo',-3450.90,7);
+	INSERT INTO Tipo_Cese (ID_Tipo, Nombre, Descripción) VALUES 
+	(1, 'Indemnización por despido', 'Indemnización pagada al empleado por despido'),
+	(2, 'CTS', 'Compensación por Tiempo de Servicio'),
+	(3, 'Pago de salario pendiente', 'Salario pendiente de pago al empleado'),
+	(4, 'Pago de vacaciones no disfrutadas', 'Pago por vacaciones no disfrutadas'),
+	(5, 'Deuda de empleado con la empresa', 'Deuda que el empleado tiene con la empresa');
+
+	INSERT INTO Cese (ID_Cese, Tipo_Cese, Fecha_Inicio_Cese, ID_Empleado, ID_Supervisor, Motivo_Cese) VALUES 
+	(1, 'P', '2022-08-15', 20240024, 20220002, null),
+	(2, 'C', '2022-07-15', 20210009, 20220002, null),
+	(3, 'R', '2022-05-15', 20240018, 20220002, null),
+	(4, 'D', '2022-04-15', 20240004, 20220002, 'Urto'),
+	(5, 'R', '2022-03-15', 20230014, 20220002, null),
+	(6, 'P', '2022-11-15', 20220007, 20220002, null),
+	(7, 'C', '2022-11-15', 20240016, 20220002, null);
+
+	INSERT INTO Cuestionario_Salida (ID_Cuestionario, ID_Cese, Fecha_Cuestionario) VALUES 
+	(1, 2, '2022-07-16'),
+	(2, 3, '2022-11-16');
+
+	INSERT INTO Pregunta_Salida (ID_Pregunta, Pregunta_Salida, ID_Cuestionario) VALUES 
+	(1, '¿Que tal fue su experiencia en la empresa?', 1),
+	(2, '¿Qué mejoraría en el trato a los empleados de la empresa?', 1),
+	(3, '¿Cuál fue el motivo de su renuncia?', 1),
+	(4, '¿Por qué trató de tomar pertenencias de la empresa?', 2);
+
+	INSERT INTO Respuesta_Salida (ID_Respuesta, Respuesta_Salida, ID_Pregunta) VALUES 
+	(1, 'Buena', 1),
+	(2, 'Me gustaría que dieran más tiempo de refrigerio', 2),
+	(3, 'Me voy a ir del país', 3),
+	(4, 'Necesitaba el dinero', 4);
+
+	INSERT INTO Beneficios_Cese (ID_Beneficios, ID_Tipo, Monto, ID_Cese) VALUES 
+	(1, 2, 5674.12, 2),
+	(2, 5, -3450.90, 4);
+
 	INSERT INTO Asistencia( ID_Asistencia, Estado, Observacion, Fecha, Hora_entrada, Hora_salida , ID_Empleado) VALUES (1, 'En orden', 'Ninguna', '2022-05-10', '09:30', '18:00', 20210001), (2, 'En observación', 'Revisar código', '2022-05-11', '08:00', '17:30', 20210002), (3, 'En orden', 'Ninguna', '2022-05-12', '10:00', '19:00', 20210003), (4, 'En orden', 'Ninguna', '2022-05-13', '08:30', '17:00', 20210004), (5, 'En observación', 'Optimizar algoritmo', '2022-05-14', '09:00', '18:30', 20210005), (6, 'En orden', 'Ninguna', '2022-05-16', '09:00', '17:30', 20210006), (7, 'En observación', 'Revisión de seguridad', '2022-05-17', '08:30', '18:00', 20210007), (8, 'En orden', 'Ninguna', '2022-05-18', '10:30', '19:30', 20210008), (9, 'En orden', 'Ninguna', '2022-05-19', '08:00', '17:00', 20210009), (10, 'En observación', 'Optimizar consultas', '2022-05-20', '09:30', '18:30', 20210010), (11, 'En observación', 'Capacitación pendiente', '2022-06-06', '10:30', '19:00', 20240001), (12, 'En orden', 'Ninguna', '2022-06-07', '09:30', '18:00', 20230002), (13, 'En orden', 'Ninguna', '2022-06-08', '08:00', '17:00', 20230005), (14, 'En observación', 'Reunión externa', '2022-06-09', '11:00', '20:00', 20230006), (15, 'En orden', 'Ninguna', '2022-06-10', '09:00', '18:00', 20230007), (16, 'En orden', 'Ninguna', '2022-06-11', '09:30', '18:00', 20230008), (17, 'En observación', 'Optimizar consultas SQL', '2022-06-12', '08:00', '17:30', 20230009), (18, 'En orden', 'Ninguna', '2022-06-13', '10:00', '19:00', 20230010), (19, 'En orden', 'Ninguna', '2022-06-14', '09:30', '18:00', 20230011), (20, 'En observación', 'Revisión de seguridad', '2022-06-15', '08:00', '17:30', 20230012), (21, 'En orden', 'Ninguna', '2022-06-16', '10:00', '19:00', 20230013), (22, 'En orden', 'Ninguna', '2022-06-17', '09:30', '18:00', 20230014), (23, 'En observación', 'Optimizar consultas SQL', '2022-06-18', '08:00', '17:30', 20230015), (24, 'En orden', 'Ninguna', '2022-06-19', '10:00', '19:00', 20220001), (25, 'En orden', 'Ninguna', '2022-06-20', '08:30', '17:00', 20220002), (26, 'En observación', 'Reunión externa', '2022-06-21', '11:00', '20:00', 20220003), (27, 'En orden', 'Ninguna', '2022-06-22', '09:00', '18:00', 20220004), (28, 'En orden', 'Ninguna', '2022-06-23', '08:30', '17:00', 20220005), (29, 'En observación', 'Revisión de seguridad', '2022-06-24', '10:00', '19:00', 20220006), (30, 'En orden', 'Ninguna', '2022-06-25', '08:00', '17:00', 20220007), (31, 'En orden', 'Ninguna', '2022-06-26', '09:30', '18:00', 20240001), (32, 'En orden', 'Ninguna', '2022-06-27', '09:30', '18:00', 20240002), (33, 'En observación', 'Optimizar código', '2022-06-28', '08:00', '17:30', 20240003), (34, 'En orden', 'Ninguna', '2022-06-29', '10:00', '19:00', 20240004), (35, 'En orden', 'Ninguna', '2022-06-30', '08:30', '17:00', 20240005), (36, 'En observación', 'Reunión de equipo', '2022-07-01', '11:00', '20:00', 20240006), (37, 'En orden', 'Ninguna', '2022-07-02', '09:00', '18:00', 20240007), (38, 'En orden', 'Ninguna', '2022-07-03', '08:30', '17:00', 20240008), (39, 'En observación', 'Revisión de seguridad', '2022-07-04', '10:00', '19:00', 20240009), (40, 'En orden', 'Ninguna', '2022-07-05', '08:00', '17:00', 20240010), (41, 'En orden', 'Ninguna', '2022-07-06', '09:30', '18:00', 20240011), (42, 'En orden', 'Ninguna', '2022-07-07', '09:30', '18:00', 20240012), (43, 'En observación', 'Optimizar código', '2022-07-08', '08:00', '17:30', 20240013), (44, 'En orden', 'Ninguna', '2022-07-09', '10:00', '19:00', 20240013), (45, 'En orden', 'Ninguna', '2022-08-01', '09:30', '18:00', 20240014), (46, 'En observación', 'Optimizar código', '2022-08-02', '08:00', '17:30', 20240015), (47, 'En orden', 'Ninguna', '2022-08-03', '10:00', '19:00', 20240016), (48, 'En orden', 'Ninguna', '2022-08-04', '08:30', '17:00', 20240017), (49, 'En observación', 'Reunión de equipo', '2022-08-05', '11:00', '20:00', 20240018), (50, 'En orden', 'Ninguna', '2022-08-06', '09:00', '18:00', 20240019), (51, 'En orden', 'Ninguna', '2022-08-07', '09:30', '18:00', 20240020), (52, 'En observación', 'Optimizar consultas SQL', '2022-08-08', '08:00', '17:30', 20240021), (53, 'En orden', 'Ninguna', '2022-08-09', '10:00', '19:00', 20240022), (54, 'En orden', 'Ninguna', '2022-08-10', '08:30', '17:00', 20240023), (55, 'En observación', 'Reunión de equipo', '2022-08-11', '11:00', '20:00', 20240024),(56, 'En orden', 'Ninguna', '2022-08-19', '09:30', '18:00', 20240014),(57, 'En observación', 'Revisión de protocolos', '2022-08-21', '08:00', '17:00', 20240034), (58, 'En orden', 'Ninguna', '2022-08-22', '09:45', '18:15', 20240004), (59, 'En orden', 'Ninguna', '2022-08-23', '08:15', '17:45', 20240005), (60, 'En observación', 'Capacitación pendiente', '2022-08-24', '10:30', '19:00', 20240006), (61, 'En orden', 'Ninguna', '2022-08-25', '09:30', '18:00', 20240007), (62, 'En orden', 'Ninguna', '2022-08-26', '08:00', '17:00', 20240008), (63, 'En orden', 'Ninguna', '2022-08-27', '09:00', '18:00', 20240009), (64, 'En observación', 'Actualización de equipo', '2022-08-28', '08:30', '17:30', 20240010), (65, 'En orden', 'Ninguna', '2022-08-29', '10:00', '19:00', 20240016), (66, 'En orden', 'Ninguna', '2022-08-30', '09:30', '18:30', 20240019), (67, 'En observación', 'Revisión de protocolos', '2022-08-31', '08:00', '17:00', 20240022), (68, 'En orden', 'Ninguna', '2022-09-01', '09:45', '18:15', 20240023), (69, 'En orden', 'Ninguna', '2022-09-02', '08:15', '17:45', 20240025), (70, 'En observación', 'Capacitación pendiente', '2022-09-03', '10:30', '19:00', 20240026), (71, 'En orden', 'Ninguna', '2022-09-04', '09:30', '18:00', 20240028), (72, 'En orden', 'Ninguna', '2022-09-05', '08:00', '17:00', 20240029), (73, 'En orden', 'Ninguna', '2022-09-06', '09:00', '18:00', 20240030), (74, 'En observación', 'Actualización de equipo', '2022-09-07', '08:30', '17:30', 20240031), (75, 'En orden', 'Ninguna', '2022-09-08', '10:00', '19:00', 20240034), (76, 'En orden', 'Ninguna', '2022-09-09', '09:30', '18:30', 20240037);
 	INSERT INTO Licencia (ID_Licencia, Tipo, Estado, Fecha_inicio, Fecha_fin, ID_Empleado, ID_Supervisor) VALUES 
 	(1, 'Sindical', 'Aceptado', '2021-03-12', '2021-04-12', 20240032, 2),
