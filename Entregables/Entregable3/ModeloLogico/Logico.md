@@ -231,12 +231,13 @@
 |:------------------------------------:|:------------------------------------------------------:|:-----------:|:--------------:|:------------------------------:|
 |            ID_Cuestionario           |    Primary key, identificador único del cuestionario   |   99999999  |       INT      |     Números enteros únicos     |
 | ID_Especialista_Relaciones_Laborales | Foreign key, identificador del especialista en relaciones laborales |   99999999  |       INT      |         Números enteros        |
-|           Tipo_Cuestionario          |                  Tipo de cuestionario                  |    X(12)    |      VARCHAR      |  Cadena de hasta 12 caracteres |
+|           ID_Tipo_Cuestionario          |                  Foreign key,tipo de cuestionario                  |    9    |      INT      |  Número |
 |            Fecha_Creacion            |           Fecha de creación del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Creacion            |            Hora de creación del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
+|           Estado_Envio          |          Estado de envío del cuestionario         |    X(12)   |      VARCHAR      | Cadena de hasta 12 caracteres |
 |         Fecha_Envio_Gerencia         |       Fecha de envío del cuestionario a gerencia       |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |          Hora_Envio_Gerencia         |        Hora de envío del cuestionario a gerencia       |   HH:MM:SS  |      TIME      |           Hora válida          |
-|              ID_Gerente              |                Identificador del gerente               |   99999999  |       INT      |         Números enteros        |
+|              ID_Gerente              |                Foreign key, identificador del gerente               |   99999999  |       INT      |         Números enteros        |
 |           Estado_Aprobacion          |          Estado de aprobación del cuestionario         |    X(256)   |      VARCHAR      | Cadena de hasta 256 caracteres |
 |            Fecha_Revision            |           Fecha de revisión del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Revision            |            Hora de revisión del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
@@ -266,7 +267,7 @@
 |     ID_Respuesta    | Identificador único de la respuesta |   99999999   |       INT      |     Números enteros únicos     |
 |     ID_Pregunta    | Foreign key, identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
 | ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario de empleado |   99999999   |       INT      |     Números enteros únicos    |
-| Enunciado_Respuesta |               Enunciado de la respuesta              | X(12) |      VARCHAR      | Cadena de hasta 12 caracteres |
+| Id_Tipo_Respuesta |               Foreign key, tipo de respuesta              | 9 |      INT      | Número |
 
 ### Entidad: Reporte
 #### Descripción: Informe del desempeño del empleado en la evaluación.
@@ -275,7 +276,7 @@
 |        ID_Reporte        |                           Primary key, identificador único del reporte                          | 99999999 |     INT     |     Números enteros únicos    |
 | ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario completado por algún empleado (clave externa) | 99999999 |     INT     |     Números enteros únicos    |
 |  Fecha_Ingreso_Empleado  |                     Fecha en que se ingresó el cuestionario por el empleado                     | AAAAMMDD |     DATE    | Fecha válida en el calendario |
-|   Calificacion_Empleado  |                           Calificación del empleado en el cuestionario                          |   X(12)  | VARCHAR | Cadena de hasta 12 caracteres |
+|   Calificacion_Empleado  |                           Foreign key, se refiere a un tipo de calificación    |   9  | INT | Número |
 
 
 ### Entidad: Retroalimentación
@@ -285,8 +286,7 @@
 |         ID_Retroalimentacion         | Primary key, identificador único de la retroalimentación |   99999999   |       INT      |     Números enteros únicos     |
 |        ID_Reporte        |                           Foreign key, identificador único del reporte                          | 99999999 |     INT     |     Números enteros únicos    |
 |      Enunciado_Retroalimentacion     |               Enunciado de la retroalimentación              | X(256) |      VARCHAR      | Cadena de hasta 256 caracteres |
-|              ID_Gerente              |             Identificador del gerente responsable            |   99999999   |       INT      |         Números enteros        |
-| ID_Especialista_Relaciones_Laborales |    Identificador del especialista en relaciones laborales    |   99999999   |       INT      |         Números enteros        |
+|              ID_Evaluador             |             Foreign key, identificador del gerente  o especialista responsable            |   99999999   |       INT      |         Números enteros        |
 |        Fecha_Retroalimentacion       |                 Fecha de la retroalimentación                |   AAAAMMDD   |      DATE      |  Fecha válida en el calendario |
 |        Hora_Retroalimentacion        |                 Hora de la retroalimentación                 |   HH:MM:SS   |      TIME      |           Hora válida          |
 
@@ -330,7 +330,7 @@
 |      PERTENECE      |          Empleado          |        Departamento        |        1:1       |                            -                            |          NO          |        ID_Empleado+ID_Departamento        |
 |        TIENE        |          Empleado          |           Sueldo           |        1:1       |                            -                            |          NO          |           ID_Empleado+ID_Sueldo           |
 |       COMPLETA      |          Empleado          |        Cuestionario        |        1:1       | Id_Cuestionario_Empleado Fecha_Rellenado Hora_Rellenado |          Sí          |        ID_Empleado+ID_Cuestionario        |
-|       INCLUYE       |        Cuestionario        |    Pregunta_Cuestionario   |        N:N       |                            -                            |          No          |        ID_Cuestionario+ID_Pregunta        |
+|       INCLUYE       |        Cuestionario        |    Pregunta_Cuestionario   |        1:N       |                            -                            |          No          |        ID_Cuestionario+ID_Pregunta        |
 |       CONTIENE      |    Pregunta_Cuestionario   |   Respuesta_Cuestionario   |        1:1       |                            -                            |          No          |          ID_Pregunta+ID_Respuesta         |
 |        GENERA       |        Cuestionario        |           Reporte          |        1:1       |                            -                            |          No          |         ID_Cuestionario+ID_Reporte        |
 |        RECIBE       |           Reporte          |      Retroalimentacion     |        1:N       |                            -                            |          No          |      ID_Reporte+ID_Retroalimentacion      |
