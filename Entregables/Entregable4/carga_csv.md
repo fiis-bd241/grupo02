@@ -10,13 +10,12 @@
     DROP TABLE IF EXISTS Reunion;
     DROP TABLE IF EXISTS Retroalimentacion;
     DROP TABLE IF EXISTS Reporte;
-    DROP TABLE IF EXISTS Cuestionario_Gerente_RR_HH;
-    DROP TABLE IF EXISTS Cuestionario_Especialista;
+    DROP TABLE IF EXISTS Respuesta_Cuestionario;
     DROP TABLE IF EXISTS Cuestionario_Empleado;
     DROP TABLE IF EXISTS Pregunta_Cuestionario;
     DROP TABLE IF EXISTS Cuestionario;
-    DROP TABLE IF EXISTS Especialista_Relaciones_Laborales;
-    DROP TABLE IF EXISTS Gerente_RR_HH;
+    DROP TABLE IF EXISTS Tipo_Respuesta;
+    DROP TABLE IF EXISTS Tipo_Cuestionario;
     DROP TABLE IF EXISTS Asistencia;
     DROP TABLE IF EXISTS Licencia;
     DROP TABLE IF EXISTS Permiso;
@@ -28,6 +27,8 @@
     DROP TABLE IF EXISTS Lista_Matricula;
     DROP TABLE IF EXISTS Programa_Capacitador;
     DROP TABLE IF EXISTS Beneficios_Cese;
+    DROP TABLE IF EXISTS Tipo_Cese;
+    DROP TABLE IF EXISTS Respuesta_Salida;
     DROP TABLE IF EXISTS Pregunta_Salida;
     DROP TABLE IF EXISTS Cuestionario_Salida;
     DROP TABLE IF EXISTS Cese;
@@ -40,6 +41,7 @@
     DROP TABLE IF EXISTS Empleado;
     DROP TABLE IF EXISTS Departamento;
     DROP TABLE IF EXISTS Cargo;
+
     
     
     CREATE TABLE Cargo (
@@ -243,99 +245,79 @@
     	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
     );
     
-    CREATE TABLE Gerente_RR_HH(
-    	ID_Gerente INTEGER PRIMARY KEY,
-    	ID_Empleado INTEGER NOT NULL,
-    	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-    );
-    
-    CREATE TABLE Especialista_Relaciones_Laborales(
-    	ID_Especialista INTEGER PRIMARY KEY,
-    	ID_Empleado INTEGER NOT NULL,
-    	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
-    );
-    
-    CREATE TABLE Cuestionario(
-    	ID_Cuestionario INTEGER PRIMARY KEY,
-    	Tipo_Cuestionario VARCHAR(15) NOT NULL
-    );
-    
-    CREATE TABLE Pregunta_Cuestionario(
-    	ID_Pregunta INTEGER PRIMARY KEY,
-    	ID_Cuestionario INTEGER NOT NULL,
-    	Enunciado_Pregunta VARCHAR(256) NOT NULL,
-    	FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
-    );
-    
-    CREATE TABLE Cuestionario_Empleado(
-    	ID_Empleado INTEGER NOT NULL,
-    	ID_Cuestionario INTEGER NOT NULL,
-    	ID_Pregunta INTEGER NOT NULL,
-    	Respuesta VARCHAR(15) NOT NULL,
-    	Fecha_Rellenado DATE NOT NULL,
-    	Hora_Rellenado TIME NOT NULL,
-    	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-    	FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-    	FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta)
-    );
-    
-    CREATE TABLE Cuestionario_Especialista(
-    	ID_Cuestionario INTEGER NOT NULL,
-    	ID_Especialista INTEGER NOT NULL,
-    	Fecha_Creacion DATE NOT NULL,
-    	Hora_Creacion TIME NOT NULL,
-    	Fecha_Envio_Gerencia DATE NOT NULL,
-    	Hora_Envio_Gerencia TIME NOT NULL,
-    	FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-    	FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)
-    );
-    
-    CREATE TABLE Cuestionario_Gerente_RR_HH(
-    	ID_Cuestionario INTEGER NOT NULL,
-    	ID_Gerente INTEGER NOT NULL,
-    	Fecha_Revision DATE NOT NULL,
-    	Hora_Revision TIME NOT NULL,
-    	Estado_Aprobacion VARCHAR(256) NOT NULL,
-    	FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-    	FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)
-    );
-    
-    CREATE TABLE Reporte(
-    	ID_Reporte INTEGER PRIMARY KEY,
-    	ID_Empleado INTEGER NOT NULL,
-    	ID_Cuestionario INTEGER NOT NULL,
-    	Fecha_Ingreso_Empleado DATE NOT NULL,
-    	Calificacion VARCHAR(64) NOT NULL,
-    	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-    	FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
-    );
-    CREATE TABLE Retroalimentacion (
-    	ID_Retroalimentacion INTEGER PRIMARY KEY,
-    	ID_Empleado INTEGER NOT NULL,
-    	ID_Cuestionario INTEGER NOT NULL,
-    	ID_Reporte INTEGER NOT NULL,
-    	ID_Gerente INTEGER,
-    	ID_Especialista INTEGER,
-    	Enunciado_Retroalimentacion VARCHAR(256) NOT NULL,
-    	Fecha_Retroalimentacion DATE NOT NULL,
-    	Hora_Retroalimentacion TIME NOT NULL,
-    	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-    	FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-    	FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
-    	FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente),
-    	FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)
-    );
-    
-    CREATE TABLE Reunion (
-    	ID_Reunion INTEGER PRIMARY KEY,
-    	ID_Especialista INTEGER,
-    	ID_Gerente INTEGER,
-    	Asunto_Reunion VARCHAR(256) NOT NULL,
-    	Fecha_Reunion DATE NOT NULL,
-    	Hora_Reunion TIME NOT NULL,
-    	FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista),
-    	FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)
-    );
+	CREATE TABLE Cuestionario(
+		ID_Cuestionario INTEGER primary key,
+		ID_Especialista_Relaciones_Laborales INTEGER NOT NULL,
+		ID_Tipo_Cuestionario INTEGER NOT NULL UNIQUE,
+		Fecha_Creacion DATE NOT NULL,
+		Hora_Creacion TIME NOT NULL,
+		Estado_Envio VARCHAR (12) NOT NULL,
+		Fecha_Envio_Gerencia DATE,
+		Hora_Envio_Gerencia TIME,
+		ID_Gerente INTEGER NOT NULL,
+		Estado_Aprobacion VARCHAR (256),
+		Fecha_Revision DATE,
+		Hora_Revision TIME,
+		FOREIGN KEY(ID_Tipo_Cuestionario) REFERENCES Tipo_Cuestionario(ID_Tipo_Cuestionario),
+		FOREIGN KEY(ID_Especialista_Relaciones_Laborales) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado)																  
+	);
+	
+	CREATE TABLE Pregunta_Cuestionario(
+		ID_Pregunta INTEGER primary key,
+		ID_Cuestionario INTEGER NOT NULL,
+		Enunciado_Pregunta VARCHAR(256) NOT NULL UNIQUE,
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);
+	
+	CREATE TABLE Cuestionario_Empleado(
+		ID_Cuestionario_Empleado INTEGER primary key,
+		ID_Empleado INTEGER NOT NULL UNIQUE,
+		ID_Cuestionario INTEGER NOT NULL,
+		Fecha_Rellenado DATE NOT NULL,
+		Hora_Rellenado TIME NOT NULL,
+		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
+	);
+	
+	CREATE TABLE Respuesta_Cuestionario(
+		ID_Respuesta Integer primary key,
+		ID_Pregunta INTEGER NOT NULL,
+		ID_Cuestionario_Empleado INTEGER NOT NULL,
+		Id_Tipo_Respuesta INTEGER NOT NULL,
+		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta),
+		FOREIGN KEY(ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado),
+		FOREIGN KEY(ID_Tipo_Respuesta) REFERENCES Tipo_Respuesta(ID_Tipo_Respuesta)
+	);
+	
+	CREATE TABLE Reporte(
+		ID_Reporte INTEGER primary key,
+		ID_Cuestionario_Empleado INTEGER NOT NULL UNIQUE,
+		Fecha_Ingreso_Empleado DATE NOT NULL,
+		Calificacion_Empleado INTEGER NOT NULL,
+		FOREIGN KEY (ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado),
+		FOREIGN KEY(Calificacion_Empleado) REFERENCES Tipo_Respuesta(ID_Tipo_Respuesta)
+	);
+	
+	CREATE TABLE Retroalimentacion(
+		ID_Retroalimentacion INTEGER primary key,
+		ID_Reporte INTEGER NOT NULL,
+		Enunciado_Retroalimentacion VARCHAR(256) NOT NULL,
+		ID_Evaluador INTEGER NOT NULL,
+		Fecha_Retroalimentacion DATE NOT NULL,
+		Hora_Retroalimentacion TIME NOT NULL,
+		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
+		FOREIGN KEY(ID_Evaluador) REFERENCES Empleado(Id_Empleado)
+	);
+	
+	CREATE TABLE Reunion(
+		ID_Reunion INTEGER primary key,
+		ID_Empleado INTEGER NOT NULL,
+		Asunto_Reunion VARCHAR(256) NOT NULL,
+		Fecha_Reunion DATE NOT NULL,
+		Hora_Reunion TIME NOT NULL,
+		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
+	);
     
     CREATE TABLE Evaluacion (
     	ID_Evaluacion INTEGER PRIMARY KEY,
@@ -430,64 +412,63 @@
     	FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
     );
     
-    COPY Cargo FROM 'D:\CSV Insets\Cargo.csv' DELIMITER ',' CSV HEADER;
-    COPY Departamento FROM 'D:\CSV Insets\Departamento.csv' DELIMITER ',' CSV HEADER;
-    COPY Empleado FROM 'D:\CSV Insets\Empleados.csv' DELIMITER ',' CSV HEADER;
-    COPY Programa_Capacitador FROM 'D:\CSV Insets\Programa_Capacitador.csv' DELIMITER ',' CSV HEADER;
-    COPY Sesion FROM 'D:\CSV Insets\Sesion.csv' DELIMITER ',' CSV HEADER;
-    COPY Lista_Matricula FROM 'D:\CSV Insets\Lista_Matricula.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion_Capacitacion FROM 'D:\CSV Insets\Evaluacion_Capacitacion.csv' DELIMITER ',' CSV HEADER;
-    COPY Empleado_Sesion FROM 'D:\CSV Insets\Empleado_Sesion.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion_Sesion FROM 'D:\CSV Insets\Evaluacion_Sesion.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion_Empleado FROM 'D:\CSV Insets\Evaluacion_Empleado.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuenta_Bancaria FROM 'D:\CSV Insets\Cuenta_Bancaria.csv' DELIMITER ',' CSV HEADER;
-    COPY Sueldo FROM 'D:\CSV Insets\Sueldo.csv' DELIMITER ',' CSV HEADER;
-    COPY Modificacion FROM 'D:\CSV Insets\Modificacion.csv' DELIMITER ',' CSV HEADER;
-    COPY Pago_Total FROM 'D:\CSV Insets\Pago_Total.csv' DELIMITER ',' CSV HEADER;
-    COPY Nomina FROM 'D:\CSV Insets\Nomina.csv' DELIMITER ',' CSV HEADER;
-    COPY Supervisor FROM 'D:\CSV Insets\Supervisor.csv' DELIMITER ',' CSV HEADER;
+    COPY Cargo FROM 'D:\CSV_Inserts\Cargo.csv' DELIMITER ',' CSV HEADER;
+    COPY Departamento FROM 'D:\CSV_Inserts\Departamento.csv' DELIMITER ',' CSV HEADER;
+    COPY Empleado FROM 'D:\CSV_Inserts\Empleados.csv' DELIMITER ',' CSV HEADER;
+    COPY Programa_Capacitador FROM 'D:\CSV_Inserts\Programa_Capacitador.csv' DELIMITER ',' CSV HEADER;
+    COPY Sesion FROM 'D:\CSV_Inserts\Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Lista_Matricula FROM 'D:\CSV_Inserts\Lista_Matricula.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Capacitacion FROM 'D:\CSV_Inserts\Evaluacion_Capacitacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Empleado_Sesion FROM 'D:\CSV_Inserts\Empleado_Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Sesion FROM 'D:\CSV_Inserts\Evaluacion_Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Empleado FROM 'D:\CSV_Inserts\Evaluacion_Empleado.csv' DELIMITER ',' CSV HEADER;
+    COPY Cuenta_Bancaria FROM 'D:\CSV_Inserts\Cuenta_Bancaria.csv' DELIMITER ',' CSV HEADER;
+    COPY Sueldo FROM 'D:\CSV_Inserts\Sueldo.csv' DELIMITER ',' CSV HEADER;
+    COPY Modificacion FROM 'D:\CSV_Inserts\Modificacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Pago_Total FROM 'D:\CSV_Inserts\Pago_Total.csv' DELIMITER ',' CSV HEADER;
+    COPY Nomina FROM 'D:\CSV_Inserts\Nomina.csv' DELIMITER ',' CSV HEADER;
+    COPY Supervisor FROM 'D:\CSV_Inserts\Supervisor.csv' DELIMITER ',' CSV HEADER;
+    COPY Tipo_Cuestionario to 'D:\CSV_Inserts\Cuestionario.csv' DELIMITER ',' CSV HEADER;
+    COPY Tipo_Respuesta to 'D:\CSV_Inserts\Tipo_Respuesta.csv' DELIMITER ',' CSV HEADER;
+    COPY Cuestionario to 'D:\CSV_Inserts\Cuestionario.csv' DELIMITER ',' CSV HEADER;
+    COPY Pregunta_Cuestionario to 'D:\CSV_Inserts\Pregunta_Cuestionario.csv' DELIMITER ',' CSV HEADER;
+    COPY Cuestionario_Empleado to 'D:\CSV_Inserts\Cuestionario_Empleado.csv' DELIMITER ',' CSV HEADER;
+    COPY Respuesta_Cuestionario to 'D:\CSV_Inserts\Respuesta_Cuestionario.csv' DELIMITER ',' CSV HEADER;
+    COPY Reporte to 'D:\CSV_Inserts\Reporte.csv' DELIMITER ',' CSV HEADER;
+    COPY Retroalimentacion to 'D:\CSV_Inserts\Retroalimentacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Reunion to 'D:\CSV_Inserts\Reunion.csv' DELIMITER ',' CSV HEADER;
     
     /*
-    COPY Empleado to 'D:\CSV Insets\Empleados.csv' DELIMITER ',' CSV HEADER;
-    COPY Cargo to 'D:\CSV Insets\Cargo.csv' DELIMITER ',' CSV HEADER;
-    COPY Departamento to 'D:\CSV Insets\Departamento.csv' DELIMITER ',' CSV HEADER;
-    COPY Programa_Capacitador to 'D:\CSV Insets\Programa_Capacitador.csv' DELIMITER ',' CSV HEADER;
-    COPY Sesion to 'D:\CSV Insets\Sesion.csv' DELIMITER ',' CSV HEADER;
-    COPY Lista_Matricula to 'D:\CSV Insets\Lista_Matricula.csv' DELIMITER ',' CSV HEADER;
-    COPY Empleado_Sesion to 'D:\CSV Insets\Empleado_Sesion.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion_Sesion to 'D:\CSV Insets\Evaluacion_Sesion.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion_Empleado to 'D:\CSV Insets\Evaluacion_Empleado.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion_Capacitacion to 'D:\CSV Insets\Evaluacion_Capacitacion.csv' DELIMITER ',' CSV HEADER;
-    COPY Asistencia to 'D:\CSV Insets\Asistencia.csv' DELIMITER ',' CSV HEADER;
-    COPY Beneficios_Cese to 'D:\CSV Insets\Beneficio_Cese.csv' DELIMITER ',' CSV HEADER;
-    COPY Candidato to 'D:\CSV Insets\Candidato.csv' DELIMITER ',' CSV HEADER;
-    COPY Certificados to 'D:\CSV Insets\Certificado.csv' DELIMITER ',' CSV HEADER;
-    COPY Cese to 'D:\CSV Insets\Cese.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuenta_Bancaria to 'D:\CSV Insets\Cuenta_Bancaria.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuestionario to 'D:\CSV Insets\Cuestionario.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuestionario_Empleado to 'D:\CSV Insets\Cuestionario_Empleado.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuestionario_Especialista to 'D:\CSV Insets\Cuestionario_Especialista.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuestionario_Gerente_RR_HH to 'D:\CSV Insets\Cuestionario_Gerente_RR_HH.csv' DELIMITER ',' CSV HEADER;
-    COPY Cuestionario_Salida to 'D:\CSV Insets\Cuestionario_Salida.csv' DELIMITER ',' CSV HEADER;
-    COPY Curriculum to 'D:\CSV Insets\Curriculum.csv' DELIMITER ',' CSV HEADER;
-    COPY Entrevista to 'D:\CSV Insets\Entrevista.csv' DELIMITER ',' CSV HEADER;
-    COPY Especialista_Relaciones_Laborales to 'D:\CSV Insets\Especialista_Relaciones_Laborales.csv' DELIMITER ',' CSV HEADER;
-    COPY Evaluacion to 'D:\CSV Insets\Evaluacion.csv' DELIMITER ',' CSV HEADER;
-    COPY Experiencia_Laboral to 'D:\CSV Insets\Experiencia_Laboral.csv' DELIMITER ',' CSV HEADER;
-    COPY Gerente_RR_HH to 'D:\CSV Insets\Gerente_RR_HH.csv' DELIMITER ',' CSV HEADER;
-    COPY Licencia to 'D:\CSV Insets\Licencia.csv' DELIMITER ',' CSV HEADER;
-    COPY Modificacion to 'D:\CSV Insets\Modificacion.csv' DELIMITER ',' CSV HEADER;
-    COPY Nomina to 'D:\CSV Insets\Nomina.csv' DELIMITER ',' CSV HEADER;
-    COPY Pago_Total to 'D:\CSV Insets\Pago_Total.csv' DELIMITER ',' CSV HEADER;
-    COPY Perfil to 'D:\CSV Insets\Perfil.csv' DELIMITER ',' CSV HEADER;
-    COPY Permiso to 'D:\CSV Insets\Permiso.csv' DELIMITER ',' CSV HEADER;
-    COPY Pregunta_Cuestionario to 'D:\CSV Insets\Pregunta_Cuestionario.csv' DELIMITER ',' CSV HEADER;
-    COPY Pregunta_Salida to 'D:\CSV Insets\Pregunta_Salida.csv' DELIMITER ',' CSV HEADER;
-    COPY Reporte to 'D:\CSV Insets\Reporte.csv' DELIMITER ',' CSV HEADER;
-    COPY Retroalimentacion to 'D:\CSV Insets\Retroalimentacion.csv' DELIMITER ',' CSV HEADER;
-    COPY Reunion to 'D:\CSV Insets\Reunion.csv' DELIMITER ',' CSV HEADER;
-    COPY Solicitud_Empleo to 'D:\CSV Insets\Solicitud_Empleo.csv' DELIMITER ',' CSV HEADER;
-    COPY Sueldo to 'D:\CSV Insets\Sueldo.csv' DELIMITER ',' CSV HEADER;
-    COPY Supervisor to 'D:\CSV Insets\Supervisor.csv' DELIMITER ',' CSV HEADER;
-    COPY Vacante to 'D:\CSV Insets\Vacante.csv' DELIMITER ',' CSV HEADER;
+    COPY Empleado to 'D:\CSV_Inserts\Empleados.csv' DELIMITER ',' CSV HEADER;
+    COPY Cargo to 'D:\CSV_Inserts\Cargo.csv' DELIMITER ',' CSV HEADER;
+    COPY Departamento to 'D:\CSV_Inserts\Departamento.csv' DELIMITER ',' CSV HEADER;
+    COPY Programa_Capacitador to 'D:\CSV_Inserts\Programa_Capacitador.csv' DELIMITER ',' CSV HEADER;
+    COPY Sesion to 'D:\CSV_Inserts\Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Lista_Matricula to 'D:\CSV_Inserts\Lista_Matricula.csv' DELIMITER ',' CSV HEADER;
+    COPY Empleado_Sesion to 'D:\CSV_Inserts\Empleado_Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Sesion to 'D:\CSV_Inserts\Evaluacion_Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Empleado to 'D:\CSV_Inserts\Evaluacion_Empleado.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Capacitacion to 'D:\CSV_Inserts\Evaluacion_Capacitacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Asistencia to 'D:\CSV_Inserts\Asistencia.csv' DELIMITER ',' CSV HEADER;
+    COPY Beneficios_Cese to 'D:\CSV_Inserts\Beneficio_Cese.csv' DELIMITER ',' CSV HEADER;
+    COPY Candidato to 'D:\CSV_Inserts\Candidato.csv' DELIMITER ',' CSV HEADER;
+    COPY Certificados to 'D:\CSV_Inserts\Certificado.csv' DELIMITER ',' CSV HEADER;
+    COPY Cese to 'D:\CSV_Inserts\Cese.csv' DELIMITER ',' CSV HEADER;
+    COPY Cuenta_Bancaria to 'D:\CSV_Inserts\Cuenta_Bancaria.csv' DELIMITER ',' CSV HEADER;
+    COPY Cuestionario_Salida to 'D:\CSV_Inserts\Cuestionario_Salida.csv' DELIMITER ',' CSV HEADER;
+    COPY Curriculum to 'D:\CSV_Inserts\Curriculum.csv' DELIMITER ',' CSV HEADER;
+    COPY Entrevista to 'D:\CSV_Inserts\Entrevista.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion to 'D:\CSV_Inserts\Evaluacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Experiencia_Laboral to 'D:\CSV_Inserts\Experiencia_Laboral.csv' DELIMITER ',' CSV HEADER;
+    COPY Licencia to 'D:\CSV_Inserts\Licencia.csv' DELIMITER ',' CSV HEADER;
+    COPY Modificacion to 'D:\CSV_Inserts\Modificacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Nomina to 'D:\CSV_Inserts\Nomina.csv' DELIMITER ',' CSV HEADER;
+    COPY Pago_Total to 'D:\CSV_Inserts\Pago_Total.csv' DELIMITER ',' CSV HEADER;
+    COPY Perfil to 'D:\CSV_Inserts\Perfil.csv' DELIMITER ',' CSV HEADER;
+    COPY Permiso to 'D:\CSV_Inserts\Permiso.csv' DELIMITER ',' CSV HEADER;
+    COPY Pregunta_Salida to 'D:\CSV_Inserts\Pregunta_Salida.csv' DELIMITER ',' CSV HEADER;
+    COPY Solicitud_Empleo to 'D:\CSV_Inserts\Solicitud_Empleo.csv' DELIMITER ',' CSV HEADER;
+    COPY Sueldo to 'D:\CSV_Inserts\Sueldo.csv' DELIMITER ',' CSV HEADER;
+    COPY Supervisor to 'D:\CSV_Inserts\Supervisor.csv' DELIMITER ',' CSV HEADER;
+    COPY Vacante to 'D:\CSV_Inserts\Vacante.csv' DELIMITER ',' CSV HEADER;
     */
