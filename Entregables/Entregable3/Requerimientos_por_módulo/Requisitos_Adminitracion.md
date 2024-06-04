@@ -59,8 +59,8 @@
 |       4      | Asigna el beneficio a los empleados correspondientes o actualiza la asignación según sea necesario.                                                                          |
 |       5      | Confirma los cambios y guarda la información en el sistema.                                                                                                                  |
 ### Prototipo:
-![.](../Front/Registrar_beneficio.png)
-![.](../Front/Brindar_beneficio.png)
+![.](../Front/Registrar_Ajuste_Salarial.png)
+![.](../Front/Brindar_Asignacion.png)
 
 ## Caso de uso 21: Programación y Gestión de Pagos
 
@@ -76,4 +76,4 @@
 |       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 ### Prototipo
-![.](../Front/Programar_pago.png)
+![.](../Front/Programar_Pago.png)
