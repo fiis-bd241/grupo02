@@ -122,7 +122,11 @@
 
 	   Select Id_Tipo_Cuestionario,Tipo from Tipo_Cuestionario;
 
-2. Botón 'Enviar Respuestas': Se envían las respuesta del empleado.
+2. Mostrar tipos de respuesta: Selección del tipo de respuesta.
+
+	   SELECT Id_Tipo_Respuesta,Tipo from Tipo_Respuesta;
+
+3. Botón 'Enviar Respuestas': Se envían las respuesta del empleado.
 
 	   INSERT INTO Cuestionario_Empleado(ID_Cuestionario_Empleado,ID_Empleado,ID_Cuestionario,Fecha_Rellenado,Hora_Rellenado) VALUES
 	    (CASE 
@@ -137,9 +141,7 @@
 	            ELSE (SELECT MAX(ID_Respuesta) FROM Respuesta_Cuestionario) + 1
 	        END, <3>,(Select ID_Cuestionario_Empleado FROM Cuestionario_Empleado where ID_Empleado=<2>),<4>);
 
-3. Mostrar tipos de respuesta: Selección del tipo de respuesta.
 
-	   SELECT Id_Tipo_Respuesta,Tipo from Tipo_Respuesta;
 
 ## 5. REVISAR CUESTIONARIOS
 | Código requerimiento | R-026 |
