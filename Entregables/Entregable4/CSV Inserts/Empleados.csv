@@ -1,0 +1,79 @@
+id_empleado,nombre_empleado,apellido_empleado,telefono,direccion,correo,fecha_nacimiento,cant_hijos,estado_civil,dni,fecha_ingreso,id_departamento,id_cargo
+20200001,Juan,Pérez,912345688,"Av. Arequipa 123, Lima",juan.perez@gmail.com,1975-05-10,2,Casado,11223344,2020-01-01,14,1
+20210001,Juan,López,912345678,"Calle Los Pinos 123, Lima",juan.lopez@gmail.com,1990-01-15,2,Casado,12345678,2021-01-01,1,7
+20210002,María,García,912345679,"Avenida El Sol 456, Arequipa",maria.garcia@gmail.com,1985-05-20,1,Soltero,23456789,2021-01-02,2,2
+20210003,Pedro,Rodríguez,912345680,"Jirón Junín 789, Cusco",pedro.rodriguez@gmail.com,1988-11-10,0,Soltero,34567890,2021-01-03,1,3
+20210004,Ana,Martínez,912345681,"Calle Las Flores 012, Trujillo",ana.martinez@gmail.com,1992-07-03,3,Casado,45678901,2021-01-04,3,2
+20210005,Luis,Hernández,912345682,"Avenida Los Alamos 345, Chiclayo",luis.hernandez@gmail.com,1995-04-18,0,Soltero,56789012,2021-01-05,2,5
+20210006,Laura,González,912345683,"Calle Los Pájaros 678, Piura",laura.gonzalez@gmail.com,1991-09-25,2,Casado,67890123,2021-01-06,3,3
+20210007,Carlos,Ramírez,912345684,"Jirón Los Laureles 901, Huancayo",carlos.ramirez@gmail.com,1987-03-12,1,Soltero,78901234,2021-01-07,7,2
+20210008,Diana,Vargas,912345685,"Avenida Los Cerezos 234, Iquitos",diana.vargas@gmail.com,1993-06-28,0,Soltero,89012345,2021-01-08,8,3
+20210009,Roberto,Paredes,912345686,"Calle Las Palmeras 567, Tacna",roberto.paredes@gmail.com,1989-12-07,2,Casado,90123456,2021-01-09,9,4
+20210010,Sandra,Torres,912345687,"Avenida Los Pinos 890, Puno",sandra.torres@gmail.com,1994-02-14,1,Soltero,01234567,2021-01-10,10,2
+20210011,Raúl,Rojas,912345706,"Calle Las Magnolias 123, Lima",raul.rojas@gmail.com,1985-02-14,1,Soltero,44556699,2020-01-11,8,5
+20210012,Pablo,Mendoza,912345707,"Calle Las Orquídeas 456, Lima",pablo.mendoza@gmail.com,1987-03-21,0,Casado,55667700,2020-01-12,9,6
+20210013,Carla,Cruz,912345708,"Calle Las Gardenias 789, Lima",carla.cruz@gmail.com,1992-11-18,2,Soltero,66778811,2020-01-13,9,7
+20210014,Patricia,Salazar,912345709,"Calle Las Violetas 012, Lima",patricia.salazar@gmail.com,1994-04-12,3,Casado,77889922,2020-01-14,10,8
+20210015,Andrea,Castro,912345710,"Calle Las Dalias 345, Lima",andrea.castro@gmail.com,1991-09-30,1,Soltero,88990033,2020-01-15,10,2
+20220001,David,Sánchez,912345696,"Av. San Felipe 456, Lima",david.sanchez2@gmail.com,1993-04-20,0,Soltero,44556688,2020-01-01,2,6
+20220002,Sara,Martín,912345697,"Av. Benavides 789, Lima",sara.martin2@gmail.com,1988-06-15,2,Casado,55667799,2020-01-02,3,7
+20220003,Javier,Ruiz,912345698,"Av. La Molina 234, Lima",javier.ruiz@gmail.com,1986-02-28,0,Soltero,66778800,2020-01-03,4,8
+20220004,Paula,Gutiérrez,912345699,"Av. Huaylas 567, Lima",paula.gutierrez@gmail.com,1991-10-10,3,Casado,77889911,2020-01-04,5,3
+20220005,Daniel,López,912345700,"Av. Primavera 123, Lima",daniel.lopez@gmail.com,1984-07-03,0,Soltero,88990022,2020-01-05,5,4
+20220006,Lucía,Hernández,912345701,"Av. Javier Prado Oeste 456, Lima",lucia.hernandez@gmail.com,1989-12-25,1,Casado,99001133,2020-01-06,6,5
+20220007,Alejandro,Pérez,912345702,"Av. Universitaria 789, Lima",alejandro.perez2@gmail.com,1981-04-15,0,Soltero,00112244,2020-01-07,6,6
+20220008,Marta,Flores,912345703,"Av. Petit Thouars 123, Lima",marta.flores@gmail.com,1992-11-18,2,Casado,11223366,2020-01-08,7,7
+20220009,Luis,Ramírez,912345704,"Av. Wilson 456, Lima",luis.ramirez@gmail.com,1983-05-23,1,Soltero,22334477,2020-01-09,7,8
+20220010,Carmen,González,912345705,"Av. 28 de Julio 789, Lima",carmen.gonzalez@gmail.com,1990-09-30,3,Casado,33445588,2020-01-10,8,3
+20230002,Ana,García,912345689,"Av. Javier Prado Este 456, Lima",ana.garcia@gmail.com,1980-08-20,1,Soltero,22334455,2020-01-02,1,2
+20230005,Pedro,Rodríguez,912345692,"Av. Salaverry 234, Lima",pedro.rodriguez2@gmail.com,1985-07-30,1,Soltero,33445566,2020-01-05,4,2
+20230006,Laura,Fernández,912345693,"Av. La Marina 567, Lima",laura.fernandez@gmail.com,1990-01-05,2,Casado,44556677,2020-01-06,1,3
+20230007,Miguel,Gómez,912345694,"Av. Universitaria 890, Lima",miguel.gomez@gmail.com,1987-12-12,0,Soltero,55667788,2020-01-07,1,4
+20230008,Elena,Díaz,912345695,"Av. Colonial 123, Lima",elena.diaz@gmail.com,1983-09-18,1,Casado,66778899,2020-01-08,2,5
+20230009,David,Sánchez,912345719,"Av. Los Girasoles 456, Lima",david.sanchez@gmail.com,1993-04-20,0,Soltero,77889900,2020-01-09,2,6
+20230010,Sara,Martín,912345720,"Av. Los Girasoles 456, Lima",sara.martin@gmail.com,1988-06-15,2,Casado,88990011,2020-01-10,3,7
+20230011,Javier,Ruiz,912345721,"Av. Los Girasoles 456, Lima",javier.ruiz2@gmail.com,1986-02-28,0,Soltero,99001122,2020-01-11,4,8
+20230012,Paula,Gutiérrez,912345722,"Av. Los Girasoles 456, Lima",paula.gutierrez2@gmail.com,1991-10-10,3,Casado,00112233,2020-01-12,5,3
+20230013,Daniel,López,912345723,"Av. Los Girasoles 456, Lima",daniel.lopez2@gmail.com,1984-07-03,0,Soltero,11223355,2020-01-13,5,4
+20230014,Lucía,Hernández,912345724,"Av. Los Girasoles 456, Lima",lucia.hernandez2@gmail.com,1989-12-25,1,Casado,22334466,2020-01-14,6,5
+20230015,Alejandro,Pérez,912345725,"Av. Los Girasoles 456, Lima",alejandro.perez@gmail.com,1981-04-15,0,Soltero,33445577,2020-01-15,6,6
+20240001,Marcela,López,912345711,"Av. Los Pinos 123, Lima",marcela.lopez@gmail.com,1993-08-15,1,Soltero,76543210,2024-01-01,1,2
+20240002,José,Martínez,912345712,"Calle Las Rosas 456, Lima",jose.martinez@gmail.com,1990-05-20,2,Casado,67890123,2024-01-02,2,3
+20240003,Verónica,González,912345713,"Av. Las Orquídeas 789, Lima",veronica.gonzalez@gmail.com,1987-11-10,0,Soltero,56789012,2024-01-03,3,4
+20240004,Jorge,Pérez,912345714,"Calle Los Girasoles 012, Lima",jorge.perez@gmail.com,1992-07-03,1,Soltero,45678901,2024-01-04,4,5
+20240005,Fernanda,Hernández,912345715,"Av. Los Jazmines 345, Lima",fernanda.hernandez@gmail.com,1995-04-18,2,Casado,34567890,2024-01-05,5,6
+20240006,Mateo,Sánchez,922345716,"Av. Los Girasoles 678, Lima",mateo.sanchez@gmail.com,1990-05-25,0,Soltero,23456789,2024-01-06,11,8
+20240007,Valeria,Martínez,922345717,"Calle Las Margaritas 901, Lima",valeria.martinez@gmail.com,1988-01-05,1,Casado,34567890,2024-01-07,12,8
+20240008,Pablo,Gómez,922345718,"Av. Los Tulipanes 234, Lima",pablo.gomez@gmail.com,1991-06-20,0,Soltero,45678901,2024-01-08,13,8
+20240009,Mariana,Fernández,922345719,"Av. Los Lirios 567, Lima",mariana.fernandez@gmail.com,1986-08-10,1,Casado,56789012,2024-01-09,14,6
+20240010,Gabriel,Hernández,922345720,"Av. Las Gardenias 890, Lima",gabriel.hernandez@gmail.com,1993-04-20,2,Casado,67890123,2024-01-10,1,7
+20240011,Lucía,Sánchez,922345721,"Calle Los Claveles 123, Lima",lucia.sanchez@gmail.com,1990-01-05,0,Soltero,78901234,2024-01-11,2,8
+20240012,Daniel,Martínez,922345722,"Av. Los Girasoles 456, Lima",daniel.martinez@gmail.com,1987-12-12,1,Casado,89012345,2024-01-12,3,3
+20240013,Carolina,Gómez,922345723,"Calle Las Violetas 789, Lima",carolina.gomez@gmail.com,1983-09-18,0,Soltero,90123456,2024-01-13,4,4
+20240014,David,Fernández,922345724,"Av. Los Tulipanes 012, Lima",david.fernandez@gmail.com,1989-12-25,1,Casado,01234567,2024-01-14,5,8
+20240015,Sofía,Hernández,922345725,"Av. Los Lirios 345, Lima",sofia.hernandez@gmail.com,1981-04-15,2,Casado,12345678,2024-01-15,6,3
+20240016,Andrés,Martínez,922345726,"Calle Las Gardenias 678, Lima",andres.martinez@gmail.com,1994-02-14,0,Soltero,23456789,2024-01-16,7,4
+20240017,Valentina,Gómez,922345727,"Av. Las Violetas 901, Lima",valentina.gomez@gmail.com,1985-02-14,1,Casado,34567890,2024-01-17,8,5
+20240018,Juan,Fernández,922345728,"Av. Los Tulipanes 234, Lima",juan.fernandez@gmail.com,1991-09-30,0,Soltero,45678901,2024-01-18,9,6
+20240019,Camila,Hernández,922345729,"Av. Los Lirios 567, Lima",camila.hernandez@gmail.com,1983-05-23,1,Casado,56789012,2024-01-19,10,7
+20240020,Felipe,Martínez,922345730,"Calle Las Rosas 890, Lima",felipe.martinez@gmail.com,1990-09-30,0,Soltero,67890123,2024-01-20,11,8
+20240021,Ricardo,Gómez,912345711,"Av. Los Lirios 123, Lima",ricardo.gomez@gmail.com,1991-06-20,0,Soltero,67899120,2024-05-07,12,8
+20240022,Fernanda,Pérez,922345731,"Av. Las Orquídeas 456, Lima",fernanda.perez@gmail.com,1988-09-15,1,Casado,78912340,2024-05-08,13,7
+20240023,Martín,Flores,922345732,"Av. Los Tulipanes 789, Lima",martin.flores@gmail.com,1993-02-28,0,Soltero,89023451,2024-05-09,12,3
+20240024,Gabriela,Martínez,912345714,"Av. Los Tulipanes 123, Lima",gabriela.martinez@gmail.com,1988-01-05,2,Soltero,67348349,2024-06-02,3,8
+20240025,Tomás,Gómez,966777880,"Av. Huaylas 890, Lima",tomas.gomez@gmail.com,1986-08-10,1,Casado,87859349,2024-03-06,3,6
+20240026,Diego,López,922345736,"Av. Los Tulipanes 345, Lima",diego.lopez@gmail.com,1994-06-15,0,Soltero,12345678,2024-01-25,6,6
+20240027,Renata,Hernández,922345737,"Calle Los Lirios 678, Lima",renata.hernandez@gmail.com,1992-02-28,1,Casado,23456789,2024-01-26,7,4
+20240028,Joaquín,Martínez,922345738,"Av. Las Rosas 901, Lima",joaquin.martinez@gmail.com,1988-07-20,0,Soltero,34567890,2024-01-27,8,5
+20240029,Maite,Gómez,922345739,"Av. Los Girasoles 234, Lima",maite.gomez@gmail.com,1991-11-10,1,Casado,45678901,2024-01-28,9,6
+20240030,Emilio,Fernández,922345740,"Calle Los Claveles 567, Lima",emilio.fernandez@gmail.com,1985-04-05,0,Soltero,56789012,2024-01-29,2,7
+20240031,Luciana,Sánchez,922345741,"Av. Las Violetas 890, Lima",luciana.sanchez@gmail.com,1990-10-30,2,Casado,67890123,2024-01-30,2,8
+20240032,Simón,Martínez,922345742,"Av. Las Gardenias 123, Lima",simon.martinez@gmail.com,1987-03-25,0,Soltero,78901234,2024-01-31,2,5
+20240033,Abril,Gómez,922345743,"Calle Los Tulipanes 456, Lima",abril.gomez@gmail.com,1993-09-20,1,Casado,89012345,2024-02-01,3,2
+20240034,Felipe,Fernández,922345744,"Av. Los Lirios 789, Lima",felipe.fernandez@gmail.com,1986-05-15,0,Soltero,90123456,2024-02-02,4,6
+20240035,Sara,Sánchez,922345745,"Av. Los Girasoles 012, Lima",sara.sanchez@gmail.com,1991-12-10,2,Casado,01234567,2024-02-03,1,8
+20240036,Juan,Martínez,922345746,"Calle Los Claveles 345, Lima",juan.martinez@gmail.com,1985-08-05,0,Soltero,12345678,2024-02-04,2,5
+20240037,Camila,Gómez,922345747,"Av. Las Violetas 678, Lima",camila.gomez@gmail.com,1990-02-28,1,Casado,23456789,2024-02-05,3,5
+20240038,Lucas,Fernández,922345748,"Av. Las Gardenias 901, Lima",lucas.fernandez@gmail.com,1987-07-20,0,Soltero,34567890,2024-02-06,4,3
+20240039,Valentina,Sánchez,922345749,"Calle Los Tulipanes 234, Lima",valentina.sanchez@gmail.com,1991-11-10,1,Casado,45678901,2024-02-07,5,6
+20240040,Mateo,Martínez,922345750,"Av. Los Lirios 567, Lima",mateo.martinez@gmail.com,1985-04-05,0,Soltero,56789012,2024-02-08,6,7

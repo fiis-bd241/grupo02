@@ -1,0 +1,26 @@
+id_permiso,id_empleado,id_supervisor,tipo,motivo,duracion,estado
+1,20240023,7,Mudanza,Me mudo por motivos familiares,10 días,Aprobado
+2,20210001,4,Matrimonio,Casamiento con mi pareja de larga data,15 días,Aprobado
+3,20210002,6,Nacimiento de un familiar,Nacimiento de mi sobrino,7 días,Rechazado
+4,20210003,5,Fallecimiento de un familiar,Falleció mi abuelo,5 días,Aprobado
+5,20210004,9,Accidente de un familiar,Mi hermano tuvo un accidente,20 días,Rechazado
+6,20210005,7,Enfermedad grave de un familiar,Mi madre está gravemente enferma,30 días,Aprobado
+7,20210006,8,Deberes inexcusables,Debo asistir a una cita judicial,3 días,Rechazado
+8,20210007,1,Exámenes prenatales,Control prenatal de mi pareja,1 día,Aprobado
+9,20210008,5,Funciones sindicales,Participación en asamblea sindical,2 días,Rechazado
+10,20210009,3,Hijos prematuros,Cuidado de mi hijo prematuro,25 días,Aprobado
+11,20210010,6,Formación,Curso de actualización profesional,10 días,Rechazado
+12,20240001,9,Despido objetivo,Gestiones por despido,14 días,Aprobado
+13,20230002,2,Mudanza,Cambio de residencia por trabajo,12 días,Rechazado
+14,20230005,3,Matrimonio,Mi boda,15 días,Aprobado
+15,20230006,9,Nacimiento de un familiar,Nacimiento de mi hija,7 días,Rechazado
+16,20230007,5,Fallecimiento de un familiar,Falleció mi tío,5 días,Aprobado
+17,20230008,6,Accidente de un familiar,Mi prima sufrió un accidente,20 días,Rechazado
+18,20230009,8,Enfermedad grave de un familiar,Mi padre tiene una enfermedad grave,30 días,Aprobado
+19,20230010,9,Deberes inexcusables,Obligaciones legales imprevistas,3 días,Rechazado
+20,20230011,1,Exámenes prenatales,Exámenes prenatales de mi esposa,1 día,Aprobado
+21,20230012,1,Funciones sindicales,Reunión sindical importante,2 días,Rechazado
+22,20230013,4,Hijos prematuros,Atención a mi hijo recién nacido,25 días,Aprobado
+23,20230014,7,Formación,Seminario de desarrollo personal,10 días,Rechazado
+24,20230015,7,Despido objetivo,Proceso de despido laboral,14 días,Aprobado
+25,20220001,4,Mudanza,Relocalización por motivos de salud,12 días,Rechazado
