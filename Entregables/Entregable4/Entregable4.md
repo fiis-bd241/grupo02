@@ -10,7 +10,7 @@
 
 ## Codigo de POSTGRES copiable
 
-- [Codigo Copiable](CodigoCopiable.md)
+- [Codigo Copiable (Carga de Datos)](CodigoCopiable.md)
 
 ## Stack tecnológico
 
