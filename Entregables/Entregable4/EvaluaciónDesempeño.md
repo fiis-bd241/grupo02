@@ -278,7 +278,7 @@
 #### Eventos
 1. Botón 'Programar': Se programa una reunión.
    
-	    INSERT INTO Reunion (ID_Reunion, ID_Organizador, Asunto_Reunion, Fecha_Reunion, Hora_Reunion) 
+	    INSERT INTO Reunion (ID_Reunion, ID_Empleado, Asunto_Reunion, Fecha_Reunion, Hora_Reunion) 
 	    VALUES (
 	        CASE 
 	            WHEN (SELECT MAX(ID_Reunion) FROM Reunion) IS NULL THEN 1 
