@@ -12,13 +12,12 @@
 	DROP TABLE IF EXISTS Reunion;
 	DROP TABLE IF EXISTS Retroalimentacion;
 	DROP TABLE IF EXISTS Reporte;
-	DROP TABLE IF EXISTS Cuestionario_Gerente_RR_HH;
-	DROP TABLE IF EXISTS Cuestionario_Especialista;
+	DROP TABLE IF EXISTS Respuesta_Cuestionario;
 	DROP TABLE IF EXISTS Cuestionario_Empleado;
 	DROP TABLE IF EXISTS Pregunta_Cuestionario;
 	DROP TABLE IF EXISTS Cuestionario;
-	DROP TABLE IF EXISTS Especialista_Relaciones_Laborales;
-	DROP TABLE IF EXISTS Gerente_RR_HH;
+	DROP TABLE IF EXISTS Tipo_Respuesta;
+	DROP TABLE IF EXISTS Tipo_Cuestionario;
 	DROP TABLE IF EXISTS Asistencia;
 	DROP TABLE IF EXISTS Licencia;
 	DROP TABLE IF EXISTS Permiso;
@@ -259,101 +258,90 @@
 		Hora_Salida TIME NOT NULL,
 		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 	);
-
-	CREATE TABLE Gerente_RR_HH(
-		ID_Gerente INTEGER PRIMARY KEY,
-		ID_Empleado INTEGER NOT NULL,
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+	CREATE TABLE Tipo_Cuestionario(
+		ID_Tipo_Cuestionario INTEGER NOT NULL primary key,
+		Tipo Varchar(12) NOT NULL		
 	);
-
-	CREATE TABLE Especialista_Relaciones_Laborales(
-		ID_Especialista INTEGER PRIMARY KEY,
-		ID_Empleado INTEGER NOT NULL,
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
+	
+	CREATE TABLE Tipo_Respuesta(
+		ID_Tipo_Respuesta INTEGER NOT NULL primary key,
+		Tipo Varchar(12) NOT NULL		
 	);
-
+	
 	CREATE TABLE Cuestionario(
-		ID_Cuestionario INTEGER PRIMARY KEY,
-		Tipo_Cuestionario VARCHAR(15) NOT NULL
+		ID_Cuestionario INTEGER primary key,
+		ID_Especialista_Relaciones_Laborales INTEGER NOT NULL,
+		ID_Tipo_Cuestionario INTEGER NOT NULL UNIQUE,
+		Fecha_Creacion DATE NOT NULL,
+		Hora_Creacion TIME NOT NULL,
+		Estado_Envio VARCHAR (256) NOT NULL,
+		Fecha_Envio_Gerencia DATE,
+		Hora_Envio_Gerencia TIME,
+		ID_Gerente INTEGER NOT NULL,
+		Estado_Aprobacion VARCHAR (12),
+		Fecha_Revision DATE,
+		Hora_Revision TIME,
+		FOREIGN KEY(ID_Tipo_Cuestionario) REFERENCES Tipo_Cuestionario(ID_Tipo_Cuestionario),
+		FOREIGN KEY(ID_Especialista_Relaciones_Laborales) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado)																  
 	);
-
+	
 	CREATE TABLE Pregunta_Cuestionario(
-		ID_Pregunta INTEGER PRIMARY KEY,
+		ID_Pregunta INTEGER primary key,
 		ID_Cuestionario INTEGER NOT NULL,
-		Enunciado_Pregunta VARCHAR(256) NOT NULL,
+		Enunciado_Pregunta VARCHAR(256) NOT NULL UNIQUE,
 		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
 	);
-
+	
 	CREATE TABLE Cuestionario_Empleado(
-		ID_Empleado INTEGER NOT NULL,
+		ID_Cuestionario_Empleado INTEGER primary key,
+		ID_Empleado INTEGER NOT NULL UNIQUE,
 		ID_Cuestionario INTEGER NOT NULL,
-		ID_Pregunta INTEGER NOT NULL,
-		Respuesta VARCHAR(15) NOT NULL,
 		Fecha_Rellenado DATE NOT NULL,
 		Hora_Rellenado TIME NOT NULL,
 		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta)
-	);
-
-	CREATE TABLE Cuestionario_Especialista(
-		ID_Cuestionario INTEGER NOT NULL,
-		ID_Especialista INTEGER NOT NULL,
-		Fecha_Creacion DATE NOT NULL,
-		Hora_Creacion TIME NOT NULL,
-		Fecha_Envio_Gerencia DATE NOT NULL,
-		Hora_Envio_Gerencia TIME NOT NULL,
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)
-	);
-
-	CREATE TABLE Cuestionario_Gerente_RR_HH(
-		ID_Cuestionario INTEGER NOT NULL,
-		ID_Gerente INTEGER NOT NULL,
-		Fecha_Revision DATE NOT NULL,
-		Hora_Revision TIME NOT NULL,
-		Estado_Aprobacion VARCHAR(256) NOT NULL,
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)
-	);
-
-	CREATE TABLE Reporte(
-		ID_Reporte INTEGER PRIMARY KEY,
-		ID_Empleado INTEGER NOT NULL,
-		ID_Cuestionario INTEGER NOT NULL,
-		Fecha_Ingreso_Empleado DATE NOT NULL,
-		Calificacion VARCHAR(64) NOT NULL,
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
 		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario)
 	);
-	CREATE TABLE Retroalimentacion (
-		ID_Retroalimentacion INTEGER PRIMARY KEY,
-		ID_Empleado INTEGER NOT NULL,
-		ID_Cuestionario INTEGER NOT NULL,
+	
+	CREATE TABLE Respuesta_Cuestionario(
+		ID_Respuesta Integer primary key,
+		ID_Pregunta INTEGER NOT NULL,
+		ID_Cuestionario_Empleado INTEGER NOT NULL,
+		Id_Tipo_Respuesta INTEGER NOT NULL,
+		FOREIGN KEY(ID_Pregunta) REFERENCES Pregunta_Cuestionario(ID_Pregunta),
+		FOREIGN KEY(ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado),
+		FOREIGN KEY(ID_Tipo_Respuesta) REFERENCES Tipo_Respuesta(ID_Tipo_Respuesta)
+	);
+	
+	CREATE TABLE Reporte(
+		ID_Reporte INTEGER primary key,
+		ID_Cuestionario_Empleado INTEGER NOT NULL UNIQUE,
+		Fecha_Ingreso_Empleado DATE NOT NULL,
+		Calificacion_Empleado INTEGER NOT NULL,
+		FOREIGN KEY (ID_Cuestionario_Empleado) REFERENCES Cuestionario_Empleado(ID_Cuestionario_Empleado),
+		FOREIGN KEY(Calificacion_Empleado) REFERENCES Tipo_Respuesta(ID_Tipo_Respuesta)
+	);
+	
+	CREATE TABLE Retroalimentacion(
+		ID_Retroalimentacion INTEGER primary key,
 		ID_Reporte INTEGER NOT NULL,
-		ID_Gerente INTEGER,
-		ID_Especialista INTEGER,
 		Enunciado_Retroalimentacion VARCHAR(256) NOT NULL,
+		ID_Evaluador INTEGER NOT NULL,
 		Fecha_Retroalimentacion DATE NOT NULL,
 		Hora_Retroalimentacion TIME NOT NULL,
-		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Cuestionario) REFERENCES Cuestionario(ID_Cuestionario),
 		FOREIGN KEY(ID_Reporte) REFERENCES Reporte(ID_Reporte),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente),
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista)
+		FOREIGN KEY(ID_Evaluador) REFERENCES Empleado(Id_Empleado)
 	);
-
-	CREATE TABLE Reunion (
-		ID_Reunion INTEGER PRIMARY KEY,
-		ID_Especialista INTEGER,
-		ID_Gerente INTEGER,
+	
+	CREATE TABLE Reunion(
+		ID_Reunion INTEGER primary key,
+		ID_Empleado INTEGER NOT NULL,
 		Asunto_Reunion VARCHAR(256) NOT NULL,
 		Fecha_Reunion DATE NOT NULL,
 		Hora_Reunion TIME NOT NULL,
-		FOREIGN KEY(ID_Especialista) REFERENCES Especialista_Relaciones_Laborales(ID_Especialista),
-		FOREIGN KEY(ID_Gerente) REFERENCES Gerente_RR_HH(ID_Gerente)
+		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
 	);
-
+	 
 	CREATE TABLE Evaluacion (
 		ID_Evaluacion INTEGER PRIMARY KEY,
 		Competencias_Evaluadas VARCHAR(255) NOT NULL,
@@ -651,16 +639,95 @@
 	(23, 'Formación', 'Seminario de desarrollo personal', '10 días', 'Rechazado', 20230014, 7),
 	(24, 'Despido objetivo', 'Proceso de despido laboral', '14 días', 'Aprobado', 20230015, 7),
 	(25, 'Mudanza', 'Relocalización por motivos de salud', '12 días', 'Rechazado', 20220001, 4);
-	INSERT INTO Gerente_RR_HH (ID_Gerente,ID_Empleado) VALUES(00000001,20240001);
-	INSERT INTO Especialista_Relaciones_Laborales(ID_Especialista,ID_Empleado) VALUES (1,20210003), (2,20210006), (3,20210008), (4,20220004), (5,20230006), (6,20230012), (7,20240027);
-	INSERT INTO Cuestionario(ID_Cuestionario,Tipo_Cuestionario) VALUES (1,'Subordinados'), (2,'Supervisores'), (3,'Jefes'), (4,'Gerentes');
-	INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values (1001,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'), (1002,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'), (2001,2,'¿Cómo calificarías la efectividad de tu estilo de liderazgo en el rendimiento del equipo?'), (2002,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),	 (3001,3,'¿Qué calificación le darías a tu visión para el equipo/departamento/empresa a corto y largo plazo?'), (3002,3,'¿Qué calificación le darías a la efectividad de tu comunicación con los miembros del equipo?'), (4001,4,'¿Cómo calificarías tu capacidad para asegurarte de que las actividades del equipo estén alineadas con los objetivos organizacionales?'), (4002,4,'¿Qué calificación le darías a la cultura organizacional positiva y de alto rendimiento que fomentas?');
-	INSERT INTO Cuestionario_Empleado(ID_Empleado,ID_Cuestionario,ID_Pregunta,Respuesta,Fecha_Rellenado,Hora_Rellenado) VALUES (20210005,1,1001,'Positivo','2024-06-15','15:30'), (20210005,1,1002,'Muy Negativo','2024-06-15','15:30'), (20210009,2,2001,'Muy positivo','2024-06-17','18:30'), (20210009,2,2002,'Muy Negativo','2024-06-17','18:30'), (20210002,3,3001,'Positivo','2024-06-14','19:30'), (20210002,3,3001,'Muy Positivo','2024-06-14','19:30'), (20240001,4,4001,'Negativo','2024-06-13','12:30'), (20240001,4,4002,'Muy Positivo','2024-06-13','12:30'), (20220006,1,1001,'Negativo','2024-06-15','17:30'), (20220006,1,1002,'Muy Negativo','2024-06-15','17:30'), (20220005,2,2001,'Positivo','2024-06-17','11:30'), (20220005,2,2002,'Muy Negativo','2024-06-17','11:30'), (20210007,3,3001,'Positivo','2024-06-14','20:30'), (20210007,3,3001,'Positivo','2024-06-14','20:30');
-	INSERT INTO Cuestionario_Especialista(ID_Cuestionario,ID_Especialista,Fecha_Creacion,Hora_Creacion,Fecha_Envio_Gerencia,Hora_Envio_Gerencia) VALUES (1,2,'2024-04-18','18:30','2024-05-18','15:25'), (2,3,'2024-04-18','17:30','2024-05-18','17:20'), (3,4,'2024-04-18','16:30','2024-05-18','18:35'), (4,5,'2024-04-18','19:30','2024-05-18','19:55');
-	INSERT INTO Cuestionario_Gerente_RR_HH(ID_Cuestionario,ID_Gerente,Fecha_Revision,Hora_Revision,Estado_Aprobacion) VALUES (1,1,'2024-05-19','18:30','Aprobado'), (2,1,'2024-05-19','20:30','Aprobado'), (3,1,'2024-05-19','21:30','Aprobado'), (4,1,'2024-05-19','22:30','Aprobado');
-	INSERT INTO Reporte(ID_Reporte,ID_Empleado,ID_Cuestionario,Fecha_Ingreso_Empleado,Calificacion) VALUES (1,20210005,1,'2024-01-15','Positivo'), (2,20210009,2,'2023-05-12','Negativo'), (3,20210002,3,'2023-08-11','Positivo'), (4,20240001,4,'2023-09-16','Negativo'), (5,20220006,1,'2023-05-14','Negativo'), (6,20220005,2,'2023-07-13','Negativo'), (7,20210007,3,'2023-12-21','Negativo');
-	INSERT INTO Retroalimentacion(ID_Retroalimentacion,ID_Empleado,ID_Cuestionario,ID_Reporte,ID_Gerente,ID_Especialista,Enunciado_Retroalimentacion,Fecha_Retroalimentacion,Hora_Retroalimentacion) VALUES  (1,20210005,1,1, NULL,6, 'Falta mejorar algunos puntos en el trabajo.','2024-06-21','18:30'), (2,20210009,2,2, 1,NULL, 'Debes pulir algunos detalles.','2024-06-21','18:30'), (3,20210002,3,3,1,NULL, 'Se pueden hacer mejoras en ciertos aspectos.','2024-06-21','18:30'), (4,20220006,1,5, NULL,3, 'Algunos puntos necesitan ser perfeccionados.','2024-06-22','15:30'), (5,20220005,2,6, NULL,5, 'Se deben abordar algunas deficiencias.','2024-06-22','19:30'), (6,20210007,3,7,NULL,6, 'Es necesario afinar ciertos aspectos.','2024-06-22','20:30');
-	INSERT INTO Reunion(ID_Reunion,ID_Especialista,ID_Gerente,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES  (1,1,null,'Explicación de la evaluación de desempeño','2024-06-12','15:30'), (2,NULL,1,'Retroalimentación general','2024-06-20','18:30'), (3,5,1,'Evaluación técnica','2024-06-21','18:30');
+
+ 	INSERT INTO Tipo_Cuestionario(ID_Tipo_Cuestionario,Tipo) values
+	(1,'Subordinados'),
+	(2,'Supervisores'),
+	(3,'Jefes'),
+	(4,'Gerentes');
+		
+	INSERT INTO Tipo_Respuesta(ID_Tipo_Respuesta,Tipo) values
+	(1,'Muy Negativo'),
+	(2,'Negativo'),
+	(3,'Positivo'),
+	(4,'Muy Positivo');
+	
+	INSERT INTO Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
+	(1,20210006,1,'2024-04-18','18:30','Enviado','2024-05-18','15:25',20200001,'Aprobado','2024-05-19','18:30'),
+	(2,20210008,2,'2024-04-18','17:30','Enviado','2024-05-18','17:20',20200001,'Aprobado','2024-05-19','20:30'),
+	(3,20220004,3,'2024-04-18','16:30','Enviado','2024-05-18','18:35',20200001,'Aprobado','2024-05-19','21:30'),
+	(4,20230006,4,'2024-04-18','19:30','Enviado','2024-05-18','19:55',20200001,'Aprobado','2024-05-19','22:30');
+		
+	INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values
+		(1,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'),
+		(2,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'),
+		
+		(3,2,'¿Cómo calificarías la efectividad de tu estilo de liderazgo en el rendimiento del equipo?'),
+		(4,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),
+		
+		(5,3,'¿Qué calificación le darías a tu visión para el equipo/departamento/empresa a corto y largo plazo?'),
+		(6,3,'¿Qué calificación le darías a la efectividad de tu comunicación con los miembros del equipo?'),
+		
+		(7,4,'¿Cómo calificarías tu capacidad para asegurarte de que las actividades del equipo estén alineadas con los objetivos organizacionales?'),
+		(8,4,'¿Qué calificación le darías a la cultura organizacional positiva y de alto rendimiento que fomentas?');
+	
+	INSERT INTO Cuestionario_Empleado(ID_Cuestionario_Empleado,ID_Empleado,ID_Cuestionario,Fecha_Rellenado,Hora_Rellenado) VALUES
+	(1,20210005,1,'2024-06-15','15:30'),
+	(2,20210009,2,'2024-06-17','18:30'),
+	(3,20210002,3,'2024-06-14','19:30'),
+	(4,20200001,4,'2024-06-13','12:30'),
+	(5,20220006,1,'2024-06-15','17:30'),
+	(6,20220005,2,'2024-06-17','11:30'),
+	(7,20210007,3,'2024-06-14','20:30');
+	
+	INSERT INTO Respuesta_Cuestionario(ID_Respuesta,ID_Pregunta,ID_Cuestionario_Empleado,ID_Tipo_Respuesta) VALUES
+	(1,1,1,3),
+	(2,2,1,1),
+	
+	(3,3,2,4),
+	(4,4,2,1),
+	
+	(5,5,3,3),
+	(6,6,3,4),
+	
+	(7,7,4,2),
+	(8,8,4,4),
+	
+	(9,1,5,2),
+	(10,2,5,4),
+	
+	(11,3,6,3),
+	(12,4,6,1),
+	
+	(13,5,7,3),
+	(14,6,7,3)
+	;
+
+	INSERT INTO Reporte(ID_Reporte,ID_Cuestionario_Empleado,Fecha_Ingreso_Empleado,Calificacion_Empleado) VALUES
+	(1,1,'2024-01-15',3),
+	(2,2,'2023-05-12',2),
+	(3,3,'2023-08-11',2),
+	(4,4,'2023-09-16',2),
+	(5,5,'2023-05-14',3),
+	(6,6,'2023-07-13',3),
+	(7,7,'2023-12-21',2)
+	;
+	
+	INSERT INTO Retroalimentacion(ID_Retroalimentacion,ID_Reporte,Enunciado_Retroalimentacion,ID_Evaluador,Fecha_Retroalimentacion,Hora_Retroalimentacion) VALUES 
+	(1,1,'Falta mejorar algunos puntos en el trabajo.',20230012,'2024-06-21','18:30'),
+	(2,2,'Debes pulir algunos detalles.',20200001,'2024-06-21','18:30'),
+	(3,3,'Se pueden hacer mejoras en ciertos aspectos.',20200001,'2024-06-21','18:30'),
+	(4,4,'Algunos puntos necesitan ser perfeccionados.',20210008,'2024-06-22','15:30'),
+	(5,5,'Se deben abordar algunas deficiencias.',20230006,'2024-06-22','19:30'),
+	(6,6,'Es necesario afinar ciertos aspectos.',20240027,'2024-06-22','20:30')
+	;
+	
+	INSERT INTO Reunion(ID_Reunion,ID_Empleado,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
+	(1,20200001,'Explicación de la evaluación de desempeño','2024-06-12','15:30'),
+	(2,20210003,'Retroalimentación general','2024-06-20','18:30'),
+	(3,20230006,'Evaluación técnica','2024-06-21','18:30')
+	;
+
 	INSERT INTO Certificados (ID_certificado, Curso_certificado, Nivel_certificado) VALUES (301, 'Certificación en Gestión de Calidad ISO 9001', 'Avanzado'), (302, 'Diplomado en Administración de Empresas', 'Intermedio'), (303, 'Certificado en Control de Calidad Alimentaria', 'Avanzado'), (304, 'Curso en Finanzas Corporativas', 'Intermedio'), (305, 'Certificación en Seguridad Alimentaria HACCP', 'Avanzado'), (306, 'Certificado en Desarrollo de Software', 'Avanzado'), (307, 'Curso en Logística y Distribución', 'Intermedio'), (308, 'Diplomado en Marketing Digital', 'Intermedio'), (309, 'Certificación en Contabilidad Financiera', 'Avanzado'), (310, 'Maestría en Recursos Humanos', 'Avanzado'), (311, 'Curso en Mantenimiento Industrial', 'Intermedio'), (312, 'Diplomado en Seguridad e Higiene Ocupacional', 'Intermedio'), (313, 'Certificado en Gestión Ambiental', 'Avanzado'), (314, 'Diplomado en Ingeniería Agroindustrial', 'Intermedio'), (315, 'Curso en Gestión de Almacenes', 'Intermedio'), (316, 'Certificación en Química Analítica', 'Avanzado'), (317, 'Curso en Tecnología de Alimentos', 'Intermedio'), (318, 'Diplomado en Producción de Frutas', 'Intermedio'), (319, 'Certificado en Biología Molecular', 'Avanzado'), (320, 'Maestría en Logística y Transporte', 'Avanzado');
 	INSERT INTO Experiencia_Laboral (ID_experiencia, Nombre_lugar, Cargo_ejercido, Tiempo_ejercido) VALUES (201, 'Empresa A', 'Gerente de Producción', '5 años'), (202, 'Empresa B', 'Jefe de Recepción', '3 años'), (203, 'Empresa C', 'Especialista de Control de Calidad', '4 años'), (204, 'Empresa D', 'Supervisor de Producción de Mermelada', '6 años'), (205, 'Empresa E', 'Técnico de Producción de Fruta Confitada', '2 años'), (206, 'Empresa F', 'Profesional de Investigación y Desarrollo', '7 años'), (207, 'Empresa G', 'Asistente de Logística y Distribución', '4 años'), (208, 'Empresa H', 'Operario de Marketing y Ventas', '3 años'), (209, 'Empresa I', 'Gerente de Finanzas y Contabilidad', '5 años'), (210, 'Empresa J', 'Jefe de Recursos Humanos', '6 años'), (211, 'Empresa K', 'Especialista de Mantenimiento y Reparación de Equipos', '4 años'), (212, 'Empresa L', 'Supervisor de Seguridad e Higiene', '3 años'), (213, 'Empresa M', 'Técnico de Gestión Ambiental y Sostenibilidad', '5 años'), (214, 'Empresa N', 'Profesional de Producción de Fruta Fresca', '6 años'), (215, 'Empresa O', 'Asistente de Recepción y Almacenamiento de Fruta', '4 años'), (216, 'Empresa P', 'Operario de Control de Calidad', '3 años'), (217, 'Empresa Q', 'Gerente de Producción de Mermelada', '5 años'), (218, 'Empresa R', 'Jefe de Producción de Fruta Confitada', '4 años'), (219, 'Empresa S', 'Especialista de Investigación y Desarrollo', '6 años'), (220, 'Empresa T', 'Supervisor de Logística y Distribución', '3 años');
 	INSERT INTO Curriculum (ID_curriculum, Grado_Educacion, ID_experiencia, ID_certificado) VALUES (101, 'Licenciatura en Ingeniería Industrial', 201, 301), (102, 'Maestría en Administración de Empresas', 202, 302), (103, 'Técnico en Control de Calidad', 203, 303), (104, 'Licenciatura en Administración de Empresas', 204, 304), (105, 'Técnico en Producción de Alimentos', 205, 305), (106, 'Maestría en Ciencias de la Computación', 206, 306), (107, 'Licenciatura en Logística', 207, 307), (108, 'Técnico en Mercadotecnia', 208, 308), (109, 'Licenciatura en Contaduría Pública', 209, 309), (110, 'Maestría en Recursos Humanos', 210, 310), (111, 'Técnico en Mantenimiento Industrial', 211, 311), (112, 'Especialidad en Seguridad Laboral', 212, 312), (113, 'Maestría en Gestión Ambiental', 213, 313), (114, 'Licenciatura en Ingeniería Agroindustrial', 214, 314), (115, 'Técnico en Almacenamiento y Distribución', 215, 315), (116, 'Licenciatura en Química', 216, 316), (117, 'Maestría en Producción de Alimentos', 217, 317), (118, 'Técnico en Producción de Frutas', 218, 318), (119, 'Licenciatura en Biología', 219, 319), (120, 'Maestría en Logística y Transporte', 220, 320);
