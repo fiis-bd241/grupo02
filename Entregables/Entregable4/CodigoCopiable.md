@@ -516,11 +516,44 @@
 		(20240039, 'Valentina', 'Sánchez', '922345749', 'Calle Los Tulipanes 234, Lima', 'valentina.sanchez@gmail.com', '1991-11-10', 1, 'Casado', '45678901', '2024-02-07', 5, 6),
 		(20240040, 'Mateo', 'Martínez', '922345750', 'Av. Los Lirios 567, Lima', 'mateo.martinez@gmail.com', '1985-04-05', 0, 'Soltero', '56789012', '2024-02-08', 6, 7);
 
-	INSERT INTO Cuenta_Bancaria (ID_Cuenta_B, Numero_Cuenta, Nombre_Banco, Tipo_Cuenta, Moneda, ID_Empleado) VALUES (1001, '01234567890123456789', 'Banco de Crédito del Perú', 'Cuenta corriente', 'Soles', 20210001), (1002, '12345678901234567890', 'Interbank', 'Cuenta de ahorros', 'Dólares', 20220004), (1003, '23456789012345678901', 'Scotiabank', 'Cuenta corriente', 'Soles', 20240020), (1004, '34567890123456789012', 'BBVA Continental', 'Cuenta de ahorros', 'Soles', 20240034), (1005, '45678901234567890123', 'Banco de la Nación', 'Cuenta corriente', 'Dólares', 20240008);
-	INSERT INTO Sueldo (ID_Sueldo, Monto_Salario_Bruto) VALUES (1, 4500.00), (2, 4000.00), (3, 3500.00), (4, 3200.00), (5, 2800.00), (6, 4200.00), (7, 2000.00), (8, 1500.00);
-	INSERT INTO Modificacion (ID_Modificacion, Tipo_Modificacion, Monto_Modificacion) VALUES (1, 'Aumento', 500.00), (2, 'Bonificación', 200.00), (3, 'Descuento', 100.00), (4, 'Incentivo', 300.00), (5, 'Comisión', 150.50);
-	INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion, Monto_Pagar) VALUES (1, 4, 1, 3700.00), (2, 7, 4, 2300.00), (3, 5, 3, 2700.00), (4, 8, 4, 1900.00), (5, 2, 5, 3849.50);
-	INSERT INTO Nomina (ID_Nomina, Fecha_Emision, Periodo_Pago, ID_Empleado, ID_Pago_Total) VALUES (2001, '2024-04-15', 'Quincenal', 20210001, 1), (2002, '2024-04-30', 'Mensual', 20220004, 1), (2003, '2024-03-31', 'Mensual', 20240015, 1), (2004, '2024-05-15', 'Quincenal', 20240034, 1), (2005, '2024-05-31', 'Mensual', 20240008, 1); 
+	INSERT INTO Cuenta_Bancaria (ID_Cuenta_B, Numero_Cuenta, Nombre_Banco, Tipo_Cuenta, Moneda, ID_Empleado) VALUES 
+		(1001, '01234567890123456789', 'Banco de Crédito del Perú', 'Cuenta corriente', 'Soles', 20210001), 
+		(1002, '12345678901234567890', 'Interbank', 'Cuenta de ahorros', 'Dólares', 20220004), 
+		(1003, '23456789012345678901', 'Scotiabank', 'Cuenta corriente', 'Soles', 20240020), 
+		(1004, '34567890123456789012', 'BBVA Continental', 'Cuenta de ahorros', 'Soles', 20240034), 
+		(1005, '45678901234567890123', 'Banco de la Nación', 'Cuenta corriente', 'Dólares', 20240008);
+
+	INSERT INTO Sueldo (ID_Sueldo, Monto_Salario_Bruto) VALUES 
+		(1, 4500.00), 
+		(2, 4000.00), 
+		(3, 3500.00), 
+		(4, 3200.00), 
+		(5, 2800.00), 
+		(6, 4200.00), 
+		(7, 2000.00), 
+		(8, 1500.00);
+
+	INSERT INTO Modificacion (ID_Modificacion, Tipo_Modificacion, Monto_Modificacion) VALUES 
+		(1, 'Aumento', 500.00), 
+		(2, 'Bonificación', 200.00), 
+		(3, 'Descuento', 100.00), 
+		(4, 'Incentivo', 300.00), 
+		(5, 'Comisión', 150.50);
+
+	INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion, Monto_Pagar) VALUES 
+		(1, 4, 1, 3700.00), 
+		(2, 7, 4, 2300.00), 
+		(3, 5, 3, 2700.00), 
+		(4, 8, 4, 1900.00), 
+		(5, 2, 5, 3849.50);
+
+	INSERT INTO Nomina (ID_Nomina, Fecha_Emision, Periodo_Pago, ID_Empleado, ID_Pago_Total) VALUES 
+		(2001, '2024-04-15', 'Quincenal', 20210001, 1), 
+		(2002, '2024-04-30', 'Mensual', 20220004, 2), 
+		(2003, '2024-03-31', 'Mensual', 20240015, 3), 
+		(2004, '2024-05-15', 'Quincenal', 20240034, 4), 
+		(2005, '2024-05-31', 'Mensual', 20240008, 5); 
+
 	INSERT INTO Supervisor VALUES (1, 20230007), (2, 20240004), (3, 20240006), (4, 20240005), (5, 20240009), (6, 20240007), (7, 20240008), (8, 20240010), (9, 20220005), (10, 20230013), (11, 20240016), (12, 20240019), (13, 20240022), (14, 20240023), (15, 20210009), (16, 20240025), (17, 20240026), (18, 20240028), (19, 20240029), (20, 20240030), (21, 20240031), (22, 20240034), (23, 20240037); 
 	INSERT INTO Programa_Capacitador(ID_Programa_C,Fecha_Inicio,Fecha_Fin,Motivo,ID_Departamento) VALUES
 	(1, '2021-01-01', '2021-02-15','Técnicas de Cultivo de Frutas Tropicales',1), 

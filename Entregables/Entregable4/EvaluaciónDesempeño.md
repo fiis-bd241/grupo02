@@ -39,6 +39,8 @@
 
 2. Botón 'Agregar': Agrega una pregunta al cuestionario del tipo elegido.
 
+   		@ID_Cuestionario=Select Id_Cuestionario from Cuestionario where Id_Tipo_Cuestionario=<1>;
+
 		INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) VALUES
 		(CASE 
 			WHEN (Select Id_Tipo_Cuestionario from Cuestionario where Id_Cuestionario=@ID_Cuestionario)=<1> AND (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario WHERE ID_Cuestionario=1) IS NULL THEN 1001 ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
