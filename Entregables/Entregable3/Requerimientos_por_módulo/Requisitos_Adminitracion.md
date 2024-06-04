@@ -76,4 +76,5 @@
 |       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 ### Prototipo
+
 ![.](../Front/Programar_Pago.PNG)
