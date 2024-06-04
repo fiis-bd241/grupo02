@@ -15,3 +15,7 @@
 ## Stack tecnológico
 
 - [Planteamiento de arquitectura](Stack.md)
+
+## CSV Inserts
+
+- [CSV Inserts](CSV_Inserts)
