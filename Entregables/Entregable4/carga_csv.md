@@ -430,7 +430,22 @@
     	FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
     );
     
-    
+    COPY Cargo FROM 'D:\CSV Insets\Cargo.csv' DELIMITER ',' CSV HEADER;
+    COPY Departamento FROM 'D:\CSV Insets\Departamento.csv' DELIMITER ',' CSV HEADER;
+    COPY Empleado FROM 'D:\CSV Insets\Empleados.csv' DELIMITER ',' CSV HEADER;
+    COPY Programa_Capacitador FROM 'D:\CSV Insets\Programa_Capacitador.csv' DELIMITER ',' CSV HEADER;
+    COPY Sesion FROM 'D:\CSV Insets\Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Lista_Matricula FROM 'D:\CSV Insets\Lista_Matricula.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Capacitacion FROM 'D:\CSV Insets\Evaluacion_Capacitacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Empleado_Sesion FROM 'D:\CSV Insets\Empleado_Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Sesion FROM 'D:\CSV Insets\Evaluacion_Sesion.csv' DELIMITER ',' CSV HEADER;
+    COPY Evaluacion_Empleado FROM 'D:\CSV Insets\Evaluacion_Empleado.csv' DELIMITER ',' CSV HEADER;
+    COPY Cuenta_Bancaria FROM 'D:\CSV Insets\Cuenta_Bancaria.csv' DELIMITER ',' CSV HEADER;
+    COPY Sueldo FROM 'D:\CSV Insets\Sueldo.csv' DELIMITER ',' CSV HEADER;
+    COPY Modificacion FROM 'D:\CSV Insets\Modificacion.csv' DELIMITER ',' CSV HEADER;
+    COPY Pago_Total FROM 'D:\CSV Insets\Pago_Total.csv' DELIMITER ',' CSV HEADER;
+    COPY Nomina FROM 'D:\CSV Insets\Nomina.csv' DELIMITER ',' CSV HEADER;
+    COPY Supervisor FROM 'D:\CSV Insets\Supervisor.csv' DELIMITER ',' CSV HEADER;
     
     /*
     COPY Empleado to 'D:\CSV Insets\Empleados.csv' DELIMITER ',' CSV HEADER;
