@@ -536,9 +536,9 @@
 	INSERT INTO Modificacion (ID_Modificacion, Tipo_Modificacion, Monto_Modificacion) VALUES 
 		(1, 'Aumento', 500.00), 
 		(2, 'Bonificación', 200.00), 
-		(3, 'Descuento', 100.00), 
+		(3, 'Descuento', -100.00), 
 		(4, 'Incentivo', 300.00), 
-		(5, 'Comisión', 150.50);
+		(5, 'Comisión', -150.50);
 
 	INSERT INTO Pago_Total (ID_Pago_Total, ID_Sueldo, ID_Modificacion, Monto_Pagar) VALUES 
 		(1, 4, 1, 3700.00), 
