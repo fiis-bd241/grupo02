@@ -29,13 +29,21 @@
 |          12         |          Seguridad e Higiene          |
 |          13         |   Gestión Ambiental y Sostenibilidad  |
 
-## Entidad: Cuestionario
-| **ID_Cuestionario** | **Tipo_Cuestionario** |
+## Entidad: Tipo_Cuestionario
+| **ID_Tipo_Cuestionario** | **Tipo** |
 |:-------------------:|:-----------------------:|
 |          1          |       Subordinados      |
 |          2          |       Supervisores      |
 |          3          |          Jefes          |
 |          4          |         Gerentes        |
+
+## Entidad: Tipo_Respuesta
+| **ID_Tipo_Respuesta** | **Tipo** |
+|:-------------------:|:-----------------------:|
+|          1          |       Muy Negativo      |
+|          2          |       Negativo      |
+|          3          |          Positivo          |
+|          4          |         Muy Positivo        |
 
 ## Entidad: Tipo_Cese
 | **ID_Tipo** | **Nombre_Tipo** |
