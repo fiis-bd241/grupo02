@@ -77,4 +77,4 @@
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 ### Prototipo
 
-![.](../Front/Programar_pago.PNG)
+![.](../Front/Programar_Pago.PNG)
