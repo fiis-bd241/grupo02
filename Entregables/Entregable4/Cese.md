@@ -253,3 +253,8 @@ Luego de llenar las preguntas de su cuestionario seleccionar el boton de SIGUIEN
 			LIMIT 1)+1,
 			RESP , ID_P);
 	
+# Funcionalidad primaria elegida
+
+Elegí al registro de cese de personal como mi actividad primaria ya que tiene más contenido con el cual trabajar que con la operación del empleado de responder el cuestionario de salida.
+
+Usaré el requerimiento R-005 y las especificaciones de cómo va a funcionar se encuentran al inicio de esta página

@@ -55,3 +55,8 @@ El diagrama se vería algo así:
 <br>
 <link rel="stylesheet" type="text/css" href="estilos.css">
 <img src="Relacion.png" width="700" height="200"><br>
+
+## Referencia
+
+Para buscar alternativas del cómo realizar este proyecto nos basamos en el documento:
+[Investigación de referencia](https://dspace.lib.ntua.gr/xmlui/bitstream/handle/123456789/54652/%CE%94%CE%99%CE%A0%CE%9B_%CE%91%CE%92%CE%A1%CE%91%CE%9C%CE%99%CE%94%CE%97%CE%A3_%CE%A8%CE%91%CE%A1%CE%A1%CE%91%CE%A3.pdf?sequence=1)
