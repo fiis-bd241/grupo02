@@ -1,4 +1,6 @@
-# Querys por cada módulo
+# Entregable 4
+
+## Querys por cada módulo
 
 - [Cese de personal](Cese.md)
 - [Registro](Registro.md)
@@ -6,6 +8,10 @@
 - [Reclutamiento y Selección de Personal](Reclutamiento.md)
 - [Evaluación de Desempeño](EvaluaciónDesempeño.md)
 
-# Codigo de POSTGRES copiable
+## Codigo de POSTGRES copiable
 
 - [Codigo Copiable](CodigoCopiable.md)
+
+## Stack tecnológico
+
+- [Planteamiento de arquitectura](Stack.md)
