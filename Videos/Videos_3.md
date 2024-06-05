@@ -18,11 +18,11 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 - **Alumno: Tineo Montalvo, Rodrigo Sebastián**
 
-<a href="https://www.youtube.com/watch?v=2_S_PovnwSU
-  " target="_blank"><img src="http://img.youtube.com/vi/2_S_PovnwSU/0.jpg" 
+<a href="https://www.youtube.com/watch?v=ZvNVBiE4_eY
+  " target="_blank"><img src="http://img.youtube.com/vi/ZvNVBiE4_eY/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-[PPT_Evaluación_De_Desempeño_Entregable 2](Material_Videos/Evaluación_Desempeño_Tineo_Rodrigo_PC2.pdf)
+[Material_Querys_Evaluación_Desempeño](../Material_Videos/Querys_Requerimientos_Evaluación_Desempeño.sql)
 
 ### Registro de asistencias y solicitudes
 
