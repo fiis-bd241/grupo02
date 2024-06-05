@@ -7,6 +7,7 @@
 - [Capacitación](Capacitación.md)
 - [Reclutamiento y Selección de Personal](Reclutamiento.md)
 - [Evaluación de Desempeño](EvaluaciónDesempeño.md)
+- [Nomina](Nomina.md)
 
 ## Codigo de POSTGRES copiable
 

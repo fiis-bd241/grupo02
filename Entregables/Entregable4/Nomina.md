@@ -22,7 +22,54 @@ Elegir la opción de actualizar un dato en la intranet del asistente de RRHH.
 #### Acción 2:
 Seleccionar en DNI/Código de empleado para obtener los datos que le corresponden al empleado.
 
+    SELECT 
+        e.Nombre_Empleado AS nombre,
+        e.Apellido_Empleado AS apellido,
+        d.Nombre_Departamento AS departamento,
+        e.Estado_Civil AS estado_civil,
+        e.Cant_Hijos AS cantidad_de_hijos,
+        e.Direccion AS direccion,
+        c.Nombre AS puesto
+    FROM 
+        Empleado e
+    LEFT JOIN 
+        Departamento d ON e.ID_Departamento = d.ID_Departamento
+    LEFT JOIN 
+        Cargo c ON e.ID_Cargo = c.ID_Cargo
+    WHERE 
+        e.DNI LIKE 'INGRESO%';
 
+Modificar datos del empleado.
+
+    CREATE OR REPLACE PROCEDURE ActualizarDatosEmpleado(
+        p_DNI CHAR(8),
+        p_Nombre_Empleado VARCHAR(32),
+        p_Apellido_Empleado VARCHAR(32),
+        p_Telefono VARCHAR(15),
+        p_Direccion VARCHAR(64),
+        p_Correo VARCHAR(32),
+        p_Estado_Civil VARCHAR(16),
+        p_Cant_Hijos INTEGER,
+        p_ID_Departamento INTEGER,
+        p_ID_Cargo INTEGER
+    )
+    LANGUAGE plpgsql
+    AS $$
+    BEGIN
+        UPDATE Empleado
+        SET 
+            Nombre_Empleado = p_Nombre_Empleado,
+            Apellido_Empleado = p_Apellido_Empleado,
+            Telefono = p_Telefono,
+            Direccion = p_Direccion,
+            Correo = p_Correo,
+            Estado_Civil = p_Estado_Civil,
+            Cant_Hijos = p_Cant_Hijos,
+            ID_Departamento = p_ID_Departamento,
+            ID_Cargo = p_ID_Cargo
+        WHERE DNI = p_DNI;
+    END;
+    $$;
 
 #### Acción 3:
 
