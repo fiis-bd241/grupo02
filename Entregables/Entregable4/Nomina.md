@@ -39,7 +39,8 @@ Seleccionar en DNI/Código de empleado para obtener los datos que le corresponde
     WHERE 
         e.DNI LIKE 'INGRESO%';
 
-Modificar datos del empleado.
+#### Acción 3:
+Botón confirmar para modificar o actualizar datos del empleado.
 
     CREATE OR REPLACE PROCEDURE ActualizarDatosEmpleado(
         p_DNI CHAR(8),
@@ -70,10 +71,6 @@ Modificar datos del empleado.
         WHERE DNI = p_DNI;
     END;
     $$;
-
-#### Acción 3:
-
-
 
 ## 3. Registro y actualización de ajuste salarial de un empleado
 
