@@ -40,7 +40,7 @@ Seleccionar en DNI/Código de empleado para obtener los datos que le corresponde
         e.DNI LIKE 'INGRESO%';
 
 #### Acción 3:
-Botón confirmar para modificar o actualizar datos del empleado.
+Botón 'confirmar' para modificar o actualizar datos del empleado.
 
     CREATE OR REPLACE PROCEDURE ActualizarDatosEmpleado(
         p_DNI CHAR(8),
@@ -79,7 +79,7 @@ Botón confirmar para modificar o actualizar datos del empleado.
 |    Código interfaz   | I-009 |
 |    Imagen interfaz   |    ![N3](../Entregable3/Front/N3.PNG)   |
 
-#### Acción 1:
+#### Acción 4:
 Elegir la opción de modificar el pago de algún empleado en la intranet del asistente de RRHH.
 
     @Id_empleado = (SELECT id_empleado FROM empleado ORDER BY id_empleado DESC LIMIT 1)+1
@@ -91,17 +91,18 @@ Elegir la opción de modificar el pago de algún empleado en la intranet del asi
 |    Código interfaz   | I-010 |
 |    Imagen interfaz   |    ![N4](../Entregable3/Front/N4.PNG)   |
 
-#### Acción 1:
-
-#### Acción 2:
-
-#### Acción 3:
-
-#### Acción 4:
-
 #### Acción 5:
+Insertar las remuneraciones o descuentos en el salario del empleado.
 
-#### Acción 6:
+    INSERT INTO Modificacion (id_modificacion, tipo_modificacion, monto_modificacion, moneda, fecha_emision)
+    VALUES (
+        @Id_modificacion,
+        @Tipo_modificacion,
+        @Monto_modificacion,
+        @Moneda,
+        @Fecha_emision
+    );
+
 
 ## 5. Asignación de concepto a empleados
 
@@ -110,9 +111,9 @@ Elegir la opción de modificar el pago de algún empleado en la intranet del asi
 |    Código interfaz   | I-011 |
 |    Imagen interfaz   |    ![N5](../Entregable3/Front/N5.PNG)   |
 
-#### Acción 1:
+#### Acción 6:
 
-#### Acción 2:
+
 
 ## 6. Programar y gestión de pagos
 
@@ -121,10 +122,4 @@ Elegir la opción de modificar el pago de algún empleado en la intranet del asi
 |    Código interfaz   | I-012 |
 |    Imagen interfaz   |    ![N6](../Entregable3/Front/N6.PNG)   |
 
-#### Acción 1:
-
-#### Acción 2:
-
-#### Acción 3:
-
-#### Acción 4:
+#### Acción 7:
