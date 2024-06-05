@@ -266,17 +266,17 @@
 |            3             | Actualiza los registros de nómina con los cálculos realizados.                                                                                                       |
 |       Postcondición      | La información de nómina se actualiza automáticamente con los datos de asistencia registrados.                                                                      |
 
-## R020 / Caso de uso 20: Registro y Actualización de Beneficios
+## R020 / Caso de uso 20: Registro y Actualización de Ajuste salarial
 
-| **Objetivo** | Permitir a los administradores registrar y actualizar los beneficios ofrecidos a los empleados, así como garantizar la precisión y transparencia en la gestión de esta información. |
+| **Objetivo** | Permitir a los administradores registrar y actualizar los ajustes al salario de los empleados, así garantiza la precisión y transparencia en la gestión de la información. |
 |:------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Descripción | Los administradores pueden ingresar nuevos beneficios ofrecidos por la empresa, como planes de pensiones, vacaciones pagadas y bonificaciones, así como actualizar la información existente cuando sea necesario. Además, se deben registrar los cambios de beneficios para cada empleado de manera individual. |
+|  Descripción | Los administradores pueden ingresar nuevos remuneraciones o descuentos de la empresa, como planes de pensiones, vacaciones pagadas y bonificaciones, así como actualizar la información existente cuando sea necesario. Además, se deben registrar los cambios de remuneraciones y descuentos para cada empleado de manera individual. |
 |     Actor    | Administrador de Recursos Humanos                                                                                                                                            |
 | Precondición | El administrador ha iniciado sesión en el sistema de gestión de beneficios y compensaciones.                                                                                |
 |     Paso     |                                                                                                                                                                             |
-|       1      | El administrador accede al módulo de registro de beneficios y compensaciones.                                                                                               |
-|       2      | Selecciona la opción para ingresar un nuevo beneficio o actualizar uno existente.                                                                                            |
-|       3      | Completa los detalles del beneficio, como nombre, descripción y condiciones de elegibilidad.                                                                                 |
+|       1      | El administrador accede al módulo de registro de ajuste salarial.                                                                                               |
+|       2      | Selecciona la opción para ingresar una nueva remuneración o descuento, o actualizar uno existente.                                                                                            |
+|       3      | Completa los detalles de la asignación salarial, como nombre del concepto, importe, el tipo de moneda y la fecha de emisión.                                                                                 |
 |       4      | Asigna el beneficio a los empleados correspondientes o actualiza la asignación según sea necesario.                                                                          |
 |       5      | Confirma los cambios y guarda la información en el sistema.                                                                                                                  |
 
@@ -284,13 +284,13 @@
 
 | **Objetivo** | Facilitar la programación y gestión de los pagos relacionados con los beneficios y compensaciones de los empleados, garantizando su realización de manera oportuna y eficiente. |
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Descripción | Los administradores pueden programar y gestionar los pagos relacionados con los beneficios y compensaciones de los empleados, como salarios, bonificaciones y planes de pensiones. Además, se deben establecer alertas y recordatorios automáticos para garantizar que los pagos se realicen dentro de los plazos establecidos. |
+|  Descripción | Los administradores pueden programar y gestionar los pagos relacionados con las remuneraciones y descuentos de los empleados, como salarios, bonificaciones y planes de pensiones. Además, se deben establecer alertas y recordatorios automáticos para garantizar que los pagos se realicen dentro de los plazos establecidos. |
 |     Actor    | Administrador de Recursos Humanos                                                                                                                                          |
 | Precondición | El administrador ha iniciado sesión en el sistema de gestión de beneficios y compensaciones.                                                                              |
 |     Paso     |                                                                                                                                                                           |
 |       1      | El administrador accede al módulo de programación y gestión de pagos.                                                                                                      |
 |       2      | Selecciona la opción para programar un nuevo pago o gestionar uno existente.                                                                                                |
-|       3      | Ingresa los detalles del pago, incluyendo el monto, la fecha de pago y los beneficiarios.                                                                                  |
+|       3      | Ingresa los detalles del pago, incluyendo el monto, el período de pago, el tipo de moneda y los beneficiarios.                                                                                  |
 |       4      | Establece alertas y recordatorios automáticos para garantizar la realización del pago dentro del plazo establecido.                                                          |
 |       5      | Confirma la programación o gestión del pago y guarda la información en el sistema.                                                                                         |
 
