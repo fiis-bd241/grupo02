@@ -87,5 +87,15 @@
 ## I-029
 ![](SolicitudFalta.png)
 
+## I-030
+![](LlenadoDatos.jpg)
 
+## I-032
+![](GenerarVacante.jpg)
+
+## I-033
+![](ProgramarEntrevista.jpg)
+
+## I-034
+![](ResultadoEntrevista.jpg)
 [def]: C5.png

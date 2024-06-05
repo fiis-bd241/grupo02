@@ -411,7 +411,6 @@
 		ID_Solicitud VARCHAR(8) PRIMARY KEY,
 		ID_Vacante VARCHAR(8) NOT NULL,
 		Est_Solicitud VARCHAR(50) NOT NULL,
-		Vacante_Aplicada VARCHAR(255) NOT NULL,
 		Horario_Disponible VARCHAR(255) NOT NULL,
 		Fecha_Aplicacion DATE NOT NULL,
 		ID_Cand INTEGER NOT NULL,
@@ -811,28 +810,28 @@
 	(20, 'Negociación', 'No cumple con perfil solicitado', 45, 'Rechazado');
 	INSERT INTO Perfil (ID_Perfil, Conocimiento_Req, Años_Exp, Titulo_Requerido) VALUES  (1, 'Experiencia en producción', 5, 'Licenciatura en Ingeniería Industrial'), (2, 'Manejo de inventarios', 3, 'Técnico en Logística'), (3, 'Control de calidad', 4, 'Ingeniero en Alimentos'), (4, 'Supervisión de personal', 2, 'Diplomado en Gestión de Equipos'), (5, 'Procesamiento de frutas', 3, 'Técnico en Procesamiento de Alimentos'), (6, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'), (7, 'Manejo de inventarios', 2, 'Técnico en Logística'), (8, 'Marketing digital', 3, 'Licenciatura en Marketing'), (9, 'Contabilidad financiera', 4, 'Licenciatura en Contaduría Pública'), (10, 'Gestión de personal', 3, 'Licenciatura en Recursos Humanos'), (11, 'Mantenimiento de equipos', 5, 'Ingeniero Mecánico'), (12, 'Normativas de seguridad', 4, 'Diplomado en Seguridad Industrial'), (13, 'Gestión ambiental', 3, 'Ingeniero Ambiental'), (14, 'Producción de frutas', 5, 'Ingeniero Agrónomo'), (15, 'Recepción y almacenamiento', 2, 'Técnico en Almacenamiento'), (16, 'Control de calidad', 3, 'Técnico en Control de Calidad'), (17, 'Producción de mermelada', 4, 'Ingeniero en Alimentos'), (18, 'Producción de frutas confitadas', 3, 'Técnico en Procesamiento de Alimentos'), (19, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'), (20, 'Logística y distribución', 4, 'Licenciatura en Logística');
 	INSERT INTO Vacante (ID_Vac, ID_Departamento, ID_Cargo, ID_Perfil, Ubicacion, Beneficio, Salario, Horario) VALUES ('00200001', 1, 1, 1, 'Ciudad A', 'Seguro de vida', 2500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200002', 2, 2, 2, 'Ciudad B', 'Bonos de productividad', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200003', 3, 3, 3, 'Ciudad C', 'Transporte subsidiado', 2000.00, 'Lunes a Viernes de 7am a 4pm'), ('00200004', 4, 4, 4, 'Ciudad D', 'Comida subsidiada', 3500.00, 'Lunes a Viernes de 10am a 7pm'), ('00200005', 5, 5, 5, 'Ciudad E', 'Seguro médico', 4000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200006', 6, 6, 6, 'Ciudad F', 'Gimnasio en la empresa', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200007', 7, 7, 7, 'Ciudad G', 'Días libres adicionales', 2000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200008', 8, 8, 8, 'Ciudad H', 'Teletrabajo', 4500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200009', 9, 1, 9, 'Ciudad I', 'Bonos por resultados', 3000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200010', 10, 2, 10, 'Ciudad J', 'Oportunidades de crecimiento', 2500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200011', 11, 3, 11, 'Ciudad K', 'Estacionamiento gratuito', 3500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200012', 12, 4, 12, 'Ciudad L', 'Comedor en la empresa', 2000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200013', 13, 5, 13, 'Ciudad M', 'Seguro dental', 4000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200014', 1, 6, 1, 'Ciudad N', 'Asistencia médica', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200015', 2, 7, 2, 'Ciudad O', 'Horario flexible', 2000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200016', 3, 8, 3, 'Ciudad P', 'Reembolso de educación', 3500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200017', 4, 1, 4, 'Ciudad Q', 'Bono de cumpleaños', 2500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200018', 5, 2, 5, 'Ciudad R', 'Descuentos en productos', 4000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200019', 6, 3, 6, 'Ciudad S', 'Vacaciones adicionales', 3000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200020', 7, 4, 7, 'Ciudad T', 'Programas de bienestar', 2000.00, 'Lunes a Viernes de 9am a 6pm');
-	INSERT INTO Solicitud_Empleo (ID_solicitud, ID_Vacante, Est_solicitud, Vacante_aplicada, Horario_disponible, Fecha_aplicacion, ID_cand) 
+	INSERT INTO Solicitud_Empleo (ID_solicitud, ID_Vacante, Est_solicitud, Horario_disponible, Fecha_aplicacion, ID_cand) 
 	VALUES 
-	('00240001', '00200001', 'En proceso', 'Gerente de Producción', 'Lunes a Viernes de 8am a 5pm', '2024-04-20', 101),
-	('00240002', '00200002', 'En revisión', 'Jefe de Recepción', 'Lunes a Viernes de 9am a 6pm', '2024-04-21', 102),
-	('00240003', '00200003', 'Pendiente', 'Especialista de Control de Calidad', 'Lunes a Viernes de 7am a 4pm', '2024-04-22', 103),
-	('00240004', '00200004', 'Pendiente', 'Supervisor de Producción de Mermelada', 'Lunes a Viernes de 10am a 7pm', '2024-04-23', 104),
-	('00240005', '00200005', 'Pendiente', 'Técnico de Producción de Fruta Confitada', 'Lunes a Viernes de 8am a 5pm', '2024-04-24', 105),
-	('00240006', '00200006', 'Pendiente', 'Profesional de Investigación y Desarrollo', 'Lunes a Viernes de 9am a 6pm', '2024-04-25', 106),
-	('00240007', '00200007', 'Pendiente', 'Asistente de Logística y Distribución', 'Lunes a Viernes de 8am a 5pm', '2024-04-26', 107),
-	('00240008', '00200008', 'Pendiente', 'Operario de Marketing y Ventas', 'Lunes a Viernes de 9am a 6pm', '2024-04-27', 108),
-	('00240009', '00200009', 'Pendiente', 'Gerente de Finanzas y Contabilidad', 'Lunes a Viernes de 8am a 5pm', '2024-04-28', 109),
-	('00240010', '00200010', 'Pendiente', 'Jefe de Recursos Humanos', 'Lunes a Viernes de 9am a 6pm', '2024-04-29', 110),
-	('00240011', '00200011', 'Pendiente', 'Especialista de Mantenimiento y Reparación de Equipos', 'Lunes a Viernes de 8am a 5pm', '2024-04-30', 111),
-	('00240012', '00200012', 'Pendiente', 'Supervisor de Seguridad e Higiene', 'Lunes a Viernes de 9am a 6pm', '2024-05-01', 112),
-	('00240013', '00200013', 'Pendiente', 'Técnico de Gestión Ambiental y Sostenibilidad', 'Lunes a Viernes de 8am a 5pm', '2024-05-02', 113),
-	('00240014', '00200014', 'Pendiente', 'Profesional de Producción de Fruta Fresca', 'Lunes a Viernes de 9am a 6pm', '2024-05-03', 114),
-	('00240015', '00200015', 'Pendiente', 'Asistente de Recepción y Almacenamiento de Fruta', 'Lunes a Viernes de 8am a 5pm', '2024-05-04', 115),
-	('00240016', '00200016', 'Pendiente', 'Operario de Control de Calidad', 'Lunes a Viernes de 9am a 6pm', '2024-05-05', 116),
-	('00240017', '00200017', 'Pendiente', 'Gerente de Producción de Mermelada', 'Lunes a Viernes de 8am a 5pm', '2024-05-06', 117),
-	('00240018', '00200018', 'Pendiente', 'Jefe de Producción de Fruta Confitada', 'Lunes a Viernes de 9am a 6pm', '2024-05-07', 118),
-	('00240019', '00200019', 'Pendiente', 'Especialista de Investigación y Desarrollo', 'Lunes a Viernes de 8am a 5pm', '2024-05-08', 119),
-	('00240020', '00200020', 'Pendiente', 'Supervisor de Logística y Distribución', 'Lunes a Viernes de 9am a 6pm', '2024-05-09', 120);
+    ('00240001', '00200001', 'En proceso', 'Lunes a Viernes de 8am a 5pm', '2024-04-20', 101),
+    ('00240002', '00200002', 'En revisión', 'Lunes a Viernes de 9am a 6pm', '2024-04-21', 102),
+    ('00240003', '00200003', 'Pendiente', 'Lunes a Viernes de 7am a 4pm', '2024-04-22', 103),
+    ('00240004', '00200004', 'Pendiente', 'Lunes a Viernes de 10am a 7pm', '2024-04-23', 104),
+    ('00240005', '00200005', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-04-24', 105),
+    ('00240006', '00200006', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-04-25', 106),
+    ('00240007', '00200007', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-04-26', 107),
+    ('00240008', '00200008', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-04-27', 108),
+    ('00240009', '00200009', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-04-28', 109),
+    ('00240010', '00200010', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-04-29', 110),
+    ('00240011', '00200011', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-04-30', 111),
+    ('00240012', '00200012', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-05-01', 112),
+    ('00240013', '00200013', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-05-02', 113),
+    ('00240014', '00200014', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-05-03', 114),
+    ('00240015', '00200015', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-05-04', 115),
+    ('00240016', '00200016', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-05-05', 116),
+    ('00240017', '00200017', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-05-06', 117),
+    ('00240018', '00200018', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-05-07', 118),
+    ('00240019', '00200019', 'Pendiente', 'Lunes a Viernes de 8am a 5pm', '2024-05-08', 119),
+    ('00240020', '00200020', 'Pendiente', 'Lunes a Viernes de 9am a 6pm', '2024-05-09', 120);
 
 	INSERT INTO Entrevista (ID_Entrevista, Fecha_Eva, Hora_entrevista, ID_Solicitud, ID_Evaluacion, ID_Empleado) 
 	VALUES 

@@ -388,7 +388,6 @@
     	ID_Solicitud VARCHAR(8) PRIMARY KEY,
     	ID_Vacante VARCHAR(8) NOT NULL,
     	Est_Solicitud VARCHAR(50) NOT NULL,
-    	Vacante_Aplicada VARCHAR(255) NOT NULL,
     	Horario_Disponible VARCHAR(255) NOT NULL,
     	Fecha_Aplicacion DATE NOT NULL,
     	ID_Cand INTEGER NOT NULL,
