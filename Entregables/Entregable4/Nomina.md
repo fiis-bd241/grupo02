@@ -112,7 +112,29 @@ Insertar las remuneraciones o descuentos en el salario del empleado.
 |    Imagen interfaz   |    ![N5](../Entregable3/Front/N5.PNG)   |
 
 #### Acción 6:
+Aplicación de las asignaciones de acuerdo a concepto en los empleados.
 
+    SELECT 
+        e.Nombre_Empleado AS nombre,
+        e.Apellido_Empleado AS apellido,
+        e.DNI,
+        c.Nombre AS rol,
+        d.Nombre_Departamento AS departamento,
+        s.Monto_Salario_Bruto AS monto_salario_bruto
+    FROM 
+        Empleado e
+    LEFT JOIN 
+        Departamento d ON e.ID_Departamento = d.ID_Departamento
+    LEFT JOIN 
+        Cargo c ON e.ID_Cargo = c.ID_Cargo
+    LEFT JOIN
+        Sueldo s ON e.ID_Empleado = s.ID_Empleado
+    LEFT JOIN
+        Pago_Total pt ON s.ID_Sueldo = pt.ID_Sueldo
+    LEFT JOIN
+        Modificacion m ON pt.ID_Modificacion = m.ID_Modificacion
+    WHERE 
+        m.Tipo_Modificacion LIKE '%Tipo de Modificación%';
 
 
 ## 6. Programar y gestión de pagos
