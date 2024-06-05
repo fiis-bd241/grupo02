@@ -8,7 +8,7 @@
 |    Imagen interfaz   |    ![N1](../Entregable3/Front/N1.PNG)   |
 
 #### Acción 1:
-Elegir la opción de actualizar un dato en la intranet del asistente de RRHH.
+Botón 'Actualizar un dato': El asistente de RRHH. actualizará un dato del empleado.
 
     @Id_empleado = (SELECT id_empleado FROM empleado ORDER BY id_empleado DESC LIMIT 1)+1
 
@@ -20,7 +20,7 @@ Elegir la opción de actualizar un dato en la intranet del asistente de RRHH.
 |    Imagen interfaz   |    ![N2](../Entregable3/Front/N2.PNG)   |
 
 #### Acción 2:
-Seleccionar en DNI/Código de empleado para obtener los datos que le corresponden al empleado.
+Carga de página: Se llenará la lista de datos del empleado.
 
     SELECT 
         e.Nombre_Empleado AS nombre,
@@ -37,27 +37,12 @@ Seleccionar en DNI/Código de empleado para obtener los datos que le corresponde
     LEFT JOIN 
         Cargo c ON e.ID_Cargo = c.ID_Cargo
     WHERE 
-        e.DNI LIKE 'INGRESO%';
+        e.DNI LIKE <1>;
 
 #### Acción 3:
-Botón 'confirmar' para modificar o actualizar datos del empleado.
+Botón 'Confirmar': para insertar las modificaciones de datos del empleado.
 
-    CREATE OR REPLACE PROCEDURE ActualizarDatosEmpleado(
-        p_DNI CHAR(8),
-        p_Nombre_Empleado VARCHAR(32),
-        p_Apellido_Empleado VARCHAR(32),
-        p_Telefono VARCHAR(15),
-        p_Direccion VARCHAR(64),
-        p_Correo VARCHAR(32),
-        p_Estado_Civil VARCHAR(16),
-        p_Cant_Hijos INTEGER,
-        p_ID_Departamento INTEGER,
-        p_ID_Cargo INTEGER
-    )
-    LANGUAGE plpgsql
-    AS $$
-    BEGIN
-        UPDATE Empleado
+    UPDATE Empleado
         SET 
             Nombre_Empleado = p_Nombre_Empleado,
             Apellido_Empleado = p_Apellido_Empleado,
@@ -68,9 +53,7 @@ Botón 'confirmar' para modificar o actualizar datos del empleado.
             Cant_Hijos = p_Cant_Hijos,
             ID_Departamento = p_ID_Departamento,
             ID_Cargo = p_ID_Cargo
-        WHERE DNI = p_DNI;
-    END;
-    $$;
+        WHERE DNI = <2>;
 
 ## 3. Registro y actualización de ajuste salarial de un empleado
 
@@ -80,7 +63,7 @@ Botón 'confirmar' para modificar o actualizar datos del empleado.
 |    Imagen interfaz   |    ![N3](../Entregable3/Front/N3.PNG)   |
 
 #### Acción 4:
-Elegir la opción de modificar el pago de algún empleado en la intranet del asistente de RRHH.
+Botón 'Modificar el pago de algún empleado': El asistente de RRHH. actualizará las asignaciones salariasles que pueda presentar un empleado.
 
     @Id_empleado = (SELECT id_empleado FROM empleado ORDER BY id_empleado DESC LIMIT 1)+1
 
@@ -92,7 +75,7 @@ Elegir la opción de modificar el pago de algún empleado en la intranet del asi
 |    Imagen interfaz   |    ![N4](../Entregable3/Front/N4.PNG)   |
 
 #### Acción 5:
-Insertar las remuneraciones o descuentos en el salario del empleado.
+Botón 'Confirmar': para insertar las asignaciones salariales del empleado.
 
     INSERT INTO Modificacion (id_modificacion, tipo_modificacion, monto_modificacion, moneda, fecha_emision)
     VALUES (
@@ -112,7 +95,7 @@ Insertar las remuneraciones o descuentos en el salario del empleado.
 |    Imagen interfaz   |    ![N5](../Entregable3/Front/N5.PNG)   |
 
 #### Acción 6:
-Aplicación de las asignaciones de acuerdo a concepto en los empleados.
+Botón 'Confirmar': para aplicar la asignar de acuerdo a concepto en los empleados.
 
     SELECT 
         e.Nombre_Empleado AS nombre,
@@ -145,3 +128,12 @@ Aplicación de las asignaciones de acuerdo a concepto en los empleados.
 |    Imagen interfaz   |    ![N6](../Entregable3/Front/N6.PNG)   |
 
 #### Acción 7:
+Botón 'Confirmar': se agregará un registro del pago asignado al empleado.
+
+    INSERT INTO Pago_Total (ID_Pago_Total, Monto_Pagar, Periodo_Pago, Moneda)
+    VALUES (
+        @Id_pago_total,
+        @Monto_pagar,
+        @Periodo_pago,
+        @Moneda
+    );
