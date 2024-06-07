@@ -39,7 +39,7 @@ El empleado con id @emp ya identificó su código de empleado, ya redactó el mo
 
 Si el empleado le da al botón 'CONFIRMAR':
 
-	IF (SELECT id_licencia FROM licencia ORDER BY id_licencia DESC LIMIT 1)+1 = @Id_Licencia ( 
+        (SELECT id_licencia FROM licencia ORDER BY id_licencia DESC LIMIT 1)+1 = @Id_Licencia ( 
 		INSERT INTO licencia (id_licencia, tipo, estado, fecha_inicio, fecha_fin, id_empleado, id_supervisor)
 		VALUES (
 				(SELECT id_licencia FROM licencia ORDER BY id_licencia DESC LIMIT 1)+1,
@@ -50,14 +50,13 @@ Si el empleado le da al botón 'CONFIRMAR':
 				(SELECT id_empleado FROM empleado WHERE CODIGO = @CODIGO)
 			);
 	)
-	ELSE (
 		UPDATE Licencia
 		SET 	tipo = @Tipo,
 				fecha_inicio = @Fecha_I,
                 fecha_fin = @Fecha_F,
 				id_empleado = (SELECT id_empleado FROM empleado WHERE CODIGO = @CODIGO)
 		WHERE id_licencia=@Id_licencia
-	);
+
 
 ## R-017 / Caso de Uso 17: Aprobación de solicitudes de ausencia
 
