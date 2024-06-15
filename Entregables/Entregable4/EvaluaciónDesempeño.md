@@ -16,11 +16,11 @@
 
 2. Botón 'Crear': Se creará un cuestionario de cierto tipo para la evaluación de desempeño.
 	
-		INSERT INTO Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
+		INSERT INTO Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,ID_Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,ID_Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
 		(CASE 
 	        WHEN (SELECT MAX(ID_Cuestionario) FROM Cuestionario) IS NULL THEN 1
 	        ELSE (SELECT MAX(ID_Cuestionario) FROM Cuestionario) + 1
-	    END, <1>,<2>,CURRENT_DATE,CURRENT_TIME(0),'No enviado',NULL,NULL,20200001,NULL,NULL,NULL);
+	    END, <1>,<2>,CURRENT_DATE,CURRENT_TIME(0),2,NULL,NULL,20200001,2,NULL,NULL);
 
 3. Botón 'Editar': Redirecciona a la página para editar el cuestionario.
 
@@ -39,19 +39,11 @@
 
 2. Botón 'Agregar': Agrega una pregunta al cuestionario del tipo elegido.
 
-		DO $$
-		DECLARE
-			vID_Cuestionario INTEGER;
-		BEGIN
-			vID_Cuestionario=(Select Id_Cuestionario from Cuestionario where Id_Tipo_Cuestionario=<1>);
-			
-			INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) VALUES
-			(CASE 
-				WHEN (Select Id_Tipo_Cuestionario from Cuestionario where Id_Cuestionario=vID_Cuestionario)=1 AND (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario 
-				WHERE ID_Cuestionario=vID_Cuestionario) IS NULL THEN 1 
-			 	ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
-				END, vID_Cuestionario,<2>);
-		END $$;	
+		INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) VALUES
+		(CASE 
+			WHEN (SELECT MAX(ID_Pregunta) FROM Pregunta_Cuestionario) IS NULL THEN 1 
+		 	ELSE (SELECT (MAX(ID_Pregunta)) FROM Pregunta_Cuestionario) + 1
+			END, <1>,<2>);
 
 3. Mostrar cuestionario actual: Se mostrará preguntas del cuestionario actual de algún tipo:
 
@@ -70,15 +62,17 @@
 
 5. Estado de envío: Se muestra el estado de envío del cuestionario.
 	
-		Select Estado_Envio from Cuestionario where Id_Tipo_Cuestionario=<2>;
+		Select TE.Tipo as Estado_Envio from Cuestionario CU inner join Tipo_Estado TE 
+		on CU.Id_Estado_Envio=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
 
 6. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
 
-		Select Estado_Aprobacion from Cuestionario where Id_Tipo_Cuestionario=<2>;
+		Select TE.Tipo as Estado_Aprobación from Cuestionario CU inner join Tipo_Estado TE 
+		on CU.Id_Estado_Aprobacion=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
 
 7. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
 
-		Update Cuestionario set Estado_Envio='Enviado', Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
+		Update Cuestionario set ID_Estado_Envio='Enviado', Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
 
 ## 3. APROBAR CUESTIONARIO
@@ -103,11 +97,12 @@
 
 3. Mostrar estado de envío: Se muestra el estado de envío del cuestionario.
 
-	   Select Estado_Envio from Cuestionario where Id_Tipo_Cuestionario=<1>;
+		Select TE.Tipo as Estado_Envio from Cuestionario CU inner join Tipo_Estado TE 
+		on CU.Id_Estado_Envio=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
 
 4. Botón 'Enviar Estado de Aprobación': Se actualiza el estado de aprobación del cuestionario.
 
-	   Update Cuestionario set Estado_Aprobacion=<3>,Fecha_Revision=Current_Date,Hora_Revision=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
+	   Update Cuestionario set ID_Estado_Aprobacion=<3>,Fecha_Revision=Current_Date,Hora_Revision=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
 
 ## 4. RESPONDER CUESTIONARIO
@@ -278,7 +273,7 @@
 #### Eventos
 1. Botón 'Programar': Se programa una reunión.
    
-	    INSERT INTO Reunion (ID_Reunion, ID_Empleado, Asunto_Reunion, Fecha_Reunion, Hora_Reunion) 
+	    INSERT INTO Reunion (ID_Reunion, ID_Organizador, Asunto_Reunion, Fecha_Reunion, Hora_Reunion) 
 	    VALUES (
 	        CASE 
 	            WHEN (SELECT MAX(ID_Reunion) FROM Reunion) IS NULL THEN 1 
