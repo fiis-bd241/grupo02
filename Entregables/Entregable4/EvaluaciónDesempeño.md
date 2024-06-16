@@ -54,23 +54,19 @@
 
 4. Eliminar Pregunta: Se Eliminirá una pregunta dependiendo del tipo de cuestionario.
 
-		DELETE FROM Pregunta_Cuestionario
-		WHERE ID_Cuestionario IN (
-		SELECT Cu.ID_Cuestionario
-		FROM Cuestionario Cu
-		WHERE Cu.ID_Tipo_Cuestionario =<1>) AND ID_Pregunta = <4>;
+		DELETE FROM Pregunta_Cuestionario WHERE ID_Pregunta = <4>;
 
-5. Estado de envío: Se muestra el estado de envío del cuestionario.
+6. Estado de envío: Se muestra el estado de envío del cuestionario.
 	
 		Select TE.Tipo as Estado_Envio from Cuestionario CU inner join Tipo_Estado TE 
 		on CU.Id_Estado_Envio=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
 
-6. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
+7. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
 
 		Select TE.Tipo as Estado_Aprobación from Cuestionario CU inner join Tipo_Estado TE 
 		on CU.Id_Estado_Aprobacion=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
 
-7. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
+8. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
 
 		Update Cuestionario set ID_Estado_Envio='Enviado', Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
 
