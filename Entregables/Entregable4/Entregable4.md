@@ -5,7 +5,7 @@
 - [Cese de personal](Cese.md)
 - [Registro](Registro.md)
 - [Capacitación](Capacitación.md)
-- [Reclutamiento y Selección de Personal](Reclutamiento.md)
+- [Reclutamiento y Selección de Personal](Reclutamiendo.md)
 - [Evaluación de Desempeño](EvaluaciónDesempeño.md)
 - [Nomina](Nomina.md)
 
