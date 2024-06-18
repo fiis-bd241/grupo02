@@ -46,9 +46,10 @@ Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesi
 
 
 ## Muestra de Capacitaciones:
+	
 	SELECT 
-	    d.Nombre_Departamento, 
-	    p.ID_Departamento, 
+	    p.id_programa_c,
+		d.Nombre_Departamento,     
 	    COUNT(DISTINCT s.ID_Sesion) AS Numero_Sesiones, 
 	    p.Fecha_Inicio AS Fecha_Programa, 
 	    COUNT(DISTINCT lm.ID_Empleado) AS Total_Empleados, 
@@ -62,14 +63,12 @@ Los valores de la ID de la Sesion son autoincrementables, y el estado de la Sesi
 	LEFT JOIN 
 	    Lista_Matricula lm ON p.ID_Programa_C = lm.ID_Programa_C
 	GROUP BY 
-	    d.Nombre_Departamento, 
-	    p.ID_Departamento, 
+		p.id_programa_c,
+	    d.Nombre_Departamento,  
 	    p.Fecha_Inicio, 
 	    p.Motivo
-	ORDER BY 
-	    d.Nombre_Departamento, 
-	    p.ID_Departamento, 
-	    p.Fecha_Inicio;
+	ORDER BY  
+	    p.id_programa_c;
  
 ![image](https://github.com/fiis-bd241/grupo02/assets/164259064/18dc8a6a-d283-465b-a1e8-7f1f1e64046f)
 
