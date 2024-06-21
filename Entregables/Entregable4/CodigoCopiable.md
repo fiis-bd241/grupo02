@@ -856,4 +856,8 @@
 	(19, '2024-05-08', '18:00', '00240019', 19, 20240015), 
 	(20, '2024-05-09', '18:30', '00240020', 20, 20240013);
 	ALTER TABLE empleado ADD COLUMN contrasena CHAR(16) DEFAULT '123';
+ 	ALTER TABLE cuestionario_salida DROP COLUMN fecha_cuestionario;
+  	UPDATE cese
+	SET tipo_cese = 'J'
+	WHERE tipo_cese = 'P';
 
