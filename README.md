@@ -9,6 +9,7 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 - [Entregable 2](Entregables/Entregable2/Entregable2.md)
 - [Entregable 3](Entregables/Entregable3/Entregable3.md)
 - [Entregable 4](Entregables/Entregable4/Entregable4.md)
+- [Entregable 5](Entregables/Entregable5/Entregable5.md)
 
 3. [Glosario de Términos](Glosario.md)
 
