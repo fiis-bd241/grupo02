@@ -65,3 +65,86 @@ if __name__ == '__main__':
 ## Demostración
 
 ![batch](batch.png)
+
+# Creacion automatica de sesiones si el existen sesiones con esado 'Pendiente'
+
+Se preve que este proceso se pueda ejecutar dirariamente revisando si existen sesiones que aun tienen estados pendientes
+
+    CREATE OR REPLACE FUNCTION insert_into_dynamic_tables()
+    RETURNS VOID AS $$
+    DECLARE
+        session_id INTEGER;
+    BEGIN
+        FOR session_id IN
+            SELECT id_sesion
+            FROM Sesion
+            WHERE Estado = 'Pendiente'
+              AND id_sesion NOT IN (SELECT id_sesion FROM Empleado_Sesion)
+        LOOP
+            INSERT INTO Empleado_Sesion (id_sesion, id_empleado, asistencia)
+            SELECT lm.id_programa_c, lm.id_empleado, 'Pendiente'
+            FROM Lista_Matricula lm
+            WHERE lm.id_programa_c IN (
+                SELECT pc.id_programa_c
+                FROM Programa_Capacitador pc
+                WHERE pc.id_programa_c IN (
+                    SELECT s.id_programa_c
+                    FROM Sesion s
+                    WHERE s.id_sesion = session_id
+                )
+            ) AND lm.id_empleado NOT IN (
+                SELECT es.id_empleado
+                FROM Empleado_Sesion es
+                WHERE es.id_sesion = session_id
+            );
+    
+            INSERT INTO Evaluacion_Sesion (ID_Evaluacion, ID_Sesion, Resultado)
+            SELECT ec.id_evaluacion, s.id_sesion, 'Pendiente'
+            FROM Evaluacion_Capacitacion ec
+            CROSS JOIN Sesion s
+            WHERE s.id_sesion = session_id
+            AND ec.id_evaluacion NOT IN (
+                SELECT es.ID_Evaluacion
+                FROM Evaluacion_Sesion es
+                WHERE es.ID_Sesion = session_id
+            );
+    
+
+            INSERT INTO Evaluacion_Empleado (ID_Evaluacion, ID_Empleado, Resultado)
+            SELECT ec.id_evaluacion, lm.id_empleado, 'Pendiente'
+            FROM Evaluacion_Capacitacion ec
+            JOIN Lista_Matricula lm ON ec.id_evaluacion = lm.id_programa_c
+            WHERE ec.id_evaluacion IN (
+                SELECT ec.id_evaluacion
+                FROM Evaluacion_Capacitacion ec
+                JOIN Sesion s ON ec.id_evaluacion = s.id_programa_c
+                WHERE s.id_sesion = session_id
+            ) AND lm.id_empleado NOT IN (
+                SELECT ee.ID_Empleado
+                FROM Evaluacion_Empleado ee
+                WHERE ee.ID_Evaluacion = ec.id_evaluacion
+            );
+    
+        END LOOP;
+    
+    
+    END;
+    $$ LANGUAGE plpgsql;
+
+### Explicación:
+Condición en la columna Estado:
+
+Se agregó WHERE Estado = 'Pendiente' a la consulta seleccionando id_sesion de Sesion. Esto asegura que la función procese sesiones solo cuando su estado sea 'Pendiente'.
+Recorriendo sesiones:
+
+La función itera sobre sesiones (session_id) que tienen un estado de 'Pendiente'.
+Comprueba si el ID de la sesión no existe ya en Empleado_Sesion, asegurando que cada sesión se procese solo una vez.
+Insertar declaraciones:
+
+Las inserciones en Empleado_Sesion, Evaluacion_Sesion y Evaluacion_Empleado se ejecutan solo para sesiones que cumplen con la condición de estado 'Pendiente'.
+Tipo de devolución:
+
+La función aún devuelve VOID, lo que indica que realiza acciones basadas en la condición del estado sin devolver ningún valor específico.
+### Uso:
+Llame a insert_into_dynamic_tables() después de insertar nuevos datos en Sesion, Lista_Matricula y potencialmente Evaluacion_Capacitacion, asegurando que solo las sesiones con estado 'Pendiente' activen actualizaciones en tablas relacionadas (Empleado_Sesion, Evaluacion_Sesion, Evaluacion_Empleado).
+Este enfoque garantiza que su función funcione de manera eficiente al centrarse solo en sesiones relevantes según su estado, manteniendo la coherencia e integridad de los datos en su base de datos. Ajuste la función y las consultas según el esquema y los requisitos específicos de su base de datos.
