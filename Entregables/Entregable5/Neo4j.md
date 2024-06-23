@@ -46,8 +46,8 @@
            (e9:Empleado {ID_Empleado: 20210008, Nombre_Empleado: 'Diana', Apellido_Empleado: 'Vargas', Telefono: '912345685', Direccion: 'Avenida Los Cerezos 234, Iquitos', Correo: 'diana.vargas@gmail.com', Fecha_Nacimiento: date('1993-06-28'), Cant_Hijos: 0, Estado_Civil: 'Soltero', DNI: '89012345', Fecha_Ingreso: date('2021-01-08')});
 
 // Create Empleado nodes (tercer batch)
-CREATE
-     
+
+    CREATE    
       (e10:Empleado {ID_Empleado: 20210009, 
                      Nombre_Empleado: 'Roberto', 
                      Apellido_Empleado: 'Paredes', 
