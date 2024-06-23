@@ -214,7 +214,7 @@
     CREATE (e1)-[:PERTENECE_A]->(d1),
            (e1)-[:OCUPA {roles: ['Gerente']}]->(c1);
     
-    CREATE (e2)-[:PERTENECE_A]->(d2)
+    CREATE (e2)-[:PERTENECE_A]->(d2),
            (e2)-[:OCUPA {roles: ['Analista']}]->(c2);
     
     CREATE (e3)-[:PERTENECE_A]->(d3),
