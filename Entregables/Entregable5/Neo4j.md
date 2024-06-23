@@ -45,7 +45,18 @@
            (e8:Empleado {ID_Empleado: 20210007, Nombre_Empleado: 'Carlos', Apellido_Empleado: 'Ramírez', Telefono: '912345684', Direccion: 'Jirón Los Laureles 901, Huancayo', Correo: 'carlos.ramirez@gmail.com', Fecha_Nacimiento: date('1987-03-12'), Cant_Hijos: 1, Estado_Civil: 'Soltero', DNI: '78901234', Fecha_Ingreso: date('2021-01-07')}),
            (e9:Empleado {ID_Empleado: 20210008, Nombre_Empleado: 'Diana', Apellido_Empleado: 'Vargas', Telefono: '912345685', Direccion: 'Avenida Los Cerezos 234, Iquitos', Correo: 'diana.vargas@gmail.com', Fecha_Nacimiento: date('1993-06-28'), Cant_Hijos: 0, Estado_Civil: 'Soltero', DNI: '89012345', Fecha_Ingreso: date('2021-01-08')});
 
-## Relaciones (Mach)
+## Relaciones
+
+    CREATE (e1:Empleado {ID_Empleado: 20200001})-[:PERTENECE_A]->(d1:Departamento {ID_Departamento: 1}),
+           (e1)-[:OCUPA {roles: ['Gerente']}]->(c1:Cargo {ID_Cargo: 1});
+    
+    CREATE (e2:Empleado {ID_Empleado: 20210001})-[:PERTENECE_A]->(d2:Departamento {ID_Departamento: 2}),
+           (e2)-[:OCUPA {roles: ['Analista']}]->(c2:Cargo {ID_Cargo: 4});
+    
+    CREATE (e3:Empleado {ID_Empleado: 20210002})-[:PERTENECE_A]->(d3:Departamento {ID_Departamento: 3}),
+           (e3)-[:OCUPA {roles: ['Desarrollador']}]->(c3:Cargo {ID_Cargo: 7});
+
+## Mach
 
 ### Relacion Empleado 'Pertenece a' Departamento:
 
