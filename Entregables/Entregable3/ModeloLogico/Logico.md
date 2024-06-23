@@ -312,7 +312,7 @@
 |       PROCESA       | Especialista_Reclutamiento |           Vacante          |        1:N       |                            -                            |          NO          |             ID_Esp+ID_Vacante             |
 |       SOLICITA      |        Departamento        |           Vacante          |        1:N       |                            -                            |          NO          |         ID_Departamento+ID_Vacante        |
 |        SIGUE        |           Sesión           |    Programa_Capacitador    |        N:1       |                            -                            |          NO          |              ID_Sesion+ID_PC              |
-|       SOLICITA      |          Empleado          |           Sesión           |        N:M       |                        Asistencia                       |          SI          |              ID_Sesion+ID_PC              |
+|       SOLICITA      |          Empleado          |           Sesión           |        N:M       |                        Asistencia                       |          SÍ          |              ID_Sesion+ID_PC              |
 |        DIRIGE       |         Instructor         |   Evaluación_Capacitación  |        1:N       |                            -                            |          NO          |    CodEvaluación+CodSesión+CodEmpleado    |
 |       SOLICITA      |          Empleado          |          Licencia          |        1:N       |                            -                            |          NO          |          Cod_Licencia+ID_Empleado         |
 |         PIDE        |          Empleado          |           Permiso          |        1:N       |                            -                            |          NO          |          Cod_Permiso+ID_Empleado          |
@@ -329,12 +329,12 @@
 |        CUMPLE       |          Empleado          |            Cargo           |        1:1       |                            -                            |          NO          |            ID_Empleado+ID_Cargo           |
 |      PERTENECE      |          Empleado          |        Departamento        |        1:1       |                            -                            |          NO          |        ID_Empleado+ID_Departamento        |
 |        TIENE        |          Empleado          |           Sueldo           |        1:1       |                            -                            |          NO          |           ID_Empleado+ID_Sueldo           |
-|       CREA     |          Empleado          |        Cuestionario        |        1:1       | - |          No          |        ID_Empleado+ID_Cuestionario        |
-|       APRUEBA      |          Empleado          |        Cuestionario        |        1:1       | - |          No          |        ID_Empleado+ID_Cuestionario        |
-|       COMPLETA      |          Empleado          |        Cuestionario        |        1:1       | Id_Cuestionario_Empleado Fecha_Rellenado Hora_Rellenado |          Sí          |        ID_Empleado+ID_Cuestionario        |
-|       INCLUYE       |        Cuestionario        |    Pregunta_Cuestionario   |        1:N       |                            -                            |          No          |        ID_Cuestionario+ID_Pregunta        |
-|       CONTIENE      |    Pregunta_Cuestionario   |   Respuesta_Cuestionario   |        1:1       |                            -                            |          No          |          ID_Pregunta+ID_Respuesta         |
-|        GENERA       |        Cuestionario        |           Reporte          |        1:1       |                            -                            |          No          |         ID_Cuestionario+ID_Reporte        |
-|        RECIBE       |           Reporte          |      Retroalimentacion     |        1:N       |                            -                            |          No          |      ID_Reporte+ID_Retroalimentacion      |
+|       CREA     |          Empleado          |        Cuestionario        |        1:1       | - |          NO          |        ID_Empleado+ID_Cuestionario        |
+|       APRUEBA      |          Empleado          |        Cuestionario        |        1:1       | - |          NO          |        ID_Empleado+ID_Cuestionario        |
+|       COMPLETA      |          Empleado          |        Cuestionario        |        1:1       | Id_Cuestionario_Empleado Fecha_Rellenado Hora_Rellenado |          SÍ          |        ID_Empleado+ID_Cuestionario        |
+|       INCLUYE       |        Cuestionario        |    Pregunta_Cuestionario   |        1:N       |                            -                            |          NO          |        ID_Cuestionario+ID_Pregunta        |
+|       CONTIENE      |    Pregunta_Cuestionario   |   Respuesta_Cuestionario   |        1:1       |                            -                            |          NO          |          ID_Pregunta+ID_Respuesta         |
+|        GENERA       |        Cuestionario        |           Reporte          |        1:1       |                            -                            |          NO          |         ID_Cuestionario+ID_Reporte        |
+|        RECIBE       |           Reporte          |      Retroalimentacion     |        1:N       |                            -                            |          NO          |      ID_Reporte+ID_Retroalimentacion      |
 ---
 ***[Volver al inicio](../../../README.md)***
