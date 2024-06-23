@@ -235,6 +235,12 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 );
 ``
 
+### Entidad: Tipo_Estado
+`CREATE TABLE Tipo_Estado(
+		ID_Tipo_Estado INTEGER NOT NULL primary key,
+		Tipo Varchar(12) NOT NULL		
+	);``
+
 ### Entidad: Tipo_Cuestionario
 ``CREATE TABLE Tipo_Cuestionario(
 		ID_Tipo_Cuestionario INTEGER NOT NULL primary key,
@@ -254,16 +260,18 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		ID_Tipo_Cuestionario INTEGER NOT NULL UNIQUE,
 		Fecha_Creacion DATE NOT NULL,
 		Hora_Creacion TIME NOT NULL,
-		Estado_Envio VARCHAR (12) NOT NULL,
+		ID_Estado_Envio INTEGER NOT NULL,
 		Fecha_Envio_Gerencia DATE,
 		Hora_Envio_Gerencia TIME,
 		ID_Gerente INTEGER NOT NULL,
-		Estado_Aprobacion VARCHAR (256),
+		ID_Estado_Aprobacion INT NOT NULL,
 		Fecha_Revision DATE,
 		Hora_Revision TIME,
 		FOREIGN KEY(ID_Tipo_Cuestionario) REFERENCES Tipo_Cuestionario(ID_Tipo_Cuestionario),
 		FOREIGN KEY(ID_Especialista_Relaciones_Laborales) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado)																  
+		FOREIGN KEY(ID_Estado_Envio) REFERENCES Tipo_Estado(ID_Tipo_Estado),
+		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Estado_Aprobacion) REFERENCES Tipo_Estado(ID_Tipo_Estado)
 	);``
 
 ### Entidad: Pregunta_Cuestionario
@@ -321,11 +329,11 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 ### Entidad: Reunion
 ``CREATE TABLE Reunion(
 		ID_Reunion INTEGER primary key,
-		ID_Empleado INTEGER NOT NULL,
+		ID_Organizador INTEGER NOT NULL,
 		Asunto_Reunion VARCHAR(256) NOT NULL,
 		Fecha_Reunion DATE NOT NULL,
 		Hora_Reunion TIME NOT NULL,
-		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
+		FOREIGN KEY (ID_Organizador) REFERENCES Empleado(ID_Empleado) 		
 	);``
 
 ### Entidad: Vacante
@@ -1034,6 +1042,14 @@ VALUES (301, 'Certificación en Gestión de Calidad ISO 9001', 'Avanzado'),
        (319, 'Certificado en Biología Molecular', 'Avanzado'),
        (320, 'Maestría en Logística y Transporte', 'Avanzado');
 
+### Datos Tabla: Tipo_Estado
+``INSERT INTO Tipo_Estado(ID_Tipo_Estado,Tipo) values
+	(1,'Enviado'),
+	(2,'No enviado'),
+	(3,'Aprobado'),
+	(4,'No aprobado'),
+	(5,'En espera');``
+ 
 ### Datos Tabla: Tipo_Cuestionario
 ``INSERT INTO Tipo_Cuestionario(ID_Tipo_Cuestionario,Tipo) values
 	(1,'Subordinados'),
@@ -1049,16 +1065,16 @@ VALUES (301, 'Certificación en Gestión de Calidad ISO 9001', 'Avanzado'),
 	(4,'Muy Positivo');``
 
  ### Datos Tabla: Cuestionario
-``INSERT INTO 				Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
-		(1,20210006,1,'2024-04-18','18:30','Enviado','2024-05-18','15:25',20200001,'Aprobado','2024-05-19','18:30'),
-		(2,20210008,2,'2024-04-18','17:30','Enviado','2024-05-18','17:20',20200001,'Aprobado','2024-05-19','20:30'),
-		(3,20220004,3,'2024-04-18','16:30','Enviado','2024-05-18','18:35',20200001,'Aprobado','2024-05-19','21:30'),
-		(4,20230006,4,'2024-04-18','19:30','Enviado','2024-05-18','19:55',20200001,'Aprobado','2024-05-19','22:30');``
+``INSERT INTO Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,ID_Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,ID_Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
+	(1,20210006,1,'2024-04-18','18:30',1,'2024-05-18','15:25',20200001,3,'2024-05-19','18:30'),
+	(2,20210008,2,'2024-04-18','17:30',1,'2024-05-18','17:20',20200001,3,'2024-05-19','20:30'),
+	(3,20220004,3,'2024-04-18','16:30',1,'2024-05-18','18:35',20200001,3,'2024-05-19','21:30'),
+	(4,20230006,4,'2024-04-18','19:30',1,'2024-05-18','19:55',20200001,3,'2024-05-19','22:30');``
 
   ### Datos Tabla: Pregunta_Cuestionario
 ``INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values
 		(1,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'),
-		(2,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'),	
+		(2,1,'¿Cómo valoras la efectividad de la retroalimentación que recibes para mejorar tu desempeño laboral?'),
 		(3,2,'¿Cómo calificarías la efectividad de tu estilo de liderazgo en el rendimiento del equipo?'),
 		(4,2,'¿Cómo valorarías el ambiente de trabajo colaborativo y respetuoso que fomentas dentro de tu equipo?'),
 		(5,3,'¿Qué calificación le darías a tu visión para el equipo/departamento/empresa a corto y largo plazo?'),
@@ -1079,7 +1095,7 @@ VALUES (301, 'Certificación en Gestión de Calidad ISO 9001', 'Avanzado'),
   ### Datos Tabla: Respuesta_Cuestionario
 ``INSERT INTO Respuesta_Cuestionario(ID_Respuesta,ID_Pregunta,ID_Cuestionario_Empleado,ID_Tipo_Respuesta) VALUES
 	(1,1,1,3),
-	(2,2,1,1),	
+	(2,2,1,1),
 	(3,3,2,4),
 	(4,4,2,1),
 	(5,5,3,3),
@@ -1116,7 +1132,7 @@ VALUES (301, 'Certificación en Gestión de Calidad ISO 9001', 'Avanzado'),
 	;``
 
   ### Datos Tabla: Reunion
-``INSERT INTO Reunion(ID_Reunion,ID_Empleado,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
+``INSERT INTO Reunion(ID_Reunion,ID_Organizador,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
 	(1,20200001,'Explicación de la evaluación de desempeño','2024-06-12','15:30'),
 	(2,20210003,'Retroalimentación general','2024-06-20','18:30'),
 	(3,20230006,'Evaluación técnica','2024-06-21','18:30')
