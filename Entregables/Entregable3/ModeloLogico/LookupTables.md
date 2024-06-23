@@ -45,6 +45,15 @@
 |          3          |          Positivo          |
 |          4          |         Muy Positivo        |
 
+## Entidad: Tipo_Estado
+| **ID_Tipo_Estado** | **Tipo** |
+|:-------------------:|:-----------------------:|
+|          1          |       Enviado      |
+|          2          |       No enviado      |
+|          3          |          Aprobado          |
+|          4          |         No aprobado        |
+|          5          |         En espera        |
+
 ## Entidad: Tipo_Cese
 | **ID_Tipo** | **Nombre_Tipo** |
 |:-------------------:|:-----------------------:|
