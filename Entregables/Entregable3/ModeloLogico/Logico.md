@@ -234,11 +234,11 @@
 |           ID_Tipo_Cuestionario          |                  Foreign key,tipo de cuestionario                  |    9    |      INT      |  Número |
 |            Fecha_Creacion            |           Fecha de creación del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Creacion            |            Hora de creación del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
-|           Estado_Envio          |          Estado de envío del cuestionario         |    X(12)   |      VARCHAR      | Cadena de hasta 12 caracteres |
+|           ID_Estado_Envio          |          Foreign key, identificador único de estado del envío del cuestionario         |    9   |      INT      | Número entero |
 |         Fecha_Envio_Gerencia         |       Fecha de envío del cuestionario a gerencia       |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |          Hora_Envio_Gerencia         |        Hora de envío del cuestionario a gerencia       |   HH:MM:SS  |      TIME      |           Hora válida          |
 |              ID_Gerente              |                Foreign key, identificador del gerente               |   99999999  |       INT      |         Números enteros        |
-|           Estado_Aprobacion          |          Estado de aprobación del cuestionario         |    X(256)   |      VARCHAR      | Cadena de hasta 256 caracteres |
+|           ID_Estado_Aprobacion          |          Foreign key, identificador único del estado de aprobación del cuestionario         |    9   |      INT      | Número entero |
 |            Fecha_Revision            |           Fecha de revisión del cuestionario           |   AAAAMMDD  |      DATE      |  Fecha válida en el calendario |
 |             Hora_Revision            |            Hora de revisión del cuestionario           |   HH:MM:SS  |      TIME      |           Hora válida          |
 
@@ -267,7 +267,7 @@
 |     ID_Respuesta    | Identificador único de la respuesta |   99999999   |       INT      |     Números enteros únicos     |
 |     ID_Pregunta    | Foreign key, identificador único de la pregunta |     9999     |       INT      |     Números enteros únicos     |
 | ID_Cuestionario_Empleado | Foreign key, identificador único del cuestionario de empleado |   99999999   |       INT      |     Números enteros únicos    |
-| Id_Tipo_Respuesta |               Foreign key, tipo de respuesta              | 9 |      INT      | Número |
+| Id_Tipo_Respuesta |               Foreign key, tipo de respuesta              | 9 |      INT      | Número entero |
 
 ### Entidad: Reporte
 #### Descripción: Informe del desempeño del empleado en la evaluación.
@@ -295,7 +295,7 @@
 |  **Atributo**  |          **Descripción**          |  **Formato** | **Naturaleza** |           **Valores**          |
 |:--------------:|:---------------------------------:|:------------:|:--------------:|:------------------------------:|
 |   ID_Reunion   | Primary key, identificador único de la reunión |   99999999   |       INT      |     Números enteros únicos     |
-|    ID_Empleado   |              Foreign key, código único del empleado que programa la reunión             |  99999999   |     INT    |  Números enteros únicos |
+|    ID_Organizador   |              Foreign key, código único del empleado que organiza la reunión             |  99999999   |     INT    |  Números enteros únicos |
 | Asunto_Reunion |        Asunto de la reunión       | X(256) |      VARCHAR      | Cadena de hasta 256 caracteres |
 |  Fecha_Reunion |        Fecha de la reunión        |     DATE     |    AAAAMMDD    |  Fecha válida en el calendario |
 |  Hora_Reunion  |         Hora de la reunión        |     TIME     |    HH:MM:SS    |           Hora válida          |
@@ -329,6 +329,8 @@
 |        CUMPLE       |          Empleado          |            Cargo           |        1:1       |                            -                            |          NO          |            ID_Empleado+ID_Cargo           |
 |      PERTENECE      |          Empleado          |        Departamento        |        1:1       |                            -                            |          NO          |        ID_Empleado+ID_Departamento        |
 |        TIENE        |          Empleado          |           Sueldo           |        1:1       |                            -                            |          NO          |           ID_Empleado+ID_Sueldo           |
+|       CREA     |          Empleado          |        Cuestionario        |        1:1       | - |          No          |        ID_Empleado+ID_Cuestionario        |
+|       APRUEBA      |          Empleado          |        Cuestionario        |        1:1       | - |          No          |        ID_Empleado+ID_Cuestionario        |
 |       COMPLETA      |          Empleado          |        Cuestionario        |        1:1       | Id_Cuestionario_Empleado Fecha_Rellenado Hora_Rellenado |          Sí          |        ID_Empleado+ID_Cuestionario        |
 |       INCLUYE       |        Cuestionario        |    Pregunta_Cuestionario   |        1:N       |                            -                            |          No          |        ID_Cuestionario+ID_Pregunta        |
 |       CONTIENE      |    Pregunta_Cuestionario   |   Respuesta_Cuestionario   |        1:1       |                            -                            |          No          |          ID_Pregunta+ID_Respuesta         |
