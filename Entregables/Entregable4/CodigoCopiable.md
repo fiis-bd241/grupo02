@@ -18,6 +18,7 @@
 	DROP TABLE IF EXISTS Cuestionario;
 	DROP TABLE IF EXISTS Tipo_Respuesta;
 	DROP TABLE IF EXISTS Tipo_Cuestionario;
+	DROP TABLE IF EXISTS Tipo_Estado;
 	DROP TABLE IF EXISTS Asistencia;
 	DROP TABLE IF EXISTS Licencia;
 	DROP TABLE IF EXISTS Permiso;
