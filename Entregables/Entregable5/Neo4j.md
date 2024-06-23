@@ -1,3 +1,7 @@
+### Delete ALL
+
+    MATCH (n) DETACH DELETE n
+
 ## Nodos y Datos
 
 ### Nodo de Departamentos:
