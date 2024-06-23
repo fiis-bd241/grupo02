@@ -47,39 +47,39 @@
 
 ## Relaciones
 
-    CREATE (e1:Empleado {ID_Empleado: 20200001})-[:PERTENECE_A]->(d1:Departamento {ID_Departamento: 1}),
-           (e1)-[:OCUPA {roles: ['Gerente']}]->(c1:Cargo {ID_Cargo: 1});
+    CREATE (e1)-[:PERTENECE_A]->(d1),
+           (e1)-[:OCUPA {roles: ['Gerente']}]->(c1);
     
-    CREATE (e2:Empleado {ID_Empleado: 20210001})-[:PERTENECE_A]->(d2:Departamento {ID_Departamento: 2}),
-           (e2)-[:OCUPA {roles: ['Analista']}]->(c2:Cargo {ID_Cargo: 4});
+    CREATE (e2)-[:PERTENECE_A]->(d2)
+           (e2)-[:OCUPA {roles: ['Analista']}]->(c2);
     
-    CREATE (e3:Empleado {ID_Empleado: 20210002})-[:PERTENECE_A]->(d3:Departamento {ID_Departamento: 3}),
-           (e3)-[:OCUPA {roles: ['Desarrollador']}]->(c3:Cargo {ID_Cargo: 7});
+    CREATE (e3)-[:PERTENECE_A]->(d3),
+           (e3)-[:OCUPA {roles: ['Desarrollador']}]->(c3);
 
-    CREATE (e4:Empleado {ID_Empleado: 20210003})-[:PERTENECE_A]->(d3),
+    CREATE (e4)-[:PERTENECE_A]->(d3),
            (e4)-[:OCUPA {roles: ['Analista']}]->(c2);
     
     
-    CREATE (e5:Empleado {ID_Empleado: 20210004})-[:PERTENECE_A]->(d1),
+    CREATE (e5)-[:PERTENECE_A]->(d1),
            (e5)-[:OCUPA {roles: ['Desarrollador']}]->(c3);
     
     
-    CREATE (e6:Empleado {ID_Empleado: 20210005})-[:PERTENECE_A]->(d3),
+    CREATE (e6)-[:PERTENECE_A]->(d3),
            (e6)-[:OCUPA {roles: ['Analista', 'Desarrollador']}]->(c2);
     
     
-    CREATE (e7:Empleado {ID_Empleado: 20210006})-[:PERTENECE_A]->(d2),
+    CREATE (e7)-[:PERTENECE_A]->(d2),
            (e7)-[:OCUPA {roles: ['Gerente']}]->(c1);
     
-    CREATE (e8:Empleado {ID_Empleado: 20210007})-[:PERTENECE_A]->(d1),
+    CREATE (e8)-[:PERTENECE_A]->(d1),
            (e8)-[:OCUPA {roles: ['Analista']}]->(c2);
     
     
-    CREATE (e9:Empleado {ID_Empleado: 20210008})-[:PERTENECE_A]->(d2),
+    CREATE (e9)-[:PERTENECE_A]->(d2),
            (e9)-[:OCUPA {roles: ['Desarrollador']}]->(c3);
     
     
-    CREATE (e10:Empleado {ID_Empleado: 20210009})-[:PERTENECE_A]->(d1),
+    CREATE (e10)-[:PERTENECE_A]->(d1),
            (e10)-[:OCUPA {roles: ['Desarrollador']}]->(c3);
 
 ## Mach
@@ -88,29 +88,28 @@
 
     MATCH (e:Empleado), (d:Departamento)
     WHERE e.ID_Empleado = 20200001 AND d.ID_Departamento = 1
-    CREATE (e)-[:PERTENECE_A]->(d);
+
 
     MATCH (e:Empleado), (d:Departamento)
     WHERE e.ID_Empleado = 20210001 AND d.ID_Departamento = 2
-    CREATE (e)-[:PERTENECE_A]->(d);
+
 
     MATCH (e:Empleado), (d:Departamento)
     WHERE e.ID_Empleado = 20210002 AND d.ID_Departamento = 3
-    CREATE (e)-[:PERTENECE_A]->(d);
+
 
 ### Relacion Empleado 'Ocupa' Cargo:
 
     MATCH (e:Empleado), (c:Cargo)
     WHERE e.ID_Empleado = 20200001 AND c.ID_Cargo = 1
-    CREATE (e)-[:OCUPA]->(c);
+  
     
     MATCH (e:Empleado), (c:Cargo)
     WHERE e.ID_Empleado = 20210001 AND c.ID_Cargo = 4
-    CREATE (e)-[:OCUPA]->(c);
-    
+ 
     MATCH (e:Empleado), (c:Cargo)
     WHERE e.ID_Empleado = 20210002 AND c.ID_Cargo = 7
-    CREATE (e)-[:OCUPA]->(c);
+
 
 
 
