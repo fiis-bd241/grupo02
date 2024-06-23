@@ -16,6 +16,7 @@
     DROP TABLE IF EXISTS Cuestionario;
     DROP TABLE IF EXISTS Tipo_Respuesta;
     DROP TABLE IF EXISTS Tipo_Cuestionario;
+    DROP TABLE IF EXISTS Tipo_Estado;
     DROP TABLE IF EXISTS Asistencia;
     DROP TABLE IF EXISTS Licencia;
     DROP TABLE IF EXISTS Permiso;
@@ -245,22 +246,39 @@
     	FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
     );
     
+	CREATE TABLE Tipo_Estado(
+		ID_Tipo_Estado INTEGER NOT NULL primary key,
+		Tipo Varchar(12) NOT NULL		
+	);
+	
+	CREATE TABLE Tipo_Cuestionario(
+		ID_Tipo_Cuestionario INTEGER NOT NULL primary key,
+		Tipo Varchar(12) NOT NULL		
+	);
+	
+	CREATE TABLE Tipo_Respuesta(
+		ID_Tipo_Respuesta INTEGER NOT NULL primary key,
+		Tipo Varchar(12) NOT NULL		
+	);
+		
 	CREATE TABLE Cuestionario(
 		ID_Cuestionario INTEGER primary key,
 		ID_Especialista_Relaciones_Laborales INTEGER NOT NULL,
 		ID_Tipo_Cuestionario INTEGER NOT NULL UNIQUE,
 		Fecha_Creacion DATE NOT NULL,
 		Hora_Creacion TIME NOT NULL,
-		Estado_Envio VARCHAR (12) NOT NULL,
+		ID_Estado_Envio INTEGER NOT NULL,
 		Fecha_Envio_Gerencia DATE,
 		Hora_Envio_Gerencia TIME,
 		ID_Gerente INTEGER NOT NULL,
-		Estado_Aprobacion VARCHAR (256),
+		ID_Estado_Aprobacion INT NOT NULL,
 		Fecha_Revision DATE,
 		Hora_Revision TIME,
 		FOREIGN KEY(ID_Tipo_Cuestionario) REFERENCES Tipo_Cuestionario(ID_Tipo_Cuestionario),
 		FOREIGN KEY(ID_Especialista_Relaciones_Laborales) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado)																  
+		FOREIGN KEY(ID_Estado_Envio) REFERENCES Tipo_Estado(ID_Tipo_Estado),
+		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado),
+		FOREIGN KEY(ID_Estado_Aprobacion) REFERENCES Tipo_Estado(ID_Tipo_Estado)
 	);
 	
 	CREATE TABLE Pregunta_Cuestionario(
@@ -312,11 +330,11 @@
 	
 	CREATE TABLE Reunion(
 		ID_Reunion INTEGER primary key,
-		ID_Empleado INTEGER NOT NULL,
+		ID_Organizador INTEGER NOT NULL,
 		Asunto_Reunion VARCHAR(256) NOT NULL,
 		Fecha_Reunion DATE NOT NULL,
 		Hora_Reunion TIME NOT NULL,
-		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
+		FOREIGN KEY (ID_Organizador) REFERENCES Empleado(ID_Empleado) 		
 	);
     
     CREATE TABLE Evaluacion (
