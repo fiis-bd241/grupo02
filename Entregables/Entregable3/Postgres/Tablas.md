@@ -238,20 +238,17 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 ### Entidad: Tipo_Estado
 `CREATE TABLE Tipo_Estado(
 		ID_Tipo_Estado INTEGER NOT NULL primary key,
-		Tipo Varchar(12) NOT NULL		
-	);``
+		Tipo Varchar(12) NOT NULL);``
 
 ### Entidad: Tipo_Cuestionario
 ``CREATE TABLE Tipo_Cuestionario(
 		ID_Tipo_Cuestionario INTEGER NOT NULL primary key,
-		Tipo Varchar(12) NOT NULL		
-	);``
+		Tipo Varchar(12) NOT NULL);``
 
 ### Entidad: Tipo_Respuesta
 ``CREATE TABLE Tipo_Respuesta(
 		ID_Tipo_Respuesta INTEGER NOT NULL primary key,
-		Tipo Varchar(12) NOT NULL		
-	);``
+		Tipo Varchar(12) NOT NULL);``
 
 ### Entidad: Cuestionario
 ``CREATE TABLE Cuestionario(
@@ -333,8 +330,7 @@ FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 		Asunto_Reunion VARCHAR(256) NOT NULL,
 		Fecha_Reunion DATE NOT NULL,
 		Hora_Reunion TIME NOT NULL,
-		FOREIGN KEY (ID_Organizador) REFERENCES Empleado(ID_Empleado) 		
-	);``
+		FOREIGN KEY (ID_Organizador) REFERENCES Empleado(ID_Empleado));``
 
 ### Entidad: Vacante
 <<<<<<< HEAD
