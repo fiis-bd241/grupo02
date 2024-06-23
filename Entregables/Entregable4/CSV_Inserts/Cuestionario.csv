@@ -1,5 +1,5 @@
-ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,Estado_Aprobacion,Fecha_Revision,Hora_Revision
-1,20210006,1,2024-04-18,18:30,Enviado,2024-05-18,15:25,20200001,Aprobado,2024-05-19,18:30
-2,20210008,2,2024-04-18,17:30,Enviado,2024-05-18,17:20,20200001,Aprobado,2024-05-19,20:30
-3,20220004,3,2024-04-18,16:30,Enviado,2024-05-18,18:35,20200001,Aprobado,2024-05-19,21:30
-4,20230006,4,2024-04-18,19:30,Enviado,2024-05-18,19:55,20200001,Aprobado,2024-05-19,22:30
+ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,ID_Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,ID_Estado_Aprobacion,Fecha_Revision,Hora_Revision
+1,20210006,1,2024-04-18,18:30,1,2024-05-18,15:25,20200001,3,2024-05-19,18:30
+2,20210008,2,2024-04-18,17:30,1,2024-05-18,17:20,20200001,3,2024-05-19,20:30
+3,20220004,3,2024-04-18,16:30,1,2024-05-18,18:35,20200001,3,2024-05-19,21:30
+4,20230006,4,2024-04-18,19:30,1,2024-05-18,19:55,20200001,3,2024-05-19,22:30
