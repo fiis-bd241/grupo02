@@ -445,7 +445,8 @@
     COPY Pago_Total FROM 'D:\CSV_Inserts\Pago_Total.csv' DELIMITER ',' CSV HEADER;
     COPY Nomina FROM 'D:\CSV_Inserts\Nomina.csv' DELIMITER ',' CSV HEADER;
     COPY Supervisor FROM 'D:\CSV_Inserts\Supervisor.csv' DELIMITER ',' CSV HEADER;
-    COPY Tipo_Cuestionario to 'D:\CSV_Inserts\Cuestionario.csv' DELIMITER ',' CSV HEADER;
+    COPY Tipo_Estado to 'D:\CSV_Inserts\Tipo_Estado.csv' DELIMITER ',' CSV HEADER;
+    COPY Tipo_Cuestionario to 'D:\CSV_Inserts\Tipo_Cuestionario.csv' DELIMITER ',' CSV HEADER;
     COPY Tipo_Respuesta to 'D:\CSV_Inserts\Tipo_Respuesta.csv' DELIMITER ',' CSV HEADER;
     COPY Cuestionario to 'D:\CSV_Inserts\Cuestionario.csv' DELIMITER ',' CSV HEADER;
     COPY Pregunta_Cuestionario to 'D:\CSV_Inserts\Pregunta_Cuestionario.csv' DELIMITER ',' CSV HEADER;
