@@ -211,8 +211,8 @@
 
 ## Relaciones
 
-    CREATE (e1)-[:PERTENECE_A]->(d1),
-           (e1)-[:OCUPA {roles: ['Gerente']}]->(c1);
+    CREATE (e1:Empleado{ID_Empleado:20200001})-[:PERTENECE_A]->(d1:Departamento{ID_Departamento:1}),
+           (e1:Empleado{ID_Empleado:20200001})-[:OCUPA {roles: ['Gerente']}]->(d2:Cargo{ID_Cargo:1});
     
     CREATE (e2)-[:PERTENECE_A]->(d2),
            (e2)-[:OCUPA {roles: ['Analista']}]->(c2);
