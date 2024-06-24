@@ -64,5 +64,6 @@ Nota : Grafico del proceso de Capacitacion. Tomado de **Administración de Recur
 | 18    | Evaluación de la eficiencia                                              | Evalua al trabajador y registra su desenpeño                                                                                                                                                                                  | Evaluador                                |
 | 19    | Registro del rendimiento                                                 | Actualiza el registro de desenpeño del trabajador                                                                                                                                                                             | Sistema                                  |
 ---
-- ***[Volver a módulos](Modulos.md)***
-- ***[Volver al inicio](../../../README.md)***
+**[Volver al primer capítulo de la monografía](../../../Monografía/CAP1/1.md)**
+---
+**[Volver a módulos](../Modulos.md)**

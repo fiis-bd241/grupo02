@@ -33,4 +33,6 @@ Se centra en todas las actividades relacionadas con la gestión de asistencias y
 | 5         | Actualizar ficha de evaluación | Actualizar el campo de inasistencias en la ficha personal de evaluación de desempeño                                                                          | Sistema                              |
 | 6         | Tomar acciones correctivas     | La acción de tomar medidas necesarias en respuesta a anomalías en la asistencia                                                                               | Departamento legal interno           |
 ---
+**[Volver al primer capítulo de la monografía](../../../Monografía/CAP1/1.md)**
+---
 **[Volver a módulos](../Modulos.md)**

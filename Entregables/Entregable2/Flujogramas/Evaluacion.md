@@ -51,7 +51,7 @@ Su objetivo principal es medir, analizar y evaluar el rendimiento laboral de los
 |     11    |                Entrega de Calificaciones y retroalimentación               |                                                                Se entregan las calificaciones a los diferentes trabajadores junto a una retroalimentación                                                                |     Sistema      |
 |     12    |                    Programación de reuniones para evaluar habilidades técnicas                 |                 Cuando sea requerido por instancias superiores, el Departamento de RR. HH. realizará reuniones donde se evaluará las habilidades técnicas de los trabajadores (ascensos, promociones, entre otros).                | Gerente de Recursos Humanos |
 
-
-
-- ***[Volver a módulos](Modulos.md)***
-- ***[Volver al inicio](../../../README.md)***
+---
+**[Volver al primer capítulo de la monografía](../../../Monografía/CAP1/1.md)**
+---
+**[Volver a módulos](../Modulos.md)**

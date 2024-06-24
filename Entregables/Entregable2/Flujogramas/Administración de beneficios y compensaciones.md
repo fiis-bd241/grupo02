@@ -88,3 +88,8 @@ Implica la gestión integral de los beneficios ofrecidos a los empleados, así c
 |   1   | Automatización de la recolección | Implementación de sistemas automatizados para recopilar datos de empleados de manera más eficiente y precisa.                                                                                                                                                  | Sistema   |
 |   2   | Cálculo automatizado             | Desarrollo de un sistema informático que realice el cálculo automatizado de las gratificaciones basado en reglas predefinidas.                                                                                                                                 | Sistema   |
 |   3   | Integración de sistemas          | Integración de sistemas entre recursos humanos y tesorería para facilitar la transferencia de datos y la generación automática de informes. Implementación de notificaciones automáticas para informar a los empleados sobre el estado de sus gratificaciones. | Sistema   |
+
+---
+**[Volver al primer capítulo de la monografía](../../../Monografía/CAP1/1.md)**
+---
+**[Volver a módulos](../Modulos.md)**
