@@ -185,22 +185,22 @@
 
 2. Mostrar las respuestas del empleado: Se muestran las respuestas del empleado a cada pregunta.
 
-	   SELECT 
-	        PC.ID_Pregunta,
-	        PC.Enunciado_Pregunta,
-	        TR.Tipo AS Respuesta
-	    FROM 
-	        Empleado Em
-	    INNER JOIN 
-	        Cuestionario_Empleado CE ON Em.id_empleado = CE.id_empleado
-	    INNER JOIN 
-	        Respuesta_Cuestionario RC ON CE.ID_Cuestionario_Empleado = RC.ID_Cuestionario_Empleado
-	    INNER JOIN 
-	        Pregunta_Cuestionario PC ON RC.ID_Pregunta = PC.ID_Pregunta
-	    INNER JOIN 
-	        Tipo_Respuesta TR ON RC.ID_Tipo_Respuesta = TR.ID_Tipo_Respuesta
-	    WHERE 
-	        Em.id_empleado = <1>;
+		   SELECT 
+				ROW_NUMBER() OVER (ORDER BY PC.ID_Pregunta) AS Nº,
+				PC.Enunciado_Pregunta,
+				TR.Tipo AS Respuesta
+			FROM 
+				Empleado Em
+			INNER JOIN 
+				Cuestionario_Empleado CE ON Em.id_empleado = CE.id_empleado
+			INNER JOIN 
+				Respuesta_Cuestionario RC ON CE.ID_Cuestionario_Empleado = RC.ID_Cuestionario_Empleado
+			INNER JOIN 
+				Pregunta_Cuestionario PC ON RC.ID_Pregunta = PC.ID_Pregunta
+			INNER JOIN 
+				Tipo_Respuesta TR ON RC.ID_Tipo_Respuesta = TR.ID_Tipo_Respuesta
+			WHERE 
+				Em.id_empleado = <1>;
         
 3. Mostrar tipos de calificación: Selección del tipo de calificación.
    
