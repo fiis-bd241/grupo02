@@ -5,7 +5,7 @@
 | Código requerimiento | R-0002 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-007 |
-|    Imagen interfaz   |    ![N1](../Entregable3/Front/N1.PNG)   |
+|    Imagen interfaz   |    ![N1](N1.PNG)   |
 
 #### Acción 1:
 Botón 'Actualizar un dato': El asistente de RRHH. actualizará un dato del empleado.
@@ -17,7 +17,7 @@ Botón 'Actualizar un dato': El asistente de RRHH. actualizará un dato del empl
 | Código requerimiento | R-0002 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-008 |
-|    Imagen interfaz   |    ![N2](../Entregable3/Front/N2.PNG)   |
+|    Imagen interfaz   |    ![N2](N2.PNG)   |
 
 #### Acción 2:
 Carga de página: Se llenará la lista de datos del empleado.
@@ -60,7 +60,7 @@ Botón 'Confirmar': para insertar las modificaciones de datos del empleado.
 | Código requerimiento | R-0020 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-009 |
-|    Imagen interfaz   |    ![N3](../Entregable3/Front/N3.PNG)   |
+|    Imagen interfaz   |    ![N3](N3.PNG)   |
 
 #### Acción 4:
 Botón 'Modificar el pago de algún empleado': El asistente de RRHH. actualizará las asignaciones salariasles que pueda presentar un empleado.
@@ -72,7 +72,7 @@ Botón 'Modificar el pago de algún empleado': El asistente de RRHH. actualizar�
 | Código requerimiento | R-0020 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-010 |
-|    Imagen interfaz   |    ![N4](../Entregable3/Front/N4.PNG)   |
+|    Imagen interfaz   |    ![N4](N4.PNG)   |
 
 #### Acción 5:
 Botón 'Confirmar': para insertar las asignaciones salariales del empleado.
@@ -92,7 +92,7 @@ Botón 'Confirmar': para insertar las asignaciones salariales del empleado.
 | Código requerimiento | R-0020 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-011 |
-|    Imagen interfaz   |    ![N5](../Entregable3/Front/N5.PNG)   |
+|    Imagen interfaz   |    ![N5](N5.PNG)   |
 
 #### Acción 6:
 Botón 'Confirmar': para aplicar la asignar de acuerdo a concepto en los empleados.
@@ -125,7 +125,7 @@ Botón 'Confirmar': para aplicar la asignar de acuerdo a concepto en los emplead
 | Código requerimiento | R-0021 |
 |:--------------------:|:-----:|
 |    Código interfaz   | I-012 |
-|    Imagen interfaz   |    ![N6](../Entregable3/Front/N6.PNG)   |
+|    Imagen interfaz   |    ![N6](N6.PNG)   |
 
 #### Acción 7:
 Botón 'Confirmar': se agregará un registro del pago asignado al empleado.
@@ -150,7 +150,7 @@ Abarca desde la selección (R-0002 / I-007), modificación y actualización (R-0
 ## Flujo de actividades
 | **Actividad** |                                                                                                                                                                                                                                                                                                      **Descripción**                                                                                                                                                                                                                                                                                                     |
 |:-------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|       1       |                                       La "Actualización de datos" asegura que la información del empleado se mantenga precisa. Desde la página designada, el asistente de RRHH. podrá modificar la información del empleado. Una vez ya completado la actualización de toda la información del empleado se confirmará para registrar los datos nuevos. ![N2](../Entregable3/Front/N2.PNG)                                      |
-|       2       | La actividad de "Ajuste salarial" brinda al asistente de RRHH. la capacidad de registrar y actualizar los datos. Desde la página designada, seleccionan el tipo de concepto a registrar. Aquí, pueden agregar el importe que se le asignará de acuerdo al concepto anteriormente seleccionado, el tipo de moneda con la cual se le pagará y la fecha de emisión. Con los datos ya completados se procede a confirmar la información. ![N4](../Entregable3/Front/N4.PNG) |
-|       3       |                                                                       La actividad "Brindar asignación" permite al asistente de RRHH. visualizar la lista de aquellos empleados que se les asignó el mismo concepto. Desde la página de asignación, se confirma el registro de asignación para que se modifique el salario del empleado. ![N5](../Entregable3/Front/N5.PNG)                                                                      |
-|       4       |                         La actividad de "Programar pago" brinda al asistente de RRHH. la capacidad de registrar los datos para la asignación de los pagos a los empleados. Desde la página designada, ingresan el pago, el período de pago y el tipo de moneda con la que se le pagará. Luego, se visualiza los empleados y el monto que se les pagará. Se confirma el registro de los pagos lo que completa el proceso de administración de beneficios y compensaciones. ![N6](../Entregable3/Front/N6.PNG)                        |
+|       1       |                                       La "Actualización de datos" asegura que la información del empleado se mantenga precisa. Desde la página designada, el asistente de RRHH. podrá modificar la información del empleado. Una vez ya completado la actualización de toda la información del empleado se confirmará para registrar los datos nuevos. ![N2](N2.PNG)                                      |
+|       2       | La actividad de "Ajuste salarial" brinda al asistente de RRHH. la capacidad de registrar y actualizar los datos. Desde la página designada, seleccionan el tipo de concepto a registrar. Aquí, pueden agregar el importe que se le asignará de acuerdo al concepto anteriormente seleccionado, el tipo de moneda con la cual se le pagará y la fecha de emisión. Con los datos ya completados se procede a confirmar la información. ![N4](N4.PNG) |
+|       3       |                                                                       La actividad "Brindar asignación" permite al asistente de RRHH. visualizar la lista de aquellos empleados que se les asignó el mismo concepto. Desde la página de asignación, se confirma el registro de asignación para que se modifique el salario del empleado. ![N5](N5.PNG)                                                                      |
+|       4       |                         La actividad de "Programar pago" brinda al asistente de RRHH. la capacidad de registrar los datos para la asignación de los pagos a los empleados. Desde la página designada, ingresan el pago, el período de pago y el tipo de moneda con la que se le pagará. Luego, se visualiza los empleados y el monto que se les pagará. Se confirma el registro de los pagos lo que completa el proceso de administración de beneficios y compensaciones. ![N6](N6.PNG)                        |
