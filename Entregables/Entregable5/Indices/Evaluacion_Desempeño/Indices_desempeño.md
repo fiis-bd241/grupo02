@@ -15,7 +15,7 @@ Enfocándonos en el módulo "Evaluación de Desempeño", nos planteamos cómo me
 |                          | **SIN EXPLAIN ANALIZE** | **CON EXPLAIN ANALIZE** |
 |:------------------------:|:-----------------------:|:-----------------------:|
 | Sentencia SQL sin Índice |        ![I1_1](I1_1.png)                  |           ![I1_2](I1_2.png)                 |
-| Sentencia SQL sin Índice |             ![I1_3](I1_3.png)               |            ![I1_4](I1_4.png)                |
+| Sentencia SQL con Índice |             ![I1_3](I1_3.png)               |            ![I1_4](I1_4.png)                |
 
 ## Secuencias
 En el contexto del módulo de "Evaluación de Desempeño", las secuencias en SQL desempeñan un papel crucial al generar identificadores únicos para cada cuestionario de desempeño registrado en la base de datos. Estas secuencias aseguran, por ejemplo, que el campo ID_Cuestionario  e ID_Pregunta_Cuestionario actúen de manera eficiente como clave primaria, proporcionando identificaciones únicas y consistentes para cada evaluación realizada.
