@@ -59,16 +59,16 @@
 6. Estado de envío: Se muestra el estado de envío del cuestionario.
 	
 		Select TE.Tipo as Estado_Envio from Cuestionario CU inner join Tipo_Estado TE 
-		on CU.Id_Estado_Envio=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
+		on CU.Id_Estado_Envio=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<1>;
 
 7. Estado de aprobación: Se muestra el estado de aprobación del cuestionario.
 
 		Select TE.Tipo as Estado_Aprobación from Cuestionario CU inner join Tipo_Estado TE 
-		on CU.Id_Estado_Aprobacion=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<2>;
+		on CU.Id_Estado_Aprobacion=TE.Id_Tipo_Estado where Id_Tipo_Cuestionario=<1>;
 
 8. Botón 'Enviar a gerencia': Se envía a Gerencia el cuestionario.
 
-		Update Cuestionario set ID_Estado_Envio='Enviado', Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0) where Id_Tipo_Cuestionario=<1>;
+		Update Cuestionario set ID_Estado_Envio=1, Fecha_Envio_Gerencia=Current_Date, Hora_Envio_Gerencia=Current_Time(0), ID_Estado_Aprobacion=5 where Id_Tipo_Cuestionario=<1>;
 
 
 ## 3. APROBAR CUESTIONARIO
@@ -118,20 +118,18 @@
 	   SELECT Id_Tipo_Respuesta,Tipo from Tipo_Respuesta;
 
 3. Botón 'Enviar Respuestas': Se envían las respuesta del empleado.
-
+ 
 	   INSERT INTO Cuestionario_Empleado(ID_Cuestionario_Empleado,ID_Empleado,ID_Cuestionario,Fecha_Rellenado,Hora_Rellenado) VALUES
 	    (CASE 
 	            WHEN (SELECT MAX(ID_Cuestionario_Empleado) FROM Cuestionario_Empleado) IS NULL THEN 1
 	            ELSE (SELECT MAX(ID_Cuestionario_Empleado) FROM Cuestionario_Empleado) + 1
-	        END,<1>,<2>,Current_Date,Current_Time(0));
-
+	        END,<2>,(Select Id_Cuestionario from Cuestionario where Id_tipo_Cuestionario=<1>),Current_Date,Current_Time(0));
 
 	    INSERT INTO Respuesta_Cuestionario(ID_Respuesta,ID_Pregunta,ID_Cuestionario_Empleado,ID_Tipo_Respuesta) VALUES
 	        (CASE 
 	            WHEN (SELECT MAX(ID_Respuesta) FROM Respuesta_Cuestionario) IS NULL THEN 1
 	            ELSE (SELECT MAX(ID_Respuesta) FROM Respuesta_Cuestionario) + 1
 	        END, <3>,(Select ID_Cuestionario_Empleado FROM Cuestionario_Empleado where ID_Empleado=<2>),<4>);
-
 
 
 ## 5. REVISAR CUESTIONARIOS
@@ -150,7 +148,7 @@
 
 	   Select Id_Tipo_Cuestionario,Tipo from Tipo_Cuestionario;
 
-3. Mostrar cuestionario por nombre: Se muestran los empleados según el apellido escrito.
+3. Mostrar cuestionario por apellido: Se muestran los empleados según el apellido escrito.
 
 	   Select Em.Id_Empleado,Em.Apellido_Empleado,Em.Nombre_Empleado from Empleado Em inner join Cuestionario_Empleado CE on Em.Id_Empleado=CE.Id_Empleado WHERE
 	    Em.Apellido_Empleado=<1>;
@@ -210,27 +208,26 @@
 
 4. Botón 'Confirmar reporte': Confirma la calificación y la retroalimentación al cuestionario del empleado.
    
-	    INSERT INTO Reporte (ID_Reporte, ID_Cuestionario_Empleado, Fecha_Ingreso_Empleado, Calificacion_Empleado)
-	    VALUES (
-	        CASE 
-	            WHEN (SELECT MAX(ID_Reporte) FROM Reporte) IS NULL THEN 1
-	            ELSE (SELECT MAX(ID_Reporte) FROM Reporte) + 1
-	        END,
-	        <2>,(Select Fecha_Ingreso from Empleado where ID_empleado=<1>),<4>);
+	INSERT INTO Reporte (ID_Reporte, ID_Cuestionario_Empleado, Fecha_Ingreso_Empleado, Calificacion_Empleado)
+	VALUES (
+		CASE 
+			WHEN (SELECT MAX(ID_Reporte) FROM Reporte) IS NULL THEN 1
+			ELSE (SELECT MAX(ID_Reporte) FROM Reporte) + 1
+		END,(Select ID_Cuestionario_Empleado from Cuestionario_Empleado where Id_Empleado=<1>),(Select Fecha_Ingreso from Empleado where ID_empleado=<1>),<5>);
 
-	    INSERT INTO Retroalimentacion (ID_Retroalimentacion, ID_Reporte, Enunciado_Retroalimentacion, ID_Evaluador, Fecha_Retroalimentacion, Hora_Retroalimentacion)
-	    VALUES (
-	        CASE 
-	            WHEN (SELECT MAX(ID_Retroalimentacion) FROM Retroalimentacion) IS NULL THEN 1
-	            ELSE (SELECT MAX(ID_Retroalimentacion) FROM Retroalimentacion) + 1
-	        END,
-	        (SELECT Re.ID_Reporte
-	        FROM Reporte Re
-	        INNER JOIN Cuestionario_Empleado CE ON Re.ID_Cuestionario_Empleado = CE.ID_Cuestionario_Empleado
-	        WHERE CE.ID_Empleado = <1>
-	        LIMIT 1),
-	        <5>, <6>, CURRENT_DATE, CURRENT_TIME(0)
-	    );
+	INSERT INTO Retroalimentacion (ID_Retroalimentacion, ID_Reporte, Enunciado_Retroalimentacion, ID_Evaluador, Fecha_Retroalimentacion, Hora_Retroalimentacion)
+	VALUES (
+		CASE 
+			WHEN (SELECT MAX(ID_Retroalimentacion) FROM Retroalimentacion) IS NULL THEN 1
+			ELSE (SELECT MAX(ID_Retroalimentacion) FROM Retroalimentacion) + 1
+		END,
+		(SELECT Re.ID_Reporte
+		FROM Reporte Re
+		INNER JOIN Cuestionario_Empleado CE ON Re.ID_Cuestionario_Empleado = CE.ID_Cuestionario_Empleado
+		WHERE CE.ID_Empleado = <1>
+		LIMIT 1),
+   		<6>, <4>, CURRENT_DATE, CURRENT_TIME(0)
+			);
 
 ## 7. REVISAR MIS RESULTADOS
 | Código requerimiento | R-028 |
@@ -240,24 +237,27 @@
 
 ### Sentencias SQL
 #### Eventos
-1. Mostrar resultados: Se muestran los resultados del empleado.
-   
-	    SELECT 
-	        Em.ID_Empleado, 
-	        Re.Fecha_Ingreso_Empleado, 
-	        Re.Calificacion_Empleado, 
-	        Ret.Enunciado_Retroalimentacion
-	    FROM 
-	        Empleado Em
-	    INNER JOIN 
-	        Cuestionario_Empleado CE ON Em.ID_Empleado = CE.ID_Empleado
-	    INNER JOIN 
-	        Reporte Re ON CE.ID_Cuestionario_Empleado = Re.ID_Cuestionario_Empleado
-	    INNER JOIN 
-	        Retroalimentacion Ret ON Re.ID_Reporte = Ret.ID_Reporte
-	    WHERE 
-	        Em.ID_Empleado = <1>; 
+1. Buscar por ID_Empleado: Se busca los resultados del empleado con el ID ingresado.
 
+	SELECT Em.ID_Empleado, Em.Nombre_Empleado, Em.Apellido_Empleado, Re.Fecha_Ingreso_Empleado, TR.Tipo as Calificacion, Ret.Enunciado_Retroalimentacion 
+	FROM Empleado Em INNER JOIN Cuestionario_Empleado CE ON Em.ID_Empleado = CE.ID_Empleado INNER JOIN Reporte Re 
+	ON CE.ID_Cuestionario_Empleado = Re.ID_Cuestionario_Empleado INNER JOIN Retroalimentacion Ret 
+	ON Re.ID_Reporte = Ret.ID_Reporte INNER JOIN Tipo_Respuesta TR ON TR.ID_Tipo_Respuesta=Re.Calificacion_Empleado 
+	WHERE Em.ID_Empleado = <1>;
+   
+2. Buscar por DNI: Se busca los resultados del empleado con el DNI ingresado.
+
+	SELECT Em.ID_Empleado, Em.Nombre_Empleado, Em.Apellido_Empleado, Re.Fecha_Ingreso_Empleado, TR.Tipo as Calificacion, Ret.Enunciado_Retroalimentacion 
+	FROM Empleado Em INNER JOIN Cuestionario_Empleado CE ON Em.ID_Empleado = CE.ID_Empleado 
+	INNER JOIN Reporte Re ON CE.ID_Cuestionario_Empleado = Re.ID_Cuestionario_Empleado 
+	INNER JOIN Retroalimentacion Ret ON Re.ID_Reporte = Ret.ID_Reporte 
+	INNER JOIN Tipo_Respuesta TR ON TR.ID_Tipo_Respuesta=Re.Calificacion_Empleado WHERE Em.dni = <2>;
+
+3. Buscar por apellido: Se muestra a los empleados con el apellido ingresado.
+
+	Select Em.Apellido_Empleado, Nombre_Empleado, Em.ID_Empleado from Empleado Em inner join Cuestionario_Empleado Cu 
+	on Cu.Id_Empleado=Em.Id_Empleado inner join Reporte Re on Re.Id_Cuestionario_Empleado=Cu.Id_Cuestionario_Empleado 
+	where Em.apellido_empleado=<3>;
 
 ## 8. PROGRAMAR REUNIÓN
 | Código requerimiento | R-029 |
