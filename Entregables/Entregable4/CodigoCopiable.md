@@ -1019,6 +1019,7 @@
 	WHERE tipo_cese = 'P';
 	CREATE VIEW detalles_cese AS
 	SELECT
+		C.id_cese as id_Cese,
 	    E.id_empleado as Id_empleado,
 	    E.nombre_empleado ||' '|| E.apellido_empleado as Nombre,
 	    D.nombre_departamento as Departamento,
@@ -1031,6 +1032,12 @@
 	        WHEN C.tipo_cese = 'J' THEN 'Jubilación'
 	        ELSE 'No especificado'
 	    END AS Tipo_Cese,
+	    C.motivo_cese as Motivo,
+	    C.id_supervisor as id_supervisor
+	FROM cese AS C
+	INNER JOIN empleado AS E ON C.id_empleado = E.id_empleado
+	INNER JOIN departamento AS D ON E.id_departamento = D.id_departamento
+	INNER JOIN cargo AS CA ON E.id_cargo = CA.id_cargo;
 	    C.motivo_cese as Motivo,
 	    C.id_supervisor as id_supervisor
 	FROM cese AS C
