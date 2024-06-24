@@ -1,9 +1,17 @@
 # Código copiable
 		
 	DROP TABLE IF EXISTS Entrevista;
+	DROP TABLE IF EXISTS EvaluacionXCompetencia;
+	DROP TABLE IF EXISTS CurriculumXExperiencia;
+	DROP TABLE IF EXISTS CurriculumXCertificado;	
+	DROP TABLE IF EXISTS Competencia;
 	DROP TABLE IF EXISTS Solicitud_Empleo;
 	DROP TABLE IF EXISTS Vacante;
+	DROP TABLE IF EXISTS PerfilConocimiento;
+	DROP TABLE IF EXISTS PerfilTitulo;
+	DROP TABLE IF EXISTS Conocimiento;
 	DROP TABLE IF EXISTS Perfil;
+	DROP TABLE IF EXISTS Titulo;
 	DROP TABLE IF EXISTS Candidato;
 	DROP TABLE IF EXISTS Curriculum;
 	DROP TABLE IF EXISTS Experiencia_Laboral;
@@ -18,7 +26,6 @@
 	DROP TABLE IF EXISTS Cuestionario;
 	DROP TABLE IF EXISTS Tipo_Respuesta;
 	DROP TABLE IF EXISTS Tipo_Cuestionario;
-	DROP TABLE IF EXISTS Tipo_Estado;
 	DROP TABLE IF EXISTS Asistencia;
 	DROP TABLE IF EXISTS Licencia;
 	DROP TABLE IF EXISTS Permiso;
@@ -44,6 +51,7 @@
 	DROP TABLE IF EXISTS Empleado;
 	DROP TABLE IF EXISTS Departamento;
 	DROP TABLE IF EXISTS Cargo;
+
 
 
 	CREATE TABLE Cargo (
@@ -259,12 +267,6 @@
 		Hora_Salida TIME NOT NULL,
 		FOREIGN KEY(ID_Empleado) REFERENCES Empleado(ID_Empleado)
 	);
-
-	CREATE TABLE Tipo_Estado(
-		ID_Tipo_Estado INTEGER NOT NULL primary key,
-		Tipo Varchar(12) NOT NULL		
-	);
-	
 	CREATE TABLE Tipo_Cuestionario(
 		ID_Tipo_Cuestionario INTEGER NOT NULL primary key,
 		Tipo Varchar(12) NOT NULL		
@@ -274,25 +276,23 @@
 		ID_Tipo_Respuesta INTEGER NOT NULL primary key,
 		Tipo Varchar(12) NOT NULL		
 	);
-		
+	
 	CREATE TABLE Cuestionario(
 		ID_Cuestionario INTEGER primary key,
 		ID_Especialista_Relaciones_Laborales INTEGER NOT NULL,
 		ID_Tipo_Cuestionario INTEGER NOT NULL UNIQUE,
 		Fecha_Creacion DATE NOT NULL,
 		Hora_Creacion TIME NOT NULL,
-		ID_Estado_Envio INTEGER NOT NULL,
+		Estado_Envio VARCHAR (12) NOT NULL,
 		Fecha_Envio_Gerencia DATE,
 		Hora_Envio_Gerencia TIME,
 		ID_Gerente INTEGER NOT NULL,
-		ID_Estado_Aprobacion INT NOT NULL,
+		Estado_Aprobacion VARCHAR (256),
 		Fecha_Revision DATE,
 		Hora_Revision TIME,
 		FOREIGN KEY(ID_Tipo_Cuestionario) REFERENCES Tipo_Cuestionario(ID_Tipo_Cuestionario),
 		FOREIGN KEY(ID_Especialista_Relaciones_Laborales) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Estado_Envio) REFERENCES Tipo_Estado(ID_Tipo_Estado),
-		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado),
-		FOREIGN KEY(ID_Estado_Aprobacion) REFERENCES Tipo_Estado(ID_Tipo_Estado)
+		FOREIGN KEY(ID_Gerente) REFERENCES Empleado(ID_Empleado)																  
 	);
 	
 	CREATE TABLE Pregunta_Cuestionario(
@@ -344,21 +344,32 @@
 	
 	CREATE TABLE Reunion(
 		ID_Reunion INTEGER primary key,
-		ID_Organizador INTEGER NOT NULL,
+		ID_Empleado INTEGER NOT NULL,
 		Asunto_Reunion VARCHAR(256) NOT NULL,
 		Fecha_Reunion DATE NOT NULL,
 		Hora_Reunion TIME NOT NULL,
-		FOREIGN KEY (ID_Organizador) REFERENCES Empleado(ID_Empleado) 		
+		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado) 		
 	);
 	 
 	CREATE TABLE Evaluacion (
-		ID_Evaluacion INTEGER PRIMARY KEY,
-		Competencias_Evaluadas VARCHAR(255) NOT NULL,
-		Result_Evaluacion VARCHAR(255) NOT NULL,
-		Duracion_Evaluacion INTEGER NOT NULL,
-		Estado_evaluacion VARCHAR(64) NOT NULL
+    ID_Evaluacion INTEGER PRIMARY KEY,
+    Result_Evaluacion VARCHAR(255) NOT NULL,
+    Duracion_Evaluacion INTEGER NOT NULL,
+    Estado_Evaluacion VARCHAR(64) NOT NULL
 	);
 
+	CREATE TABLE Competencia (
+    ID_Competencia SERIAL PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL
+	);
+
+	CREATE TABLE EvaluacionXCompetencia (
+    ID_Evaluacion INT NOT NULL,
+    ID_Competencia INT NOT NULL,
+    FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion) ON DELETE CASCADE,
+    FOREIGN KEY (ID_Competencia) REFERENCES Competencia(ID_Competencia) ON DELETE CASCADE,
+    PRIMARY KEY (ID_Evaluacion, ID_Competencia)
+	);
 
 	CREATE TABLE Certificados (
 		ID_Certificado INTEGER PRIMARY KEY,
@@ -379,7 +390,8 @@
 		ID_Experiencia INTEGER NOT NULL,
 		ID_Certificado INTEGER NOT NULL,
 		FOREIGN KEY (ID_Experiencia) REFERENCES Experiencia_Laboral(ID_Experiencia),
-		FOREIGN KEY (ID_Certificado) REFERENCES Certificados(ID_Certificado)
+		FOREIGN KEY (ID_Certificado) REFERENCES Certificados(ID_Certificado),
+		archivo_pdf VARCHAR(255) DEFAULT 'curriculums/default.pdf'
 	);
 
 	CREATE TABLE Candidato (
@@ -395,12 +407,37 @@
 	);
 
 
-	CREATE TABLE Perfil (
-		ID_Perfil INTEGER PRIMARY KEY,
-		Conocimiento_Req VARCHAR(255) NOT NULL,
-		Años_Exp INTEGER NOT NULL,
-		Titulo_Requerido VARCHAR(255) NOT NULL
+	CREATE TABLE Conocimiento (
+	    ID_Conocimiento SERIAL PRIMARY KEY,
+	    Nombre VARCHAR(255) NOT NULL
 	);
+	
+	CREATE TABLE Titulo (
+	    ID_Titulo SERIAL PRIMARY KEY,
+	    Nombre VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE Perfil (
+	    ID_Perfil SERIAL PRIMARY KEY,
+	    Anos_Exp INTEGER NOT NULL
+	);
+	
+	CREATE TABLE PerfilConocimiento (
+	    ID_Perfil INTEGER,
+	    ID_Conocimiento INTEGER,
+	    PRIMARY KEY (ID_Perfil, ID_Conocimiento),
+	    FOREIGN KEY (ID_Perfil) REFERENCES Perfil(ID_Perfil),
+	    FOREIGN KEY (ID_Conocimiento) REFERENCES Conocimiento(ID_Conocimiento)
+	);
+	
+	CREATE TABLE PerfilTitulo (
+	    ID_Perfil INTEGER,
+	    ID_Titulo INTEGER,
+	    PRIMARY KEY (ID_Perfil, ID_Titulo),
+	    FOREIGN KEY (ID_Perfil) REFERENCES Perfil(ID_Perfil),
+	    FOREIGN KEY (ID_Titulo) REFERENCES Titulo(ID_Titulo)
+	);
+
 
 	CREATE TABLE Vacante (
 		ID_Vac VARCHAR(8) PRIMARY KEY,
@@ -441,6 +478,20 @@
 		FOREIGN KEY (ID_Solicitud) REFERENCES Solicitud_Empleo(ID_Solicitud),
 		FOREIGN KEY (ID_Evaluacion) REFERENCES Evaluacion(ID_Evaluacion),
 		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
+	);
+
+	CREATE TABLE CurriculumXExperiencia (
+		id_curriculum INT,
+		id_experiencia INT,
+		FOREIGN KEY (Id_Curriculum) REFERENCES Curriculum(Id_Curriculum) ON DELETE CASCADE,
+		FOREIGN KEY (Id_Experiencia) REFERENCES Experiencia_Laboral(Id_Experiencia) ON DELETE CASCADE
+	);
+
+	CREATE TABLE CurriculumXCertificado (
+		id_curriculum INT,
+		id_certificado INT,
+		FOREIGN KEY (Id_Curriculum) REFERENCES Curriculum(Id_Curriculum) ON DELETE CASCADE,
+		FOREIGN KEY (Id_Certificado) REFERENCES Certificados(Id_Certificado) ON DELETE CASCADE
 	);
 
 	INSERT INTO Departamento VALUES (1, 'Producción de Fruta Fresca'), (2, 'Recepción y Almacenamiento de Fruta'), (3, 'Control de Calidad'), (4, 'Producción de Mermelada'), (5, 'Producción de Fruta Confitada'), (6, 'Investigación y Desarrollo'), (7, 'Logística y Distribución'), (8, 'Marketing y Ventas'), (9, 'Finanzas y Contabilidad'), (10, 'Recursos Humanos'), (11, 'Mantenimiento y Reparación de Equipos'), (12, 'Seguridad e Higiene'), (13, 'Gestión Ambiental y Sostenibilidad'),(14,'Directorio');
@@ -681,14 +732,7 @@
 	(24, 'Despido objetivo', 'Proceso de despido laboral', '14 días', 'Aprobado', 20230015, 7),
 	(25, 'Mudanza', 'Relocalización por motivos de salud', '12 días', 'Rechazado', 20220001, 4);
 
-	INSERT INTO Tipo_Estado(ID_Tipo_Estado,Tipo) values
-	(1,'Enviado'),
-	(2,'No enviado'),
-	(3,'Aprobado'),
-	(4,'No aprobado'),
-	(5,'En espera');
-
-	INSERT INTO Tipo_Cuestionario(ID_Tipo_Cuestionario,Tipo) values
+ 	INSERT INTO Tipo_Cuestionario(ID_Tipo_Cuestionario,Tipo) values
 	(1,'Subordinados'),
 	(2,'Supervisores'),
 	(3,'Jefes'),
@@ -700,11 +744,11 @@
 	(3,'Positivo'),
 	(4,'Muy Positivo');
 	
-	INSERT INTO Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,ID_Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,ID_Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
-	(1,20210006,1,'2024-04-18','18:30',1,'2024-05-18','15:25',20200001,3,'2024-05-19','18:30'),
-	(2,20210008,2,'2024-04-18','17:30',1,'2024-05-18','17:20',20200001,3,'2024-05-19','20:30'),
-	(3,20220004,3,'2024-04-18','16:30',1,'2024-05-18','18:35',20200001,3,'2024-05-19','21:30'),
-	(4,20230006,4,'2024-04-18','19:30',1,'2024-05-18','19:55',20200001,3,'2024-05-19','22:30');
+	INSERT INTO Cuestionario(ID_Cuestionario,ID_Especialista_Relaciones_Laborales,ID_Tipo_Cuestionario,Fecha_Creacion,Hora_Creacion,Estado_Envio,Fecha_Envio_Gerencia,Hora_Envio_Gerencia,ID_Gerente,Estado_Aprobacion,Fecha_Revision,Hora_Revision) VALUES
+	(1,20210006,1,'2024-04-18','18:30','Enviado','2024-05-18','15:25',20200001,'Aprobado','2024-05-19','18:30'),
+	(2,20210008,2,'2024-04-18','17:30','Enviado','2024-05-18','17:20',20200001,'Aprobado','2024-05-19','20:30'),
+	(3,20220004,3,'2024-04-18','16:30','Enviado','2024-05-18','18:35',20200001,'Aprobado','2024-05-19','21:30'),
+	(4,20230006,4,'2024-04-18','19:30','Enviado','2024-05-18','19:55',20200001,'Aprobado','2024-05-19','22:30');
 		
 	INSERT INTO Pregunta_Cuestionario(ID_Pregunta,ID_Cuestionario,Enunciado_Pregunta) values
 		(1,1,'¿Cómo calificarías tu nivel de satisfacción en el trabajo?'),
@@ -770,7 +814,7 @@
 	(6,6,'Es necesario afinar ciertos aspectos.',20240027,'2024-06-22','20:30')
 	;
 	
-	INSERT INTO Reunion(ID_Reunion,ID_Organizador,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
+	INSERT INTO Reunion(ID_Reunion,ID_Empleado,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
 	(1,20200001,'Explicación de la evaluación de desempeño','2024-06-12','15:30'),
 	(2,20210003,'Retroalimentación general','2024-06-20','18:30'),
 	(3,20230006,'Evaluación técnica','2024-06-21','18:30')
@@ -802,29 +846,123 @@
 	('119', 'Manuel', 'Silva', '1985-08-11', 'Calle 901, Ciudad', 'manuel.silva@example.com', '901-234-5678', 119),
 	('120', 'Sara', 'Gutiérrez', '1991-04-27', 'Avenida EFG, Ciudad', 'sara.gutierrez@example.com', '012-345-6789', 120);
 
-	INSERT INTO Evaluacion (ID_Evaluacion, Competencias_Evaluadas, Result_Evaluacion, Duracion_Evaluacion, Estado_Evaluacion) 
-	VALUES  
-	(1, 'Habilidades técnicas', 'Oferta de empleo extendida', 60, 'Aprobado'),
-	(2, 'Habilidades interpersonales', 'Oferta de empleo extendida', 45, 'Aprobado'),
-	(3, 'Conocimientos específicos', 'No cumple con requisitos mínimos', 30, 'Rechazado'),
-	(4, 'Capacidad de resolución de problemas', 'Oferta de empleo extendida', 50, 'Aprobado'),
-	(5, 'Comunicación efectiva', 'No cumple con perfil solicitado', 40, 'Rechazado'),
-	(6, 'Adaptabilidad', 'Oferta de empleo extendida', 55, 'Aprobado'),
-	(7, 'Trabajo en equipo', 'Oferta de empleo extendida', 60, 'Aprobado'),
-	(8, 'Gestión del tiempo', 'No cumple con requisitos mínimos', 35, 'Rechazado'),
-	(9, 'Liderazgo', 'Oferta de empleo extendida', 50, 'Aprobado'),
-	(10, 'Creatividad', 'No cumple con perfil solicitado', 45, 'Rechazado'),
-	(11, 'Pensamiento crítico', 'Oferta de empleo extendida', 55, 'Aprobado'),
-	(12, 'Resiliencia', 'Oferta de empleo extendida', 60, 'Aprobado'),
-	(13, 'Ética profesional', 'No cumple con requisitos mínimos', 40, 'Rechazado'),
-	(14, 'Toma de decisiones', 'Oferta de empleo extendida', 50, 'Aprobado'),
-	(15, 'Resolución de conflictos', 'No cumple con perfil solicitado', 45, 'Rechazado'),
-	(16, 'Planificación y organización', 'Oferta de empleo extendida', 60, 'Aprobado'),
-	(17, 'Innovación', 'Oferta de empleo extendida', 55, 'Aprobado'),
-	(18, 'Capacidad analítica', 'No cumple con requisitos mínimos', 30, 'Rechazado'),
-	(19, 'Empatía', 'Oferta de empleo extendida', 50, 'Aprobado'),
-	(20, 'Negociación', 'No cumple con perfil solicitado', 45, 'Rechazado');
-	INSERT INTO Perfil (ID_Perfil, Conocimiento_Req, Años_Exp, Titulo_Requerido) VALUES  (1, 'Experiencia en producción', 5, 'Licenciatura en Ingeniería Industrial'), (2, 'Manejo de inventarios', 3, 'Técnico en Logística'), (3, 'Control de calidad', 4, 'Ingeniero en Alimentos'), (4, 'Supervisión de personal', 2, 'Diplomado en Gestión de Equipos'), (5, 'Procesamiento de frutas', 3, 'Técnico en Procesamiento de Alimentos'), (6, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'), (7, 'Manejo de inventarios', 2, 'Técnico en Logística'), (8, 'Marketing digital', 3, 'Licenciatura en Marketing'), (9, 'Contabilidad financiera', 4, 'Licenciatura en Contaduría Pública'), (10, 'Gestión de personal', 3, 'Licenciatura en Recursos Humanos'), (11, 'Mantenimiento de equipos', 5, 'Ingeniero Mecánico'), (12, 'Normativas de seguridad', 4, 'Diplomado en Seguridad Industrial'), (13, 'Gestión ambiental', 3, 'Ingeniero Ambiental'), (14, 'Producción de frutas', 5, 'Ingeniero Agrónomo'), (15, 'Recepción y almacenamiento', 2, 'Técnico en Almacenamiento'), (16, 'Control de calidad', 3, 'Técnico en Control de Calidad'), (17, 'Producción de mermelada', 4, 'Ingeniero en Alimentos'), (18, 'Producción de frutas confitadas', 3, 'Técnico en Procesamiento de Alimentos'), (19, 'Investigación y desarrollo', 5, 'Doctorado en Ciencias Naturales'), (20, 'Logística y distribución', 4, 'Licenciatura en Logística');
+INSERT INTO Evaluacion (ID_Evaluacion, Result_Evaluacion, Duracion_Evaluacion, Estado_Evaluacion) 
+VALUES  
+(1, 'Oferta de empleo extendida', 60, 'Aprobado'),
+(2, 'Oferta de empleo extendida', 45, 'Aprobado'),
+(3, 'No cumple con requisitos mínimos', 30, 'Rechazado'),
+(4, 'Oferta de empleo extendida', 50, 'Aprobado'),
+(5, 'No cumple con perfil solicitado', 40, 'Rechazado'),
+(6, 'Oferta de empleo extendida', 55, 'Aprobado'),
+(7, 'Oferta de empleo extendida', 60, 'Aprobado'),
+(8, 'No cumple con requisitos mínimos', 35, 'Rechazado'),
+(9, 'Oferta de empleo extendida', 50, 'Aprobado'),
+(10, 'No cumple con perfil solicitado', 45, 'Rechazado'),
+(11, 'Oferta de empleo extendida', 55, 'Aprobado'),
+(12, 'Oferta de empleo extendida', 60, 'Aprobado'),
+(13, 'No cumple con requisitos mínimos', 40, 'Rechazado'),
+(14, 'Oferta de empleo extendida', 50, 'Aprobado'),
+(15, 'No cumple con perfil solicitado', 45, 'Rechazado'),
+(16, 'Oferta de empleo extendida', 60, 'Aprobado'),
+(17, 'Oferta de empleo extendida', 55, 'Aprobado'),
+(18, 'No cumple con requisitos mínimos', 30, 'Rechazado'),
+(19, 'Oferta de empleo extendida', 50, 'Aprobado'),
+(20, 'No cumple con perfil solicitado', 45, 'Rechazado');
+
+INSERT INTO Competencia (ID_Competencia, Nombre) VALUES
+(1, 'Habilidades técnicas'),
+(2, 'Habilidades interpersonales'),
+(3, 'Conocimientos específicos'),
+(4, 'Capacidad de resolución de problemas'),
+(5, 'Comunicación efectiva'),
+(6, 'Adaptabilidad'),
+(7, 'Trabajo en equipo'),
+(8, 'Gestión del tiempo'),
+(9, 'Liderazgo'),
+(10, 'Creatividad'),
+(11, 'Pensamiento crítico'),
+(12, 'Resiliencia'),
+(13, 'Ética profesional'),
+(14, 'Toma de decisiones'),
+(15, 'Resolución de conflictos'),
+(16, 'Planificación y organización'),
+(17, 'Innovación'),
+(18, 'Capacidad analítica'),
+(19, 'Empatía'),
+(20, 'Negociación');
+INSERT INTO EvaluacionXCompetencia (ID_Evaluacion, ID_Competencia) VALUES
+(1, 1), (1, 2), 
+(2, 3), (2, 4), 
+(3, 5), (3, 6),
+(4, 7), (4, 8),
+(5, 9), (5, 10),
+(6, 11), (6, 12),
+(7, 13), (7, 14),
+(8, 15), (8, 16),
+(9, 17), (9, 18),
+(10, 19), (10, 20),
+(11, 1), (11, 2), 
+(12, 3), (12, 4), 
+(13, 5), (13, 6),
+(14, 7), (14, 8),
+(15, 9), (15, 10),
+(16, 11), (16, 12),
+(17, 13), (17, 14),
+(18, 15), (18, 16),
+(19, 17), (19, 18),
+(20, 19), (20, 20);
+INSERT INTO Conocimiento (ID_Conocimiento, Nombre) VALUES 
+(1, 'Experiencia en producción'),
+(2, 'Manejo de inventarios'),
+(3, 'Control de calidad'),
+(4, 'Supervisión de personal'),
+(5, 'Procesamiento de frutas'),
+(6, 'Investigación y desarrollo'),
+(7, 'Marketing digital'),
+(8, 'Contabilidad financiera'),
+(9, 'Gestión de personal'),
+(10, 'Mantenimiento de equipos'),
+(11, 'Normativas de seguridad'),
+(12, 'Gestión ambiental'),
+(13, 'Producción de frutas'),
+(14, 'Recepción y almacenamiento'),
+(15, 'Producción de mermelada'),
+(16, 'Producción de frutas confitadas'),
+(17, 'Logística y distribución');
+
+-- Insertar Títulos
+INSERT INTO Titulo (ID_Titulo, Nombre) VALUES 
+(1, 'Licenciatura en Ingeniería Industrial'),
+(2, 'Técnico en Logística'),
+(3, 'Ingeniero en Alimentos'),
+(4, 'Diplomado en Gestión de Equipos'),
+(5, 'Técnico en Procesamiento de Alimentos'),
+(6, 'Doctorado en Ciencias Naturales'),
+(7, 'Licenciatura en Marketing'),
+(8, 'Licenciatura en Contaduría Pública'),
+(9, 'Licenciatura en Recursos Humanos'),
+(10, 'Ingeniero Mecánico'),
+(11, 'Diplomado en Seguridad Industrial'),
+(12, 'Ingeniero Ambiental'),
+(13, 'Ingeniero Agrónomo'),
+(14, 'Técnico en Almacenamiento'),
+(15, 'Licenciatura en Logística');
+
+-- Insertar Perfiles
+INSERT INTO Perfil (ID_Perfil, Anos_Exp) VALUES 
+(1, 5), (2, 3), (3, 4), (4, 2), (5, 3), (6, 5), (7, 2), (8, 3), (9, 4), (10, 3), 
+(11, 5), (12, 4), (13, 3), (14, 5), (15, 2), (16, 3), (17, 4), (18, 3), (19, 5), (20, 4);
+
+-- Asociar Perfiles con Conocimientos
+INSERT INTO PerfilConocimiento (ID_Perfil, ID_Conocimiento) VALUES
+(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 2), (8, 7), (9, 8), (10, 9), 
+(11, 10), (12, 11), (13, 12), (14, 13), (15, 14), (16, 3), (17, 15), (18, 16), (19, 6), (20, 17);
+
+-- Asociar Perfiles con Títulos
+INSERT INTO PerfilTitulo (ID_Perfil, ID_Titulo) VALUES
+(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 2), (8, 7), (9, 8), (10, 9),
+(11, 10), (12, 11), (13, 12), (14, 13), (15, 14), (16, 3), (17, 3), (18, 5), (19, 6), (20, 15);
+
 	INSERT INTO Vacante (ID_Vac, ID_Departamento, ID_Cargo, ID_Perfil, Ubicacion, Beneficio, Salario, Horario) VALUES ('00200001', 1, 1, 1, 'Ciudad A', 'Seguro de vida', 2500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200002', 2, 2, 2, 'Ciudad B', 'Bonos de productividad', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200003', 3, 3, 3, 'Ciudad C', 'Transporte subsidiado', 2000.00, 'Lunes a Viernes de 7am a 4pm'), ('00200004', 4, 4, 4, 'Ciudad D', 'Comida subsidiada', 3500.00, 'Lunes a Viernes de 10am a 7pm'), ('00200005', 5, 5, 5, 'Ciudad E', 'Seguro médico', 4000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200006', 6, 6, 6, 'Ciudad F', 'Gimnasio en la empresa', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200007', 7, 7, 7, 'Ciudad G', 'Días libres adicionales', 2000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200008', 8, 8, 8, 'Ciudad H', 'Teletrabajo', 4500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200009', 9, 1, 9, 'Ciudad I', 'Bonos por resultados', 3000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200010', 10, 2, 10, 'Ciudad J', 'Oportunidades de crecimiento', 2500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200011', 11, 3, 11, 'Ciudad K', 'Estacionamiento gratuito', 3500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200012', 12, 4, 12, 'Ciudad L', 'Comedor en la empresa', 2000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200013', 13, 5, 13, 'Ciudad M', 'Seguro dental', 4000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200014', 1, 6, 1, 'Ciudad N', 'Asistencia médica', 3000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200015', 2, 7, 2, 'Ciudad O', 'Horario flexible', 2000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200016', 3, 8, 3, 'Ciudad P', 'Reembolso de educación', 3500.00, 'Lunes a Viernes de 9am a 6pm'), ('00200017', 4, 1, 4, 'Ciudad Q', 'Bono de cumpleaños', 2500.00, 'Lunes a Viernes de 8am a 5pm'), ('00200018', 5, 2, 5, 'Ciudad R', 'Descuentos en productos', 4000.00, 'Lunes a Viernes de 9am a 6pm'), ('00200019', 6, 3, 6, 'Ciudad S', 'Vacaciones adicionales', 3000.00, 'Lunes a Viernes de 8am a 5pm'), ('00200020', 7, 4, 7, 'Ciudad T', 'Programas de bienestar', 2000.00, 'Lunes a Viernes de 9am a 6pm');
 	INSERT INTO Solicitud_Empleo (ID_solicitud, ID_Vacante, Est_solicitud, Horario_disponible, Fecha_aplicacion, ID_cand) 
 	VALUES 
@@ -872,13 +1010,7 @@
 	(19, '2024-05-08', '18:00', '00240019', 19, 20240015), 
 	(20, '2024-05-09', '18:30', '00240020', 20, 20240013);
 	ALTER TABLE empleado ADD COLUMN contrasena CHAR(16) DEFAULT '123';
-	ALTER TABLE cuestionario_salida DROP COLUMN fecha_cuestionario;
-	UPDATE cese SET tipo_cese = 'J' WHERE tipo_cese = 'P';
-	ALTER TABLE empleado ADD COLUMN estado varchar(16) DEFAULT 'Activo'
-	UPDATE empleado
-    SET estado = 'cesado'
-    WHERE id_empleado IN (
-        SELECT id_empleado
-        FROM cese
-    );
-
+ 	ALTER TABLE cuestionario_salida DROP COLUMN fecha_cuestionario;
+  	UPDATE cese
+	SET tipo_cese = 'J'
+	WHERE tipo_cese = 'P';
