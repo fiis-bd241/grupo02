@@ -1,6 +1,6 @@
 # Entregable 5
 
-# Índices y otros objetos de BD
+## Índices y otros objetos de BD
 
 
 ## Código de la aplicación
