@@ -79,6 +79,8 @@
 		Fecha_Ingreso DATE NOT NULL, 
 		ID_Departamento INTEGER NOT NULL, 
 		ID_Cargo INTEGER NOT NULL,
+		Contrasena CHAR(16) DEFAULT '123',
+		Estado_laboral VARCHAR(16) DEFAULT 'Activo'
 		FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento), 
 		FOREIGN KEY (ID_Cargo) REFERENCES Cargo(ID_Cargo)
 	);
@@ -138,11 +140,10 @@
 		Motivo_Cese VARCHAR(64),
 		FOREIGN KEY (ID_Empleado) REFERENCES Empleado(ID_Empleado)
 	);
-
+	
 	CREATE TABLE Cuestionario_Salida (
 		ID_Cuestionario INTEGER PRIMARY KEY,
 		ID_Cese INTEGER NOT NULL,
-		Fecha_Cuestionario DATE NOT NULL,
 		FOREIGN KEY (ID_Cese) REFERENCES Cese(ID_Cese)
 	);
 
@@ -655,17 +656,19 @@
 	(5, 'Deuda de empleado con la empresa', 'Deuda que el empleado tiene con la empresa');
 
 	INSERT INTO Cese (ID_Cese, Tipo_Cese, Fecha_Inicio_Cese, ID_Empleado, ID_Supervisor, Motivo_Cese) VALUES 
-	(1, 'P', '2022-08-15', 20240024, 20220002, null),
+	(1, 'J', '2022-08-15', 20240024, 20220002, null),
 	(2, 'C', '2022-07-15', 20210009, 20220002, null),
 	(3, 'R', '2022-05-15', 20240018, 20220002, null),
 	(4, 'D', '2022-04-15', 20240004, 20220002, 'Urto'),
 	(5, 'R', '2022-03-15', 20230014, 20220002, null),
-	(6, 'P', '2022-11-15', 20220007, 20220002, null),
+	(6, 'J', '2022-11-15', 20220007, 20220002, null),
 	(7, 'C', '2022-11-15', 20240016, 20220002, null);
-
-	INSERT INTO Cuestionario_Salida (ID_Cuestionario, ID_Cese, Fecha_Cuestionario) VALUES 
-	(1, 2, '2022-07-16'),
-	(2, 3, '2022-11-16');
+	
+	UPDATE empleado SET Estado_laboral = 'cesado' WHERE id_empleado IN (SELECT id_empleado FROM cese);
+	
+	INSERT INTO Cuestionario_Salida (ID_Cuestionario, ID_Cese) VALUES 
+	(1, 2),
+	(2, 3);
 
 	INSERT INTO Pregunta_Salida (ID_Pregunta, Pregunta_Salida, ID_Cuestionario) VALUES 
 	(1, '¿Que tal fue su experiencia en la empresa?', 1),
