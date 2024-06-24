@@ -82,3 +82,5 @@ Se creó una vista que contiene información sobre los empleados dentro de la em
     	Tipo_Cuestionario TC ON C.Id_Tipo_Cuestionario=TC.Id_Tipo_Cuestionario
     JOIN
     	Tipo_Respuesta TR ON RC.Id_Tipo_Respuesta=TR.Id_Tipo_Respuesta;
+
+![View1](View1.png)     
