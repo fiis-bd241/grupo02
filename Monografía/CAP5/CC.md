@@ -1049,9 +1049,3 @@
 	INNER JOIN empleado AS E ON C.id_empleado = E.id_empleado
 	INNER JOIN departamento AS D ON E.id_departamento = D.id_departamento
 	INNER JOIN cargo AS CA ON E.id_cargo = CA.id_cargo;
-	    C.motivo_cese as Motivo,
-	    C.id_supervisor as id_supervisor
-	FROM cese AS C
-	INNER JOIN empleado AS E ON C.id_empleado = E.id_empleado
-	INNER JOIN departamento AS D ON E.id_departamento = D.id_departamento
-	INNER JOIN cargo AS CA ON E.id_cargo = CA.id_cargo;
