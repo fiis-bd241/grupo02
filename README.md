@@ -15,5 +15,8 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 
 4. [Videos personales por módulo](Videos/Video.md)
 
+## Monografía
+- [Monografía](Monografía/Monografia.md)
+
 
    
