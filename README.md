@@ -1,6 +1,9 @@
 # Grupo-2-DBD-24-1-
 
 Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará toda la información acerca del trabajo en equipo del grupo:
+## Monografía
+- [Monografía](Monografía/Monografia.md)
+
 ## Índice
 1. [Integrantes](Presentacion1/integrantes.md)
 
@@ -15,8 +18,6 @@ Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará 
 
 4. [Videos personales por módulo](Videos/Video.md)
 
-## Monografía
-- [Monografía](Monografía/Monografia.md)
 
 
    
