@@ -34,45 +34,56 @@ Si el empleado escribe su código, digamos '20220003' y le da a buscar se ejecut
 	INNER JOIN departamento AS D ON E.id_departamento=D.id_departamento
 	WHERE E.ID_Empleado= '%20220003%'
 
-### Acción 2: Solicitar licencia médica
+### Acción 2.1: Solicitar licencia de cualquier tipo:
 El empleado con id @emp ya identificó su código de empleado, ya redactó el motivo de su solicitud de licencia, aclaró las fechas de inicio y de fin y adjuntó su constancia médica.
 
 Si el empleado le da al botón 'CONFIRMAR':
 
-        (SELECT id_licencia FROM licencia ORDER BY id_licencia DESC LIMIT 1)+1 = @Id_Licencia ( 
-		INSERT INTO licencia (id_licencia, tipo, estado, fecha_inicio, fecha_fin, id_empleado, id_supervisor)
-		VALUES (
-				(SELECT id_licencia FROM licencia ORDER BY id_licencia DESC LIMIT 1)+1,
-				@Tipo,
-				@Fecha_I,
-                @Fecha_F,
-				@Emp,
-				(SELECT id_empleado FROM empleado WHERE CODIGO = @CODIGO)
-			);
-	)
-		UPDATE Licencia
-		SET 	tipo = @Tipo,
-				fecha_inicio = @Fecha_I,
-                fecha_fin = @Fecha_F,
-				id_empleado = (SELECT id_empleado FROM empleado WHERE CODIGO = @CODIGO)
-		WHERE id_licencia=@Id_licencia
+        INSERT INTO Asistencia (ID_Asistencia, Estado, Observacion, Fecha, Hora_entrada, Hora_salida, ID_Empleado) VALUES ((SELECT COALESCE(MAX(ID_Asistencia), 0) + 1 FROM Asistencia), %s, %s, %s, %s, %s, %s)
+
+### Acción 2.2: Solicitar permiso de cualquier tipo:
+El empleado con id @emp ya identificó su código de empleado, ya redactó el motivo de su solicitud de licencia, aclaró las fechas de inicio y de fin y adjuntó su constancia médica.
+
+Si el empleado le da al botón 'CONFIRMAR':
+
+        INSERT INTO Permiso (ID_Permiso, Tipo, Motivo, Duracion, Estado, ID_Empleado, ID_Supervisor)
+        VALUES ((SELECT COALESCE(MAX(ID_Permiso), 0) + 1 FROM Permiso), %s, %s, %s, %s, %s, %s)
 
 
 ## R-017 / Caso de Uso 17: Aprobación de solicitudes de ausencia
 
 ![alt text](../../CAP4/Imagenes/R04.jpg)
 
-### Acción única:
+### Acción única para licencias (2 posibilidades, aceptar o rechazar):
 
-    -- Aceptar una licencia
-    UPDATE Licencia
-    SET estado = 'Aprobado'
-    WHERE id_licencia = #id_lic# AND estado = 'Pendiente';
+    -- Para aceptar o rechazar las solicitudes:
 
-    -- Rechazar una licencia  
     UPDATE Licencia
-    SET estado = 'Rechazado'
-    WHERE id_licencia = #id_lic# AND estado = 'Pendiente';
+    SET Estado = %s
+    WHERE ID_Licencia = %s
+
+    -- Para actualizar la lista de solicitudes:
+
+    SELECT l.ID_Licencia, l.Tipo, l.Estado, l.Fecha_inicio, l.Fecha_fin, e.Nombre_Empleado, e.Apellido_Empleado
+        FROM Licencia l
+        JOIN Empleado e ON l.ID_Empleado = e.ID_Empleado
+        WHERE l.Estado = 'Pendiente'
+
+### Acción única para permisos (2 posibilidades, aceptar o rechazar):
+    
+    -- Para aceptar o rechazar las solicitudes:
+
+    UPDATE Permiso
+    SET Estado = %s
+    WHERE ID_Permiso = %s
+
+    -- Para actualizar la lista de solicitudes:
+
+     SELECT p.ID_Permiso, p.Tipo, p.Estado, p.duracion, e.Nombre_Empleado, e.Apellido_Empleado
+        FROM Permiso p
+        JOIN Empleado e ON p.ID_Empleado = e.ID_Empleado
+        WHERE p.Estado = 'Pendiente'
+
 
 ## R-015 / Caso de Uso 15: Registro de asistencias diarias
 
@@ -84,13 +95,7 @@ Si el empleado le da al botón 'CONFIRMAR':
 
 ### Acción 2: Registrar asistencia
 
-    UPDATE Asistencia
-    SET Asistencia = 'Asistió'
-    WHERE ID_Asistencia IN (@ID_asistencia) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
-
-    UPDATE Asistencia
-    SET Asistencia = 'Faltó'
-    WHERE ID_Asistencia IN (@ID_asistencia) AND ID_Empleado IN (@ID_Empleado1,@ID_Empleado2,@ID_Empleado3);
+    INSERT INTO Asistencia (ID_Asistencia, Estado, Observacion, Fecha, Hora_entrada, Hora_salida, ID_Empleado) VALUES ((SELECT COALESCE(MAX(ID_Asistencia), 0) + 1 FROM Asistencia), %s, %s, %s, %s, %s, %s)
 
 ## R-018 / Caso de Uso 18: Reporte de asistencia
 
@@ -102,20 +107,8 @@ Si el empleado le da al botón 'CONFIRMAR':
 
 ### Acción 2: Generar el reporte de asistencia
 
-    SELECT
-        A.Id_Asistencia,
-        A.Estado,
-        A.Observacion,
-        A.Fecha,
-        A.Hora_entrada,
-        A.Hora_salida,
-        E.Nombre_Empleado,
-        D.Nombre_Departamento,
-        C.Nombre 
-    FROM Asistencia A
-    INNER JOIN Empleado E ON A.id_empleado = E.id_empleado
-    INNER JOIN Departamento D ON E.id_departamento = D.id_departamento
-    INNER JOIN Cargo C ON E.id_cargo = C.id_cargo
-    WHERE A.fecha BETWEEN '2020-01-01' AND '2020-12-31'
-    ORDER BY A.fecha DESC, A.hora_entrada DESC;
+    SELECT a.ID_Asistencia, a.Estado, a.Observacion, a.Fecha, a.Hora_entrada, a.Hora_salida, e.Nombre_Empleado, e.Apellido_Empleado
+        FROM Asistencia a
+        JOIN Empleado e ON a.ID_Empleado = e.ID_Empleado
+        WHERE e.ID_Departamento = %s AND a.Fecha BETWEEN %s AND %s
  
