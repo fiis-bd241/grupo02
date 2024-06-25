@@ -10,7 +10,7 @@ Enfocándonos en el módulo "Evaluación de Desempeño", nos planteamos cómo me
 ## Índices
 | **Código Interfaz** | **I-025** |
 |:-------------------:|:---------:|
-|          Imagen Interfaz           |     ![ED5](../../../Entregable3/Front/ED5.png)      |
+|          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED5.png)      |
 
 |                          | **SIN EXPLAIN ANALIZE** | **CON EXPLAIN ANALIZE** |
 |:------------------------:|:-----------------------:|:-----------------------:|
