@@ -2,7 +2,7 @@
 
 ## R-005 / Caso de Uso 5: Registrar cese de personal
 
-### Primera pantalla / I-001
+### Primera pantalla / I-002
 ![alt text](../../CAP4/Imagenes/c1.png)
 
 #### Acción 1:
@@ -10,7 +10,7 @@ Elegir la opción de cese de personal en la intranet del supervisor
 
 	@Id_cese = (SELECT id_cese FROM cese ORDER BY id_cese DESC LIMIT 1)+1
 
-### Segunda pantalla / I-002
+### Segunda pantalla / I-003
 ![alt text](../../CAP4/Imagenes/C2.png)
 
 #### Accion 2
@@ -155,10 +155,10 @@ Seleccionar el botón NO en la pregunta
 			@Fecha_hoy
 		);
 
-### Tercera pantalla / I-003
+### Tercera pantalla / I-004
 ![alt text](../../CAP4/Imagenes/c3.png)
 
-### Cuarta pantalla / I-004
+### Cuarta pantalla / I-005
 ![alt text](../../CAP4/Imagenes/c4.png)
 
 #### Accion 6
@@ -190,8 +190,8 @@ Cuando seleccionan el botón de CONFIRMAR y han escrito más preguntas propias (
 
 ## R-027 / Caso de uso 27: Responder cuestionario de salida
 
-### Quinta pantalla / I-005
-![alt text](c5.png)
+### Quinta pantalla / I-006
+![alt text](../../CAP4/Imagenes/c5.png)
 
 
 #### Accion 8
@@ -215,8 +215,3 @@ Luego de llenar las preguntas de su cuestionario seleccionar el boton de SIGUIEN
 			@RESP ,
 			@ID_P);
 	
-# Funcionalidad primaria elegida
-
-Elegí al registro de cese de personal como mi actividad primaria ya que tiene más contenido con el cual trabajar que con la operación del empleado de responder el cuestionario de salida.
-
-Usaré el requerimiento R-005 y las especificaciones de cómo va a funcionar se encuentran al inicio de esta página
