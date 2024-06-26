@@ -22,7 +22,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
   " target="_blank"><img src="http://img.youtube.com/vi/HCGS2rexo3g/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-[Material_Querys_Evaluación_Desempeño](../Material_Videos/Querys_Requerimientos_Evaluación_Desempeño.sql)
+[Material_Querys_Evaluación_Desempeño](../Material_Videos/Querys_video_PC4.sql)
 
 ### Registro de asistencias y solicitudes
 
