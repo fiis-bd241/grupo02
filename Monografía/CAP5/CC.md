@@ -830,7 +830,8 @@
 	(3,3,'Se pueden hacer mejoras en ciertos aspectos.',20200001,'2024-06-21','18:30'),
 	(4,4,'Algunos puntos necesitan ser perfeccionados.',20210008,'2024-06-22','15:30'),
 	(5,5,'Se deben abordar algunas deficiencias.',20230006,'2024-06-22','19:30'),
-	(6,6,'Es necesario afinar ciertos aspectos.',20240027,'2024-06-22','20:30')
+	(6,6,'Es necesario afinar ciertos aspectos.',20240027,'2024-06-22','20:30'),
+	(7,7,'Se pueden hacer mejoras en ciertos aspectos.',20240027,'2024-06-22','20:30')
 	;
 	
 	INSERT INTO Reunion(ID_Reunion,ID_Organizador,Asunto_Reunion,Fecha_Reunion,Hora_Reunion) VALUES 
