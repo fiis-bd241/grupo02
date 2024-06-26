@@ -8,9 +8,21 @@ Enfocándonos en el módulo "Evaluación de Desempeño", nos planteamos cómo me
 • Costo de Consulta en Ambos Casos: Después de implementar los índices, reejecutaremos las mismas consultas para comparar y analizar la mejora de rendimiento.
 
 ## Índices
+### Primer caso
+
 | **Código Interfaz** | **I-025** |
 |:-------------------:|:---------:|
 |          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED5.png)      |
+
+|                          | **SIN EXPLAIN ANALIZE** | **CON EXPLAIN ANALIZE** |
+|:------------------------:|:-----------------------:|:-----------------------:|
+| Sentencia SQL sin Índice |        ![I1_1](I1_1.png)                  |           ![I1_2](I1_2.png)                 |
+| Sentencia SQL con Índice |             ![I1_3](I1_3.png)               |            ![I1_4](I1_4.png)                |
+
+### Segundo caso
+| **Código Interfaz** | **I-025** |
+|:-------------------:|:---------:|
+|          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED2.png)      |
 
 |                          | **SIN EXPLAIN ANALIZE** | **CON EXPLAIN ANALIZE** |
 |:------------------------:|:-----------------------:|:-----------------------:|
