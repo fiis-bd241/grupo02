@@ -28,8 +28,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 - **Alumno: Rosales Avila, Edison Edwin**
 
-<a href="https://youtu.be/7Xm7g6Z_6Ac?si=DyV6P0yY2afrJYbd
-" target="_blank"><img src="http://img.youtube.com/vi/7Xm7g6Z_6Ac/0.jpg" 
+<a href="https://www.youtube.com/watch?v=mJJTrsw8Edw
+" target="_blank"><img src="http://img.youtube.com/vi/mJJTrsw8Edw/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ### Reclutamiento y selección de Personal
