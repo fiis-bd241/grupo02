@@ -2,8 +2,8 @@
 
 - **Alumno: Andrade Saavedra Navhi Giordano**
 
-<a href="https://www.youtube.com/watch?v=R4pJ7iGA5oc&t
-" target="_blank"><img src="http://img.youtube.com/vi/R4pJ7iGA5oc/0.jpg" 
+<a href="https://www.youtube.com/watch?v=LrEWO6dqhS4
+" target="_blank"><img src="http://img.youtube.com/vi/LrEWO6dqhS4/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ### Capacitación de Personal
