@@ -10,8 +10,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 - **Alumno: Alvarez Casas Julio Cesar**
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=yj5Bw_0NQ-U&ab
-" target="_blank"><img src="http://img.youtube.com/vi/yj5Bw_0NQ-U&ab/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=yj5Bw_0NQ-U
+" target="_blank"><img src="http://img.youtube.com/vi/yj5Bw_0NQ-U/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ### Evaluación de Desempeño
