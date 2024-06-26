@@ -9,10 +9,9 @@ Enfocándonos en el módulo "Evaluación de Desempeño", nos planteamos cómo me
 
 ## Índices
 ### Primer caso
-
 | **Código Interfaz** | **I-025** |
 |:-------------------:|:---------:|
-|          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED5.png)      |
+|          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED2.png)      |
 
 |                          | **SIN EXPLAIN ANALIZE** | **CON EXPLAIN ANALIZE** |
 |:------------------------:|:-----------------------:|:-----------------------:|
@@ -22,7 +21,7 @@ Enfocándonos en el módulo "Evaluación de Desempeño", nos planteamos cómo me
 ### Segundo caso
 | **Código Interfaz** | **I-025** |
 |:-------------------:|:---------:|
-|          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED2.png)      |
+|          Imagen Interfaz           |     ![ED5](../../../CAP4/Imagenes/ED5.png)      |
 
 |                          | **SIN EXPLAIN ANALIZE** | **CON EXPLAIN ANALIZE** |
 |:------------------------:|:-----------------------:|:-----------------------:|
