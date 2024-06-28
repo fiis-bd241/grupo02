@@ -1,6 +1,10 @@
 # Grupo-2-DBD-24-1-
 
 Bienvenido al repositorio del grupo 2 del curso de DBD 24-1, aquí se mostrará toda la información acerca del trabajo en equipo del grupo:
+
+## Actualizaciones
+- Creación de una pantalla índice de cese e impleamentación de visualización de reportes y revisar ceses pasados
+
 ## Monografía
 - [Monografía](Monografía/Monografia.md)
 
