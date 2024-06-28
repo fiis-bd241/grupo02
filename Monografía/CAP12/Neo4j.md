@@ -77,4 +77,8 @@
 
 ![visualisation (9)](https://github.com/fiis-bd241/grupo02/assets/164259064/625f791f-97fe-4f43-90b6-923c129227fc)
 
+### Relacion Aprovacion:
+![visualisation (10)](https://github.com/fiis-bd241/grupo02/assets/164259064/25120d3a-f076-47f0-a205-3468c892414c)
+### Relacion Asiste A:
 
+![visualisation (11)](https://github.com/fiis-bd241/grupo02/assets/164259064/0ff66b71-ea06-4868-b528-2187f5a42d07)
