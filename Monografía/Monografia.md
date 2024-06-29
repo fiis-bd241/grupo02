@@ -20,6 +20,6 @@
 8. [**Procesos Batch**](CAP8/8.md)
 9. [**Actualizaciones a la Arquitectura de la Aplicación**](CAP9/9.md)
 10. [**Versión Final de la Aplicación**](CAP10/10.md)
-11. [**Aplicación de una base de datos NoSQL**](CAP11/11.md)
-12. [**Próximos pasos**](CAP12/12.md)
+11. [**Próximos pasos**](CAP11/11.md)
+12. [**Aplicación de una base de datos NoSQL**](CAP12/12.md)
 13. [**Referencias**](Referencias.md)
