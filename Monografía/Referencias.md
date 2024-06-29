@@ -17,4 +17,4 @@
 
 • https://www.seas.es/blog/informatica/el-proceso-batch-y-la-mejora-de-la-productividad/
 
-• https://www.pragma.com.co/academia/lecciones/bases-de-datos-relacionales-vs.-no-relacionales#:~:text=Las%20bases%20de%20datos%20relacionales%20se%20basan%20en%20la%20organizaci%C3%B3n,o%20m%C3%A1s%20conjuntos%20de%20datos.
+• https://aws.amazon.com/es/compare/the-difference-between-relational-and-non-relational-databases/
